@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta charset="utf-8"> #include("/inc/head.html",title="套餐")
+  <meta name="keywords" content="人工智能免费，人工智能入门，人工智能课程，微软人工智能，人工智能，AI免费，AI，AI课程，微软AI，AI入门">
+</head>
+
+<body>
+  <link rel="stylesheet" href="/css/index_sync0_libs_63f8fb8.css">
+  <link rel="stylesheet" href="/css/201706microsoft_ai_v1.min.css">
+  <link rel="stylesheet" href="/css/swiper.min.css">
+  <link rel="stylesheet" href="/css/video-js-cdn.min.css">
+  <style>
+    .MA-intro {
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    .MA-intro .img {
+      width: 400px;
+      height: 220px;
+      float: left;
+      margin-right: 20px;
+    }
+
+    .MA-intro img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .clearfix::after,
+    .clearfix::before {
+      display: block;
+      content: "";
+      height: 0;
+      clear: both;
+    }
+
+    .MA-intro .text {
+      float: left;
+      width: 500px;
+    }
+
+    .clearfix {
+      zoom: 0;
+    }
+    .MA-intro .money, .MA-intro .buy{
+      margin-top:20px;
+    }
+    .MA-intro .price {
+      color: rgb(48, 166, 235);
+      font-size: 18px;
+      margin-right: 15px;
+    }
+
+    .MA-intro .yanzhi {
+      display: inline-block;
+      color: #fff;
+      padding: 2px;
+      background-color: rgb(181, 230, 29);
+      margin-left:15px;
+    }
+    .MA-intro .buy a{
+      display: inline-block;
+      padding:5px 20px;
+      background-color: #fff;
+      border:1px solid #118d59;
+      color:#118d59;
+    }
+    .MA-intro .buy a:hover{
+      color:#fff;
+      background-color: #118d59;
+    }
+    .MA-lesson-list .vip-icon {
+      height: 22px;
+      width: 38px;
+      display: inline-block;
+      position: absolute;
+      top: -2px;
+      right: 8px;
+      z-index: 101;
+      font-size: 14px;
+      background: url(../images/tag_vip_4d846c2.png) 0 0 no-repeat;
+      background-size: 100% 100%;
+    }
+  </style>
+  #include("/inc/header.html",tab="combo")
+  <div class="MA-way MA-lesson">
+    <a href="/">首页</a> >
+    <a href="/combo/">套餐</a> >
+    <a href="#(obj.id)">#(obj.title)</a>
+  </div>
+  <div class="MA-intro MA-lesson clearfix">
+    <div class="img">
+      <img src="#(www)#(obj.img)" alt="">
+    </div>
+    <div class="text">
+      <h2>#(obj.title)</h2>
+      <p class="desc">#(obj.text)</p>
+      <p class="money">
+        <i class="price">￥#(obj.price)</i>
+        <del>原价</del>
+        <i style="color:#ffa511;margin-left:10px">(省20元)</i>
+        
+      </p>
+      <p class="buy">
+        <!-- #if(isbuy) -->
+        <a href="javascript:void(0)">
+          已购买
+        </a>
+        <!-- #else -->
+        <a href="/buy/combo/#(obj.id)">
+          立即购买
+        </a>
+        <i class="yanzhi">可使用研值</i>
+        <!-- #end -->
+      </p>
+    </div>
+  </div>
+  <div class="MA-lesson-list" id="MA-lesson-list">
+
+    <div class="MA-lesson cf">
+      <h2>
+        <i class="icon-intro_1"></i>包含课程</h2>
+      <ul>
+        <!-- #for(c:obj.chapter) -->
+        <li>
+          <div class="lessonimg-box">
+            <a href="/course/#(c.val)" target="_blank">
+              <img src="#(www)#(c.img)" onerror="this.src='/img/wutu.png'" class="lessonimg">
+               <!-- #if(c.price=="0") -->
+               <i class="vip-icon" style="background-image: none; background-color: #4caf50; color: white;">&nbsp;&nbsp;免费</i>
+               <!-- #else -->
+               <i class="vip-icon" style="background-image: none; background-color: rgb(224, 61, 49); color: white;">&nbsp;&nbsp;精品</i>
+               <!-- #end -->
+              <div class="lessonplay">
+                <i class="playericon"></i>
+              </div>
+            </a>
+          </div>
+
+          <div class="lesson-infor">
+            <h2 class="lesson-info-h2">
+              <a href="/course/#(c.id)" target="_blank">#(c.title)</a>
+            </h2>
+            <div class="timeandicon">
+                <div class="timeandicon">
+                    <p class="detail" style="margin-bottom:10px;font-size:12px;">#(c.text)</p>
+                    <div class="cf">
+                      <span class="mar-b8">
+                        <i class="time-icon"></i>
+                        <em>#(c.duration/60)分钟</em>
+                      </span>
+                      <span class="zhongji">
+                        <i class="xinhao-icon" style="float:none;display:inline-block;margin-right:0;"></i>
+                        <em>初级</em>
+                      </span>
+                      <a href="javascript:void(0);" style="float:right; color:rgb(30, 179, 238)">
+                        60研值
+                      </a>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </li>
+        <!-- #end -->
+      </ul>
+    </div>
+  </div>
+
+  <!-- <div class="MA-teacher" id="MA-teacher"> 
+   <h2>精英讲师团队<span class="title">人工智能科学家</span></h2> 
+   <div class="teacher-container"> 
+    <div class="vip"> 
+     <ul>  -->
+  <!--#for(t:teachers)-->
+  <!-- <li> <a href="/teacher/#(t.id)" target="_blank"> <img style="height: 80px;" src="#(www)#(t.img)" alt="#(t.name)"> <h3>#(t.name)</h3>  </a> </li>  -->
+  <!--#end  -->
+
+  <!-- </ul> 
+    </div>
+   </div>  -->
+  <!-- </div>  -->
+  <!-- <div class="MA-academy" id="MA-academy"> 
+   <h2>以上课程由心教育学院制作</h2> 
+   <i class="short-line"></i> 
+   <p>心教育学院 (iepsy edu) 是为心理咨询人员提供的免费线上教育培训平台，可帮助您培养技能并推动职业生涯发展。它是您开始了解 心理知识的最佳场所，欢迎加入这个生机勃勃的社区。</p> 
+   <img class="academy-logo" src="/images/logo.png"> 
+  </div>  -->
+  <!-- <div class="MA-team"> 
+   <div class="team-desc"> 
+    <h2>通往心教育VIP小组，欢迎你的加入！</h2> 
+    <i class="short-line"></i> 
+    <p>在这里，你将获得心理最新资讯、课程更新通知、直播福利、活动日程安排以及一群致力于心理研究的小伙伴，赶快加入一起探索心理的奥秘吧！</p> 
+    <div class="qr-container"> 
+     <img src="/images/qrcode.png"> 
+     <span>群号：12345678</span> 
+    </div> 
+   </div> 
+  </div>  -->
+
+  #include("/inc/footer.html",goto=false)
+  <script>
+    layui.use(['carousel', 'form'], function () {
+      var carousel = layui.carousel
+        , form = layui.form;
+      carousel.render({
+        elem: '#test1'
+        , arrow: 'always'
+        , height: '200px'
+        , width: '875px'
+      });
+    })
+  </script>
+</body>
+
+</html>

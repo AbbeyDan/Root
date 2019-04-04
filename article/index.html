@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="资讯")
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen"> 
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white artcile-list-page"> 
+ #include("/inc/header.html",nav="article")
+  <div class="es-wrap"> 
+   <div id="content-container" class="container"> 
+    <div class="es-tabs article-list-header"> 
+     <div class="tab-header"> 
+      <ul class="clearfix"> 
+       <li role="presentation" class="active"><a >全部资讯</a></li> 
+       <li role="presentation" ><a onclick="alert('暂无内容');" >心理知识</a></li> 
+      </ul> 
+     </div> 
+    </div> 
+    <!-- 资讯头部 --> 
+    <div class="article-list-body row"> 
+     <!-- list主内容--> 
+     <div class="col-md-8 article-list-main"> 
+      <section class="es-section"> 
+       <div class="article-list"> 
+       <!-- #for(a :obj.list) -->
+        <article class="article-item"> 
+         <div class="article-metas clearfix"> 
+          <div class="pull-left"> 
+           <div class="date"> 
+            <div class="day">
+             #(format(a.add_time,"dd"))
+            </div> 
+            <div class="month">
+             #(format(a.add_time,"MM"))月
+            </div> 
+           </div> 
+          </div> 
+          <div class="metas-body"> 
+           <p> <a class="link-dark" >#(a.author)</a> </p> 
+           <h2 class="title"> <a class="link-dark" href="/article/#(a.id)">#(a.title)</a> </h2> 
+          </div> 
+         </div> 
+         <div class="media"> 
+          <div class="media-left"> 
+           <a href="/article/#(a.id)"> <img style="width: 260;height: 145px;" class="thumb-img" src="#(www)#(a.img)" alt="#(a.title)"></a> 
+          </div> 
+          <div class="media-body">
+           #(a.text)
+          </div> 
+         </div> 
+        </article> 
+        <!-- #end -->
+       </div> 
+       <nav class=" text-center"> 
+        <div id="page-nav"></div>
+       </nav> 
+      </section> 
+     </div> 
+     <aside class="col-md-4 article-sidebar"> 
+      <!-- 热门资讯 --> 
+      <div class="panel panel-default hot-article"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title"><i class="es-icon es-icon-whatshot"></i>热门焦点</h3> 
+       </div> 
+       <div class="panel-body"> 
+       <!-- #for(a :obj.list) -->
+        <div class="media media-number"> 
+         <div class="media-left"> 
+          <span class="num">#(for.count)</span> 
+         </div> 
+         <div class="media-body"> 
+          <a class="link-dark" href="/article/#(a.id)" title="#(a.title)">#(a.title)</a> 
+         </div> 
+        </div> 
+        <!-- #end -->
+       </div> 
+      </div> 
+      <!-- 热门标签 --> 
+      <div class="panel panel-default hot-tag"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title"><i class="es-icon es-icon-loyalty"></i>热门标签</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <a class="btn-tag" href="/article/"> 全部</a> 
+       </div> 
+      </div> 
+      <!-- 热门评论 --> 
+      <!-- 推荐资讯 --> 
+     </aside> 
+    </div> 
+   </div> 
+  </div> 
+  #include("/inc/footer.html",goto=false)
+  <script type="text/javascript">
+  layui.use(['laypage', 'layer','jquery'], function(){
+	  var laypage = layui.laypage
+	  ,layer = layui.layer;
+	  var $ = layui.jquery;
+laypage.render({
+    elem: 'page-nav'
+    ,count: #(obj.count??'0')
+    ,theme: '#35b558'
+    ,curr: #(obj.pager.pageNumber??1) //获取hash值为fenye的当前页
+    ,limit:10
+    ,layout: [ 'prev', 'page', 'next']
+    ,jump: function(obj,first){
+    	if(!first){
+    	 location.href='?page='+obj.curr
+    	}
+    }
+  });
+ })
+  </script>
+ </body>
+</html>

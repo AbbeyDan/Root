@@ -1,0 +1,60 @@
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="优惠卷")
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white cd-design"> 
+  #include("/inc/header.html")
+  <div class="es-wrap"> 
+   <div class="container cd-container"> 
+    <div class="cd-content"> 
+     <div class="cd-sidebar"> 
+      <ul class="cd-sidebar__list"> 
+       <li class="cd-sidebar__heading"> 账户中心 </li> 
+       <li class="cd-sidebar__item "> <a href="play">播放记录</a> </li> <li class="cd-sidebar__item "> <a href="orders">我的订单</a> </li>
+       <li class="cd-sidebar__item  "> <a href="coin">学习币账户</a> </li> 
+       <li class="cd-sidebar__item "> <a href="invitecode">邀请码</a> </li> 
+       <li class="cd-sidebar__item  active "> <a href="javascript:void(0);">优惠券</a> </li> 
+       <li class="cd-sidebar__item "> <a href="history">会员记录</a> </li> 
+       <li class="cd-sidebar__item  "> <a href="cards">学习卡</a> </li> 
+       <li class="cd-sidebar__item "> <a href="point">我的积分</a> </li> 
+       <li class="cd-sidebar__heading"> 个人设置 </li> 
+       <li class="cd-sidebar__item "> <a href="/user/">个人信息</a> </li> 
+       <li class="cd-sidebar__item "> <a href="ca">实名认证</a> </li> 
+       <li class="cd-sidebar__item "> <a href="security">安全设置</a> </li> 
+       <li class="cd-sidebar__item "> <a href="binds">第三方登录</a> </li> 
+      </ul> 
+     </div> 
+     <div class="cd-main"> 
+      <div class="cd-main__heading"> 
+       <div class="cd-main__title">
+         优惠券 
+       </div> 
+      </div> 
+      <div class="cd-main__body"> 
+       <ul class="cd-tabs"> 
+        <li class="active"><a href="javascript:;" role="filter-change" data-url="/my/cards?filter=">全部</a></li> 
+        <li class=""><a href="javascript:;" role="filter-change" data-url="/my/cards?filter=useable">未使用</a></li> 
+        <li class=""><a href="javascript:;" role="filter-change" data-url="/my/cards?filter=used">已使用</a></li> 
+        <li class=""><a href="javascript:;" role="filter-change" data-url="/my/cards?filter=outdate">已过期</a></li> 
+       </ul> 
+       <div class="card-pack-list row cd-row"> 
+        <div class="cd-empty">
+         暂无记录优惠券
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+#include("/inc/footer.html",goto=false)
+ </body>
+</html>

@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+   #include("/inc/head.html",title="订单支付")
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen"> 
+  <!--[if lt IE 9]>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/html5shiv.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-shim.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-sham.js?version=8.3.17"></script>
+  <![endif]--> 
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white cd-design"> 
+ #include("/inc/header.html")
+  <div id="app" class="es-wrap"> 
+   <div class="container cd-container"> 
+    <div class="cd-content row cd-row"> 
+     <div class="col-md-8 col-md-offset-2"> 
+      <div class="cd-panel"> 
+       <div class="cd-panel-heading-with-steps"> 
+        <ul class="cd-steps cd-steps-3"> 
+         <li class="cd-steps-item  done hidden-xs "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number step-icon"> 
+             <i class="cd-icon cd-icon-check"></i> 
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单确认</span> 
+           </div> 
+          </div> </li> 
+         <li class="cd-steps-item  doing "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number step-icon"> 
+             <i class="cd-icon cd-icon-check"></i> 
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单支付</span> 
+           </div> 
+          </div> </li> 
+         <li class="cd-steps-item  hidden-xs "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number">
+             3
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单完成</span> 
+           </div> 
+          </div> </li> 
+        </ul> 
+       </div> 
+       <div class="cd-panel-body"> 
+        <div class="alert cd-alert cd-alert-warning alert-dismissible" role="alert">
+          订单已提交，请在 24 小时内完成支付！逾期订单将自动取消。 
+        </div> 
+        <div class="order-center-card clearfix"> 
+         <div class="order-center-card__img"> 
+          <img src="#(www)#(obj.img)" onerror="this.src='/img/wutu.png'" alt="#(obj.title)"> 
+         </div> 
+         <div class="order-center-card__info"> 
+          <div class="order-center-product-info"> 
+           <div class="order-center-product-info__title">
+             订单号 
+           </div> 
+           <div class="order-center-product-info__content">
+             #(obj.orderno)
+           </div> 
+          </div> 
+          <div class="order-center-product-info"> 
+           <div class="order-center-product-info__title">
+             订单名称 
+           </div> 
+           <div class="order-center-product-info__content">
+             	#(obj.title)
+           </div> 
+          </div> 
+          <div class="order-center-product-info"> 
+           <div class="order-center-product-info__title">
+             订单价格 
+           </div> 
+           <div class="order-center-product-info__content"> 
+            <span class="cd-text-danger">￥#(obj.price)</span> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+        <form class="form-paytype" id="cashier-form" method="post" data-price-url="/cashier/2018120801193081031/price" data-coin-name="学习币"> 
+         <input type="hidden" name="orderSn" value="2018120801193081031"> 
+         <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+         <input type="hidden" name="isMobile" value=""> 
+         <input type="hidden" name="isWechat" value=""> 
+         <input type="hidden" name="type" value="purchase"> 
+         
+         <div class="order-center-deduction"> 
+          <span class="order-center-deduction__title"> 研值:<b style="color: red;">{{yz}}</b> </span> 
+          <span class="order-center-deduction__content"> 
+          	<input type="checkbox" id="dikou"  />
+          </span> 
+         </div> 
+         <div class="order-center-line "></div> 
+         <div class="order-center-deduction showpay"> 
+          <span class="order-center-deduction__title"> 支付方式 </span> 
+          <span class="order-center-deduction__content"> 选择合适的现金支付方式 </span> 
+         </div> 
+         <div class="order-pay-list showpay"> 
+          <div class="order-pay-type js-pay-type active" id="alipay"> 
+           <img src="images/alipay.png" srcset="//sca1dk-sb-qn.qiqiuyun.net/assets/img/order/alipay.png?version=8.3.17 1x, //sca1dk-sb-qn.qiqiuyun.net/assets/img/order/alipay@2x.png?version=8.3.17 2x"> 
+          </div> 
+          <input type="hidden" id="paytype" name="paytype" value="alipay"> 
+          <div class="order-pay-type js-pay-type " id="wxpay"> 
+           <img src="images/wechat.png" srcset="//sca1dk-sb-qn.qiqiuyun.net/assets/img/order/wechat.png?version=8.3.17 1x, //sca1dk-sb-qn.qiqiuyun.net/assets/img/order/wechat@2x.png?version=8.3.17 2x"> 
+          </div> `
+         </div> 
+         <div class="order-center-line"></div> 
+         <div class="cd-pv16" id="order-center-price-list"> 
+          <div class="order-center-price"> 
+           <div class="order-center-price__title">
+             订单价格 
+           </div> 
+           <div class="order-center-price__content">
+            ￥#(obj.price)
+           </div> 
+          </div> 
+         </div> 
+         <div class="order-center-line"></div> 
+         <div class="cd-pv16" id="order-center-price-list"> 
+          <div class="order-center-price"> 
+           <div class="order-center-price__title">
+             研值抵扣:
+           </div> 
+           <div class="order-center-price__content">
+            	￥{{dikou}}
+           </div> 
+          </div> 
+         </div> 
+         <div class="order-center-line"></div> 
+         <div class="cd-pv16"> 
+          <div class="order-center-price"> 
+           <div class="order-center-price__title">
+             应付 
+           </div> 
+           <div class="order-center-price__content"> 
+            <span class="cd-text-danger js-pay-price" style="font-size: 16px">￥{{price}}</span> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="text-right"> 
+          <button id="pay" class="btn cd-btn cd-btn-primary cd-btn-lg js-pay-btn" type="button" data-loading-text="正在支付"> 支付订单 </button> 
+         </div> 
+        </form> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div id="wechat-qrcode-modal" class="modal in" style="background-color:rgba(0, 0, 0, 0.56);padding-right: 17px;">
+        <div class="modal-dialog cd-modal-dialog cd-modal-dialog-sm">
+          <div class="modal-content">
+          
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                <i class="cd-icon cd-icon-close"></i>
+              </button>
+              <h4 class="modal-title">微信支付</h4>
+            </div>
+            
+            <div class="modal-body text-center">
+              <div id="qrcode" style="height: 270px; width: 270px; margin: 0 auto;">
+                </div>
+              <div class="cd-mb16">
+                请使用微信扫描二维码支付
+              </div>
+              <div class="cd-text-danger cd-mb32 js-pay-amount" style="font-size:16px;">￥#(obj.price)</div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+  </div> 
+
+  #include("/inc/footer.html",goto=false)
+  <script type="text/javascript" src="/assets/vue/vue.js"></script>
+  <script type="text/javascript">
+  	var app=new Vue({
+  		el:"#app",
+  		data:{
+  			yz:#(session.user.price??0),
+  			price:#(obj.price??0),
+  			obj:#(json(obj)!=""?json(obj):'{}'),
+  			dikou:0
+  		}
+  	})
+  </script>
+  <script type="text/javascript" src="/js/qrcode.js"></script>
+    <script type="text/javascript">
+  var iswx=0;
+  layui.use(['upload','form','layer'], function(){
+	  var $=layui.$;
+	  $("#dikou").click(function(){
+		  if ($(this).is(":checked")) {
+			  if(app.$data.yz<app.$data.price){
+				  app.$data.price=app.$data.price-app.$data.yz;
+				  app.$data.dikou=app.$data.yz;
+				  $(".showpay").show()
+			  }else{
+				  app.$data.dikou=#(obj.price??0);
+				  app.$data.price=0;
+				  $(".showpay").hide()
+			  }
+		  }else{
+			  app.$data.price=#(obj.price??0);
+			  app.$data.dikou=0;
+			  $(".showpay").show()
+		  }
+	  })
+	  
+	  $("#alipay").click(function(){
+		  $(".order-pay-type").removeClass("active")
+		  $("#paytype").val("alipay")
+		  $(this).addClass("active")
+	  })
+	  $("#wxpay").click(function(){
+		  $(".order-pay-type").removeClass("active")
+		  $("#paytype").val("wxpay")
+		  $(this).addClass("active")
+	  })
+	  $(".close").click(function(){
+		  $("#wechat-qrcode-modal").hide();
+	  })
+	  
+	  $("#pay").click(function(){
+		  if($("#paytype").val()=="wxpay"){
+			  if(iswx==0){
+				  $.ajax({
+			          type: "GET",
+			          url: "/pay/wx/qrcode.json?id=#(obj.id)",
+			          dataType: "json",
+			          async:false,
+			          success: function(data){
+			        	  iswx=1
+			         	 new QRCode(document.getElementById("qrcode"),{
+									width: 270,
+								    height: 270,
+								    text: data.url,
+								});
+			          }
+			      });
+			  }
+			  $("#wechat-qrcode-modal").show();
+		  }else if($("#paytype").val()=="alipay"){
+			  window.open("/pay/alipay/pc?id=#(obj.id)")
+		  }
+	  })
+  })
+  
+  setInterval(function(){
+	  $.ajax({
+          type: "GET",
+          url: "/op/order/status.json?id=#(obj.id)",
+          dataType: "json",
+          async:false,
+          success: function(data){
+        	 if(data.code==200){
+        		 location.href='#(root)'+data.url
+        	 }
+          }
+      });
+  },5000);
+  </script>
+ </body>
+</html>

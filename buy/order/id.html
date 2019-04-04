@@ -1,0 +1,341 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zh_CN" class="">
+ <!--<![endif]-->
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="")
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white cd-design"> 
+	#include("/inc/head.html",title="")
+  <div class="es-wrap"> 
+   <div class="container cd-container"> 
+    <div class="cd-content row cd-row"> 
+     <div class="col-md-8 col-md-offset-2"> 
+      <div class="cd-panel"> 
+       <div class="cd-panel-heading-with-steps"> 
+        <ul class="cd-steps cd-steps-3"> 
+         <li class="cd-steps-item  doing "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number">
+             1
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单确认</span> 
+           </div> 
+          </div> </li> 
+         <li class="cd-steps-item  hidden-xs "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number">
+             2
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单支付</span> 
+           </div> 
+          </div> </li> 
+         <li class="cd-steps-item  hidden-xs "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number">
+             3
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单完成</span> 
+           </div> 
+          </div> </li> 
+        </ul> 
+       </div> 
+       <div class="cd-panel-body"> 
+        <div class="order-center"> 
+         <form id="order-create-form" method="post" action="/order/create" data-price-calculate="/order/price/calculate" data-price-type="default" data-coin-rate="10" data-coin-name="学习币"> 
+          <input type="hidden" name="targetType" value="vip"> 
+          <input type="hidden" name="targetId" value="5"> 
+          <input type="hidden" name="price" value="0.03"> 
+          <div class="order-center-card clearfix"> 
+           <div class="order-center-card__img"> 
+            <a href="/vip/course/level/5"> <img src="images/vip_icon_silver.png" alt="白银会员"> </a> 
+           </div> 
+           <div class="order-center-card__info"> 
+            <div class="order-center-card__title">
+              购买 白银会员会员 x 3 个月 
+            </div> 
+            <div class="order-center-card__price" role="total-price">
+              ￥0.03 
+            </div> 
+           </div> 
+          </div> 
+          <input type="hidden" name="buyType" value="new"> 
+          <input type="hidden" name="unit" value="month"> 
+          <input type="hidden" name="num" value="3"> 
+          <div class="order-center-deduction"> 
+           <span class="order-center-deduction__title"> 优惠券 </span> 
+           <span class="order-center-deduction__content"> 通过优惠券抵扣金额 </span> 
+          </div> 
+          <div class="order-center-coupon" id="order-coupon"> 
+           <div class="order-center-coupon__select" id="order-center-coupon__select"> 
+            <div class="form-group cd-form-group cd-form-group-inline cd-form-group-action" id="coupon-form-group"> 
+             <input type="text" class="form-control form-control-sm" name="couponCode" value="" data-display="请输入优惠券码" placeholder="输入优惠券码"> 
+             <div class="action-button"> 
+              <button type="button" data-loading-text="使用中" class="btn cd-btn cd-btn-sm cd-btn-ghost-primary" data-url="/coupon/check" id="use-coupon-btn">使用</button> 
+             </div> 
+             <div id="coupon-error-message" class="form-error-message" style="display:none"></div> 
+            </div> 
+           </div> 
+           <div class="order-center-coupon__selected" style="display:none" id="order-center-coupon__selected"> 
+            <span class="cd-dark-major"> 已使用优惠券 <span id="coupon-code-label"></span> 抵扣 <span id="deduct-amount-label"></span> </span> 
+            <a href="javascript:;" class="cd-link-primary" id="cancel-use-coupon-btn">取消</a> 
+           </div> 
+          </div> 
+          <div class="order-center-line"></div> 
+          <div class="cd-pv16" id="order-center-price-list"> 
+           <div class="order-center-price"> 
+            <div class="order-center-price__title">
+             商品价格
+            </div> 
+            <div class="order-center-price__content">
+             ￥0.03
+            </div> 
+           </div> 
+          </div> 
+          <div class="order-center-line"></div> 
+          <div class="cd-pv16"> 
+           <div class="order-center-price"> 
+            <div class="order-center-price__title">
+             应付
+            </div> 
+            <div class="order-center-price__content"> 
+             <span class="cd-text-danger" id="realpay-price" style="font-size: 16px"> ￥0.03 </span> 
+            </div> 
+           </div> 
+          </div> 
+          <div class="text-right"> 
+           <button class="btn cd-btn cd-btn-primary cd-btn-lg" id="order-create-btn" type="submit" data-loading-text="正在提交..."> 提交订单 </button> 
+          </div> 
+          <input type="hidden" name="targetType" value="vip"> 
+          <input type="hidden" name="targetId" value="5"> 
+          <input type="hidden" name="price" value="0.03"> 
+          <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+         </form> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="es-footer-link"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-md-8 footer-main clearfix"> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item hidden-xs"> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item hidden-xs"> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="col-md-4 footer-logo hidden-sm hidden-xs"> 
+       <a class="" href="http://www.qiqiuyu.com/faq/531/detail" target="_blank"><img src="images/block_picture_1518091361.png" alt="建议图片大小为233*64"></a> 
+       <div class="footer-sns"> 
+        <a href="http://weibo.com/edusoho" target="_blank"><i class="es-icon es-icon-weibo"></i></a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-weixin"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/weixin.png" alt=""> 
+         </div> </a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-apple"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/apple.png" alt=""> 
+         </div> </a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-android"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/android.png" alt=""> 
+         </div> </a> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <footer class="es-footer"> 
+    <div class="copyright"> 
+     <div class="container">
+       Powered by 
+      <a href="http://www.edusoho.com/" target="_blank">EduSoho v8.3.17</a> ©2014-2018 
+      <a class="mlm" href="http://www.howzhi.com/" target="_blank">好知网</a> 
+      <!-- START HEAD STAT CODE (重要：请勿遗漏、修改、移除此行代码，以及以下代码，以下代码通过模板自动生成！) 2018-11-16 10:23 --> 
+      <script type="text/javascript">
+var _mkt = { _visitorFields: {}, _chatManager: null };
+_mkt.setVisitorField = function(key, value) {
+    this._visitorFields[key] = value;
+    if (this._chatManager) {
+    this._chatManager.set("customerFields", this.getFieldsForChat());
+    this._chatManager.set("userinfo", { partnerId: this.getVisitorId()});
+    }
+};
+_mkt.getVisitorFields = function() {
+    return this._visitorFields;
+};
+_mkt.getVisitorId = function() {
+    return this._visitorFields.visitorId ? this._visitorFields.visitorId : '';
+},
+_mkt.setChatManager = function(chatManager) {
+    this._chatManager = chatManager;
+    if (this._visitorFields.visitorId) {
+    this._chatManager.set("customerFields", this.getFieldsForChat());
+    this._chatManager.set("userinfo", { partnerId: this.getVisitorId()});
+    }
+};
+_mkt.getFieldsForChat = function() {
+    var fields = {};
+    fields.customField2 = this._visitorFields.visitorId ? this._visitorFields.visitorId : "";
+    return JSON.stringify(fields);
+};
+
+var _paq = _paq || [];
+_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+_paq.push(["setDomains", ["*.edusoho.com","*.esspoc.com","*.haomuke.com","*.qiqiuyu.com"]]);
+_paq.push(["enableCrossDomainLinking"]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+_paq.push(['enableHeartBeatTimer', 15]);
+_paq.push([ function() {
+    _mkt.setVisitorField('visitorId', this.getVisitorId());
+    window._VISITOR_ID = this.getVisitorId();
+}]);
+(function() {
+    var u="//stat.edusoho.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+})();
+</script> 
+      <!-- END HEAD STAT CODE (重要：请勿遗漏、修改、移除此行代码！) --> 
+      <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?81a080dc472dfaa6aba49ad8936049c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+      <script src="js/entrance.js" class="zhiCustomBtn" id="zhichiScript"></script> 
+      <script>_mkt.setChatManager(getzhiSDKInstance());</script> 
+      <script src="/sidebar"></script> 
+      <a class="mlm" href="/archive/course">课程存档</a> 
+      <div class="mts">
+        课程内容版权均归 
+       <a href="/"> 杭州阔知网络科技有限公司 </a> 所有 
+       <a class="mlm" href="http://www.miibeian.gov.cn/" target="_blank"> 浙ICP备13006852号-1 </a> 
+      </div> 
+     </div> 
+    </div> 
+   </footer> 
+  </div> 
+  <div id="login-modal" class="modal" data-url="/login/ajax"></div> 
+  <div id="modal" class="modal"></div> 
+  <div id="attachment-modal" class="modal"></div> 
+  <script>
+  if (typeof app === 'undefined') {
+      var app = {};
+  }
+  app.version = '8.3.17';
+  app.httpHost = 'http://demo.edusoho.com';
+  app.basePath = 'http://sca1dk-sb-qn.qiqiuyun.net';
+  app.theme = 'jianmo';
+
+    
+  var CLOUD_FILE_SERVER = ""; 
+
+  app.config = {"api":{"weibo":{"key":"1549269531"},"qq":{"key":"101252320"},"douban":{"key":""},"renren":{"key":""}},"loading_img_path":"\/\/sca1dk-sb-qn.qiqiuyun.net\/assets\/img\/default\/loading.gif?version=8.3.17"};
+
+  app.arguments = {};
+      
+  app.scripts = null;
+
+  app.fileSingleSizeLimit = 10;
+  app.uploadUrl = '/file/upload';
+  app.imgCropUrl = '/file/img/crop';
+  app.lessonCopyEnabled = '0';
+  app.cloudPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/sdk-v1.js?15442042';
+  app.cloudPlayServer = '';
+  app.cloudVideoPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/video-player/sdk-v1.js?15442042';
+  app.cloudOldUploaderSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/uploader/sdk-v1.js?15442042';
+  app.cloudOldDocumentSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/document-player/v7/viewer.html?15442042';
+  app.lang = 'zh_CN';
+</script> 
+  <script src="js/translator.min.js"></script> 
+  <script src="js/zh_CN.js"></script> 
+  <script src="js/base.js"></script> 
+  <script src="js/common.js"></script> 
+  <script src="js/main.js"></script> 
+  <script src="js/main_d17f01509f9a4db29c2ee86b8e271c25.js"></script> 
+  <script src="js/jquery-validation.js"></script> 
+  <script src="js/index_b98aa89716f54bb785983ad2c3946c43.js"></script> 
+  <script src="js/index_cec540d1656d4067a00bb268414b95f8.js"></script> 
+  <script src="js/index_45988513a50d4f9998f0a08361d6708d.js"></script> 
+  <script type="text/javascript">
+  window.seajsBoot && window.seajsBoot();
+</script>  
+ </body>
+</html>

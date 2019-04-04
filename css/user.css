@@ -1,0 +1,279 @@
+    /* 积分 */
+    .cd-main__body .rule{
+        float:right;
+        margin-top:20px;
+      }
+      .rule .j-score-rule{
+        font-size: 18px;
+        line-height: 22px;
+        color: #fff;
+      }
+      .score-info-current{
+        float:left;
+        color: #fff;
+        margin-left: 123px;
+      }
+      .cd-main__body .detail-title{
+        line-height: 40px;
+        background-color: #000;
+        color: #fff;
+        padding-left: 15px;
+        font-size: 18px;
+      }
+      .detail table{
+          width: 100%;
+      }
+      .detail tr{
+          border-bottom:1px solid rgba(0,0,0,0.05);
+      }
+      .detail th,.detail td{
+          padding:15px 0px;
+          text-align: center;
+          width: 25%;
+      }
+      .mask{
+          display: none;
+          width: 100%;
+          height: 100%;
+          position: fixed;
+          left: 0;
+          top:0;
+          z-index:95px;
+          background-color: rgba(0,0,0,0.5);
+      }
+      .popup{
+        position: fixed;
+        z-index: 100;
+        overflow: hidden;
+        display: none;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+      .popup-score-wrapper {
+        width: 490px;
+    }
+    .popup-score-tit {
+        height: 40px;
+        padding-left: 20px;
+        padding-right: 16px;
+        background: #242424;
+        line-height: 40px;
+        font-size: 16px;
+        color: #fff;
+    }
+    .popup-score-close {
+        float: right;
+        width: 12px;
+        height: 12px;
+        background: url(../images/icon-score-20171220.png) no-repeat 0 0;
+        margin-top: 14px;
+    }
+    .popup-score-close:hover {
+        background-position: -15px 0;
+    }
+    .popup-score-con {
+        padding: 10px 9px 9px;
+        background: #fff;
+        border: 1px solid #dbdbdb;
+        border-top: 0 none;
+    }
+    .popup-score-rule {
+        margin: 10px;
+    }
+    .popup-score-rule dl {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+    .popup-score-rule dl dt {
+        line-height: 26px;
+        color: #5aa700;
+    }
+    .popup-score-rule dl dd {
+        line-height: 18px;
+        color: #333;
+    }
+    /* 积分和研值页面兑换样式 */
+    .convertpop {
+        position: fixed;
+        z-index: 100;
+        overflow: hidden;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        width: 490px;
+        background-color: #fff;
+    }
+
+    .convertpop .point {
+        font-size: 18px;
+        color: #ff6000;
+    }
+
+    #convertBtn {
+        margin-bottom: 9px;
+    }
+
+    .im-dialog-bd {
+        min-height: 65px;
+        /* max-height: 500px; */
+        overflow: auto;
+        color: #333;
+        padding: 40px;
+        position: relative;
+    }
+
+    .exchange-dialog-wrap1 .dialog-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 79px;
+        height: 88px;
+    }
+
+    .exchange-dialog-wrap .icon-readpackage {
+        display: inline-block;
+        vertical-align: middle;
+        background: url(/images/c27c131c8d2c93ed0bb595ae748285a0.png) no-repeat;
+    }
+
+    .exchange-dialog-wrap1 .dialog-right {
+        margin-left: 95px;
+        padding-top: 12px;
+    }
+
+    .exchange-dialog-wrap h4 {
+        font-size: 18px;
+        line-height: 24px;
+        color: #333;
+        margin-bottom: 8px;
+    }
+
+    .exchange-dialog-wrap p {
+        color: #666;
+        margin-bottom: 2px;
+    }
+
+    .exchange-dialog-wrap1 {
+        margin: 0 18px;
+    }
+
+    .exchange-dialog-wrap {
+        position: relative;
+    }
+            /* 积分和研值明细 */
+
+            .detail {
+                margin-top: 20px;
+            }
+    /* pro会员中心 */
+    .cd-main__body .pro-left{
+        float:left;
+    }
+    .cd-main__body .pro-right{
+        float:right;
+    }
+    .cd-main__body .pro-right span{
+        margin-left:20px;
+    }
+    .pro-right .enter{
+        color:rgb(63, 211, 248);
+    }
+    .pro-right .inform{
+        color:rgb(245, 164, 43);
+    }
+
+    .pro-right .classMate{
+        color:rgb(65, 9, 156);
+    }
+
+    .pro-right .exam{
+        color:rgb(47, 167, 97);
+    }
+    .pro-list li{
+        height: 50px;
+        line-height: 50px;
+    }
+    .pro-list li:hover{
+        background-color: rgba(228, 227, 227, 0.2);
+    }
+    /* pro会员中心班级通知 */
+    .inform-list .img,
+    .classMate-list .img{
+        width: 40px;
+        height: 40px;
+        line-height:40px;
+        text-align: center;
+        background-color: rgb(17, 180, 180);
+        border-radius: 50%;
+        color:#fff;
+        font-size: 16px;
+    }
+    .classMate-list .img{
+        background-color: transparent;
+    }
+    .classMate-list img{
+        width: 100%;
+    }
+    .classMate-list .classMate-left,
+    .classMate-list .classMate-right,
+    .inform-list .inform-left,
+    .inform-list .inform-right{
+        float:left;
+        margin-left:15px;
+    }
+    .classMate-right,
+    .inform-right p{
+        line-height: 26px;
+    }
+    .classMate-list li,
+    .inform-list li{
+        background-color: #fff;
+        height: 80px;
+        padding-top:20px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    .inform-time,
+    .classMate-more{
+        float: right;
+    margin-top: 15px;
+    margin-right: 20px;
+    }
+    .classMate-more{
+        text-decoration: underline;
+        color:rgb(17, 180, 180);
+    }
+    /* 班级通知详情页 */
+    .send{
+        height: 80px;
+    }
+   .send .img{
+       width: 50px;
+   height: 50px;
+   float: left;
+   }
+   .send img{
+       width: 100%;
+   }
+   .send .text{
+       float:left;
+       margin-left:30px;
+   }
+   .send .text .title{
+       margin-bottom:10px;
+   }
+   .send .text .info-content{
+    margin-top:35px;
+}
+.back{
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #ddd;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+/* 班级同学详情 */
+.mateName{
+    margin-right:10px;
+}

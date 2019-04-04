@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="zh" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet"/>
+	<!-- bootstrap-table 表格插件样式 -->
+	<link href="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/animate.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/style.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/select/select2.css" rel="stylesheet"/>
+	<link href="/assets/admin/ruoyi/css/ry-ui.css" rel="stylesheet"/>
+</head>
+<body class="gray-bg">
+	
+	<div class="container-div">
+		<div class="row">
+			<div class="col-sm-12 search-collapse">
+				<form id="operlog-form">
+					<div class="select-list">
+						<ul>
+							<li>
+								<label>系统模块： </label><input type="text" name="title"/>
+							</li>
+							<li>
+								<label>操作人员： </label><input type="text" name="operName"/>
+							</li>
+							<li>
+								<label>操作类型： </label><select name="businessType">
+									<option value="">所有</option>
+									<option value="1">新增</option>
+									<option value="2">修改</option>
+									<option value="3">删除</option>
+									<option value="4">授权</option>
+									<option value="5">导出</option>
+									<option value="6">导入</option>
+									<option value="7">强退</option>
+									<option value="8">生成代码</option>
+									<option value="9">清空数据</option>
+								</select>
+							</li>
+							<li class="select-time">
+								<label>操作时间： </label>
+								<input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginTime]"/>
+								<span>-</span>
+								<input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]"/>
+							</li>
+							<li>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+								<a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+			
+			<div class="btn-group-sm" id="toolbar" role="group">
+				<a class="btn btn-danger btn-del disabled" onclick="$.operate.removeAll()">
+		            <i class="fa fa-remove"></i> 删除
+		        </a>
+		        <a class="btn btn-danger" onclick="$.operate.clean()">
+	                <i class="fa fa-trash"></i> 清空
+	            </a>
+	            <a class="btn btn-warning" onclick="$.table.exportExcel()">
+		            <i class="fa fa-download"></i> 导出
+		        </a>
+	        </div>
+	        
+			<div class="col-sm-12 select-table table-striped">
+				<table id="bootstrap-table" data-mobile-responsive="true"></table>
+			</div>
+		</div>
+	</div>
+	
+	<div>
+	<script src="/assets/admin/js/jquery.min.js"></script>
+	<script src="/assets/admin/js/bootstrap.min.js"></script>
+	
+	<!-- bootstrap-table 表格插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.js"></script>
+	<!-- jquery-validate 表单验证插件 -->
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/messages_zh.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.extend.js"></script>
+	<!-- jquery-validate 表单树插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.js"></script>
+	<!-- jquery-export 表格导出插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/tableExport.js"></script>
+	<!-- 遮罩层 -->
+	<script src="/assets/admin/ajax/libs/blockUI/jquery.blockUI.js"></script>
+	<script src="/assets/admin/ajax/libs/iCheck/icheck.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layer/layer.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layui/layui.js"></script>
+	<script src="/assets/admin/ruoyi/js/common.js?v=3.2.0"></script>
+	<script src="/assets/admin/ruoyi/js/ry-ui.js?v=3.2.0"></script>
+	
+	<script> var ctx = "\/"; </script>
+</div>
+	<script>
+		var detailFlag = "";
+		var datas = [{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u65B0\u589E\u64CD\u4F5C","params":{},"dictCode":16,"dictSort":1,"dictLabel":"\u65B0\u589E","dictValue":"1","dictType":"sys_oper_type","cssClass":"","listClass":"info","isDefault":"N","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u4FEE\u6539\u64CD\u4F5C","params":{},"dictCode":17,"dictSort":2,"dictLabel":"\u4FEE\u6539","dictValue":"2","dictType":"sys_oper_type","cssClass":"","listClass":"info","isDefault":"N","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u5220\u9664\u64CD\u4F5C","params":{},"dictCode":18,"dictSort":3,"dictLabel":"\u5220\u9664","dictValue":"3","dictType":"sys_oper_type","cssClass":"","listClass":"danger","isDefault":"N","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u6388\u6743\u64CD\u4F5C","params":{},"dictCode":19,"dictSort":4,"dictLabel":"\u6388\u6743","dictValue":"4","dictType":"sys_oper_type","cssClass":"","listClass":"primary","isDefault":"N","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u5BFC\u51FA\u64CD\u4F5C","params":{},"dictCode":20,"dictSort":5,"dictLabel":"\u5BFC\u51FA","dictValue":"5","dictType":"sys_oper_type","cssClass":"","listClass":"warning","isDefault":"N","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u5BFC\u5165\u64CD\u4F5C","params":{},"dictCode":21,"dictSort":6,"dictLabel":"\u5BFC\u5165","dictValue":"6","dictType":"sys_oper_type","cssClass":"","listClass":"warning","isDefault":"N","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u5F3A\u9000\u64CD\u4F5C","params":{},"dictCode":22,"dictSort":7,"dictLabel":"\u5F3A\u9000","dictValue":"7","dictType":"sys_oper_type","cssClass":"","listClass":"danger","isDefault":"N","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u751F\u6210\u64CD\u4F5C","params":{},"dictCode":23,"dictSort":8,"dictLabel":"\u751F\u6210\u4EE3\u7801","dictValue":"8","dictType":"sys_oper_type","cssClass":"","listClass":"warning","isDefault":"N","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u6E05\u7A7A\u64CD\u4F5C","params":{},"dictCode":24,"dictSort":8,"dictLabel":"\u6E05\u7A7A\u6570\u636E","dictValue":"9","dictType":"sys_oper_type","cssClass":"","listClass":"danger","isDefault":"N","status":"0"}];
+		var prefix = ctx + "admin/sys/log";
+
+		$(function() {
+		    var options = {
+		        url: prefix + "/list",
+		        cleanUrl: prefix + "/clean",
+		        detailUrl: prefix + "/detail/{id}",
+		        removeUrl: prefix + "/remove",
+		        exportUrl: prefix + "/export",
+		        sortName: "operTime",
+		        sortOrder: "desc",
+		        modalName: "操作日志",
+		        escape: true,
+		        showPageGo: true,
+		        columns: [{
+		            checkbox: true
+		        },
+		        {
+		            field: 'operId',
+		            title: '日志编号'
+		        },
+		        {
+		            field: 'title',
+		            title: '系统模块'
+		        },
+		        {
+		            field: 'businessType',
+		            title: '操作类型',
+		            align: 'center',
+		            formatter: function(value, row, index) {
+		            	return $.table.selectDictLabel(datas, value);
+		            }
+		        },
+		        {
+		            field: 'operName',
+		            title: '操作人员',
+		            sortable: true
+		        },
+		        {
+		            field: 'deptName',
+		            title: '部门名称'
+		        },
+		        {
+		            field: 'operIp',
+		            title: '主机'
+		        },
+		        {
+		            field: 'operLocation',
+		            title: '操作地点'
+		        },
+		        {
+		            field: 'status',
+		            title: '操作状态',
+		            align: 'center',
+		            formatter: function(value, row, index) {
+		                if (value == 0) {
+		                    return '<span class="badge badge-primary">成功</span>';
+		                } else if (value == 1) {
+		                    return '<span class="badge badge-danger">异常</span>';
+		                }
+		            }
+		        },
+		        {
+		            field: 'operTime',
+		            title: '操作时间',
+		            sortable: true
+		        },
+		        {
+		            title: '操作',
+		            align: 'center',
+		            formatter: function(value, row, index) {
+		                var actions = [];
+		                actions.push('<a class="btn btn-warning btn-xs ' + detailFlag + '" href="#" onclick="$.operate.detail(\'' + row.operId + '\')"><i class="fa fa-search"></i>详细</a>');
+		                return actions.join('');
+		            }
+		        }]
+		    };
+		    $.table.init(options);
+		});
+	</script>
+</body>
+</html>

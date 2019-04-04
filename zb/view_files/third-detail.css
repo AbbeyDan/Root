@@ -1,0 +1,765 @@
+.nav-fixed {
+  z-index: 9991;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  height: 64px;
+  background: white;
+  background-color: #fff;
+  border-bottom: 1px solid #e6e5e5;
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+}
+
+.nav-fixed h2 {
+  float: left;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all;
+  max-width: 100%;
+  font-size: 18px;
+  line-height: 64px;
+  max-width: 450px;
+}
+
+.nav-fixed .nav-tabs {
+  font-size: 18px;
+  margin-bottom: -1px;
+  position: absolute;
+  top: 0;
+  right: 170px;
+  border: none;
+}
+
+.nav-fixed .nav-tabs:before, .nav-fixed .nav-tabs:after {
+  content: "";
+  display: table;
+}
+
+.nav-fixed .nav-tabs:after {
+  clear: both;
+}
+
+.nav-fixed .nav-tabs > li {
+  float: left;
+  margin-bottom: -1px;
+}
+
+.nav-fixed .nav-tabs > li.active > a, .nav-fixed .nav-tabs > li.active > a:hover, .nav-fixed .nav-tabs > li.active > a:focus {
+  background: none;
+  border: none;
+  border-bottom: 3px solid #009aff;
+  color: #009aff;
+}
+
+.nav-fixed .nav-tabs > li > a {
+  display: block;
+  border-width: 0 0 3px 0;
+  color: #424451;
+  line-height: normal;
+  padding: 0 24px 6px;
+}
+
+.nav-fixed .nav-tabs > li > a.active, .nav-fixed .nav-tabs > li > a:hover, .nav-fixed .nav-tabs > li > a:focus {
+  background: none;
+  border-color: transparent;
+  color: #009aff;
+}
+
+.nav-fixed .nav-tabs > li {
+  float: left;
+}
+
+.nav-fixed .nav-tabs > li > a {
+  float: left;
+  display: inline-block;
+  padding: 0 40px 0;
+  line-height: 61px;
+}
+
+.nav-fixed .btn-course {
+  float: right;
+  margin-top: 15px;
+}
+
+.nav-fixed .btn-course .btn {
+  padding: 0;
+  line-height: 36px;
+  width: 120px;
+}
+
+.pager, .pagination {
+  margin: 20px 0;
+  padding-left: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.pager:before, .pager:after, .pagination:before, .pagination:after {
+  content: " ";
+  display: table;
+}
+
+.pager:after, .pagination:after {
+  clear: both;
+}
+
+.pager li, .pagination li {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 3px;
+  display: inline-block;
+  *white-space: nowrap;
+}
+
+.pager li a, .pager li span, .pagination li a, .pagination li span {
+  display: inline-block;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 4px 9px;
+  color: #555555;
+  border-radius: 15px;
+  box-sizing: border-box;
+}
+
+.pager li a:hover, .pager li a:focus, .pagination li a:hover, .pagination li a:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+
+.pager li a:hover, .pagination li a:hover {
+  border-color: #009aff;
+  color: #FFF;
+  background: #008ae6;
+}
+
+.pager .active a, .pagination .active a {
+  border-color: #009aff;
+  color: #FFF;
+  background: #009aff;
+}
+
+.pager .previous > a, .pager .previous > span, .pagination .previous > a, .pagination .previous > span {
+  float: left;
+}
+
+.pager .next > a, .pager .next > span, .pagination .next > a, .pagination .next > span {
+  float: none;
+}
+
+.pager .disabled > a, .pager .disabled > a:hover, .pager .disabled > a:focus, .pager .disabled > span, .pagination .disabled > a, .pagination .disabled > a:hover, .pagination .disabled > a:focus, .pagination .disabled > span {
+  color: #999999;
+  background-color: #ffffff;
+  cursor: not-allowed;
+}
+
+body {
+  background-color: white;
+  min-width: 960px;
+}
+
+.crumbs a {
+  color: #fff;
+}
+
+.crumbs a:hover, .crumbs a:focus {
+  color: #009aff;
+}
+
+.crumbs .line {
+  color: #999;
+}
+
+.crumbs .last {
+  color: #fff;
+}
+
+.crumbs .vm-share {
+  padding-bottom: 20px;
+  float: right;
+}
+
+.banner {
+  background: url(../../images/course/detail/banner.jpg);
+  padding-top: 100px;
+  margin-bottom: 40px;
+  height: 590px;
+}
+
+.banner .banner-wrap {
+  position: relative;
+  background-color: #fff;
+  padding: 20px;
+  height: 470px;
+}
+
+.banner .player {
+  float: left;
+  height: 100%;
+  width: 100%;
+}
+
+.banner .player-inner {
+  position: relative;
+  margin-right: 315px;
+  height: 100%;
+}
+
+.banner .player-inner > * {
+  height: 100%;
+  width: 100%;
+}
+
+.banner .player-inner .icon-player {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -45px 0 0 -45px;
+  width: 90px;
+  height: 90px;
+  background: url(../../images/common/icon-start.png) no-repeat 0 0;
+  cursor: pointer;
+}
+
+.banner .cont {
+  float: left;
+  margin-left: -290px;
+  width: 290px;
+}
+
+.banner .title {
+  border-bottom: 1px solid #e5e5e5;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 14px 0 18px;
+}
+
+.banner .info {
+  border-bottom: 1px solid #e5e5e5;
+  color: #848e99;
+  font-size: 12px;
+  padding: 15px 0;
+  overflow: hidden;
+}
+
+.banner .info li {
+  float: left;
+  text-align: center;
+  width: 33.33333%;
+  cursor: default;
+}
+
+.banner .info .num {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.banner .intro {
+  color: #848e99;
+  font-size: 13px;
+  line-height: 24px;
+  text-indent: 2em;
+  margin: 16px 0 20px;
+  max-height: 145px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+}
+
+.banner .btn-course {
+  margin: 0 auto;
+  width: 240px;
+}
+
+.banner .btn-course a {
+  display: block;
+  font-size: 22px;
+  padding: 0;
+  margin-bottom: 10px;
+  line-height: 48px;
+}
+
+.banner .tips {
+  background-color: transparent;
+  border: none;
+  color: #e58f32;
+  font-size: 12px;
+  line-height: 28px;
+  text-align: center;
+}
+
+.banner .tips .iconfont {
+  font-size: 14px;
+  margin-right: 5px;
+  vertical-align: 0;
+}
+
+.live-banner {
+  background-image: url(../../images/live/live-banner.jpg);
+}
+
+.main {
+  float: left;
+  width: 100%;
+}
+
+.main .main-inner {
+  margin-right: 300px;
+}
+
+.main .tips {
+  background-color: #ffffca;
+  border: 1px solid #e5e5b5;
+  border-radius: 3px;
+  color: #575e65;
+  line-height: 40px;
+  padding: 0 15px;
+  height: 40px;
+  margin-right: 270px;
+}
+
+.main .tips span {
+  font-size: 12px;
+  margin: 0 3px;
+}
+
+.main .tips .lg {
+  font-size: 16px;
+}
+
+.main .tips a {
+  float: right;
+  color: #e58f32;
+  font-size: 12px;
+}
+
+.main .tips a:hover {
+  color: #e57b32;
+}
+
+.main .tips-lg {
+  margin-right: 0;
+}
+
+.main .operate {
+  margin-bottom: 10px;
+}
+
+.main .operate select {
+  float: right;
+  border: 1px solid #cad2e1;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 0 12px;
+  height: 42px;
+  width: 250px;
+}
+
+.aside {
+  float: left;
+  margin-left: -280px;
+  width: 280px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}
+
+.model {
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.model > .hd {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.model > .hd h3 {
+  font-size: 18px;
+}
+
+.model .avatar {
+  border-radius: 50%;
+  text-align: center;
+  margin-right: 10px;
+  height: 60px;
+  width: 60px;
+  overflow: hidden;
+}
+
+.model .name {
+  font-size: 18px;
+}
+
+.model .name a {
+  color: #2c2f33;
+}
+
+.model .name a:hover {
+  color: #009aff;
+}
+
+.model .intro {
+  color: #575e65;
+  line-height: 24px;
+  margin-top: 10px;
+}
+
+.course-dt {
+  float: left;
+  color: #575e65;
+  font-size: 16px;
+  line-height: 48px;
+  padding-left: 20px;
+  width: 38px;
+  height: 100%;
+}
+
+.course-list {
+  margin: 0 20px;
+}
+
+.course-list dd {
+  color: #575e65;
+  line-height: 48px;
+  padding: 0 20px;
+}
+
+.course-list .free {
+  display: inline-block;
+  float: right;
+  font-size: 12px;
+  line-height: 28px;
+  padding: 0 10px;
+  margin-top: 9px;
+  height: 28px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.course-list a {
+  display: block;
+  color: #575e65;
+  border: 1px solid transparent;
+}
+
+.course-list a:hover {
+  background-color: #f5fafe;
+  border-color: #009aff;
+  color: #009aff;
+  border-radius: 5px;
+}
+
+.course-list a:hover .time {
+  display: none;
+}
+
+.course-list a:hover .free {
+  display: none;
+}
+
+.course-list a:hover .no-act {
+  display: inline-block;
+}
+
+.course-list a:hover .btn {
+  display: inline-block;
+}
+
+.course-list .name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 570px;
+}
+
+.course-list .no-limit {
+  max-width: 700px;
+}
+
+.course-list .time,
+.course-list .no-act {
+  float: right;
+  color: #848e99;
+  font-size: 13px;
+  margin-left: 20px;
+}
+
+.course-list .time i,
+.course-list .no-act i {
+  margin-left: 10px;
+}
+
+.course-list .no-act {
+  display: none;
+}
+
+.course-list .living {
+  color: #009aff;
+}
+
+.course-list .btn {
+  display: none;
+  float: right;
+  font-size: 12px;
+  line-height: 28px;
+  padding: 0 10px;
+  margin-top: 9px;
+  height: 28px;
+}
+
+.course-list .iconfont {
+  margin-right: 5px;
+}
+
+.live-list li {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.live-list li:before, .live-list li:after {
+  content: "";
+  display: table;
+}
+
+.live-list li:after {
+  clear: both;
+}
+
+.live-list .pagination li, .live-list .pager li {
+  border-bottom: none;
+}
+
+.live-list .course-list dd {
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.live-list .course-list dd:last-child {
+  border-bottom: none;
+}
+
+.live-list .course-list dd a {
+  border-bottom-color: transparent;
+}
+
+.live-list .course-list dd a:hover {
+  border-bottom-color: #009aff;
+}
+
+.loading-wrap {
+  height: 300px;
+  line-height: 300px;
+  text-align: center;
+}
+
+.no-complete {
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: 24px;
+  color: #7181aa;
+}
+
+.pop-apply .wrap {
+  width: 474px;
+}
+
+.pop-apply .cont {
+  color: #575e65;
+  line-height: 24px;
+}
+
+.pop-apply .pic {
+  margin-right: 20px;
+  max-height: 110px;
+  width: 180px;
+  overflow: hidden;
+}
+
+.pop-apply .title {
+  font-size: 16px;
+  line-height: 1.1;
+  margin-bottom: 5px;
+}
+
+.pop-apply .info {
+  color: #848e99;
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.pop-apply .btns {
+  clear: both;
+  text-align: center;
+  padding: 40px 0 30px;
+}
+
+.pop-apply .btn {
+  font-size: 16px;
+  line-height: 40px;
+  margin: 0 8px;
+  height: 40px;
+  width: 118px;
+}
+
+.register_ok .pic {
+  max-height: none;
+  margin-right: 10px;
+  width: 124px;
+}
+
+.register_ok .title {
+  color: #7db000;
+  font-size: 18px;
+}
+
+.register_ok .title .iconfont {
+  font-size: 24px;
+}
+
+.register_ok .intro {
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.register_ok .btns {
+  padding-top: 23px;
+}
+
+.student-list {
+  padding: 0 24px;
+}
+
+.student-list .total {
+  color: #282737;
+  margin-bottom: 20px;
+}
+
+.student-list .list {
+  margin-left: -120px;
+  overflow: hidden;
+}
+
+.student-list .list li {
+  float: left;
+  margin: 0 0 30px 120px;
+  width: 200px;
+}
+
+.student-list .list .avatar {
+  margin-right: 14px;
+}
+
+.student-list .list .avatar img {
+  height: 50px;
+  width: 50px;
+}
+
+.student-list .list .name {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all;
+  max-width: 100%;
+  color: #575e65;
+  margin: 6px 0;
+}
+
+.student-list .list .time {
+  color: #848e99;
+  font-size: 12px;
+}
+
+.pop-remind {
+  color: #575e65;
+}
+
+.pop-remind .wrap {
+  width: 500px;
+}
+
+.pop-remind .btns {
+  clear: both;
+  text-align: center;
+  padding: 45px 0 30px;
+}
+
+.pop-remind .btn {
+  font-size: 16px;
+  line-height: 40px;
+  margin: 0 16px;
+  height: 40px;
+  width: 118px;
+}
+
+.choose-radio li {
+  position: relative;
+  margin-top: 20px;
+}
+
+.choose-radio li.active .icon-radio {
+  background-color: #3395fd;
+  border-color: #3395fd;
+}
+
+.choose-radio input {
+  margin-right: 4px;
+  width: 20px;
+}
+
+.choose-radio .icon-radio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #dfdfdf;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  height: 15px;
+  width: 15px;
+}
+
+.course-validity {
+  color: #575e65;
+  margin-bottom: 20px;
+}
+
+.course-validity p {
+  line-height: 36px;
+}
+
+.course-validity .count-validity {
+  color: #fa6555;
+}
+.btn.disabled:hover {
+    background-color: #b7b9c7;
+    border-color: #b7b9c7;
+    color: #fff;
+}
+/*# sourceMappingURL=third-detail.css.map */

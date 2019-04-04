@@ -1,0 +1,658 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zh_CN" class="">
+ <!--<![endif]-->
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  <title>- EduSoho网络课堂演示站 - 网校领导品牌，在线教育网站建站系统 - Powered By EduSoho</title> 
+  <meta name="keywords" content="
+EduSoho网络课堂,网校系统,在线教育,在线教学,开源教学软件"> 
+  <meta name="description" content="Edusoho是面向个人、学校、培训机构及企业用户的友好、开源、高性价比的在线教育建站系统。Edusoho提供在线教学、网校管理、云视频点播、直播、移APP等功能，为使教育机构能够以最低成本开展在线教学活动，EduSoho也提供云服务器，云视频、云直播和移动APP定制服务，并配备相应的技术支持服务，让客户搭建自有品牌网校和搭积木一样简单。EduSoho产品及服务大大降低了传统教育培训机构进入在线教育行业的门槛。与其他在线教育产品相比，EduSoho具有完整，高自由度，高性价比的产品体验，使用其搭建在线教学网站是快速进入在线教育的最佳选择方案。Edusoho开源并免费提供给非商业用途用户使用，用户可在3分钟内搭建功能完备的在线教育网站。"> 
+  <meta name="format-detection" content=""> 
+  <meta content="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE" name="csrf-token"> 
+  <meta content="1" name="is-login"> 
+  <meta content="0" name="wechat_login_bind"> 
+  <meta property="qc:admins" content="242073150776545370763757"> 
+  <link rel="icon" href="css/favicon_1427251704.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="css/favicon_1427251704.ico" type="image/x-icon" media="screen"> 
+  <!--[if lt IE 9]>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/html5shiv.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-shim.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-sham.js?version=8.3.17"></script>
+  <![endif]--> 
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white group-page"> 
+  <!--[if lt IE 9]>
+<script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/fix-ie.js?version=8.3.17"></script>
+<style>
+  .lt-ie9 {
+    overflow: hidden;
+  }
+  .ie-mask {
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    background: #000;
+  }
+  .ie-alert-wrap {
+    position: absolute;
+    z-index: 1000000;
+    margin: -200px auto 0;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .ie-alert {
+    width: 514px;
+    height: 397px;
+    margin: 0 auto;
+  }
+  .ie-alert__chrome,
+  .ie-alert__firefox {
+    position: absolute;
+    z-index: 1000001;
+    display: block;
+    bottom: 48px;
+    width: 60px;
+    height: 80px;
+  }
+  .ie-alert__chrome {
+    left: 50%;
+    margin-left: -80px;
+  }
+  .ie-alert__firefox {
+    right: 50%;
+    margin-right: -80px;
+  }
+</style>
+<div class="ie-mask"></div>
+<div class="ie-alert-wrap">
+  <div class="ie-alert" style="background:url('images/browser_update.png')">
+    <a href="http://www.baidu.com/s?wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank" class="ie-alert__chrome"></a>
+    <a href="http://firefox.com.cn/download/" target="_blank" class="ie-alert__firefox"></a>
+  </div>
+</div>
+
+<![endif]--> 
+  <div class="es-wrap"> 
+   <header class="es-header navbar"> 
+    <div class="navbar-header"> 
+     <div class="visible-xs  navbar-mobile"> 
+      <a href="javascript:;" class="navbar-more js-navbar-more"> <i class="es-icon es-icon-menu"></i> </a> 
+      <div class="html-mask"></div> 
+      <div class="nav-mobile"> 
+       <form class="navbar-form" action="/search" method="get"> 
+        <div class="form-group"> 
+         <input class="form-control" placeholder="搜索" name="q"> 
+         <button class="button es-icon es-icon-search"></button> 
+        </div> 
+       </form> 
+       <ul class="nav navbar-nav"> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">课程和班级 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="/course/explore" target="_blank">课程中心</a></li> 
+          <li><a href="/classroom/explore" target="_blank">班级中心</a></li> 
+         </ul> </li> 
+        <li class="nav-hover"> <a href="http://www.qiqiuyu.com/faq/433/detail" target="_blank">网站初建设 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.qiqiuyu.com/faq/522/detail" target="_blank">1.域名和备案</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/523/detail" target="_blank">2.接入教育云</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/525/detail" target="_blank">3.申请收款接口</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/526/detail" target="_blank">4.设置注册登录</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/524/detail" target="_blank">5.安装应用插件</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/527/detail" target="_blank">6.创建发布课程</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/528/detail" target="_blank">7.装扮网站主题</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/529/detail" target="_blank">8.学习其他功能</a></li> 
+         </ul> </li> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">免费APP <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.qiqiuyu.com/faq/532/detail" target="_blank">APP介绍</a></li> 
+          <li><a href="/mobile" target="_blank">APP体验</a></li> 
+         </ul> </li> 
+        <li class=""> <a href="/vip" target="_blank">会员专区 </a> </li> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">关于我们 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.edusoho.com" target="_blank">EduSoho官网</a></li> 
+          <li><a href="http://open.edusoho.com/" target="_blank">开放云平台</a></li> 
+          <li><a href="http://www.qiqiuyu.com/" target="_blank">气球鱼学院</a></li> 
+         </ul> </li> 
+       </ul> 
+      </div> 
+     </div> 
+     <a href="/" class="navbar-brand"> <img src="images/163626aa4fbc026102.png"> </a> 
+    </div> 
+    <nav class="collapse navbar-collapse"> 
+     <ul class="nav navbar-nav clearfix hidden-xs " id="nav"> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">课程和班级 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="/course/explore" target="_blank">课程中心</a></li> 
+        <li><a href="/classroom/explore" target="_blank">班级中心</a></li> 
+       </ul> </li> 
+      <li class="nav-hover"> <a href="http://www.qiqiuyu.com/faq/433/detail" target="_blank">网站初建设 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.qiqiuyu.com/faq/522/detail" target="_blank">1.域名和备案</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/523/detail" target="_blank">2.接入教育云</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/525/detail" target="_blank">3.申请收款接口</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/526/detail" target="_blank">4.设置注册登录</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/524/detail" target="_blank">5.安装应用插件</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/527/detail" target="_blank">6.创建发布课程</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/528/detail" target="_blank">7.装扮网站主题</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/529/detail" target="_blank">8.学习其他功能</a></li> 
+       </ul> </li> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">免费APP <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.qiqiuyu.com/faq/532/detail" target="_blank">APP介绍</a></li> 
+        <li><a href="/mobile" target="_blank">APP体验</a></li> 
+       </ul> </li> 
+      <li class=""> <a href="/vip" target="_blank">会员专区 </a> </li> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">关于我们 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.edusoho.com" target="_blank">EduSoho官网</a></li> 
+        <li><a href="http://open.edusoho.com/" target="_blank">开放云平台</a></li> 
+        <li><a href="http://www.qiqiuyu.com/" target="_blank">气球鱼学院</a></li> 
+       </ul> </li> 
+     </ul> 
+     <div class="navbar-user "> 
+      <ul class="nav user-nav"> 
+       <li class="user-manage-li visible-lg cd-ml24"> <a class="btn cd-btn user-manage-toggle" href="/my/">我的学习</a> </li> 
+       <li class="user-inform-li js-user-inform hidden-xs hidden-sm cd-ml24 cd-dropdown" data-toggle="cd-dropdown"> <a class="inform-dropdown-toggle"><i class="cd-icon cd-icon-bell"></i><span class="inform-dropdown-toggle__num cd-badge cd-badge-danger ">1</span></a> 
+        <div class="dropdown-menu inform-dropdown js-user-nav-dropdown" role="menu"> 
+         <div class="clearfix inform-dropdown-head" role="tablist"> 
+          <a class="inform-dropdown-head__tab js-inform-tab active" href="#notification" role="tab" data-toggle="tab" data-type="newNotification">通知</a> 
+          <a class="inform-dropdown-head__tab js-inform-tab" href="#message" role="tab" data-toggle="tab" data-type="conversation">私信<span class="inform-dropdown-dot"></span></a> 
+         </div> 
+         <div class="tab-content"> 
+          <div class="notification-content tab-pane active" role="tabpanel" id="notification"> 
+           <div class="inform-dropdown-body js-inform-dropdown-body"> 
+            <div class="inform-empty-status js-inform-empty"> 
+             <img class="cd-mb24" src="images/null-notice.png" srcset="//sca1dk-sb-qn.qiqiuyun.net/static-dist/app/img/notice/null-notice.png?version=8.3.17 1x, //sca1dk-sb-qn.qiqiuyun.net/static-dist/app/img/notice/null-notice@2x.png?version=8.3.17 2x"> 
+             <div class="inform-empty-status__tip">
+              暂无新的通知～
+             </div> 
+            </div> 
+           </div> 
+           <div class="inform-dropdown-foot"> 
+            <a class="cd-link-minor" href="/notification">查看全部通知</a> 
+           </div> 
+          </div> 
+          <div class="message-content tab-pane" role="tabpanel" id="message"> 
+           <div class="inform-dropdown-body js-inform-dropdown-body"> 
+            <div class="inform-loading js-inform-loading"></div> 
+            <div class="js-inform-conversation"></div> 
+           </div> 
+           <div class="inform-dropdown-foot"> 
+            <a class="cd-link-minor" href="/message/">查看全部私信</a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="user-avatar-li cd-dropdown cd-ml24" data-toggle="cd-dropdown"> <a class="user-avatar-toggle" href="javascript:;"> <img class="cd-avatar cd-avatar-xs" src="images/avatar.png"> </a> 
+        <div class="dropdown-menu user-dropdown hidden-sm hidden-xs hidden-md js-user-nav-dropdown"> 
+         <div class="user-dropdown-info cd-mb24"> 
+          <a class="user-dropdown-info__avatar cd-mr24" href="/user/29000"> <img class="cd-avatar" src="images/avatar.png"> </a> 
+          <div class="user-dropdown-profile"> 
+           <div class="user-dropdown-profile__nickname"> 
+            <span>aloofqq</span> 
+           </div> 
+           <div class="user-dropdown-profile__rank cd-mv8">
+            普通学员
+           </div> 
+          </div> 
+         </div> 
+         <div class="user-dropdown__link cd-mb24"> 
+          <a class="cd-link-minor" href="/my/orders"><i class="cd-icon cd-icon-payment"></i>账户中心</a> 
+          <a class="cd-link-minor" href="/settings"><i class="es-icon es-icon-setting"></i>个人设置</a> 
+         </div> 
+         <div class="user-dropdown__logout">
+          <a class="cd-link-minor" href="/logout">退出登录</a>
+         </div> 
+        </div> 
+        <ul class="dropdown-menu hidden-lg" role="menu"> 
+         <div class="dropdown-header">
+          <a class="cd-link-minor" href="/user/29000">aloofqq</a>
+         </div> 
+         <li><a href="/my/orders"><i class="es-icon es-icon-accountwallet"></i>账户中心</a></li> 
+         <li><a href="/settings"><i class="es-icon es-icon-setting"></i>个人设置</a></li> 
+         <li class="user-nav-li-my"> <a href="/my/"> <i class="es-icon es-icon-book"></i>我的学习 </a> </li> 
+         <li class="hidden-md"><a href="/notification"><span class="pull-right num"></span><i class="es-icon es-icon-notificationson"></i>通知</a></li> 
+         <li class="hidden-md"><a href="/message/"><span class="pull-right num">1</span><i class="es-icon es-icon-mail"></i>私信</a></li> 
+         <li class="user-nav-li-logout"><a href="/logout"><i class="es-icon es-icon-power"></i>退出登录</a></li> 
+        </ul> </li> 
+      </ul> 
+      <form class="navbar-form navbar-right hidden-xs" action="/search" method="get"> 
+       <div class="form-group"> 
+        <input class="form-control js-search" value="" name="q" placeholder="搜索"> 
+        <button class="button es-icon es-icon-search"></button> 
+       </div> 
+      </form> 
+     </div> 
+    </nav> 
+   </header> 
+   <div id="content-container" class="container"> 
+    <ol class="breadcrumb breadcrumb-o" style="margin-top:-18px"> 
+     <li><a href="/">首页</a></li> 
+     <li><a href="/group">小组频道</a></li> 
+     <li><a href="/group/3">在线教育频道</a></li> 
+    </ol> 
+    <div class="group-header js-group-header" style="background:url(images/background_group.jpg);background-repeat: no-repeat;background-size: 100% 100%;"> 
+     <div class="media"> 
+      <div class="media-left"> 
+       <a href="/group/3"> <img src="images/110306a628f7385125.jpg" alt="在线教育频道" class="avatar-square-md"> </a> 
+      </div> 
+      <div class="media-body"> 
+       <h2 class="media-heading"> 在线教育频道 <a id="exit-btn" class="btn btn-default btn-sm mlm" data-url="/group/3/exit">退出小组</a> </h2> 
+       <div class="media-metas">
+         256个成员 
+        <span class="mlm">8个话题</span> 
+        <span class="fsn mlm">创建时间：2014-08-31</span> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="image-overlay image-overlay-o"></div> 
+    </div> 
+    <div class="panel panel-default"> 
+     <div class="panel-heading"> 
+      <h3 class="panel-title">发表话题</h3> 
+     </div> 
+     <div class="panel-body"> 
+      <form id="user-thread-form" class="form-horizontal thread-form" method="post"> 
+       <div class="form-group"> 
+        <label class="col-xs-2 control-label" for="thread_title">标题</label> 
+        <div class="col-xs-7 col-xs-10 controls"> 
+         <input type="text" id="thread_title" name="thread[title]" class="form-control" value=""> 
+         <div class="help-block" style="display:none;"></div> 
+        </div> 
+       </div> 
+       <div class="form-group"> 
+        <label class="col-xs-2 control-label" for="thread_content">内容</label> 
+        <div class="col-sm-7 col-xs-10 controls"> 
+         <textarea name="thread[content]" rows="10" id="thread_content" class="form-control" data-image-upload-url="/editor/upload?token=MjkwMDB8ZGVmYXVsdHxpbWFnZXwxNTQ0MjIxNzk0fDg0MGJkYTBjZGVmZGI2MzIzYzc0Nzg1NmI1ZGNiODlk" data-image-download-url="/editor/download?token=MjkwMDB8ZGVmYXVsdHxpbWFnZXwxNTQ0MjIxNzk0fDg0MGJkYTBjZGVmZGI2MzIzYzc0Nzg1NmI1ZGNiODlk"></textarea> 
+        </div> 
+       </div> 
+       <script>
+    if (typeof app === 'undefined') {
+        var app = {};
+    }
+
+    if (!app.lazyPool) {
+        app.lazyPool = [];
+    }
+
+    if(!app.lazyLoads){
+        app.lazyLoads = function() {
+            for (var index in app.lazyPool) {
+                app.lazyPool[index]();
+            }
+            app.lazyLoad && app.lazyLoad();
+        }
+    }
+
+    var script = function (scripts, fn, target) {
+        if (!scripts.length) return;
+        target = !target ? document.getElementsByTagName('body')[0] : target;
+        (function callback(s) {
+            s = scripts.shift();
+            !scripts.length ? loadJs(s, fn, target) : loadJs(s, callback, target);
+        }());
+    }
+
+    var loadJs = function (path, fn, target) {
+        var elem = document.createElement('script'),
+            loaded;
+        elem.onload = elem.onerror = elem.onreadystatechange = function () {
+            if ((elem.readyState && !(/^c|loade/.test(elem.readyState))) || loaded) {
+                return;
+            }
+            elem.onload = elem.onreadystatechange = null;
+            loaded = 1;
+            fn();
+        }
+        elem.async = 1;
+        elem.src = path;
+        target.appendChild(elem);
+    }
+
+    window.seajsBoot = function() {
+
+        if (typeof seajs !== 'undefined') {
+            app.lazyLoads&&app.lazyLoads();
+            return ;
+        }
+
+        app.debug =  false ;
+        app.jsPaths = {"common":"common","theme":"\/\/sca1dk-sb-qn.qiqiuyun.net\/themes\/jianmo\/js","oauthv2serverbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/oauthv2server\/js","customwebbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/customweb\/js","customadminbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/customadmin\/js","custombundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/custom\/js","topxiawebbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/topxiaweb\/js","topxiaadminbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/topxiaadmin\/js","classroombundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/classroom\/js","materiallibbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/materiallib\/js","sensitivewordbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/sensitiveword\/js","permissionbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/permission\/js","orgbundle":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/org\/js","datacollectplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/datacollectplugin\/js","reservationplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/reservationplugin\/js","wechatappplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/wechatappplugin\/js","rewardpointconsumptionplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/rewardpointconsumptionplugin\/js","rewardpointplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/rewardpointplugin\/js","vipplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/vipplugin\/js","crmplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/crmplugin\/js","fileshareplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/fileshareplugin\/js","discountplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/discountplugin\/js","gracefulthemeplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/gracefulthemeplugin\/js","userimporterplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/userimporterplugin\/js","chargecoinplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/chargecoinplugin\/js","moneycardplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/moneycardplugin\/js","questionplusplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/questionplusplugin\/js","couponplugin":"\/\/sca1dk-sb-qn.qiqiuyun.net\/bundles\/couponplugin\/js"};
+
+        window.CKEDITOR_BASEPATH = app.basePath + '/assets/libs/ckeditor/4.6.7/';
+
+        app.arguments = {};
+                
+        app.scripts = null;
+        app.mainScript = '//sca1dk-sb-qn.qiqiuyun.net/bundles/topxiaweb/js/app-compatible.js?version=8.3.17';
+
+        var paths = [
+            "//sca1dk-sb-qn.qiqiuyun.net/assets/libs/seajs/seajs/2.2.1/sea.js?version=8.3.17",
+            "//sca1dk-sb-qn.qiqiuyun.net/assets/libs/seajs/seajs-style/1.0.2/seajs-style.js?version=8.3.17",
+            "//sca1dk-sb-qn.qiqiuyun.net/assets/libs/seajs/seajs-text/1.1.1/seajs-text.min.js?version=8.3.17",
+            "//sca1dk-sb-qn.qiqiuyun.net/assets/libs/seajs-global-config.js?version=8.3.17"
+        ];
+
+        script(paths, function() {
+            seajs.use(app.mainScript, function() {
+                app.lazyLoads();
+            });
+        });
+    }
+
+</script> 
+       <div class="form-group"> 
+        <label class="col-xs-2 control-label" for="thread_title">附件</label> 
+        <div class="col-xs-7 controls"> 
+         <div class="js-attachment-list js-attachment-list" style="line-height:60px"> 
+         </div> 
+         <a class="cd-btn cd-btn-primary js-upload-file" data-toggle="modal" data-backdrop="static" data-target="#attachment-modal" data-url="/attachment/upload?useSeajs=0&amp;idsClass=js-attachment-ids&amp;listClass=js-attachment-list&amp;token=MjkwMDB8YXR0YWNobWVudHwyOTAwMHxwcml2YXRlfDE1NDQyOTAxOTR8MDI5YWU2OGM3ODk4MTFlYmRjOWY4ZWM4YmJkZjRhZmI&amp;currentTarget=" title="上传附件" data-placement="bottom" data-title="上传附件"> 上传附件 </a> 
+        </div> 
+        <input class="js-attachment-ids" value="" name="attachment[fileIds]" type="hidden" data-role="fileId"> 
+        <input class="js-file-target-type" value="group.thread" name="attachment[targetType]" type="hidden"> 
+        <input class="js-file-type" value="attachment" name="attachment[type]" type="hidden"> 
+       </div> 
+       <div class="form-group"> 
+        <div class="col-sm-7 col-xs-10 col-xs-offset-2"> 
+         <button id="groupthread-save-btn" data-loading-text="正在发布..." type="button" class="btn btn-primary">发布</button> 
+        </div> 
+       </div> 
+       <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+       <input type="hidden" name="files"> 
+      </form> 
+     </div> 
+    </div> 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+     <div class="modal-dialog"> 
+      <div class="modal-content"> 
+       <div class="modal-header"> 
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> 
+        <h4 class="modal-title" id="myModalLabel">插入隐藏内容</h4> 
+       </div> 
+       <div class="modal-body"> 
+        <form class="form-horizontal" method="post"> 
+         <div class="row form-group"> 
+          <div class="col-md-4 control"> 
+           <label class="control-label"> 请输入要隐藏的内容:</label> 
+          </div> 
+          <div class="col-md-7 controls"> 
+           <textarea class="form-control" rows="3" id="text"> </textarea> 
+          </div> 
+         </div> 
+         <div class="form-group"> 
+          <div class="controls"> 
+           <div class="col-md-4 control"> 
+            <input type="radio" id="type0" name="type" required value="coin" checked="true"> 
+            <label for="amount" class="control-label"> 查看所需学习币:</label> 
+           </div> 
+           <div class="col-md-3 controls"> 
+            <input name="amount" class="form-control" tyoe="text" id="amount"> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="row form-group"> 
+          <div class="col-md-4 control"> 
+           <input type="radio" id="type1" name="type" required value="reply"> 
+           <label for="amount" class="control-label"> 回复话题后可见</label> 
+          </div> 
+         </div> 
+        </form> 
+       </div> 
+       <div class="modal-footer"> 
+        <div class="pull-left color-gray">
+         隐藏话题获得的学习币会在扣除50%之后添加到您的账户 
+        </div> 
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button> 
+        <button type="button" class="btn btn-primary" id="insert">插入</button> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+     <div class="modal-dialog"> 
+      <div class="modal-content"> 
+       <div class="modal-header"> 
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button> 
+        <h4 class="modal-title" id="myModalLabel">上传附件</h4> 
+       </div> 
+       <div class="modal-body"> 
+        <button class="btn btn-default btn-sm upload-img" style="height:33px;" type="button" data-url="/group/thread/upload?group=user">上传</button> 
+        <span> (大小不能超过 <span style="color:red;">2</span> MB，文件类型支持png ,jpg ,gif ,doc ,xls ,txt ,rar ,zip .) </span> 
+        <table id="block-table" class="table table-striped table-condensed mtl"> 
+         <tbody>
+          <tr> 
+           <th width="60%">文件名</th> 
+           <th>描述</th> 
+           <th>学习币</th> 
+           <th>操作</th> 
+          </tr> 
+         </tbody>
+        </table> 
+       </div> 
+       <div class="modal-footer"> 
+        <div class="pull-left color-gray">
+         用户下载附件扣除的学习币会在扣除50%之后添加到您的账户 
+        </div> 
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button> 
+        <button type="button" class="btn btn-primary" id="sure">确定</button> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="hidden jweixin-data" data-config="{&quot;appId&quot;:&quot;wxe2d699a880ac55d5&quot;,&quot;timestamp&quot;:1544203794,&quot;nonceStr&quot;:&quot;edusoho5c0aae1298f03&quot;,&quot;jsApiList&quot;:[&quot;onMenuShareTimeline&quot;,&quot;onMenuShareAppMessage&quot;,&quot;onMenuShareQZone&quot;,&quot;onMenuShareQQ&quot;],&quot;string&quot;:&quot;jsapi_ticket=bxLdikRXVbTPdHSM05e5uzAOjVF2ok0nWzS64PVKKYGQolN6DOEs2fyrDytO8cWPKGvwhNMX7tGA_XhgUj5QfQ&amp;noncestr=edusoho5c0aae1298f03&amp;timestamp=1544203794&amp;url=http:\/\/demo.edusoho.com\/group\/3\/thread\/create&quot;,&quot;signature&quot;:&quot;b86ab8cb2a6dc67e6ac3d41670a718e03671629a&quot;}" data-title="在线教育频道" data-desc="在线教育讨论组，我们只讨论有质量的话题。" data-link="http://demo.edusoho.com/group/3/thread/create" data-img-url="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2015/06-09/110306a628f7385125.jpg" data-type="" data-data-url=""> 
+    </div> 
+   </div> 
+   <div class="es-footer-link"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-md-8 footer-main clearfix"> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item hidden-xs"> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item hidden-xs"> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="col-md-4 footer-logo hidden-sm hidden-xs"> 
+       <a class="" href="http://www.qiqiuyu.com/faq/531/detail" target="_blank"><img src="images/block_picture_1518091361.png" alt="建议图片大小为233*64"></a> 
+       <div class="footer-sns"> 
+        <a href="http://weibo.com/edusoho" target="_blank"><i class="es-icon es-icon-weibo"></i></a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-weixin"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/weixin.png" alt=""> 
+         </div> </a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-apple"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/apple.png" alt=""> 
+         </div> </a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-android"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/android.png" alt=""> 
+         </div> </a> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <footer class="es-footer"> 
+    <div class="copyright"> 
+     <div class="container">
+       Powered by 
+      <a href="http://www.edusoho.com/" target="_blank">EduSoho v8.3.17</a> ©2014-2018 
+      <a class="mlm" href="http://www.howzhi.com/" target="_blank">好知网</a> 
+      <!-- START HEAD STAT CODE (重要：请勿遗漏、修改、移除此行代码，以及以下代码，以下代码通过模板自动生成！) 2018-11-16 10:23 --> 
+      <script type="text/javascript">
+var _mkt = { _visitorFields: {}, _chatManager: null };
+_mkt.setVisitorField = function(key, value) {
+    this._visitorFields[key] = value;
+    if (this._chatManager) {
+    this._chatManager.set("customerFields", this.getFieldsForChat());
+    this._chatManager.set("userinfo", { partnerId: this.getVisitorId()});
+    }
+};
+_mkt.getVisitorFields = function() {
+    return this._visitorFields;
+};
+_mkt.getVisitorId = function() {
+    return this._visitorFields.visitorId ? this._visitorFields.visitorId : '';
+},
+_mkt.setChatManager = function(chatManager) {
+    this._chatManager = chatManager;
+    if (this._visitorFields.visitorId) {
+    this._chatManager.set("customerFields", this.getFieldsForChat());
+    this._chatManager.set("userinfo", { partnerId: this.getVisitorId()});
+    }
+};
+_mkt.getFieldsForChat = function() {
+    var fields = {};
+    fields.customField2 = this._visitorFields.visitorId ? this._visitorFields.visitorId : "";
+    return JSON.stringify(fields);
+};
+
+var _paq = _paq || [];
+_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+_paq.push(["setDomains", ["*.edusoho.com","*.esspoc.com","*.haomuke.com","*.qiqiuyu.com"]]);
+_paq.push(["enableCrossDomainLinking"]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+_paq.push(['enableHeartBeatTimer', 15]);
+_paq.push([ function() {
+    _mkt.setVisitorField('visitorId', this.getVisitorId());
+    window._VISITOR_ID = this.getVisitorId();
+}]);
+(function() {
+    var u="//stat.edusoho.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+})();
+</script> 
+      <!-- END HEAD STAT CODE (重要：请勿遗漏、修改、移除此行代码！) --> 
+      <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?81a080dc472dfaa6aba49ad8936049c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+      <script src="js/entrance.js" class="zhiCustomBtn" id="zhichiScript"></script> 
+      <script>_mkt.setChatManager(getzhiSDKInstance());</script> 
+      <script src="/sidebar"></script> 
+      <a class="mlm" href="/archive/course">课程存档</a> 
+      <div class="mts">
+        课程内容版权均归 
+       <a href="/"> 杭州阔知网络科技有限公司 </a> 所有 
+       <a class="mlm" href="http://www.miibeian.gov.cn/" target="_blank"> 浙ICP备13006852号-1 </a> 
+      </div> 
+     </div> 
+    </div> 
+   </footer> 
+  </div> 
+  <div id="login-modal" class="modal" data-url="/login/ajax"></div> 
+  <div id="modal" class="modal"></div> 
+  <div id="attachment-modal" class="modal"></div> 
+  <script>
+  if (typeof app === 'undefined') {
+      var app = {};
+  }
+  app.version = '8.3.17';
+  app.httpHost = 'http://demo.edusoho.com';
+  app.basePath = 'http://sca1dk-sb-qn.qiqiuyun.net';
+  app.theme = 'jianmo';
+
+    
+  var CLOUD_FILE_SERVER = ""; 
+
+  app.config = {"api":{"weibo":{"key":"1549269531"},"qq":{"key":"101252320"},"douban":{"key":""},"renren":{"key":""}},"loading_img_path":"\/\/sca1dk-sb-qn.qiqiuyun.net\/assets\/img\/default\/loading.gif?version=8.3.17"};
+
+  app.arguments = {};
+      
+  app.scripts = null;
+
+  app.fileSingleSizeLimit = 10;
+  app.uploadUrl = '/file/upload';
+  app.imgCropUrl = '/file/img/crop';
+  app.lessonCopyEnabled = '0';
+  app.cloudPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/sdk-v1.js?15442038';
+  app.cloudPlayServer = '';
+  app.cloudVideoPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/video-player/sdk-v1.js?15442038';
+  app.cloudOldUploaderSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/uploader/sdk-v1.js?15442038';
+  app.cloudOldDocumentSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/document-player/v7/viewer.html?15442038';
+  app.lang = 'zh_CN';
+</script> 
+  <script src="js/translator.min.js"></script> 
+  <script src="js/zh_CN.js"></script> 
+  <script src="js/base.js"></script> 
+  <script src="js/common.js"></script> 
+  <script src="js/main.js"></script> 
+  <script src="js/main_d17f01509f9a4db29c2ee86b8e271c25.js"></script> 
+  <script src="js/ckeditor.js"></script> 
+  <script src="js/jquery-validation.js"></script> 
+  <script src="js/index_9a6904905c1a4df48033462c59d49f33.js"></script> 
+  <script src="js/index_cec540d1656d4067a00bb268414b95f8.js"></script> 
+  <script src="js/index_6fa76db2dd464e85a2779fee8c5d7464.js"></script> 
+  <script src="js/index_67d1fd6844d448f8a65c976a3c01b7f4.js"></script> 
+  <script type="text/javascript">
+  window.seajsBoot && window.seajsBoot();
+</script>  
+ </body>
+</html>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="班级同学")
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen">
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/main-v2.css" rel="stylesheet">
+    <link href="/css/header-white.css" rel="stylesheet">
+    <link href="/css/user.css" rel="stylesheet">
+    <style>
+        .cd-main__body {
+            background-color: rgba(172, 169, 169, 0.3);
+        }
+
+        .popup .title {
+            height: 50px;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .popup .avator {
+            width: 50px;
+            height: 50px;
+            float: left;
+        }
+
+        .popup .avator img {
+            width: 100%;
+        }
+
+        .popup .info {
+            margin-left: 70px;
+        }
+
+        .popup .detail .con {
+            padding-left: 10px;
+            line-height: 24px;
+        }
+        .popup .detail>li{
+            margin-bottom:10px;
+        }
+        .popup .detail>li>span{
+            font-size:16px;
+            font-weight: bold;
+            color:rgb(236, 157, 11);
+        }
+    </style>
+</head>
+
+<body class="es-main-default es-nav-white cd-design">
+    #include("/inc/header.html")
+    <div class="es-wrap">
+        <div class="container cd-container">
+            <div class="cd-content">
+                <div class="cd-sidebar">
+                    <ul class="cd-sidebar__list">
+                        <li class="cd-sidebar__heading"> 账户中心 </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="play">播放记录</a>
+                        </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="/my/">我的课程</a>
+                        </li>
+                        <li class="cd-sidebar__item active" style="display:none">
+                            <a href="proCenter">Pro会员中心</a>
+                        </li>
+                        <li class="cd-sidebar__item " style="display:none">
+                            <a href="play">我的收藏</a>
+                        </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="orders">我的订单</a>
+                        </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="point">我的积分</a>
+                        </li>
+                        <li class="cd-sidebar__heading"> 个人设置 </li>
+                        <li class="cd-sidebar__item">
+                            <a href="/user/">个人信息</a>
+                        </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="/msg/">系统消息</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cd-main">
+                    <div class="cd-main__heading">
+                        <div class="cd-main__title">
+                            <a href="javascript:history.back(-1)" class="back">返回</a>
+                            Pro会员中心 > 【中级】心理社工xxxxx > 班级同学
+                        </div>
+                    </div>
+                    <div class="cd-main__body">
+                        <ul class="classMate-list">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="classMate-left">
+                                        <div class="img">
+                                            <img src="/img/logo.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="classMate-right">
+                                        <span class="mateName">张三</span>
+                                        <span class="city">北京</span>
+                                        <p>心理学专业教师、大学生心理健康教育主任</p>
+                                    </div>
+                                    <a class="classMate-more">详细</a>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <div class="classMate-left">
+                                        <div class="img">
+                                            <img src="/img/logo.png" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="classMate-right">
+                                        <span class="mateName">张三</span>
+                                        <span class="city">北京</span>
+                                        <p>
+                                            <span>心理学专业教师、大学生心理健康教育主任心理学专业教师、大学生心理健康教育主任心理学专业教师、大学生心理健康教育主任</span>
+                                        </p>
+                                    </div>
+                                    <a class="classMate-more">详细</a>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mask"></div>
+                <div class="popup">
+                    <div class="popup-score-wrapper j-rule-popup" style="display: block;">
+                        <h3 class="popup-score-tit">
+                            <a href="javascript:void(0);" class="popup-score-close j-rule-close"></a>详细信息</h3>
+                        <div class="popup-score-con clearfix">
+                            <!-- 头像 -->
+                            <div class="avator">
+                                <img src="/img/logo.png" alt="">
+                            </div>
+                            <!-- 用户信息 -->
+                            <div class="info">
+                                <div class="title">
+                                    <span class="mateName">张三</span>
+                                    <span class="city">北京</span>
+                                </div>
+                                <ul class="detail">
+                                    <li class="job">
+                                        <span>职位:</span>
+                                        <p class="con">心理学专业教师，大学生心理健康中心主任</p>
+                                    </li>
+                                    <li class="good">
+                                        <span>擅长:</span>
+                                        <p class="con">恋爱心理学、精神分析，尤其是面向大学生的讲座。</p>
+                                    </li>
+                                    <li class="hobby">
+                                        <span>兴趣主题:</span>
+                                        <ul class="con">
+                                            <li>
+                                                <span class="tit">生活：</span>
+                                                <span class="text">瑜伽、野生动物保护</span>
+                                            </li>
+                                            <li>
+                                                <span class="tit">工作:</span>
+                                                <span class="text">大学生心理健康、心理科研</span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="provide">
+                                        <span>能提供的:</span>
+                                        <ul class="con">
+                                            <li>大学生恋爱相关主题的讲座（可以线下或线上）；</li>
+                                            <li>人脉资源-国内顶尖心理督导师资源；</li>
+                                            <li>心理咨询帮助团队（校企合作形式）</li>
+                                        </ul>
+                                    </li>
+                                    <li class="want">
+                                        <span>需要:</span>
+                                        <ul class="con">
+                                            <li>资金（用于科研课题的数据收集）</li>
+                                            <li>想法（想打造一个火爆的线下沙龙，旨在让大学生直接感受到心理学的作用，从而更加相信心理学，最好是大学生恋爱主题）</li>
+                                            <li>场地（可容纳30人以上的心理活动室）</li>
+                                            <li>人员（统计学较好的老师，知道下实验设计方案及数据处理方案；此外，还需要有兴趣合作上述“打造爆款校园沙龙”项目的合作者）</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    #include("/inc/footer.html",goto=false)
+    <script>
+        $(function () {
+            var html = $(".classMate-right p span").html();
+            var size = html.length;
+            if (size > 40) {
+                $(".classMate-right p span").html(html.substr(0, 40) + "...")
+            }
+            $(".classMate-list li").click(function () {
+                $(".mask").css("display", "block");
+                $(".popup").css("display", "block");
+            })
+            $(".popup-score-close").click(function () {
+                $(".mask").css("display", "none");
+                $(".popup").css("display", "none");
+            })
+        })
+    </script>
+</body>
+
+</html>

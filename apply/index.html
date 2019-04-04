@@ -1,0 +1,356 @@
+<!Doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>响应式表单</title>
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<script src="rem.js"></script>
+	<link rel="stylesheet" href="bootstrapValidator.min.css">
+	<script src="../x-modify/plugin/jquery-1.12.1.min.js"></script>
+	<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	 crossorigin="anonymous">
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	 crossorigin="anonymous">
+	</script>
+	<style>
+		.container {
+			background: rgba(0, 0, 0, 0.5);
+			color: #fff;
+			background-size: cover;
+		}
+
+		form {
+			margin-top: 50px;
+		}
+
+		.form-control {
+			color: #fff;
+			background-color: rgba(0, 0, 0, 0.2);
+		}
+
+		input::-webkit-input-placeholder {
+			/* placeholder颜色  */
+			color: #fff;
+		}
+
+		input:-moz-placeholder {
+			/* Mozilla Firefox 4 to 18 */
+			color: #fff;
+		}
+
+		input::-moz-placeholder {
+			/* Mozilla Firefox 19+ */
+			color: #fff;
+		}
+
+		input:-ms-input-placeholder {
+			/* Internet Explorer 10+ */
+			color: #fff;
+
+		}
+	</style>
+</head>
+
+<body>
+	<!--做表单，行可以省，只写列-->
+	<div class="container" style="background:#e6e6e6">
+		<h2 class="text-center">心理健康社会工作职业技能培训(初级)考试报名表</h2>
+		<form class="form-horizontal" method="post" enctype="multipart/form-data" action="1.php">
+			<div class="form-group ">
+				<label for="exampleInputEmail1" class="col-md-3 text-right control-label">姓名:</label>
+				<div class="col-md-7">
+					<input type="text" class="form-control" id="exampleInputEmail1" placeholder="请输入姓名" name="username">
+				</div>
+			</div>
+			<div class="form-group ">
+				<label for="exampleInputEmail1" class="col-md-3 text-right control-label">性别:</label>
+				<div class="col-md-7">
+					<label class="radio-inline">
+						<input type="radio" name="sex" id="blankRadio1" value="1" aria-label="..." checked="checked">男
+					</label>
+					<label class="radio-inline">
+						<input type="radio" name="sex" id="blankRadio2" value="0" aria-label="...">女
+					</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">头像:</label>
+				<div class="col-md-7">
+					<input type="file" id="exampleInputFile" name="image">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">身份证号:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="idcard">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">民族:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="nation">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">联系电话:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="phone">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">电子邮箱:</label>
+				<div class="col-md-7">
+					<input type="email" id="exampleInputFile" class="form-control" name="email">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">政治面貌:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="status">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">工作单位:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="work">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">工作年限:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="workYear">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">通讯地址:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="address">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">邮编:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="postCode">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">职务:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="duty">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">毕业院校:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="school">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">专业:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control" name="major">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="exampleInputFile" class="col-md-3 text-right control-label">最后学历:</label>
+				<div class="col-md-7">
+					<input type="text" id="exampleInputFile" class="form-control">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class="col-md-3 text-right control-label">相关培训经历及证书情况</label>
+				<div class="col-md-7">
+					<textarea class="form-control" rows="4" name="credential"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class="col-md-3 text-right control-label">学术成果</label>
+				<div class="col-md-7">
+					<textarea class="form-control" rows="4" name="education"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="" class="col-md-3 text-right control-label">单位意见</label>
+				<div class="col-md-7">
+					<textarea class="form-control" rows="4" name="opinion"></textarea>
+				</div>
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
+
+		<!-- 有按钮效果的标签，<input type="button" value="按钮">或者<button>按钮</button>或者链接加按钮样式<a href="#">内容</a>-->
+
+
+
+	</div>
+	<script src="bootstrapValidator.min.js"></script>
+	<script>
+		$(function () {
+			$('form').bootstrapValidator({
+				message: 'This value is not valid',
+				feedbackIcons: {
+					valid: 'glyphicon glyphicon-ok',
+					invalid: 'glyphicon glyphicon-remove',
+					validating: 'glyphicon glyphicon-refresh'
+				},
+				fields: {
+					username: {
+						message: 'The username is not valid',
+						validators: {
+							notEmpty: {
+								message: '姓名不能为空！'
+							},
+							stringLength: {
+								min: 1,
+								max: 30,
+								message: 'The username must be more than 6 and less than 30 characters long'
+							},
+                            /*remote: {
+                                url: 'remote.php',
+                                message: 'The username is not available'
+                            },*/
+							regexp: {
+								regexp: /^[\u4e00-\u9fa5]+$/,
+								message: '姓名只能输入中文名'
+							}
+						}
+					},
+					image: {
+						validators: {
+							notEmpty: {
+								message: "头像不能为空！"
+							},
+							file: {
+								extension: 'png',
+								type: 'image/png',
+								message: 'Please choose a png file.'
+							}
+						}
+					},
+					// 身份证号
+					idcard: {
+						validators: {
+							notEmpty: {
+								message: "身份证号不能为空！"
+							},
+							stringLength: {
+								min: 18,
+								max: 18,
+								message: "身份证号长度必须为18位"
+							},
+							regexp: {
+								regexp: /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/,
+								message: "身份证号不正确"
+							}
+
+						}
+					},
+					// 民族
+					nation: {
+						validators: {
+							notEmpty: {
+								message: "民族不能为空！"
+							},
+							regexp: {
+								regexp: /^[\u4e00-\u9fa5]+$/,
+								message: '民族只能输入中文'
+							}
+						}
+					},
+					// 联系电话
+					phone: {
+						validators: {
+							notEmpty: {
+								message: "联系电话不能为空"
+							},
+							regexp: {
+								regexp: /^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/,
+								message: '联系电话有误'
+							}
+						}
+					},
+					email: {
+						validators: {
+							notEmpty: {
+								message: '邮箱不能为空'
+							},
+							emailAddress: {
+								message: 'The input is not a valid email address'
+							},
+							regexp: {
+								regexp: /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/,
+								message: "邮箱格式不正确"
+							}
+						}
+					},
+					//工作单位
+					work: {
+						validators: {
+							notEmpty: {
+								message: "工作单位不能为空！"
+							}
+						}
+					},
+					//工作年限
+					workYear: {
+						validators: {
+							notEmpty: {
+								massage: "工作年限不能为空"
+							}
+						}
+					},
+					// 通讯地址
+					address: {
+						validators: {
+							notEmpty: {
+								message: "通讯地址不能为空！"
+							}
+						}
+					}
+				}
+			}).on('success.form.bv', function (e) {
+				alert("成功");
+				// Prevent form submission
+				e.preventDefault();
+				console.log(e)
+				// Get the form instance
+				var $form = $(e.target);
+
+				// Get the BootstrapValidator instance
+				var bv = $form.data('bootstrapValidator');
+				var data = new FormData($form[0]);
+				console.log(data)
+				// Use Ajax to submit form data
+				// $.post($form.attr('action'), data, function (result) {
+				//     if(result==1){
+				// 		alert("报名成功")
+				// 	}else{
+				// 		alert("报名失败")
+				// 	}
+				// }, 'json');
+				$.ajax({
+					url: $form.attr('action'),
+					data: data,
+					type: "POST",
+					processData: false,// 不加会报错
+					contentType: false,// 不加会报错
+					success: function (res) {
+						if (res == 1) {
+							alert("报名成功")
+						} else {
+							alert("报名失败，请重试！")
+						}
+					}
+				})
+			});
+		});
+	</script>
+</body>
+
+</html>

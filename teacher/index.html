@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  #include("/inc/head.html",title="讲师")
+  <link rel="stylesheet" href="/css/cleft_ec22570.css">
+  <link rel="stylesheet" href="/css/loading_03ba72f.css">
+  <link rel="stylesheet" href="/css/systemmap_d104599.css">
+ </head> 
+ <body> 
+ #include("/inc/header.html",nav="teacher")
+  <div id="wrapper"> 
+   <div id="pager"> 
+    <div id="container"> 
+     <div class="wrap w-1000 mar-t20"> 
+     <div id="main" class="f_r">
+			<!--pathlist-->
+<div class="pathlist" style="">
+	
+		
+	
+	<div class="pathlist-box cf">
+		<!-- #for(t:obj.list) -->
+		<a class="pathlist-one cf" href="#(root)teacher/#(t.id)" target="_blank">
+			<!--  -->
+			<img src="#(www)#(t.img)" style="width: 100px;" alt="#(t.name)">
+			<div class="pathlist-txt" style="width: 276px;">
+				<h2>#(t.name)</h2>
+				<p>#(t.text)
+				</p>
+			</div>
+		</a>
+		<!-- #end -->
+	</div>
+	<div id="page-nav"></div>
+</div>
+<!--pathlist end-->
+
+			</div>
+      <div id="aside" class="f_l"> 
+       <ul class="hdlist"> 
+        <li> <a href="#(root)course/"> <i class="icon-course"></i>课程库 </a> </li> 
+        <li> <a class="curr" href="javascript:;"> <i class="icon-zstx-curr"></i>讲师 </a> </li> 
+        <li>
+        <a href="#(root)tag/">
+            <i class="icon-kcbq"></i>标签库
+        </a>
+    	</li>
+        <!--<li>
+        <a href="//www.jikexueyuan.com/tag/">
+            <i class="icon-kcbq"></i>课程标签
+        </a>
+    </li>--> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   
+   
+   #include("/inc/footer.html")
+<script type="text/javascript">
+layui.use(['laypage', 'layer','jquery'], function(){
+	  var laypage = layui.laypage
+	  ,layer = layui.layer;
+	  var $ = layui.jquery;
+laypage.render({
+  elem: 'page-nav'
+  ,count: #(obj.count??'0')
+  ,theme: '#35b558'
+  ,limit:24
+  ,curr:#(obj.pager.pageNumber??'1')
+  ,layout: [ 'prev', 'page', 'next']
+  ,jump: function(obj,first){
+  	if(!first){
+  		location.href="?page="+obj.curr;
+  	}
+  }
+});
+})
+</script>
+ </body>
+</html>

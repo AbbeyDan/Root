@@ -1,0 +1,344 @@
+if (!Array.prototype.every) {
+    Array.prototype.every = function(callbackfn, thisArg) {
+      'use strict';
+      var T, k;
+  
+      if (this == null) {
+        throw new TypeError('this is null or not defined');
+      }
+  
+      // 1. Let O be the result of calling ToObject passing the this 
+      //    value as the argument.
+      var O = Object(this);
+  
+      // 2. Let lenValue be the result of calling the Get internal method
+      //    of O with the argument "length".
+      // 3. Let len be ToUint32(lenValue).
+      var len = O.length >>> 0;
+  
+      // 4. If IsCallable(callbackfn) is false, throw a TypeError exception.
+      if (typeof callbackfn !== 'function') {
+        throw new TypeError();
+      }
+  
+      // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
+      if (arguments.length > 1) {
+        T = thisArg;
+      }
+  
+      // 6. Let k be 0.
+      k = 0;
+  
+      // 7. Repeat, while k < len
+      while (k < len) {
+  
+        var kValue;
+  
+        // a. Let Pk be ToString(k).
+        //   This is implicit for LHS operands of the in operator
+        // b. Let kPresent be the result of calling the HasProperty internal 
+        //    method of O with argument Pk.
+        //   This step can be combined with c
+        // c. If kPresent is true, then
+        if (k in O) {
+  
+          // i. Let kValue be the result of calling the Get internal method
+          //    of O with argument Pk.
+          kValue = O[k];
+  
+          // ii. Let testResult be the result of calling the Call internal method
+          //     of callbackfn with T as the this value and argument list 
+          //     containing kValue, k, and O.
+          var testResult = callbackfn.call(T, kValue, k, O);
+  
+          // iii. If ToBoolean(testResult) is false, return false.
+          if (!testResult) {
+            return false;
+          }
+        }
+        k++;
+      }
+      return true;
+    };
+  }
+
+$(function () {
+
+    //搜索所用参数
+     window.xs_www = typeof  window.xs_www !== 'undefined' ?  window.xs_www : "//www.xsteach.com";
+    var timer = null;
+   
+    var top_search_url =  window.xs_www+"/search/index";
+    var top_search_ajax_url =  window.xs_www+"/search/simple";
+    
+    var top_search_kw = null;
+    var top_search_ajax = null;
+    var top_search_cache = null;
+    var $top_search_input = $('#top_search input').eq(0);
+    var historyList = JSON.parse(localStorage.getItem('xs-history')) || []
+
+    /** 生成热门软件*/
+
+
+    //社区搜索
+    $('#top_search').on('submit', 'form:eq(0)', function(e){
+        if(top_search_ajax) top_search_ajax.abort();
+        if($.trim($top_search_input.val()) == '') {
+            $top_search_input.focus();
+            return false;
+        }
+        remeberSearch()
+    });
+    $('#top_search').on('keyup focus', 'input:eq(0)', function(e){
+        var val = $(this).val()
+        if(e.keyCode !== 13) {
+            if(val === '') {
+                topSearchHistory(true)
+            } else {
+                topSearchHistory(false)
+            }
+            if(timer) clearTimeout(timer);
+            timer = setTimeout(function(){
+                getTopSearch($top_search_input);
+            },500);
+        }
+    })
+    // $(document).click(function(evt) {
+    //     console.log(evt.target)
+    //     if(!$(evt.target).closest('.search-history').length) {
+            
+    //     }
+    // });
+    $(document).click(function(evt) {
+        if(!$(evt.target).closest('#top_search').length) {
+            $('#top_search .search-dropdown').hide();
+            topSearchHistory(false);
+        }
+    });
+
+    $(document).on('click','.search-dropdown .item a',function() {
+        remeberSearch()
+        $('#top_search .search-dropdown').hide();
+    })
+    $(document).on('click','.history-clear',function() {
+        historyList = [];
+        localStorage.removeItem('xs-history');
+        topSearchHistory(false)
+    })
+
+    /*
+     $('.search-input input').focus(function(evt){
+     $curWrap = $(this).closest('.search-wrap');
+     $('.search-wrap').not($curWrap).find('.search-dropdown').hide();
+     getTopSearch(this);
+     });
+     $('.search-wrap .btn-search').click(function(){
+     var obj = $(this).closest('.search-wrap').find('input');
+     topSearch(obj);
+     });
+     function topSearch(obj) {
+     var $obj = $(obj);
+     var val = $obj.val();
+     if($.trim(val) == '') {
+     $obj.focus();
+     return false;
+     }
+     window.location = top_search_url + "?q=" + encodeURIComponent(val);
+     }*/
+
+    function getTopSearch($input) {
+        var val = $input.val();
+        if($.trim(val) == '') {
+            $('#top_search').find('.search-dropdown').html('').hide();
+            return false;
+        }
+        var data = {
+            q: val
+        };
+        if(top_search_kw == val) {
+            topSearchShow(top_search_cache, $input);
+            return false;
+        }
+        top_search_kw = val;
+        
+        if(top_search_ajax) top_search_ajax.abort();
+        top_search_ajax = $.ajax({
+            url: top_search_ajax_url,
+            type: 'get',
+            dataType: 'jsonp',
+            data: data,
+            success: function(res) {
+                top_search_ajax = null;
+                var htm = topSearchResult(res);
+                top_search_cache = htm;
+                topSearchShow(htm, $input);
+                //console.dir(res);
+            }
+        });
+    }
+
+    function topSearchResult(data) {
+        var htm = '';
+        var course = '';
+        var post = '';
+        var user = '';
+        var package_class = '';
+
+        if(data['course_items'] && data['course_items'].length) {
+            for(i = 0; i < data['course_items'].length; i++) {
+                var val =  data['course_items'][i];
+                var courseDesc = !val.is_package?'<span>主讲老师：'+ val.teacher.name +' </span>':'<span>培训周期：'+ val.package.duration +'月 </span><span>'+ val.package.course_num +'门课程 </span>'
+                course += '<li><a href="'+ val.url+'"  target="_blank"><div class="pic"><img src="'+ val.image_url +'" alt="'+ val.name +'" title="'+ val.name +'"> </div><div class="cont"><p>'+ val.name +'</p><p class="info">'+ courseDesc +'</p></div></a></li>';
+            }
+        }
+
+        if(data['posts_items'] && data['posts_items'].length) {
+            for(i = 0; i < data['posts_items'].length; i++) {
+                var val =  data['posts_items'][i];
+                post += '<li> <a href="' +val.url+'" target="_blank">' + val.name + '</a></li>';
+            }
+        }
+
+        if(data['user_items'] && data['user_items'].length) {
+            for(i = 0; i < data['user_items'].length; i++) {
+                var val =  data['user_items'][i];
+                user += '<li> <a href="' +  val.url +'"  target="_blank"><div class="pic"><img src="'+ val.image_url +'" alt="'+ val.username +'" title="'+ val.username +'"></div><div class="cont"><p>'+ val.username +'</p><p class="info"><span>发贴：'+ val.posts_statistics.posts_num +' </span><span>帅气值：'+ val.account.h_points +' </span><span>被赞：'+ val.posts_statistics.support_num +'</span></p></div></a></li>';
+            }
+        }
+
+        // if(data['post'] && data['post']['result'].length) {
+        //     for(i = 0; i < data['post']['result'].length; i++) {
+        //         var val =  data['post']['result'][i];
+        //         post += '<li> <a href="' + xs_bbs + '/forum/topic?tid='+ val.id+'" target="_blank">' + val.subject + '</a></li>';
+        //     }
+        // }
+
+      
+        // if(data['user'] && data['user']['result'].length) {
+        //     for(i = 0; i < data['user']['result'].length; i++) {
+        //         var val =  data['user']['result'][i];
+        //         user += '<li> <a href="' +  window.xs_www + '/home/'+ val.id +'"  target="_blank"><div class="pic"><img src="'+ val.avatar +'" alt="'+ val.username +'" title="'+ val.username +'"></div><div class="cont"><p>'+ val.username +'</p><p class="info"><span>发贴：'+ val.postCount +' </span><span>帅气值：'+ val.shuaiqi +' </span><span>被赞：'+ val.praise +'</span></p></div></a></li>';
+        //     }
+        // }
+        // if(data['package'] && data['package']['result'].length) {
+        //     for(i = 0; i < data['package']['result'].length; i++) {
+        //         var val =  data['package']['result'][i];
+        //         package_class += '<li><a href="' + val.url +'"  target="_blank"><div class="pic"><img src="'+ val.img_url +'" alt="'+ val.name +'" title="'+ val.name +'"> </div><div class="cont"><p>'+ val.name +'</p><p class="info"><span>培训周期：'+ val.duration +"个月   &nbsp;"+ val.course_count +'门课程 </span></p></div></a></li>';
+        //     }
+        // }
+
+        if (course) {
+            htm += '<div class="item"><div class="hd"><h3>课程</h3></div><div class="bd"><ul class="pic-text search-course">' + course + '</ul></div></div>';
+        }
+        if (package_class) {
+            htm += '<div class="item"><div class="hd"><h3>技能班</h3></div><div class="bd"><ul class="pic-text search-course">' + package_class + '</ul></div></div>';
+        }
+        if(user) {
+            htm += '<div class="item"><div class="hd"><h3>用户</h3></div><div class="bd"><ul class="pic-text search-user">' + user + '</ul></div></div>';
+        }
+        if(post) {
+            htm += '<div class="item"><div class="hd"><h3>贴子</h3></div><div class="bd"><ul>' + post + '</ul></div></div>';
+        }
+     
+
+
+        return htm;
+    }
+
+
+    function topSearchShow(htm, $input) {
+        var $wrap = $('#top_search');
+        if($wrap.find('.search-dropdown').length) {
+            $search = $wrap.find('.search-dropdown')
+        } else {
+            $search = $('<div class="search-dropdown"></div>');
+            $wrap.append($search);
+        }
+        _q = $input.val();
+        if(_q) {
+            _blank = $input.closest('.top-search').length ? ' target="_blank"' : ''
+            if(htm) {
+                htm += '<a class="view-block" href="'+ top_search_url +'?q='+ _q +'" '+ _blank +' >查看全部搜索结果</a>';
+            } else {
+                htm += '<span class="view-block sear-none" '+ _blank +'>没有搜索结果</span>';
+            }
+            $search.html(htm).show();
+        } else {
+            $search.html('').hide();
+        }
+    }
+    /**
+     * 
+     * @param {*} isShow 
+     * @param {*} list { title,type,link} 
+     */
+    function topSearchHistory(isShow) {
+        var $wrap = $('#top_search');
+        if($wrap.find('.search-history').length) {
+            $search = $wrap.find('.search-history')
+        } else {
+            $search = $('<div class="search-history"></div>');
+            $wrap.append($search);
+        }
+        if(!isShow) {
+            $search.hide();  
+        } else {
+            var htm = '';
+            htm = typeof historyList!=='undefined'&&topSearchHistoryItem(historyList,'历史搜索',htm)||htm
+            htm = typeof popularSearch!=='undefined'&&topSearchHistoryItem(popularSearch,'热门搜索',htm)||htm
+            htm = typeof popularSoftware!=='undefined'&&topSearchHistoryItem(popularSoftware,'热门软件',htm)||htm
+            if(htm) {
+                var clearHtm = ''
+                if(historyList.length) {
+                    clearHtm = '<a class="history-clear" href="javascript:;"><i class="iconfont-hd">&#xe64e;</i> 清空</a>';
+                }
+                $search.html('<dl>'+clearHtm+htm+'</dl>')
+            }
+            $search.show();
+        }
+    }
+
+    function topSearchHistoryItem(list,title,htm) {
+        var list = (typeof list!=='undefined'&&list)||[];
+        if(list&&list.length) {
+            htm+='<dt>'+title+'</dt>';
+            for(var i=0,len=list.length;i<len;i++) {
+                var li = list[i]
+                htm+='<dd><a href="'+li.link+'" target="_blank">'+li.title+'</a></dd>';
+            }
+        }
+        return htm
+    }
+
+    (function createPopularSoftware () {
+        if(typeof popularSoftware!=='undefined'&&popularSoftware.length) {
+            var p = $(".search-hot");
+            var htm = '';
+            for(var i=0,len=popularSoftware.length;i<len;i++) {
+                var popularItem = popularSoftware[i]
+                htm+='<a href="'+popularItem.link+'" target="_blank" >'+popularItem.title+'</a>'
+            }
+            if(htm) {
+                htm = '<p class="search-hot"><span>热门软件：</span>'+htm+'</p>';
+            }
+            $('.search-wrap form').append(htm)
+        }
+    }())
+
+    function remeberSearch() {
+        var title = top_search_kw.trim();
+        if(!title) return;
+        var link = top_search_url + "?q=" + encodeURIComponent(top_search_kw);
+        if (historyList.every(function(item) {
+            return item.title !== title
+        })) {
+            if(historyList.length>=5) {
+                historyList.pop()
+            }
+
+            historyList.unshift({ title:title,link:link });
+            localStorage.setItem('xs-history',JSON.stringify(historyList));
+        }
+     
+    }
+});

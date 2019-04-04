@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="学习中心")
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/my-lesson.css">
+ </head> 
+ <body class="es-main-default es-nav-white my-course cd-design"> 
+  #include("/inc/header.html",tab="my")
+  <div class="es-wrap"> 
+   <div id="content-container" class="container"> 
+    
+    <div class="row row-3-9 my-layout"> 
+     <div class="col-md-3"> 
+      <div class="sidenav"> 
+        <ul class="list-group">
+          <li class="list-group-heading">账户中心</li>
+          <li class="list-group-item">
+            <a href="/user/play">播放记录</a>
+          </li>
+          <li class="list-group-item  active ">
+            <a href="/my/">我的课程</a>
+          </li>
+          <li class="list-group-item " style="display:none">
+            <a href="/user/proCenter">Pro会员中心</a>
+          </li>
+          <li class="list-group-item " style="display:none">
+            <a href="/user/collect">我的收藏</a>
+          </li>
+          <li class="list-group-item">
+            <a href="/user/orders">我的订单</a>
+          </li>
+          <li class="list-group-item ">
+            <a href="/user/point">我的积分</a>
+          </li>
+          <li class="list-group-heading"> 个人设置 </li>
+          <li class="list-group-item">
+            <a href="/user/">个人信息</a>
+          </li>
+          <li class="list-group-item">
+            <a href="/msg/">系统消息</a>
+          </li>
+        </ul> 
+      </div> 
+     </div> 
+     <div class="col-md-9"> 
+      <div class="panel panel-default panel-col"> 
+       <div class="panel-heading">
+         我的课程 
+        <a class="btn cd-btn cd-btn-info cd-btn-sm pull-right" href="/zb/list">直播课表</a> 
+       </div> 
+       <div class="panel-body"> 
+        <ul class="cd-tabs"> 
+         <li ><a href="/my/">全部课程</a></li> 
+         <li class="active"><a href="/my/pro">PRO课程</a></li> 
+         <li ><a href="/my/combo">套餐课程</a></li> 
+        </ul> 
+        <!-- #for(c:obj) -->
+        <div class="my-course-item cd-mb40 clearfix"> 
+         <a class="my-course-item__link" href="/course/#(c.id)"> 
+           <!-- #if(c.price=="0") -->
+           <i class="vip-icon" style="background-image: none; background-color: #4caf50; color: white;">#(c.type)</i>
+           <!-- #else -->
+           <i class="vip-icon" style="background-image: none; background-color: rgb(224, 61, 49); color: white;">#(c.type)</i>
+           <!-- #end --> 
+          <img src="#(www)#(c.img)" onerror="this.src='/img/wutu.png'" alt="课程" class="my-course-item__picture" > <span class="my-course-item__label"> </span> <i class="playericon"></i></a> 
+         <div class="my-course-item__info"> 
+          <div class="my-course-item__title text-overflow"> 
+           <a class="cd-link-major" href="/course/#(c.id)">#(c.title)</a> 
+          </div> 
+          <div>
+          <br/>
+          <span>#(c.text)</span>
+          </div>
+          <div>
+          <br/>
+          <span>#(c.price)</span>
+          </div>
+         </div> 
+         <div class="my-course-item__btn"> 
+          <a class="btn cd-btn cd-btn-primary cd-btn-lg" href="/course/#(c.id)">查看详情</a> 
+         </div> 
+        </div> 
+        <!-- #end -->
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  #include("/inc/footer.html",goto=false)
+  <script>
+    $(function () {
+      var type;
+      $(".cd-tabs li").click(function () {
+        console.log(type)
+        type = $(this).find("input").attr("value");
+        $(".panel-body>div").css("display", "none")
+        $(".panel-body>." + type).css("display", "block")
+      })
+      $(".panel-body .my-course-item").hover(function () {
+        $(this).find(".playericon").css("display", "block")
+      }, function () {
+        $(this).find(".playericon").css("display", "none")
+      })
+    })
+  </script>
+ </body>
+</html>

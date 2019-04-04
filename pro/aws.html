@@ -1,0 +1,1272 @@
+<!doctype html>
+<html lang="en">
+ <head> 
+  <meta name="renderer" content="webkit"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <meta charset="utf-8"> 
+  <meta name="keywords" content="AWS云计算、免费云计算、云计算在线、云存储在线、AWS免费、AWS云存储、AWS大数据"> 
+  <meta name="description" content="与AWS云专家一起动手实践：AWS云计算公开课由AWS资深技术讲师和解决方案架构师合力打造而成。 
+这里不仅有云计算知识干货分享，更有AWS专家指导性动手实验教学。"> 
+  <title>心教育学院 -- AWS 云计算公开课</title> 
+  <!-- header --> 
+  <!-- header end --> 
+  <!-- style --> 
+  <link rel="stylesheet" type="text/css" href="css/aws_v1.css"> 
+  <link rel="stylesheet" type="text/css" href="css/video-js-cdn.min.css"> 
+  <!-- style end --> 
+ </head> 
+ <body> 
+  <script type="text/javascript" src="js/growingio.js"></script> 
+  <script type="text/javascript" src="js/mask.js"></script> 
+  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/header.min.js"></script> 
+  <script type="text/javascript" src="js/web_socket.js"></script> 
+  <script type="text/javascript" src="js/websocket.js"></script> 
+  <div id="header_top_notice"></div> 
+  <div id="jk-header"> 
+   <div class="header"> 
+    <h1> <a href="//www.jikexueyuan.com" class="logo"> <img src="images/logo.png" width="100" alt="心教育学院"> </a> </h1> 
+    <nav style="width:490px;"> 
+     <ul> 
+      <li> <a href="//www.jikexueyuan.com" class="home">首页</a> </li> 
+      <li class="careerpath"> <a href="//www.jikexueyuan.com/zhiye/">职业</a><i class="slide-icon"></i> 
+       <div class="zhiye-submenu slide-submeu"> 
+        <strong>前端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/web"><i class="web-icon"></i>Web前端工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/wechatapp"><i class="wx-icon"></i>微信小程序</a> 
+        <strong>移动端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/android"><i class="android-icon"></i>Android工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/ios"><i class="ios-icon"></i>iOS工程师</a> 
+        <strong>后端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/python"><i class="python-icon"></i>Python工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/php"><i class="php-icon"></i>PHP工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/go"><i class="golang-icon"></i>Golang工程师</a> 
+        <strong>大数据</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/bigdata"><i class="data-icon"></i>大数据平台研发工程师</a> 
+        <strong>人工智能</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/ml"><i class="mlearning-icon"></i>机器学习工程师</a> 
+        <strong>区块链</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/blockchain"><i class="yw-icon"></i>区块链工程师</a> 
+        <!--<a href="#"><i class="yw-icon"></i>运维工程师</a>
+								<a href="#"><i class="xmjl-icon"></i>项目经理</a>--> 
+        <strong>设计</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/ux"><i class="ui-icon"></i>UI/UX设计师</a> 
+       </div> </li> 
+      <li> <a href="//www.jikexueyuan.com/course/">课程</a><i class="slide-icon"></i> 
+       <div class="slide-submeu"> 
+        <a href="//www.jikexueyuan.com/course/">课程库</a> 
+        <a href="//ke.jikexueyuan.com/zhiye/">职业路径</a> 
+        <a href="//www.jikexueyuan.com/path/">知识体系图</a> 
+        <a href="//ke.jikexueyuan.com/xilie/">系列课程</a> 
+       </div> </li> 
+      <li> <a href="//www.jikexueyuan.com/partner">企业</a><i class="slide-icon"></i> 
+       <div class="slide-submeu qy-box"> 
+        <a href="//zt.jikexueyuan.com/microsoftai"><i class="wr-icon"></i>微软人工智能 </a> 
+        <a href="//zt.jikexueyuan.com/baiduai"><i class="baidu-icon"></i>百度AI图像技术课</a> 
+        <a href="//zt.jikexueyuan.com/aws"><i class="aws-icon"></i>AWS云计算</a> 
+        <a href="//zt.jikexueyuan.com/qcloud"><i class="txy-icon"></i>腾讯云课程专区</a> 
+        <a href="//zt.jikexueyuan.com/qualcomm"><i class="gt-icon"></i>Qualcomm公开课 </a> 
+        <a href="//zt.jikexueyuan.com/b" class="youke-nav"><i class="youke-icon bounce"></i>企业合作新模式</a> 
+       </div> </li> 
+      <li> <a href="//wiki.jikexueyuan.com/">社区</a><i class="slide-icon"></i> 
+       <div class="slide-submeu"> 
+        <a href="//wiki.jikexueyuan.com/">Wiki</a> 
+        <a href="//wenda.jikexueyuan.com/">技术问答</a> 
+        <!--<a href="//qun.jikexueyuan.com/">社群</a>
+						<a href="//download.jikexueyuan.com/">资料下载</a>--> 
+       </div> </li> 
+     </ul> 
+    </nav> 
+    <div class="search"> 
+     <input class="searchinput" id="searchinput" placeholder="搜索课程、问答或Wiki"> 
+     <span class="search-icon" id="search-bottom"></span> 
+     <div class="search-result"> 
+      <!-- <a href="javascript:;" class="search-hot">热门搜索 <span class="label label-green">职业课程</span></a>
+				<a href="javascript:;">hello world <span class="label label-blue">知识图谱</span></a>
+				<a href="javascript:;">hello world <span class="label label-purple">系列课程</span></a> --> 
+     </div> 
+    </div> 
+    <div class="nav-other" id="nav-other"> 
+     <div class="centerbox" style="display: none;"> 
+      <a href="//xue.jikexueyuan.com/" class="learn-center" title="学习中心"></a> 
+     </div> 
+     <div class="centerbox" style="display: none;"> 
+      <a href="//www.jikexueyuan.com/member/notifications/" class="message" id="message" title="消息中心"><i class="have" id="have" style="display: none;"></i></a> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <!-- main content --> 
+  <!-- 顶部 --> 
+  <div class="AWS-banner"></div> 
+  <!-- 浮动导航 --> 
+  <div class="AWS-nav"> 
+   <div class="wrap"> 
+    <ul class="cf"> 
+     <li data-nav="AWS-operate" class="active">AWS服务操作指南</li> 
+     <li data-nav="AWS-service">AWS服务应用课程</li> 
+     <li data-nav="AWS-cloud">了解AWS云产品</li> 
+     <li data-nav="AWS-activity">福利与活动专区</li> 
+    </ul> 
+   </div> 
+  </div> 
+  <!-- 介绍 --> 
+  <div class="AWS-intro"> 
+   <div class="wrap"> 
+    <div class="left-contain"> 
+     <h3>与AWS云专家一起动手实践</h3> 
+     <span class="bottom-line"></span> 
+     <p>AWS云计算公开课由AWS资深技术讲师和解决方案架构师合力打造而成。 <br ／>这里不仅有云计算知识干货分享，更有AWS专家指导性动手实验教学。</p> 
+    </div> 
+    <div class="right-contain"> 
+     <a href="javascript:void(0)" id="toAwsCloud" data-nav="AWS-cloud">了解 AWS 云产品 &gt;&gt;</a> 
+     <p>如果你是初次学习云计算，请先了解相关的云计算知识，以及熟悉AWS云产品。</p> 
+    </div> 
+   </div> 
+  </div> 
+  <!-- 视频课程 --> 
+  <div class="AWS-lesson-list"> 
+   <div class="wrap"> 
+    <div class="AWS-lesson" id="AWS-operate"> 
+     <h2>AWS 服务操作指南</h2> 
+     <span class="bottom-line"></span> 
+     <p class="description">本系列课程将会通过展示和实操的方式，让你快速上手，搭建自己的云架构。<a href="https://amazonaws-china.com/cn/free/" target="_blank"> 申请AWS全球账号并获取免费套餐</a> &nbsp;|&nbsp; <a href="https://www.amazonaws.cn/signup/?sc_channel=el&amp;sc_campaign=onlineedu_video&amp;sc_publisher=jikexueyuan&amp;sc_country=cn&amp;sc_geo=chna&amp;sc_category=mult&amp;sc_outcome=field&amp;trkCampaign=request_for_pilot_account&amp;trk=jikexueyuan-link" target="_blank">申请AWS中国（北京）区域账号</a></p> 
+     <ul class="lesson-video cf"> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3803.html" target="_blank"> <img src="images/597808e826a48.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3803.html" target="_blank">AWS 入门—教你快速开始使用 AWS</a> </h2> 
+        <p>本课程将手把手教你如何从”零“开始，开启 AWS 上的云计算之旅。内容将涵盖对 AWS 的简单介绍和 AWS 核心服务（例如 Amazon S3, Amazon EC2）的使用,并分步演示如何利用这些服务在云中搭建虚拟机、备份和恢复数据等等。 </p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>6课时 44分钟</em> 
+            <em>5328人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3740.html" target="_blank"> <img src="images/596588dc6d439.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3740.html" target="_blank">AWS 云中云存储服务</a> </h2> 
+        <p>本课程中，AWS 架构师手把手教您使用云存储服务，让你快速上手 AWS 云存储服务。学完本课，你将理解基本的 S3 功能，建立S3的生命周期规则和存储服务。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>7课时 60分钟</em> 
+            <em>2228人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3741.html" target="_blank"> <img src="images/59658cc269201.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3741.html" target="_blank">AWS 云中弹性计算服务（虚拟机EC2）</a> </h2> 
+        <p>本课程 AWS 架构师将手把手教你使用 AWS 云中的计算类服务。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>6课时 56分钟</em> 
+            <em>2183人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3742.html" target="_blank"> <img src="images/59658e2f5170d.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3742.html" target="_blank">AWS 云中的负载均衡 ELB</a> </h2> 
+        <p>本课程讲述如何实现在多个 Amazon EC2 实例之间自动分配应用程序的传入流量。应用程序负载均衡器可将流量路由至多个服务，也可在同一 EC2 实例的多个端口之间进行负载均衡。 </p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>3课时 40分钟</em> 
+            <em>2125人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3743.html" target="_blank"> <img src="images/59658eae4c3b4.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3743.html" target="_blank">AWS 云中的关系型数据库服务 RDS（上）</a> </h2> 
+        <p>本课程讲解 Amazon RDS 在多种类型的数据库实例 （针对内存、性能或 I/O 进行了优化的实例） ，并提供六种常用的数据库引擎供您选择，包括 Amazon Aurora、PostgreSQL、MySQL、MariaDB、Oracle 和 Microsoft SQL Server。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>2课时 22分钟</em> 
+            <em>1845人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/4068.html" target="_blank"> <img src="images/59f00dbfa5973.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4068.html" target="_blank">AWS云中的关系型数据库服务 RDS （下）—使用 Amazon RDS创建数据库</a> </h2> 
+        <p>本期课程讲述AWS云中的负载均衡服务RDS（Amazon Relational Database Service ）。 AWS 云提供六种常用数据库引擎以供选择的托管关系数据库。只需单击数下，即可在云中设置、运行和扩展关系数据库。Amazon RDS 在多种类型的数据库实例 (针对内存、性能或 I/O 进行了优化的实例、) 上均可用，并提供六种常用的数据库引擎供您选择，包括 Amazon Aurora、PostgreSQL、MySQL、MariaDB、Oracle 和 Microsoft SQL Server。您可以使用 AWS Database Migration Service 轻松将您现有的数据库迁移或复制到 Amazon RDS。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>6课时 41分钟</em> 
+            <em>1610人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3744.html" target="_blank"> <img src="images/59659064ac204.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3744.html" target="_blank">AWS 云中的网络服务</a> </h2> 
+        <p>本课程讲述 AWS 云中网络服务 VPC，你在 VPC 中既可以使用 IPv4，也可以使用 IPv6，从而实现安全而轻松的资源访问和应用程序访问。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>6课时 60分钟</em> 
+            <em>1895人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3739.html" target="_blank"> <img src="images/596590c8311cc.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3739.html" target="_blank">AWS 云账单服务</a> </h2> 
+        <p>本课程中，AWS 架构师将通过实际操作讲述如何使用 AWS 云服务计费规则进行成本估算、通过控制台查看账单。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>3课时 24分钟</em> 
+            <em>1678人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3959.html" target="_blank"> <img src="images/59b0bd9a2afb3.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3959.html" target="_blank">AWS 云中的访问控制</a> </h2> 
+        <p>本课程将通过实际演示讲解 IAM 的介绍，以及如何创建一个 IAM 用户和用户组，使你能够安全地控制用户对 Amazon AWS 服务和资源的访问权限。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>3课时 35分钟</em> 
+            <em>1692人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3960.html" target="_blank"> <img src="images/59b0bdc2d2858.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3960.html" target="_blank">AWS 云中的自动化部署</a> </h2> 
+        <p>本课程中将通过实际演示讲述 AWS CloudFormation 如何快速创建 AWS 资源以及 AWS Cloudformation 的组成。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>3课时 19分钟</em> 
+            <em>2054人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/4066.html" target="_blank"> <img src="images/59f0086a0972f.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4066.html" target="_blank">AWS云中的内容分发设计</a> </h2> 
+        <p>本课程中，AWS技术专家将会通过展示和实操的方式带您了解如何在管理控制台中对相关的AWS服务进行配置和操作，从而让您快速上手开始搭建自己的云架构。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>3课时 29分钟</em> 
+            <em>1688人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/4067.html" target="_blank"> <img src="images/59f00d7487ad9.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4067.html" target="_blank">AWS Lambda 无服务器计算</a> </h2> 
+        <p>Lambda是AWS提供的一款无服务器计算服务。您不需要管理服务器、不需要安装操作系统、不需要维护运行时环境、不需要担心应用的可用性和扩展性。本课程讲解Lambda的作用介绍， 如何撰写一个lambda 程序，使用Lambda的几个案例分享，只需上传您的代码，Lambda 会处理运行和扩展高可用性代码所需的一切工作。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>4课时 50分钟</em> 
+            <em>1582人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>中级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/4069.html" target="_blank"> <img src="images/59f00de97270b.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4069.html" target="_blank">Amazon EC2 Container Service (ECS) 介绍</a> </h2> 
+        <p>本课程Amazon EC2 Container Service介绍，教您快速使用ECS 运行服务，和上传ECS 镜像。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>3课时 36分钟</em> 
+            <em>1792人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>中级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/4071.html" target="_blank"> <img src="images/59f1c9596091d.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4071.html" target="_blank">AWS云中的设计高可用架构-弹性和高可用的思考</a> </h2> 
+        <p>本课程中，AWS技术专家将会通过展示和实操的方式带您了解如何在管理控制台中对相关的AWS服务进行配置和操作，从而让您快速上手开始搭建自己的云架构。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>4课时 30分钟</em> 
+            <em>1829人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/4070.html" target="_blank"> <img src="images/59f1c8b25e550.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4070.html" target="_blank">AWS EC2 RI 基本介绍</a> </h2> 
+        <p>本课程对AWS EC2 RI的基本介绍及购买方法。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>2课时 7分钟</em> 
+            <em>1865人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/4101.html" target="_blank"> <img src="images/5a13b8e2a13cf.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4101.html" target="_blank">无服务器架构系列讲解 - Lambda + API Gateway</a> </h2> 
+        <p>Lambda是AWS提供的一款无服务器计算服务。您不需要管理服务器、不需要安装操作系统、不需要维护运行时环境、不需要担心应用的可用性和扩展性。本课程主要会以Demo形式讲解AWS Lambda的概念，编程模型、并发问题、版本控制 ，怎么构建Lambda函数， 配合DynamoDB进行数据库交互，配合S3进行事件触发（图片压缩、水印等），配合Kinesis就行实时流数据处理，配合SNS就行消息通知事件触发等，以及如何构建一个动态交互式网站。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>13课时 88分钟</em> 
+            <em>1896人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>中级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+     </ul> 
+    </div> 
+    <div class="AWS-lesson" id="AWS-service"> 
+     <h2>AWS 服务应用课程</h2> 
+     <span class="bottom-line"></span> 
+     <p class="description">本系列课程你将会学习到如何通过AWS的相关服务的组合，来解决在行业和业务应用场景中的问题，让云计算能够更好的支持业务的发展。</p> 
+     <ul class="lesson-video"> 
+      <h3> <img src="images/icon-01.png"> <span>云服务部署 &amp; 迁移</span> </h3> 
+      <ul class="lesson-video cf"> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/3753.html" target="_blank"> <img src="images/5965dd45a4144.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3753.html" target="_blank">AWS 云上数据库迁移</a> </h2> 
+         <p>本课程向大家讲述数据库迁移到云的方法，数据库平台重构的可用选项，云上数据库迁移的最佳实践和注意事项，以及 AWS 数据库迁移工具（DMT）的使用方法。</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>2课时 42分钟</em> 
+             <em>2316人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>初级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/3752.html" target="_blank"> <img src="images/5965d791abe4f.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3752.html" target="_blank">AWS 云上大规模迁移的最佳实践</a> </h2> 
+         <p>本课程通过 AWS 的最佳实践，能够帮助企业业务以高效方式实现线下数据中心迁移到 AWS 云上环境，包括迁移战略，迁移方法，迁移规划和迁移执行。 </p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>2课时 51分钟</em> 
+             <em>1902人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>初级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/4072.html" target="_blank"> <img src="images/59f1ca993565c.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4072.html" target="_blank">在混合云模式中现代化您的微软应用程序</a> </h2> 
+         <p>本课程将介绍混合云方法的各种好处。通过探索客户的成功案例，了解混合云方法带来哪些好处；了解如何通过Amazon Elastic Compute Cloud（EC2）削减成本；了解如何提高安全性而不影响性能。</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>5课时 39分钟</em> 
+             <em>1752人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>中级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/4110.html" target="_blank"> <img src="images/5a3cb3e2a168c.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4110.html" target="_blank">AWS云计算-加速企业数据迁移上云</a> </h2> 
+         <p>课程将结合实际案例，为您介绍如何在AWS云上部署应用，以及如何实现从传统数据中心向云端的迁移。</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>3课时 43分钟</em> 
+             <em>347人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>中级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/4119.html" target="_blank"> <img src="images/5a5416bdead90.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4119.html" target="_blank">使用 AWS 降低总拥有成本 (TCO)</a> </h2> 
+         <p>了解TCO的大致概念； 介绍传统数据中心的典型成本框架； 分析传统数据中心在降低TCO上面临的挑战； 了解AWS的定价基础 介绍AWS如何帮助客户降低TCO及具体方法； 简略介绍通过优化不断提升AWS云经济性的途径；</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>4课时 36分钟</em> 
+             <em>989人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>中级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/4206.html" target="_blank"> <img src="images/5b8e626d6c600.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4206.html" target="_blank">AWS云计算—数据迁移服务</a> </h2> 
+         <p>在客户迁移上云的过程中，数据库迁移往往是最为重要、复杂的一环。 AWS 近期在中国区推出了DMS服务，用于同构和异构数据库迁移。我们将介绍 AWS的SCT和DMS服务，演示从Oracle迁移数据到mysql的操作。通过这个视频， 技术人员可以了解DMS 服务的基本流程，迈出使用DMS数据迁移上AWS的第一步。 </p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>3课时 47分钟</em> 
+             <em>124人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>初级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </ul> 
+     <ul class="lesson-video"> 
+      <h3> <img src="images/icon-02.png"> <span>AI-人工智能系列课程</span> </h3> 
+      <ul class="lesson-video cf"> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/3748.html" target="_blank"> <img src="images/5965943354211.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3748.html" target="_blank">AWS 云计算对于 AI 的影响及改变</a> </h2> 
+         <p>本课程是 AWS re:Invent 2016 Recap 广州站活动，包括 AWS 云计算对于 AI 的影响及改变；人工智能在广告素材优化，游戏设计，线下零售，语言教学等方面的应用；案例分析和搭建架构的分享。 </p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>2课时 33分钟</em> 
+             <em>2121人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>初级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/3750.html" target="_blank"> <img src="images/596596599eff0.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3750.html" target="_blank">AWS 上的人工智能和深度学习</a> </h2> 
+         <p>本课程是 AWS re:Invent 2016 Recap 上海站活动，由 AWS 架构师分享了 AWS 上的人工智能和深度学习，其中包括最新的卷积神经网络模型。</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>2课时 36分钟</em> 
+             <em>3323人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>初级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/3751.html" target="_blank"> <img src="images/5965c20d2f215.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3751.html" target="_blank">AWS 人工智能新服务解析—Rekognition、Polly 及 Lex 服务</a> </h2> 
+         <p>本课程是 AWS re:Invent 2016 Recap 北京站活动分享了 AWS 人工智能新服务专场，分享了深度学习在多个领域中推动人工智能的发展，以及如何在商业中取得成功。</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>2课时 46分钟</em> 
+             <em>4401人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>初级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/4111.html" target="_blank"> <img src="images/5a3cb4d56961e.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4111.html" target="_blank">AWS云计算-Amazon ML 机器学习实战</a> </h2> 
+         <p>想了解如何通过AWS满足您的业务需求？我们将在本课程中介绍面向各种应用场景的云服务及其搭建和使用方法，让AWS为您的业务应用提供高性能、低成本、安全的基础设施解决方案。 </p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>6课时 79分钟</em> 
+             <em>550人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>中级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </ul> 
+     <!-- 20171227 zhangerlong code --> 
+     <ul class="lesson-video"> 
+      <h3> <img src="images/icon-03.png" style="width: 22px;height:25px;"> <span>云安全 &amp; 数据分析</span> </h3> 
+      <ul class="lesson-video cf"> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/4112.html" target="_blank"> <img src="images/5a3cb56d58360.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4112.html" target="_blank">AWS云安全-数据加密和密钥管理</a> </h2> 
+         <p>本课程了解AWS在安全防御领域的技术、解决方案、客户案例以及精彩在线演示。其中，讲解了动态和静态数据的加密保护和密钥管理；并介绍AWS KMS服务、AWS CloudHSM 最佳实践。</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>6课时 87分钟</em> 
+             <em>532人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>中级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/4113.html" target="_blank"> <img src="images/5a3cb610f05c3.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4113.html" target="_blank">云上的数据分析-实时流处理在AWS上的实现与实践</a> </h2> 
+         <p>本课程讲解了AWS上的数据分析的技术云架构，解决方案、客户案例以及精彩在线演示。让如何解决您遇到数据处理的问题，大数据架构应遵循怎样的架构。</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>5课时 58分钟</em> 
+             <em>591人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>中级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li> 
+        <div class="lessonimg-box"> 
+         <a href="http://www.jikexueyuan.com/course/4135.html" target="_blank"> <img src="images/5aa8b685a69eb.jpg" class="lessonimg"> 
+          <div class="lessonplay">
+           <i class="playericon"></i>
+          </div> </a> 
+        </div> 
+        <div class="lesson-infor"> 
+         <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4135.html" target="_blank">AWS云计算数据搜索与分析--- Amazon Elasticsearch</a> </h2> 
+         <p>本课程主要讲解Amazon Elasticsearch作为一项完全托管的数据搜索和分析服务，它的技术优势和典型的应用场景，然后通过示例一步步指导如何轻松创建，访问、管理和维护Amazon Elasticsearch集群以及通过Amazon Elasticsearch内嵌的kibana进行数据展示。</p> 
+         <div class="timeandicon"> 
+          <div class="cf"> 
+           <dl> 
+            <dd class="mar-b8">
+             <i class="time-icon"></i>
+             <em>4课时 46分钟</em> 
+             <em>1514人学习</em>
+            </dd> 
+            <dd class="zhongji">
+             <i class="xinhao-icon"></i>
+             <em>中级</em>
+            </dd> 
+           </dl> 
+          </div> 
+          <div class="cf"> 
+           <div class="lessonicon-box"> 
+            <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+      </ul> 
+     </ul> 
+     <!-- 20171227 zhangerlong code  end--> 
+    </div> 
+    <div class="AWS-lesson" id="AWS-cloud"> 
+     <h2>了解 AWS 云产品</h2> 
+     <span class="bottom-line"></span> 
+     <p class="description">若你对AWS了解不多，这将是你学习AWS服务操作指南与AWS服务应用课程之前的必备课程。我们会为你深入解读AWS云产品。</p> 
+     <div class="play-video-contain"> 
+      <div class="video-contain"> 
+       <video id="video" class="video-js vjs-big-play-centered" controls="controls" width="430" height="245" poster="/Public/home/static/201707amazon_aws/images/video-cover.png"> 
+        <source src="http://jiuye-res.jikexueyuan.com/others/20170711/ba0ffd9f-540b-4dbc-bb9e-6fea02d17612.mp4" id="videoSource" type="video/mp4"> 
+        <p class="vjs-no-js"> To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a> </p> 
+       </video> 
+      </div> 
+      <div class="video-intro"> 
+       <h3>Amazon Web Services ( AWS )</h3> 
+       <p>11年来，AWS一直是世界上服务和应用广泛的云服务平台。通过位于全球16个不同区域的43个可用区（AZ），AWS向客户提供90多项功能全面的服务并获得了全球数百万客户的青睐。通过AWS的服务，客户能够有效地强化自身基础设施，提高敏捷度，降低成本。</p> 
+       <div> 
+        <img src="images/pic-01.png"> 
+       </div> 
+      </div> 
+     </div> 
+     <ul class="lesson-video cf"> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3747.html" target="_blank"> <img src="images/5965937e68f4c.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3747.html" target="_blank">AWS 云产品—计算（云服务器）</a> </h2> 
+        <p>本课程讲解如何借助 AWS 计算类云产品，将你的应用程序作为虚拟服务器、容器或代码进行部署、运行和扩展。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>3课时 16分钟</em> 
+            <em>2265人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3746.html" target="_blank"> <img src="images/596593973e229.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3746.html" target="_blank">AWS 云产品—存储和内容传输</a> </h2> 
+        <p>本课程带领大家从对象、文件、块存储服务，以及各种云数据迁移选项中选择，从而开始设计云 IT 环境的基础。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>3课时 24分钟</em> 
+            <em>1879人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3745.html" target="_blank"> <img src="images/596593be6bed5.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3745.html" target="_blank">AWS 云产品—数据库与数据分析</a> </h2> 
+        <p>本课程讲解 AWS 数据库数据库服务，只需单击几下，便可在几分钟内启动它们，AWS 数据分析服务用来处理分析流程链中的每个步骤。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>5课时 47分钟</em> 
+            <em>2091人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/3749.html" target="_blank"> <img src="images/5965935b26bfa.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/3749.html" target="_blank">AWS 云产品—网络与内容分发</a> </h2> 
+        <p>本课程讲解AWS 云中网络服务 Amazon VPC, 可以让你在 AWS 云中预置一个逻辑隔离分区，让你在自己定义的虚拟网络中启动 AWS 资源。</p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>1课时 12分钟</em> 
+            <em>1749人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+      <li> 
+       <div class="lessonimg-box"> 
+        <a href="http://www.jikexueyuan.com/course/4114.html" target="_blank"> <img src="images/5a3cb741e24dd.jpg" class="lessonimg"> 
+         <div class="lessonplay">
+          <i class="playericon"></i>
+         </div> </a> 
+       </div> 
+       <div class="lesson-infor"> 
+        <h2 class="lesson-info-h2"> <a href="http://www.jikexueyuan.com/course/4114.html" target="_blank">AWS 云产品—开始使用 AWS 上的 Microsoft SQL Server</a> </h2> 
+        <p>AWS云核心产品课程将为您介绍云计算基础知识，让您更熟悉 AWS 基础服务如EC2、VPC、S3、EBS等，认识与 AWS 平台相关的术语和概念以及浏览 AWS 管理控制台，以便根据业务需求针对 IT 基础架构基础做出明智的决策并开始使用 AWS。 </p> 
+        <div class="timeandicon"> 
+         <div class="cf"> 
+          <dl> 
+           <dd class="mar-b8">
+            <i class="time-icon"></i>
+            <em>4课时 36分钟</em> 
+            <em>729人学习</em>
+           </dd> 
+           <dd class="zhongji">
+            <i class="xinhao-icon"></i>
+            <em>初级</em>
+           </dd> 
+          </dl> 
+         </div> 
+         <div class="cf"> 
+          <div class="lessonicon-box"> 
+           <a href="http://www.jikexueyuan.com/course/AWS/" target="_blank"> <img width="16" src="images/aws_logo.png" alt="APIservice" title="服务与API"> </a> 
+          </div> 
+         </div> 
+        </div> 
+       </div> </li> 
+     </ul> 
+    </div> 
+   </div> 
+  </div> 
+  <!-- 官网链接 --> 
+  <div class="AWS-services"> 
+   <div class="wrap"> 
+    <div class="left-contain"></div> 
+    <div class="right-contain"> 
+     <p>以上为AWS官方培训课程，如果你有更多关于使用AWS产品的问题，请点击右侧链接联系我们。<a href="https://amazonaws-china.com/cn/edu/?sc_channel=el&amp;sc_campaign=onlineedu_video&amp;sc_publisher=jikexueyuan&amp;sc_country=cn&amp;sc_geo=chna&amp;sc_category=mult&amp;sc_outcome=field&amp;trkCampaign=aws_contact_us_sales_online_edu&amp;trk=jikexueyuan-qrcode" target="_blank">联系AWS架构师 &gt;&gt;</a></p> 
+    </div> 
+   </div> 
+  </div> 
+  <!-- 福利与活动 --> 
+  <div class="AWS-activity" id="AWS-activity"> 
+   <div class="wrap"> 
+    <h2>福利与活动专区</h2> 
+    <ul class="cf"> 
+     <li> <a href="https://amazonaws-china.com/cn/edu/reditcode/?sc_channel=el&amp;sc_campaign=onlineedu_video&amp;sc_publisher=jikexueyuan&amp;sc_country=cn&amp;sc_geo=chna&amp;sc_category=mult&amp;sc_outcome=field&amp;trkCampaign=aws_contact_us_sales_online_edu&amp;trk=jikexueyuan-linke" target="_blank"> <img src="images/activity-01.jpg"> </a> </li> 
+     <li> <a href="https://amazonaws-china.com/cn/edu/training/?sc_channel=el&amp;sc_campaign=onlineedu_video&amp;sc_publisher=jikexueyuan&amp;sc_country=cn&amp;sc_geo=chna&amp;sc_category=mult&amp;sc_outcome=field&amp;trkCampaign=aws_contact_us_sales_online_edu&amp;trk=jikexueyuan-linke" target="_blank"> <img src="images/activity-02.jpg"> </a> </li> 
+     <li> <a href="https://awssummit.cn?tc=N6A0KQPc16" target="_blank"> <img src="images/20180710-aws.jpg"> </a> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <!-- 脚部 --> 
+  <div class="AWS-footer"> 
+   <div class="wrap"> 
+    <h3>欢迎加入 AWS 技术小组，成为我们的一部分，共同学习并发展云业务。</h3> 
+    <img src="images/wechat-code.jpg" width="116" height="116"> 
+    <p class="tips">扫描二维码添加智能客服-小雪，回复关键词“AWS”即可入群</p> 
+    <p class="copyright">Copyright © 2013-2017 jikexueyuan.com All Rights Reserved. 京ICP备11018032号-8 京公网安备11010802020210</p> 
+   </div> 
+  </div> 
+  <!-- main content end --> 
+  <!-- javascript --> 
+  <script type="text/javascript" src="js/aws_v1.js"></script> 
+  <script type="text/javascript" src="js/video.min.js"></script> 
+  <!-- javascript end -->  
+ </body>
+</html>

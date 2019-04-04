@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+   #include("/inc/head.html",title="订单完成")
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen"> 
+  <!--[if lt IE 9]>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/html5shiv.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-shim.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-sham.js?version=8.3.17"></script>
+  <![endif]--> 
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white cd-design"> 
+ #include("/inc/header.html")
+  <div class="es-wrap"> 
+   <div class="container cd-container"> 
+    <div class="cd-content row cd-row"> 
+     <div class="col-md-8 col-md-offset-2"> 
+      <div class="cd-panel"> 
+       <div class="cd-panel-heading-with-steps"> 
+        <ul class="cd-steps cd-steps-3"> 
+         <li class="cd-steps-item  done hidden-xs "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number step-icon"> 
+             <i class="cd-icon cd-icon-check"></i> 
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单确认</span> 
+           </div> 
+          </div> </li> 
+         <li class="cd-steps-item  doing "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number step-icon"> 
+             <i class="cd-icon cd-icon-check"></i> 
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单支付</span> 
+           </div> 
+          </div> </li> 
+          <li class="cd-steps-item  doing "> 
+          <div class="cd-steps-tail">
+           <i></i>
+          </div> 
+          <div class="cd-steps-step"> 
+           <div class="step-wrap"> 
+            <div class="step-number step-icon"> 
+             <i class="cd-icon cd-icon-check"></i> 
+            </div> 
+           </div> 
+           <div class="step-wrap"> 
+            <span class="step-info">订单完成</span> 
+           </div> 
+          </div> </li> 
+        </ul> 
+       </div> 
+       <div class="cd-panel-body"> 
+        <div class="alert cd-alert cd-alert-success alert-dismissible" role="alert">
+          该订单已完成，无需重新支付
+        </div> 
+        <div class="order-center-card clearfix"> 
+         <div class="order-center-card__img"> 
+          <img src="#(www)#(obj.img)" onerror="this.src='/img/wutu.png'" alt="#(obj.title)"> 
+         </div> 
+         <div class="order-center-card__info"> 
+          <div class="order-center-product-info"> 
+           <div class="order-center-product-info__title">
+             订单号 
+           </div> 
+           <div class="order-center-product-info__content">
+             #(obj.orderno)
+           </div> 
+          </div> 
+          <div class="order-center-product-info"> 
+           <div class="order-center-product-info__title">
+             订单名称 
+           </div> 
+           <div class="order-center-product-info__content">
+             	#(obj.title)
+           </div> 
+          </div> 
+          <div class="order-center-product-info"> 
+           <div class="order-center-product-info__title">
+             订单价格 
+           </div> 
+           <div class="order-center-product-info__content"> 
+            <span class="cd-text-danger">￥#(obj.price)</span> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div>
+  #include("/inc/footer.html",goto=false)
+  <script type="text/javascript" src="/js/qrcode.js"></script>
+    <script type="text/javascript">
+  
+  </script>
+ </body>
+</html>

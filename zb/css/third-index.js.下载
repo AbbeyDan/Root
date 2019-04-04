@@ -1,0 +1,436 @@
+var text_clear="";
+var text_html="";
+var cover_html ='';
+var one_load = 1;
+var liveTimeOut = null;
+function live_list(id, channel, position_id, status_id, live_id, name, course_url, starttime, cover) {
+    if(liveTimeOut) {
+        clearInterval(liveTimeOut)
+        liveTimeOut = null;
+    }
+    cover = cover||"http://f.cdn.xsteach.cn/uploaded/a4/41/6c/a4416ce34c9deec2cafac22847c22527001.jpg"
+    if(cover) {
+        cover_html = '<div class="player-cover" style="background:url('+cover+') no-repeat center;background-size: cover;"></div>';
+    }   
+    $('li[id^=live_list_li_]').removeClass('active');
+    $('#live_list_li_' + id).addClass('active');
+    if (channel > 0) {
+        var src = '';
+        if (channel > 1000000000) {
+            src = '/live/course/iframe-rtmp-index-view?id=' + live_id + '&one_load=' + one_load;
+        } else {
+            src = 'http://liveplayer.polyv.net/xslive/' + channel + '.html';
+        }
+        var playerheight= $("#open_live_screen").height(),playerwidth= $("#open_live_screen").width();
+        text_html = '<div class="classroom"><iframe frameborder="0" scrolling="no" width="'+playerwidth+'" height="'+playerheight+'"  vsspace="0" hspace="0" marginwidth="0" marginheight="0"  src ="' + src + '" style="width: 100%;height:100%;min-height:'+playerheight+'px" ></iframe>';
+        text_html += '<a href="/live/course/view/' + live_id + '" class="btn btn-default player-btn" id="enter_classroom" style="display:none; z-index:9999;">进入教室 边学边聊</a></div>';
+    } else if(status_id == 1){
+        text_html = cover_html + '<div class="player-tip"><div class="tip-info"><h3>'+name+'</h3><p >距离 <b>'+starttime+'</b> 直播还有 <span class="live-time" data-time="'+starttime+'">00时00分00秒</span> </p><a class="btn-detail" href="'+course_url+'" target="_blank">查看详情</a></div></div>';
+    } else if(status_id == 3){
+        text_html = cover_html + '<div class="player-tip"><div class="tip-info"><h3>'+ name +'</h3><p>直播已结束</p><a class="btn-detail" href="'+course_url+'" target="_blank">查看详情</a></div></div>';
+    }else{
+        text_html = cover_html + '<div class="player-tip"><div class="tip-info"><h3>'+name+'</h3><p>距离 <b>'+starttime+'</b> 直播还有 <span class="live-time" data-time="'+starttime+'">00时00分00秒</span></p><a class="btn-detail" href="'+course_url+'" target="_blank">查看详情</a></div></div>';
+    }
+
+    if (id < 0) {
+        text_html = '<div class="player-tip"><div class="tip-info"><h3>今天暂无直播安排</h3><p></p></div></div>';
+    }
+    one_load++;
+
+    $("#open_live_screen").html(text_clear).append(text_html)
+    //$("#open_live_screen").css('background','#000').html(text_clear).append(text_html)
+    //$("#open_live_screen")
+    if(status_id != 2||status_id != 3) {
+        if(channel==0&&cover_html!='') {
+          //$("#open_live_screen").css('background','#fff');
+        }
+        countDownLive(id, channel, position_id, status_id, live_id);
+    }
+    enterAnimation()
+}
+function countDownLive (id, channel, position_id, status_id, live_id) {
+    var $countTime = $(".live-time"),time = $countTime.attr('data-time')||null;
+    if(!time) return;
+    var timeArr = time.split(':');
+    var shour = parseInt(timeArr[0]),smin = parseInt(timeArr[1]),ssec = 0;
+    var total =  shour*3600 + smin*60;
+    //console.log(shour,smin)
+    function updateTime () {
+        var now = new Date(),hour = now.getHours(),min = now.getMinutes(),sec = now.getSeconds();
+        var s = hour*3600 + min*60 + sec,cs = 0;
+        if(total>s) {
+            cs = total - s;
+            $countTime.html('<b>'+formatTime(Math.floor(cs/3600))+'</b> 时 <b>'+formatTime((Math.floor(cs/60) % 60))+'</b> 分 <b>'+ formatTime((cs % 60))+'</b> 秒 ')
+        } else {
+           clearInterval(liveTimeOut)
+           liveTimeOut = null;
+           $(".tip-info p").html('直播已结束')
+           //live_list(id, channel, position_id, 2, live_id)
+        }
+    }
+    updateTime();
+    liveTimeOut = setInterval(function() {
+        updateTime()
+    },1000)
+}
+function formatTime(time) {
+   return ('00'+time).slice(-2);
+}
+function change_category(floor_id, page_id, pagesize, obj) {
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: "/site/ajax-category-index",
+        data: "floor_id=" + floor_id + '&page=' + page_id + '&pagesize=' + pagesize,
+        dataType: "html",
+        timeout: 60000,
+        success: function (data) {
+            //$("#live-course").append(data);
+           if(data=="")
+           {
+                obj.removeClass("loading").removeClass("lazyload").addClass("finish");
+                var itab= obj.find('.list.tab-bd').eq(0);
+                if(itab!=undefined)
+                {
+                    itab.addClass('course-empty').html("暂无课程数据");
+                }
+                return ;
+           }
+            obj.replaceWith(data);
+            //.removeClass("lazyload").addClass("finish");
+            indexTab($(".id-tab"));
+        },
+        error:function(){
+            obj.removeClass("loading").removeClass("lazyload").addClass("finish");
+        }
+    });
+}
+
+function live_index() {
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: "/site/ajax-live-index",
+        dataType: "html",
+        timeout: 60000,
+        success: function (data) {
+            $(".play").html(data);
+            if($(".player-list .empty").length){
+                $("#open_live_screen").html('<div class="player-tip"><div class="tip-info"><h3>今天暂无直播安排</h3><p></p></div></div>');
+            }
+            $(".player-list li a").eq(0).click();
+        }
+    }).done(function() {
+        var liveCourseId = 320;
+        $.getJSON('/site/live-course-top?id=' + liveCourseId, function(data) {
+            if (data.is_top == false) {
+                return false;
+            }
+            var liveStatusElem = data.is_start_live ? '<i class="living">直播中</i>' : '';
+            var activeClass = data.is_start_live ? 'active' : '';
+            $(".player-list").prepend('<li id="live_list_li_9999999" class="'+activeClass+'"><a href="javascript:;" onclick="javascript:live_list(9999999,'+data.channel+',1,2,'+liveCourseId+');"><h6>'+data.start_clock+' - '+data.end_clock+liveStatusElem+'</h6><i class="iconfont"></i><span>'+data.name+'</span></a></li>');
+            if (data.is_start_live) {
+                $(".player-list li a").eq(0).click();
+            }
+            $('.player .classroom iframe').load(function() {
+                var iframe = $(this)[0]
+                if (data.start) {
+                    iframe.contentWindow.video('qcloud_element', data.url, 5);
+                    $('#enter_classroom').attr('href', '/live/course/view?id='+liveCourseId+'&open=1');
+                }
+            });
+        });
+    });
+
+}
+
+function recommend_index() {
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: "/site/ajax-recommend-index",
+        dataType: "html",
+        timeout: 60000,
+        success: function (data) {
+            $("#recommend_ul").html(data);
+        }
+    });
+}
+
+function gkk_index() {
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: "/site/ajax-gkk-index",
+        dataType: "html",
+        timeout: 60000,
+        success: function (data) {
+            data=data.trim();
+            if(data&&data!==""){
+                $("#gkk").html(data);
+            }else{
+                 var itab= $("#gkk").find('.list');
+                if(itab!=undefined)
+                {
+                    $("#gkk").find(".course").removeClass("loading");
+                    itab.addClass('course-empty').html("<li>暂无课程数据</li>");
+                }
+            }
+        }
+    });
+}
+
+//获取点赞数
+function getPraise() {
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: "/site/get-praise",
+        dataType:"json",
+        success: function(data){
+            if( data['error'] == 0 && data['count'] > 0){
+                $('#click-praise').addClass('disabled');
+                var click_praise_html = '';
+                $('#click-praise').html(click_praise_html);
+                click_praise_html = '已有' + data['count'] + '人赞过';
+                $('#click-praise').html(click_praise_html);
+                $('#click-praise').removeAttr('onclick');
+            }
+        }
+    });
+}
+
+//增加点赞数
+function setPraise() {
+    $.ajax({
+        type: "GET",
+        cache: false,
+        url: "/site/set-praise",
+        dataType:"json",
+        success: function(data){
+            if( data['error'] == 0 && data['count'] > 0){
+                $('#click-praise').addClass('disabled');
+                var click_praise_html = '';
+                $('#click-praise').html(click_praise_html);
+                click_praise_html = '已有' + data['count'] + '人赞过';
+                $('#click-praise').html(click_praise_html);
+                $('#click-praise').removeAttr('onclick');
+            } else {
+                alert('点赞失败，请重试');
+            }
+        }
+    });
+}
+
+/***
+ * 记录全局滚动
+ */
+
+var lastScrollPosition = $(window).scrollTop(),maxTop=600;
+$(window).load(function(){
+     $("#recommend .common-fixed").css({"top":(maxTop-lastScrollPosition)+"px"});
+})
+$(window).scroll(function(){
+    var currentScrollPosition = $(window).scrollTop();
+    if (currentScrollPosition > lastScrollPosition) {
+        // console.log("往下" + ':' + currentScrollPosition);
+        $('#header').addClass('static fixed');
+    } else if (currentScrollPosition < lastScrollPosition) {
+        // console.log("往上" + ':' + currentScrollPosition);
+        $('#header').removeClass('static fixed');
+    };
+    if (currentScrollPosition<=0) {
+        $('#header').addClass('static fixed');
+    };
+    lastScrollPosition = currentScrollPosition;
+
+    var defTop=maxTop-currentScrollPosition;
+    if( defTop < 100)
+          defTop=100;    
+    $("#recommend .common-fixed").css({"top":defTop+"px"});
+
+});
+
+
+function swithRecom(op){
+    this.list=op.list;
+    this.len=$(this.list).children().length||0;
+    this.max=op.max||4;
+    this.height=op.height;
+    this.prev=op.prev;
+    this.next=op.next;
+    this.index=0;
+
+    this._init();
+}
+swithRecom.prototype._init = function(){
+       this._initParam();
+       this._bind();
+       return this;
+}
+swithRecom.prototype._initParam = function(){
+         $(this.prev).addClass('disabled');
+         $(this.next).addClass("disabled");      
+    if(this.len>this.max&&(this.index+this.max) < this.len)
+    {
+           $(this.next).removeClass("disabled"); 
+    }
+    if(this.index > 0)
+    {
+         $(this.prev).removeClass("disabled"); 
+    }
+    return this;
+}
+swithRecom.prototype._bind = function(){
+    var _self=this;
+    $(document).on("click",this.prev,function(){
+          _self.swip(-1);
+    });
+    $(document).on("click",this.next,function(){
+          _self.swip(1);
+    });
+
+    return this;
+}
+swithRecom.prototype.swip = function(sw){
+      var dur_index=0;
+    if(sw > 0)
+    {
+         dur_index=(this.len-(this.index+this.max))>this.max?this.max:(this.len-(this.index+this.max));
+    }else{
+        dur_index=this.index>this.max?this.max:this.index;
+    }
+   
+     if(dur_index > 0){
+        if(dur_index > 4)
+        {
+           dur_index=4;   
+        }
+    var rate=800*(dur_index/parseFloat(this.max));
+    this.index=(this.index+sw*dur_index);
+    if(this.index <= 0)
+        this.index=0;
+    var dur=this.index*this.height,_self=this; 
+
+    $(this.list).animate({
+         top: (-1*sw*dur)+"px",},
+         rate, function() {
+            _self._initParam();
+     });
+     }
+     
+
+     return this;
+}
+
+if(typeof swithRecom != "undefined")
+    new swithRecom({list:".common-list ul",height: 68,prev:".common-fixed .com-prev",next:".common-fixed .com-next"});
+
+
+$(window).resize(function(e){
+    var h=$("#open_live_screen").height();
+    var playeriframe=$("#open_live_screen .classroom iframe");
+    playeriframe.css({"min-height":h+"px"});
+});
+
+$(document).on("click",".common-fixed .comm-toggle",function(){
+    $(this).parent().toggleClass("active");
+});
+
+function shine(){
+    var i = 0;
+    (function(){
+        if(i>=4){i=0}
+        i++;
+        $("#icon-shine").attr("class", "icon-shine shine-"+i);
+        window.setTimeout(arguments.callee,200);
+    })();
+}
+shine();
+
+//滚动加载
+var wh=$(window).innerHeight();
+var floor_id = 0;
+$(window).scroll(function(){
+    var scrollTop=$(window).scrollTop();
+    $(".course.lazyload").each(function(item,index){
+        var ot=$(this).offset().top,lzh=ot-scrollTop;
+       if(lzh>0&&wh >= lzh){
+            $(this).removeClass("lazyload").addClass("finish");
+            floor_id = $(this).attr("data-category");
+            if(floor_id > 2){
+                change_category(floor_id, 1, 4,$(this));
+            }else{
+                change_category(floor_id, 1, 8,$(this));
+            }
+       }
+    });
+});
+//tab切换
+function indexTab($xsTabs){
+    var $wraps = $xsTabs || $('.xs-tab');
+    if($wraps && $wraps.length > 0){
+        $wraps.each(function(){
+            var $wrap = $(this);
+            $wrap.find('.tab-btn').click(function(){
+                var $this = $(this), index = $this.index();
+                $wrap.find('.tab-btn').removeClass('active');
+                $this.addClass('active');
+                $wrap.find('.tab-bd').addClass('xs-hide').eq(index).removeClass('xs-hide');
+            });
+        });
+    }
+}
+indexTab($(".id-tab"));
+
+//获取URL中传递的参数
+function getUrlParameter()
+{
+  var aQuery = window.location.href.split("?");  //取得Get参数
+  var aGET = new Array();
+  if(aQuery.length > 1)
+  {
+    var aBuf = aQuery[1].split("&");
+    for(var i=0, iLoop = aBuf.length; i<iLoop; i++)
+    {
+      var aTmp = aBuf[i].split("=");  //分离key与Value
+      aGET[aTmp[0]] = aTmp[1];
+    }
+  }
+  return aGET;
+ }
+var UrlParameter = getUrlParameter();
+if (UrlParameter.spread_id) {
+    $.cookie('register_spread_id', UrlParameter.spread_id, {path: '/', domain: '.xsteach.com', expires:30});
+}
+
+function enterAnimation() {
+    var $btn = $("#enter_classroom"),timeout = null;
+    function enter () 
+    {
+            if(!$btn.hasClass('player-btn-hover')) {
+                $btn.addClass('enter-transition').css('display','block')
+                setTimeout(function() {
+                     $btn.removeClass('enter-transition').css('display','none')
+                },6000)
+            }    
+            // 进入后每隔1分钟就进行动画
+            timeout = setTimeout(function() {
+                enter();
+            },60000) 
+    }
+    function leave() {
+        if(timeout) {
+             clearTimeout(timeout)
+             timeout = null;
+        }
+    }
+    if($btn&&$btn.length) {
+        // 进入后超过3分钟就进行动画
+        setTimeout(function() {
+          enter() 
+        },180000)
+    }else {
+        leave()
+    }
+}

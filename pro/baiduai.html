@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+ <head> 
+  <meta charset="UTF-8"> 
+  <title>百度AI技术课程专区－心教育学院</title> 
+  <meta name="keywords" content="心教育学院,极客合作,专题合作,课程合作,AI课程,AI合作,AI技术,人工智能,百度AI开放平台,图像,图像技术,场景应用,解决方案,baiduai,ai.baidu.com,aibaidu,baidubrain,baidurengongzhineng,baidurengongzhinengkaifangpingtai,baidudanao,智能,人工神经网络,人工智能的未来,人工智能产品,什么是人工智能,人工智能专业,人工智能技术,人工智能网站,人工智能的应用,人工智能算法,人工智能系统,人工智能编程,百度智能,AI,AI软件,百度,baidu,百度大脑,百度大脑官网,百度大脑平台,百度大脑开放平台,百度AI,百度AI平台,百度人工智能,人工智能百度,百度人工智能平台,百度图像"> 
+  <meta name="description" content="心教育学院与百度AI开放平台合作，共建全球领先的文字识别，人脸识别，图像审核等多项人工智能课程，共享AI领域最新的应用场景和解决方案，帮您提升竞争力，开创未来"> 
+  <link rel="stylesheet" type="text/css" href="css/baidu_ai.css"> 
+ </head> 
+ <body> 
+  <script type="text/javascript" src="js/growingio.js"></script> 
+  <script type="text/javascript" src="js/mask.js"></script> 
+  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/header.min.js"></script> 
+  <script type="text/javascript" src="js/web_socket.js"></script> 
+  <script type="text/javascript" src="js/websocket.js"></script> 
+  <div id="header_top_notice"></div> 
+  <div id="jk-header"> 
+   <div class="header"> 
+    <h1> <a href="//www.jikexueyuan.com" class="logo"> <img src="images/logo.png" width="100" alt="心教育学院"> </a> </h1> 
+    <nav style="width:490px;"> 
+     <ul> 
+      <li> <a href="//www.jikexueyuan.com" class="home">首页</a> </li> 
+      <li class="careerpath"> <a href="//www.jikexueyuan.com/zhiye/">职业</a><i class="slide-icon"></i> 
+       <div class="zhiye-submenu slide-submeu"> 
+        <strong>前端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/web"><i class="web-icon"></i>Web前端工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/wechatapp"><i class="wx-icon"></i>微信小程序</a> 
+        <strong>移动端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/android"><i class="android-icon"></i>Android工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/ios"><i class="ios-icon"></i>iOS工程师</a> 
+        <strong>后端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/python"><i class="python-icon"></i>Python工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/php"><i class="php-icon"></i>PHP工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/go"><i class="golang-icon"></i>Golang工程师</a> 
+        <strong>大数据</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/bigdata"><i class="data-icon"></i>大数据平台研发工程师</a> 
+        <strong>人工智能</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/ml"><i class="mlearning-icon"></i>机器学习工程师</a> 
+        <strong>区块链</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/blockchain"><i class="yw-icon"></i>区块链工程师</a> 
+        <!--<a href="#"><i class="yw-icon"></i>运维工程师</a>
+								<a href="#"><i class="xmjl-icon"></i>项目经理</a>--> 
+        <strong>设计</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/ux"><i class="ui-icon"></i>UI/UX设计师</a> 
+       </div> </li> 
+      <li> <a href="//www.jikexueyuan.com/course/">课程</a><i class="slide-icon"></i> 
+       <div class="slide-submeu"> 
+        <a href="//www.jikexueyuan.com/course/">课程库</a> 
+        <a href="//ke.jikexueyuan.com/zhiye/">职业路径</a> 
+        <a href="//www.jikexueyuan.com/path/">知识体系图</a> 
+        <a href="//ke.jikexueyuan.com/xilie/">系列课程</a> 
+       </div> </li> 
+      <li> <a href="//www.jikexueyuan.com/partner">企业</a><i class="slide-icon"></i> 
+       <div class="slide-submeu qy-box"> 
+        <a href="//zt.jikexueyuan.com/microsoftai"><i class="wr-icon"></i>微软人工智能 </a> 
+        <a href="//zt.jikexueyuan.com/baiduai"><i class="baidu-icon"></i>百度AI图像技术课</a> 
+        <a href="//zt.jikexueyuan.com/aws"><i class="aws-icon"></i>AWS云计算</a> 
+        <a href="//zt.jikexueyuan.com/qcloud"><i class="txy-icon"></i>腾讯云课程专区</a> 
+        <a href="//zt.jikexueyuan.com/qualcomm"><i class="gt-icon"></i>Qualcomm公开课 </a> 
+        <a href="//zt.jikexueyuan.com/b" class="youke-nav"><i class="youke-icon bounce"></i>企业合作新模式</a> 
+       </div> </li> 
+      <li> <a href="//wiki.jikexueyuan.com/">社区</a><i class="slide-icon"></i> 
+       <div class="slide-submeu"> 
+        <a href="//wiki.jikexueyuan.com/">Wiki</a> 
+        <a href="//wenda.jikexueyuan.com/">技术问答</a> 
+        <!--<a href="//qun.jikexueyuan.com/">社群</a>
+						<a href="//download.jikexueyuan.com/">资料下载</a>--> 
+       </div> </li> 
+     </ul> 
+    </nav> 
+    <div class="search"> 
+     <input class="searchinput" id="searchinput" placeholder="搜索课程、问答或Wiki"> 
+     <span class="search-icon" id="search-bottom"></span> 
+     <div class="search-result"> 
+      <!-- <a href="javascript:;" class="search-hot">热门搜索 <span class="label label-green">职业课程</span></a>
+				<a href="javascript:;">hello world <span class="label label-blue">知识图谱</span></a>
+				<a href="javascript:;">hello world <span class="label label-purple">系列课程</span></a> --> 
+     </div> 
+    </div> 
+    <div class="nav-other" id="nav-other"> 
+     <div class="centerbox" style="display: none;"> 
+      <a href="//xue.jikexueyuan.com/" class="learn-center" title="学习中心"></a> 
+     </div> 
+     <div class="centerbox" style="display: none;"> 
+      <a href="//www.jikexueyuan.com/member/notifications/" class="message" id="message" title="消息中心"><i class="have" id="have" style="display: none;"></i></a> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="baiduAi-banner"> 
+   <div class="baiduAi-nav"> 
+    <div class="baiduAi-nav-container"> 
+     <div class="baiduAi-nav-logo"> 
+      <img src="images/baiduai_logo.png" alt="百度AI开发平台"> 
+     </div> 
+     <ul class="baiduAi-nav-contain"> 
+      <li class="active">PaddlePaddle</li> 
+      <li>文字识别</li> 
+      <li>人脸识别</li> 
+      <li>图像审核</li> 
+      <li>资料下载</li> 
+     </ul> 
+    </div> 
+   </div> 
+   <div class="baiduAi-halo halo1"> 
+    <img src="images/c1.png"> 
+   </div> 
+   <div class="baiduAi-halo halo2"> 
+    <img src="images/c2.png"> 
+   </div> 
+   <div class="baiduAi-title"> 
+    <img src="images/banduai_title.png"> 
+   </div> 
+   <div class="baiduAi-light"> 
+    <img src="images/light1.png" alt="" class="light01"> 
+    <img src="images/light2.png" alt="" class="light02"> 
+    <img src="images/light3.png" alt="" class="light03"> 
+    <img src="images/light4.png" alt="" class="light04"> 
+    <img src="images/light5.png" alt="" class="light05"> 
+   </div> 
+  </div> 
+  <div class="baiduAi-about"> 
+   <div class="baiduAi-about-weichat"> 
+    <p>百度AI图像技术<br>自由体验课</p> 
+    <a class="btn" href="javascript:;">立即加入</a> 
+   </div> 
+   <div class="baiduAi-about-content"> 
+    <h2>关于我们</h2> 
+    <p><a href="http://ai.baidu.com/" style="color:#0073eb;" target="_blank">百度AI开放平台</a>致力于将图像、语音、自然语言、视频、知识图谱等技术通过API、SDK等简单易用的方式向企业及开发者全面开放人工智能技术。</p> 
+    <p>本次与心教育学院展开深度合作，第一阶段首推图像技术知识。学完之后可根据任务书去挑战一个项目实战！还可以脑洞大开提交idea赢取专属纪念礼品！赶快加入我们，与热爱百度AI技术的小伙伴一起，让复杂的世界更简单！</p> 
+   </div> 
+  </div> 
+  <div class="baiduAi-paddle nav-link"> 
+   <h2 class="h2">PaddlePaddle与百度人工智能</h2> 
+   <div class="paddle-contain"> 
+    <div class="paddle-head"> 
+     <h3 class="paddle-logo"></h3> 
+     <p class="paddle-content">加速人工智能技术普及，国内首个开源框架PaddlePaddle！百度旗下的PaddlePaddle 深度学习开源平台，集合了百度的搜索、图像识别、语音语义识别理解、情感分析、机器翻译、用户画像推荐等多领域的业务和技术方向，为程序开发者提供了一个功能更全、效果更好的深度学习框架。<a href="http://paddlepaddle.org/index.cn.html" target="_blank" style="color:#fff;text-decoration: underline;"> 查看官网 &gt;&gt;</a></p> 
+    </div> 
+    <div class="baiduAi-course"> 
+     <div class="baiduAi-lesson"> 
+      <div class="lesson-card"> 
+       <img class="lesson-img" src="images/paddle1.png" alt="人脸识别"> 
+       <p class="lesson-title">PaddlePaddle — 新手入门</p> 
+       <p class="lesson-desc">本门课程为新手入门第一课，主要讲解相关技术背景：机器学习基础原理、模型处理方案等。</p> 
+       <a class="lesson-btn" href="//www.jikexueyuan.com/course/4031.html" target="_blank">观看视频</a> 
+      </div> 
+      <div class="lesson-card"> 
+       <img class="lesson-img" src="images/paddle2.png" alt="人脸识别"> 
+       <p class="lesson-title">PaddlePaddle — 数字识别</p> 
+       <p class="lesson-desc">本门课程通过讲解基础知识、原理剖析、框架实战等方面，多维度讲解数字识别功能实现流程。</p> 
+       <a class="lesson-btn" href="//www.jikexueyuan.com/course/4034.html" target="_blank">观看视频</a> 
+      </div> 
+     </div> 
+     <div class="baiduAi-lesson"> 
+      <div class="lesson-card"> 
+       <img class="lesson-img" src="images/paddle3.png" alt="人脸识别"> 
+       <p class="lesson-title">PaddlePaddle — 图像分类</p> 
+       <p class="lesson-desc">本门课程通过讲解AI图像技术方向、分类原理、框架实战等知识，快速实现图像分类功能。</p> 
+       <a class="lesson-btn" href="//www.jikexueyuan.com/course/4032.html" target="_blank">观看视频</a> 
+      </div> 
+      <div class="lesson-card"> 
+       <img class="lesson-img" src="images/paddle4.png" alt="人脸识别"> 
+       <p class="lesson-title">PaddlePaddle — 情感分析</p> 
+       <p class="lesson-desc">本门课程通过讲解基础知识、原理剖析、框架实战等内容实现情感分析相关功能。</p> 
+       <a class="lesson-btn" href="//www.jikexueyuan.com/course/4033.html" target="_blank">观看视频</a> 
+      </div> 
+     </div> 
+    </div> 
+    <a href="http://bit.baidu.com/course/datalist/column/117.html" class="paddle-more" target="_blank" style="text-decoration: underline;">更多视频 &gt;&gt;</a> 
+   </div> 
+  </div> 
+  <div class="baiduAi-course nav-link"> 
+   <h2 class="h2 line">文字识别</h2> 
+   <p class="h2-title">多种场景下精准的图像文字识别技术服务，整体识别准确率达90%以上</p> 
+   <div class="baiduAi-course-content"> 
+    <h3 class="h3">走进文字识别的世界</h3> 
+    <div class="baiduAi-lesson"> 
+     <div class="lesson-card"> 
+      <img class="lesson-img" src="images/text_1junior.png" alt="基础介绍及应用场景"> 
+      <p class="lesson-title">基础介绍及应用场景</p> 
+      <p class="lesson-desc">本课程从基本定义、OCR介绍与特性、功能说明与应用案例等多维度深入讲解百度文字识别（OCR）技术。</p> 
+      <a class="lesson-btn" href="//www.jikexueyuan.com/course/3976_1.html?ss=1" target="_blank">观看视频</a> 
+     </div> 
+     <div class="lesson-card"> 
+      <img class="lesson-img" src="images/text_2api.png" alt="技术API介绍及接入指南"> 
+      <p class="lesson-title">技术API介绍及接入指南</p> 
+      <p class="lesson-desc">本课程主要针对API开发者，介绍百度OCR文字识别接口服务的相关技术内容。通过本门课程你将掌握OCR研发能力。</p> 
+      <a class="lesson-btn" href="//www.jikexueyuan.com/course/3976_2.html?ss=1" target="_blank">观看视频</a> 
+     </div> 
+    </div> 
+    <h3 class="h3">选择感兴趣的产品类型</h3> 
+    <div class="baiduAi-production"> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_text_1tywz.png" alt="通用文字识别"> 
+       <p class="production-title">通用文字识别</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">提供基础通用文字识别服务及位置信息版、生僻字版，准确率90%以上。</p> 
+       <a class="production-btn" href="http://ai.baidu.com/tech/ocr/general" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_text_2kzsb.png" alt="卡证识别"> 
+       <p class="production-title">卡证识别</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">提供对二代居民身份证、银行卡、机动车驾驶证等卡片识别服务。</p> 
+       <a class="production-btn" href="http://ai.baidu.com/tech/ocr/cards" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_text_3wltpwzsb.png" alt="网络图片文字识别"> 
+       <p class="production-title">网络图片文字识别</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">对网络图片进行优化识别，支持更多网络字体和复杂背景下的文字识别。</p> 
+       <a class="production-btn" href="https://ai.baidu.com/tech/ocr/webimage" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_text_4bgwzsb.png" alt="表格文字识别"> 
+       <p class="production-title">表格文字识别</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">自动识别表格线及表格内容，帮助您快速完成纸质报表单据的电子化。</p> 
+       <a class="production-btn" href="http://ai.baidu.com/tech/ocr/table" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+    </div> 
+    <h3 class="h3">动手挑战属于你的应用</h3> 
+    <div class="baiduAi-application"> 
+     <div class="app-card"> 
+      <img class="app-img" src="images/z_project1_CardRecognize.png" alt="卡证识别"> 
+      <p class="app-title">项目实战：卡证识别</p> 
+      <p class="app-desc">文字识别技术的产生大大便利了认证相关的产品。本任务将结合百度AI开放平台实现身份证、驾照等多种卡证识别相关功能。</p> 
+      <a class="app-btn" href="http://jiuye-res.jikexueyuan.com/others/20170926/7b79ff70-1230-48f0-bf64-e0bdffad3b16.pdf?attname=0926-文字识别实验手册.pdf" target="_blank">开始实战</a> 
+     </div> 
+     <div class="app-card"> 
+      <img class="app-img" src="images/z_project_gifts.png" alt="提交idea赢礼品"> 
+      <p class="app-title">脑洞大开：文字识别场景有哪些？</p> 
+      <p class="app-desc">文字识别已渗透我们的生活，你还能想到哪些应用场景？立即提交你的创意，赢取背包、U盘等专属礼品！</p> 
+      <a class="app-btn" href="http://cn.mikecrm.com/Dcj8UVe" target="_blank">立即提交</a> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="baiduAi-course nav-link"> 
+   <h2 class="h2 line">人脸识别 </h2> 
+   <p class="h2-title">人脸属性识别、关键点定位、人脸1：1比对、人脸1：N识别、活体检测等能力</p> 
+   <div class="baiduAi-course-content"> 
+    <h3 class="h3">走进人脸识别的世界</h3> 
+    <div class="baiduAi-lesson"> 
+     <div class="lesson-card"> 
+      <img class="lesson-img" src="images/face_1junior.png" alt="基础介绍与应用场景"> 
+      <p class="lesson-title">基础介绍与应用场景</p> 
+      <p class="lesson-desc">本课程从技术简介、能力应用、热门场景实战等全方位讲解人脸识别基础相关技术，引领开发者快速入门。</p> 
+      <a class="lesson-btn" href="//www.jikexueyuan.com/course/3999_1.html?ss=1" target="_blank">观看视频</a> 
+     </div> 
+     <div class="lesson-card"> 
+      <img class="lesson-img" src="images/face_2api.png" alt="技术API介绍及接入指南"> 
+      <p class="lesson-title">技术API介绍及接入指南</p> 
+      <p class="lesson-desc">本课程主要针对API开发者，介绍人脸识别接口服务的相关技术内容。通过本门课程你将掌握人脸识别的研发能力。</p> 
+      <a class="lesson-btn" href="//www.jikexueyuan.com/course/3999_2.html?ss=1" target="_blank">观看视频</a> 
+     </div> 
+    </div> 
+    <h3 class="h3">选择感兴趣的产品类型</h3> 
+    <div class="baiduAi-production"> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_face_1rnjc.png" alt="人脸检测"> 
+       <p class="production-title">人脸检测</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">检测人脸并标记，定位五官与轮廓关键点。分析性别、年龄、表情等。</p> 
+       <a class="production-btn" href="http://ai.baidu.com/tech/face/detect" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_face_2rndb.png" alt="人脸对比"> 
+       <p class="production-title">人脸对比</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">对比两张人脸的相似度，并给出相似度评分，从而判断是否同一个人。</p> 
+       <a class="production-btn" href="http://ai.baidu.com/tech/face/compare" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_face_3rndb.png" alt="人脸查找"> 
+       <p class="production-title">人脸查找</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">在一个指定人脸库中查找相似的人脸，并给出相似度分值。</p> 
+       <a class="production-btn" href="http://ai.baidu.com/tech/face/search" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+    </div> 
+    <h3 class="h3">动手挑战属于你的应用</h3> 
+    <div class="baiduAi-application"> 
+     <div class="app-card"> 
+      <img class="app-img" src="images/z_project2_faceRecognize.png" alt="人脸美颜"> 
+      <p class="app-title">项目实战：人脸美颜</p> 
+      <p class="app-desc">人脸美颜深受大众欢迎，利用人脸检测技术就可轻松实现。本任务带领你基于人脸检测去实现人脸美颜相关功能。</p> 
+      <a class="app-btn" href="http://jiuye-res.jikexueyuan.com/others/20170926/6bd4fc58-3484-43f3-b2d5-32df09731192.pdf?attname=0926-人脸识别实验手册.pdf" target="_blank">开始实战</a> 
+     </div> 
+     <div class="app-card"> 
+      <img class="app-img" src="images/z_project_gifts.png" alt="提交idea赢礼品"> 
+      <p class="app-title">脑洞大开：人脸识别场景有哪些？</p> 
+      <p class="app-desc">我与哪个明星最相似？我的照片年龄是多少?... 人脸识别的场景就在我们身边。立即提交你的创意，赢取背包、U盘等专属礼品！</p> 
+      <a class="app-btn" href="http://cn.mikecrm.com/Dcj8UVe" target="_blank">立即提交</a> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="baiduAi-course  nav-link"> 
+   <h2 class="h2 line">图像审核 </h2> 
+   <p class="h2-title">智能内容审核方案，准确识别图片和视频中的涉黄、涉暴涉恐等敏感信息</p> 
+   <div class="baiduAi-course-content"> 
+    <h3 class="h3">走进图像审核的世界</h3> 
+    <div class="baiduAi-lesson"> 
+     <div class="lesson-card"> 
+      <img class="lesson-img" src="images/image_1junior.png" alt="基础介绍与应用场景"> 
+      <p class="lesson-title">基础介绍与应用场景</p> 
+      <p class="lesson-desc">本课程以色情识别技术为例，介绍图像审核技术概念以及优势，并展示了多种真实工作场景中的使用案例。</p> 
+      <a class="lesson-btn" href="//www.jikexueyuan.com/course/4000_1.html?ss=1" target="_blank">观看视频</a> 
+     </div> 
+     <div class="lesson-card"> 
+      <img class="lesson-img" src="images/image_2api.png" alt="技术API介绍及接入指南"> 
+      <p class="lesson-title">技术API介绍及接入指南</p> 
+      <p class="lesson-desc">本课程主要针对API开发者，介绍色情识别接口服务的相关技术内容。通过本门课程你将掌握一键色情识别的研发能力。</p> 
+      <a class="lesson-btn" href="//www.jikexueyuan.com/course/4000_2.html?ss=1" target="_blank">观看视频</a> 
+     </div> 
+    </div> 
+    <h3 class="h3">选择感兴趣的产品类型</h3> 
+    <div class="baiduAi-production"> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_image_1sqsb.png" alt="色情识别"> 
+       <p class="production-title">色情识别</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">人工智能鉴黄技术，智能识别图片和视频中的色情和性感内容。</p> 
+       <a class="production-btn" href="http://ai.baidu.com/tech/imagecensoring/antiporn" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+     <div class="production-card"> 
+      <div class="production-top"> 
+       <img class="production-img" src="images/yp_image_2bksb.png" alt="暴恐识别"> 
+       <p class="production-title">暴恐识别</p> 
+      </div> 
+      <div class="production-bottom"> 
+       <p class="production-desc">识别暴力，血腥场景及恐怖组织头目等涉嫌违禁的图片和视频内容。</p> 
+       <a class="production-btn" href="http://ai.baidu.com/tech/imagecensoring/antiterror" target="_blank">了解详情</a> 
+      </div> 
+     </div> 
+     <!-- <div class="production-card">
+                    <div class="production-top">
+                        <img class="production-img" src="/Public/home/static/201709baidu_ai/images/offical/yp_image_3zzmg.png" alt="政治敏感识别">
+                        <p class="production-title">政治敏感识别</p>
+                    </div>
+                    <div class="production-bottom">
+                        <p class="production-desc">识别政治人物与敏感政治事件场景，在敏感时期规避相关风险。</p>
+                        <a class="production-btn" href="https://ai.baidu.com/docs#/ImageCensoring-API/top" target="_blank">了解详情</a>
+                    </div>
+                </div>
+                <div class="production-card">
+                    <div class="production-top">
+                        <img class="production-img" src="/Public/home/static/201709baidu_ai/images/offical/yp_image_4ggjc.png" alt="广告检测">
+                        <p class="production-title">广告检测</p>
+                    </div>
+                    <div class="production-bottom">
+                        <p class="production-desc">智能检测图像中的文字、水印、二维码、条形码，检测各种微商广告。</p>
+                        <a class="production-btn" href="https://ai.baidu.com/docs#/ImageCensoring-API/top" target="_blank">了解详情</a>
+                    </div>
+                </div> --> 
+    </div> 
+    <h3 class="h3">动手挑战属于你的应用</h3> 
+    <div class="baiduAi-application"> 
+     <div class="app-card"> 
+      <img class="app-img" src="images/z_project3_facePlay.png" alt="直播平台图像抽检"> 
+      <p class="app-title">项目实战：直播平台图像抽检</p> 
+      <p class="app-desc">每天有大量的主播和用户进行直播互动，百度图像审核技术可以提升审核效率。本任务将带领你实现一个视频审核案例。</p> 
+      <a class="app-btn" href="http://jiuye-res.jikexueyuan.com/others/20170926/0293a076-f3f6-436c-a59e-210bcf6f25e9.pdf?attname=0926-图像审核实验手册.pdf" target="_blank">开始实战</a> 
+     </div> 
+     <div class="app-card"> 
+      <img class="app-img" src="images/z_project_gifts.png" alt="提交idea赢礼品"> 
+      <p class="app-title">脑洞大开：图像审核场景有哪些？</p> 
+      <p class="app-desc">图像审核技术有效应对了大量用户高并发场景，你还能想到哪些呢？立即提交你的创意，赢取背包、U盘等专属礼品！</p> 
+      <a class="app-btn" href="http://cn.mikecrm.com/Dcj8UVe" target="_blank">立即提交</a> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="baiduAi-apply"> 
+   <img class="apply-img" src="images/baiduai_logo_4.png" alt="百度AI开发平台"> 
+   <div class="apply-desc">
+     百度AI图像识别与搜索·免费公开邀测！截至10月31日，前100位申请合作，享受无限量调用特权1个月！ 
+   </div> 
+   <a class="apply-btn" href="http://ai.baidu.com/support/news?action=detail&amp;id=189" target="_blank">邀请试用</a> 
+  </div> 
+  <div class="baiduAi-resource nav-link"> 
+   <h2 class="h2">资料下载</h2> 
+   <div class="baiduAi-resource-content"> 
+    <div class="resource-card"> 
+     <p class="resource-title">SDK下载</p> 
+     <p class="resource-desc">一键获取技术能力，快速接入百度AI。包括语音识别与合成、文字识别、人脸识别、图像审核、语言处理基础技术、结构化数据抽取。</p> 
+     <a class="resource-btn" href="https://ai.baidu.com/sdk" target="_blank">了解详情</a> 
+    </div> 
+    <div class="resource-card"> 
+     <p class="resource-title">技术文档</p> 
+     <p class="resource-desc">针对API开发者，描述百度技术接口服务的相关技术内容，帮助开发者更好的使用百度AI产品。包含新手指南、技术文档和常见问题。</p> 
+     <a class="resource-btn" href="https://ai.baidu.com/docs#/Begin/top" target="_blank">了解详情</a> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="baiduAi-case"> 
+   <h2 class="h2">成功案例</h2> 
+   <div class="baiduAi-case-content"> 
+    <div class="case-card"> 
+     <a href="http://ai.baidu.com/partner/senseit" target="_blank"> <img src="images/case_1.png" alt="百度apollo计划"> </a> 
+    </div> 
+    <div class="case-card"> 
+     <a href="http://ai.baidu.com/partner/roobo" target="_blank"> <img src="images/case_2.png" alt="百度apollo计划"> </a> 
+    </div> 
+    <div class="case-card"> 
+     <a href="http://ai.baidu.com/partner/sinoxk" target="_blank"> <img src="images/case_3.png" alt="百度apollo计划"> </a> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="baiduAi-otherTech"> 
+   <h2 class="h2">其他技术</h2> 
+   <div class="baiduAi-otherTech-content"> 
+    <ul> 
+     <li> <a href="https://ai.baidu.com/tech/nlp" target="_blank"> <img class="tech-img" src="images/tech_1.png" alt="自然语言"> <p class="tech-title">自然语言</p> </a> </li> 
+     <li> <a href="https://ai.baidu.com/tech/speech" target="_blank"> <img class="tech-img" src="images/tech_2.png" alt="语音技术"> <p class="tech-title">语音技术</p> </a> </li> 
+     <li> <a href="https://ai.baidu.com/tech/video/vca" target="_blank"> <img class="tech-img" src="images/tech_3.png" alt="视频技术"> <p class="tech-title">视频技术</p> </a> </li> 
+     <li> <a href="https://ai.baidu.com/tech/kg/schema" target="_blank"> <img class="tech-img" src="images/tech_4.png" alt="知识图谱"> <p class="tech-title">知识图谱</p> </a> </li> 
+     <li> <a href="http://di.baidu.com/?castk=LTE%3D" target="_blank"> <img class="tech-img" src="images/tech_5.png" alt="数据智能"> <p class="tech-title">数据智能</p> </a> </li> 
+     <li> <a href="http://www.paddlepaddle.org/index.cn.html" target="_blank"> <img class="tech-img" src="images/tech_6.png" alt="深度学习"> <p class="tech-title">深度学习</p> </a> </li> 
+    </ul> 
+   </div> 
+  </div> 
+  <div class="baiduAi-toast"> 
+   <div class="baiduAi-toast-content"> 
+    <div class="image-container"> 
+     <img src="images/baiduai-code.png" alt="扫码加入QQ群"> 
+    </div> 
+    <div class="desc-container"> 
+     <h2>百度AI（图像技术）小组</h2> 
+     <p>这里有来自百度的技术大牛，这里有热爱AI技术的小伙伴。加入我们，让复杂的世界更简单！</p> 
+     <p class="tel">QQ扫码或直接加群：664176161</p> 
+    </div> 
+    <div class="close-container"> 
+     <a href="javascript:;"></a> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="baiduAi-footer">
+   Copyright © 2013-2017 jikexueyuan.com All Rights Reserved. 京ICP备11018032号-8 京公网安备11010802020210
+  </div> 
+  <script type="text/javascript" src="js/baidu_ai.js"></script>  
+ </body>
+</html>

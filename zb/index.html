@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+  #include("/inc/head.html",title="直播-心教育")
+  <link href="css/third-global.css" rel="stylesheet" type="text/css" /> 
+  <link href="css/third-index.css" rel="stylesheet" type="text/css" /> 
+  
+  <link rel="stylesheet" type="text/css" href="/css/x_dialog.css" /> 
+  <!--[if lt IE 9]>
+    		<script src="/static/scripts/html5shiv.min.js"></script>
+    		<script src="/static/scripts/respond.min.js"></script>
+    	<![endif]--> 
+ </head> 
+ <body style="background-color: black;"> 
+  <style type="text/css">
+.hideBox {
+	opacity: 0;
+	height: 0;
+	padding: 0;
+	margin: 0;
+}
+</style>
+#include("/inc/header.html",tab="zb")
+  <div class="area_nav" r-notemplate="true"> 
+   <div class="container_inner"> 
+    <div class="mod_nav_list cf"> 
+     <ul class="nav_list"> 
+      <li class="list_item current"> <a class="item" href="javascript:void(0);">直播间</a> </li> 
+      <li class="list_item "> <a class="item" href="list">直播日历</a> </li> 
+      <li class="list_item"> <a class="item" href="apply">我的直播</a> </li> 
+     </ul> 
+     <!-- <div class="nav_link"> --> 
+     <!-- <a class="link">SNH48</a>
+                <a class="link">两会</a> --> 
+     <!-- </div> --> 
+    </div> 
+   </div> 
+  </div> 
+  <div class="main" id="app" style="min-height: 673px; margin-top: 0px; background-color: #222;"> 
+   <div class="live index-story" style=""> 
+    <div class="container"> 
+     <!-- 二维码君--> 
+     <div class="play"> 
+      <!-- 播放器--> 
+      <div class="player main-inner" id="open_live_screen" onmouseover="javascript:$('#enter_classroom').addClass('player-btn-hover').removeClass('enter-transition').css('display', 'block');" onmouseout="javascript:$('#enter_classroom').removeClass('player-btn-hover').css('display', 'none');"> 
+       <div class="player-cover" style="background: url(https://f.cdn.xsteach.cn/uploaded/37/71/a5/3771a53225598dd2dd1cf18bc812915e001.jpg) no-repeat center; background-size: cover;"></div> 
+       <div class="player-tip"> 
+        <div class="tip-info"> 
+         <h3>{{one.title}}</h3> 
+         <p>{{one.teacher}}</p> 
+         <p>直播时间:{{one.start_time.substring(0,16)}}-{{one.end_time.substring(10,16)}}</p> 
+        
+         <a v-if="truetime(one.start_time)" class="btn-detail" >尚未开始</a> 
+         <a v-else class="btn-detail" :href="one.id" target="_blank">{{one.price>0?'我要报名':'进入房间'}}</a> 
+        
+        </div> 
+       </div> 
+      </div> 
+      <div class="player-side"> 
+       <h5 class="player-date">最近直播</h5> 
+       <ul class="player-list"> 
+		<li v-for="z in list" >
+							<a @click="selectzb(z)">
+									<h6>
+										<span class="live-course-name">{{z.title}}</span> <span
+											class="live-course-time">{{z.start_time.substring(5,10)}}</span>
+									</h6> 
+							</a></li>
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div>  
+	#include("/inc/footer.html",goto=false)
+	<script type="text/javascript">
+	var app = new Vue({
+		  el: '#app',
+		  data: {
+			  one:#(obj.get(0)),
+		    list:#(obj)
+		  },
+		  methods:{
+			  selectzb:function (item){
+				  this.one=item;
+			  },
+			  truetime:function(d){
+				  var timestr= (d).replace(/-/g,"/");
+				  var time = new Date(timestr);
+				  return time.getTime()>#(now().time);
+			  }
+		  }
+		})
+	</script>
+ </body>
+</html>

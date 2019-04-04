@@ -1,0 +1,61 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zh_CN" class="">
+ <!--<![endif]-->
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html")
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" media="screen"> 
+  <!--[if lt IE 9]>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/html5shiv.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-shim.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-sham.js?version=8.3.17"></script>
+  <![endif]--> 
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white "> 
+ #include("/inc/header.html",tab="msg")
+  <div class="es-wrap"> 
+   <div id="content-container" class="container"> 
+    <div class="row row-8"> 
+     <div class="col-md-8 col-md-offset-2"> 
+      <div class="panel panel-default panel-page"> 
+       <div class="panel-heading"> 
+        <a class="btn btn-primary pull-right" href="javascript:alert('抱歉,暂未开放社交系统!');">写私信</a> 
+        <h2>消息</h2> 
+       </div> 
+       <ul class="media-list conversation-list"> 
+        <li class="media" > <a class="pull-left media-object js-user-card"  > <img class="avatar-sm" src="/img/logo.png"> </a> 
+         <div class="media-body"> 
+          <h4 class="media-heading"> <a class="link-dark " >心教育</a> : 您好<em style="color: #f44336;">#(session.user.nickname)</em>，我是心教育的管理员，欢迎你加入心教育 <span class="text-warning">!</span> </h4> 
+          <div class="conversation-footer clearfix"> 
+           <span class="pull-left">1天前</span> 
+           <span class="pull-right">共1条</span> 
+           <div class="actions pull-right"> 
+            <a class="delete-conversation-btn color-gray" href="javascript:" data-url="/message/conversation/48528/delete">删除</a> 
+            <span class="color-gray mhm">|</span> 
+           </div> 
+          </div> 
+         </div> </li> 
+       </ul> 
+      </div>
+      <!-- /panel --> 
+     </div> 
+    </div> 
+   </div> 
+  </div>  
+  #include("/inc/footer.html",goto=false)
+ </body>
+</html>

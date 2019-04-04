@@ -1,0 +1,254 @@
+<link href="/css/live_music.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="/assets/layui/css/layui.css">
+<style>
+	.mod_search .btn_search_hot {
+		display: none;
+	}
+</style>
+<div class="site_head_simple" id="site_head_simple">
+	#include("/css/head.svg")
+	<div class="head_line">
+		<div class="inner"></div>
+	</div>
+	<div class="head_inner">
+		<div class="site_logo">
+			<a href="/">
+				<h2 style="font-size: 25px;color: white;">
+					<img style="height: 36px;" src="/img/logo.png" />心教育
+				</h2>
+			</a>
+		</div>
+		<!-- 导航 开始 -->
+		<div class="navigation_simple">
+			<div class="navigation_inner cf">
+				<div class="nav_item nav_item_home #(isEmpty(tab)?'current':'')">
+					<a href="/" class="link_nav">
+						<i class="icon_sm icon_home_sm">
+							<svg class="svg_icon svg_icon_home_sm" viewBox="0 0 16 16" width="16" height="16">
+								<use xlink:href="#svg_icon_home_sm"></use>
+							</svg>
+						</i>
+						<span class="icon_text">首页</span>
+					</a>
+				</div>
+				<div class="nav_item #(tab=='zb'?'current':'')">
+					<a href="/zb/" class="link_nav">直播间</a>
+				</div>
+				<div class="nav_item #(tab=='corp'?'current':'')">
+					<a href="#(root)xinlisg/" class="link_nav" target="_blank">心理社工</a>
+				</div>
+				<!-- 
+				<div class="nav_item #(tab=='article'?'current':'')">
+					<a href="#(root)life/" target="_blank" class="link_nav">心理社工</a>
+				</div> -->
+				<div class="nav_item #(tab=='mobile'?'current':'')">
+					<a href="#(root)mobile/" class="link_nav">移动版</a>
+				</div>
+			</div>
+			<!-- 
+			<div class="navigation_more">
+				<a href="javascript:;" class="link_more"><i class="icon_sm icon_menu_sm"><svg class="svg_icon svg_icon_menu_sm" viewBox="0 0 16 16" width="16" height="16"><use xlink:href="#svg_icon_menu_sm"></use></svg></i></a>
+				<div class="pop_more">
+					<div class="pop_cont">
+						
+							<span class="nav_item nav_item_hide"><a href="/" class="pop_link" target="_blank">电视剧</a></span>
+							
+							<span class="nav_item nav_item_hide"><a href="/" class="pop_link" target="_blank">综艺</a></span>
+							
+							<span class="nav_item nav_item_hide"><a href="/" class="pop_link" target="_blank">电影</a></span>
+							
+							<span class="nav_item nav_item_hide"><a href="/" class="pop_link" target="_blank">VIP影院</a></span>
+					</div>
+				</div>
+			</div> -->
+		</div>
+		<!-- 导航 结束 -->
+
+		<div class="mod_search">
+			<form id="searchForm" action="/search" method="get" class="search_form cf" accept-charset="utf-8">
+				<!-- 顶部搜索框 开始 -->
+				<div class="search_inner">
+					<label class="search_label" for="keywords">搜索关键词</label>
+					<i class="icon icon_search">
+						<svg class="svg_icon svg_icon_search" viewBox="0 0 20 20" width="20" height="20">
+							<use xlink:href="#svg_icon_search"></use>
+						</svg>
+					</i>
+					<div class="search_keywords">
+						<input type="text" name="q" id="keywords" class="search_input" placeholder="心教育" autocomplete="off" value="#(p.q)">
+					</div>
+
+					<button class="search_btn" type="submit" _stat="new_vs_header:search">
+						<span class="btn_inner">搜索</span>
+					</button>
+				</div>
+				<!-- 顶部搜索框 结束 -->
+			</form>
+			<div class="mod_smartbox none" id="smartbox"></div>
+		</div>
+		<!-- 快捷入口 开始 -->
+		<div class="mod_quick cf">
+
+
+			
+
+			<!-- 上传
+    <div class="quick_item quick_upload">
+        <a href="javascript:;" class="quick_link" _stat="new_vs_header:upload"><i class="icon icon_upload"><svg class="svg_icon svg_icon_upload" viewBox="0 0 20 20" width="20" height="20"><use xlink:href="#svg_icon_upload"></use></svg></i><span class="quick_text">上传</span></a>
+    </div> -->
+
+			<!-- 消息 
+  -->
+
+			<!-- vip -->
+			<div class="quick_item quick_vip " style="display:block!important">
+				<a href="/vip/" class="quick_link " style="#(tab=='vip'?'color: #ff5644;':'')">
+					<i class="icon icon_vip_flat">
+						<svg class="svg_icon svg_icon_vip_flat" viewBox="0 0 20 20" width="20" height="20">
+							<use xlink:href="#svg_icon_vip_flat"></use>
+						</svg>
+					</i>
+					<span class="quick_text">会员课程</span>
+					<i class="triangle_up">
+						<i class="triangle_inner"></i>
+					</i>
+				</a>
+				<div class="mod_quick_pop mod_pop_vip"></div>
+			</div>
+			iepsy
+			<div class="quick_item quick_message open">
+					<a href="/msg/" class="quick_link" style="#(tab=='msg'?'color: #ff5644;':'')">
+						<i class="icon icon_message"><svg class="svg_icon svg_icon_message" viewBox="0 0 20 20"><use xlink:href="#svg_icon_message"></use></svg></i><span class="quick_text">消息</span>
+						<i class="dot_notice"></i>
+					</a>
+			</div>
+			<!-- 历史浮层 -->
+			<div class="quick_item quick_history" id="modHistory">
+					<a href="/user/play" class="quick_link" style="#(tab=='play'?'color: #ff5644;':'')">
+						<i class="icon icon_time">
+							<svg class="svg_icon svg_icon_time" viewBox="0 0 20 20" width="20" height="20">
+								<use xlink:href="#svg_icon_time"></use>
+							</svg>
+						</i>
+						<span class="quick_text">看过</span>
+						<i class="triangle_up">
+							<i class="triangle_inner"></i>
+						</i>
+					</a>
+				</div>
+				<!-- 学习中心 -->
+			<!-- <div class="quick_item quick_client" id="pc_client">
+				<a href="/my/" class="quick_link" style="#(tab=='my'?'color: #ff5644;':'')">
+					<i class="icon icon_client">
+						<svg class="svg_icon svg_icon_client" viewBox="0 0 20 20" width="20" height="20">
+							<use xlink:href="#svg_icon_client"></use>
+						</svg>
+					</i>
+					<span class="quick_text">学习中心</span>
+					<i class="triangle_up">
+						<i class="triangle_inner"></i>
+					</i>
+
+				</a>
+			</div> -->
+
+			<div class="quick_item quick_user" id="mod_head_user">
+				<!-- #if(!isEmpty(session.user)) -->
+				<a href="/user/" id="userlogindiv" class="quick_link _checklogin">
+					<img src="#(www)#(session.user.img)" data-type="avatar" data-avatarsize="40">
+
+					<i class="triangle_up">
+						<i class="triangle_inner"></i>
+					</i>
+				</a>
+				<div class="mod_quick_pop mod_pop_user" id="mod_head_notice_pop">
+					<div class="pop_info_content quick_pop_user">
+						<div class="quick_pop_user_hd" >
+							<!-- <span class="account_type __accout_type_name"></span>
+							<a href="http://v.qq.com/u/" class="user_name _nickname"></a>
+							<a href="javascript:;" class="link_vip_icon">
+								账号:#(session.user.username)
+							</a> -->
+							<li><a href="/user/">个人中心</a></li>
+							<li><a href="/my/">我的课程</a></li>
+							<li><a href="/user/orders">我的订单</a></li>
+							<li><a href="/user/logout" class="link_quit" data-type="logout" title="退出">退出</a></li>
+							<div style="display: none;" class="quick_vip_meta" id="quick_user_vip">
+								<span class="vip_now __tips">开通VIP/Pro会员 看视频</span>
+								<span class="vip_next">
+									<a href="/vip/" class="btn_vip_em __open_vip">#(session.user.vip>0?'开通':'续费')</a>
+								</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- #else -->
+				<!--未登录会员账号 开始-->
+				<a href="/login" class="quick_link _checklogin">
+					<img src="//i.gtimg.cn/qqlive/images/20150608/avatar.png" data-type="avatar" data-avatarsize="40">
+					<span class="account_type" data-type="account_type_logo">
+						<i class="icon icon_qq __account_type_qq none">
+							<svg class="svg_icon svg_icon_qq" viewBox="0 0 20 20" width="8" height="8">
+								<use xlink:href="#svg_icon_qq"></use>
+							</svg>
+						</i>
+						<i class="icon icon_wechat __account_type_wx none">
+							<svg class="svg_icon svg_icon_wechat" viewBox="0 0 20 20" width="8" height="8">
+								<use xlink:href="#svg_icon_wechat"></use>
+							</svg>
+						</i>
+					</span>
+					<span class="account_vip">
+						<i class="icon_vip icon_vip_grey none" data-type="viplogo">
+							<i class="icon_vip_num"></i>
+						</i>
+					</span>
+					<i class="triangle_up">
+						<i class="triangle_inner"></i>
+					</i>
+				</a>
+				<!--未登录会员账号 结束-->
+				<!-- #end -->
+
+				<!-- 用户信息浮层 结束 -->
+			</div>
+		</div>
+		<!-- 快捷入口 结束 -->
+
+	</div>
+</div>
+
+<!-- #if(!isEmpty(nav)) -->
+<div class="layui-tab layui-tab-brief" style="margin:0px;background-color: white;margin-bottom: 2px;">
+	<ul class="layui-tab-title" style="width: 1000px; position: relative; margin: 0px auto 0;">
+		<li #(nav=='index' ? 'class="layui-hide-xs  layui-this" ': '')>
+			<a href="/">首页</a>
+		</li>
+		<li #(nav=='course' ? 'class="layui-hide-xs  layui-this" ': '')>
+			<a href="/course/"> 课程 </a>
+		</li>
+		<li #(nav=='combo' ? 'class="layui-hide-xs  layui-this" ': '')>
+			<a href="/combo/">套餐</a>
+		</li>
+		<li #(nav=='agency' ? 'class="layui-hide-xs  layui-this" ': '')>
+			<a href="/agency/">机构</a>
+		</li>
+		<li #(nav=='teacher' ? 'class="layui-hide-xs  layui-this" ': '')>
+			<a href="/teacher/">讲师</a>
+		</li>
+		<li #(nav=='article' ? 'class="layui-hide-xs  layui-this" ': '')>
+			<a href="/article/">资讯</a>
+		</li>
+		<!-- 
+		<li #(nav== 'bbs'?'class="layui-hide-xs  layui-this" ':'')><a href="/bbs/">社区</a></li>
+		<li #(nav== 'fm'?'class="layui-hide-xs  layui-this" ':'')><a href="/fm/">FM</a></li>
+		 -->
+	</ul>
+	<!-- #end -->
+</div>
+<style>
+	#userlogindiv:hover .mod_quick_pop {
+		display: block;
+	}
+</style>

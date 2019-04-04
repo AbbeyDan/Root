@@ -1,0 +1,132 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="我的课程")
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/main-v2.css" rel="stylesheet">
+  <link href="/css/header-white.css" rel="stylesheet">
+</head>
+
+<body class="es-main-default es-nav-white cd-design">
+  #include("/inc/header.html")
+  <div class="es-wrap">
+    <div class="container cd-container">
+      <div class="cd-content">
+        <div class="cd-sidebar">
+          <ul class="cd-sidebar__list">
+            <li class="cd-sidebar__heading"> 账户中心 </li>
+            <li class="cd-sidebar__item ">
+              <a href="play">播放记录</a>
+            </li>
+            <li class="cd-sidebar__item  active">
+              <a href="/my/">我的课程</a>
+            </li>
+            <!-- <li class="cd-sidebar__item "> <a href="/my/">pro会员中心</a></li> -->
+            <!-- <li class="cd-sidebar__item "> <a href="/my/">我的收藏/a></li> -->
+            <li class="cd-sidebar__item">
+              <a href="orders">我的订单</a>
+            </li>
+            <!-- <li class="cd-sidebar__item  "> <a href="coin">学习币账户</a> </li> 
+       <li class="cd-sidebar__item "> <a href="invitecode">邀请码</a> </li> 
+       <li class="cd-sidebar__item "> <a href="coupon">优惠券</a> </li> 
+       <li class="cd-sidebar__item "> <a href="history">会员记录</a> </li> 
+       <li class="cd-sidebar__item  "> <a href="cards">学习卡</a> </li>  -->
+            <li class="cd-sidebar__item ">
+              <a href="point">我的研值</a>
+            </li>
+            <li class="cd-sidebar__heading"> 个人设置 </li>
+            <li class="cd-sidebar__item ">
+              <a href="/user/">个人信息</a>
+            </li>
+            <!-- <li class="cd-sidebar__item "> <a href="/settings/approval/submit">实名认证</a> </li> 
+       <li class="cd-sidebar__item "> <a href="security">安全设置</a> </li> 
+       <li class="cd-sidebar__item "> <a href="binds">第三方登录</a> </li>  -->
+          </ul>
+        </div>
+        <div class="cd-main">
+            <div class="panel panel-default panel-col"> 
+                <div class="panel-heading">
+                  我的课程 
+                 <a class="btn cd-btn cd-btn-info cd-btn-sm pull-right" href="/zb/list">直播课表</a> 
+                </div> 
+                <div class="panel-body"> 
+                 <ul class="cd-tabs"> 
+                  <li><a href="/my/">单买课程</a></li> 
+                  <li class="active"><a href="/my/vip">VIP课程</a></li> 
+                  <li><a href="/my/combo">套餐课程</a></li> 
+                 </ul> 
+                 <!-- #for(c:obj) -->
+                 <div class="my-course-item cd-mb40 clearfix"> 
+                  <a class="my-course-item__link" href="/course/#(c.id)"> <img src="#(www)#(c.img)" onerror="this.src='/img/wutu.png'" alt="课程" class="my-course-item__picture" > <span class="my-course-item__label"> </span> </a> 
+                  <div class="my-course-item__info"> 
+                   <div class="my-course-item__title text-overflow"> 
+                    <a class="cd-link-major" href="/course/#(c.id)">#(c.title)</a> 
+                   </div> 
+                   <div>
+                   <br/>
+                   <span>课程标签:#(c.tag)</span>
+                   </div>
+                   <div>
+                   <br/>
+                   <span>共#(c.section)节,时长:#(c.duration/60)分钟</span>
+                   </div>
+                   <!-- 
+                   <div class="my-course-item__classroom"> 
+                    <span>来自班级：<a class="cd-link-minor" href="/classroom/1">1</a></span> 
+                   </div>  -->
+                   <!-- 
+                   <div class="my-course-item__progress cd-mt24 cd-clearfix"> 
+                    <span class="my-course-item__progress__text">学习进度</span> 
+                    <div class="cd-progress cd-progress-sm"> 
+                     <div class="progress-bar"> 
+                      <div class="progress-outer"> 
+                       <div class="progress-inner" style="width: 0%;"></div> 
+                      </div> 
+                     </div> 
+                     <div class="progress-text">
+                      0%
+                     </div> 
+                    </div> 
+                   </div> 
+                    -->
+                  </div> 
+                  <div class="my-course-item__btn"> 
+                   <a class="btn cd-btn cd-btn-primary cd-btn-lg" href="/course/#(c.id)">继续学习</a> 
+                  </div> 
+                 </div> 
+                 <!-- #end -->
+                </div> 
+               </div> 
+        </div>
+      </div>
+    </div>
+  </div>
+  #include("/inc/footer.html",goto=false)
+  <script type="text/javascript">
+    layui.use(['form', 'layedit', 'laydate', 'layer'], function () {
+      var $ = layui.$, layer = layui.layer;
+
+      $(".js-cancel").click(function () {
+        var id = $(this).attr("data-id")
+        layer.confirm('确定取消该订单吗？', {
+          btn: ['确定', '取消'] //按钮
+        }, function () {
+          $.ajax({            
+url: "/user/orders/del?id=" + id, success: function (data) {
+              layer.msg('取消成功!', { icon: 1 });
+              location.href = "orders";
+            }
+          });
+        }, function () {
+        });
+      })
+
+    })
+  </script>
+</body>
+
+</html>

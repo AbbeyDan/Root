@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="教务系统")
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen">
+    <!-- <link href="/css/bootstrap.css" rel="stylesheet"> -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/main-v2.css" rel="stylesheet">
+    <link href="/css/header-white.css" rel="stylesheet">
+    <style>
+        .applylist h2{
+            border-left:4px solid rgb(4, 143, 113);
+            padding-left:15px;
+            font-size:20px;
+            /* line-height: 30px; */
+        }
+        .contain {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .contain li {
+            width: 30%;
+            text-align: center;
+            margin-top: 30px;
+            border: 2px solid #ddd;
+            position: relative;
+            cursor: pointer;
+            /* height: 60px; */
+            /* line-height: 60px; */
+        }
+
+
+        .contain .img img {
+            width: 100%;
+        }
+
+        .contain p {
+            padding: 10px;
+        }
+    </style>
+
+</head>
+
+<body class="es-main-default es-nav-white cd-design">
+    #include("/inc/header.html")
+    <div class="es-wrap applylist" id="app">
+        <div class="container cd-container">
+            <div class="cd-content">
+                <h2>培训项目报名列表</h2>
+                <ul class="contain">
+                    <!-- #for(i = 0; i < pros.size(); i++) -->
+                    <li>
+                        <a href="apply.html">
+                            <div class="img">
+                                <img src="../img/wutu.png" alt="">
+                            </div>
+                            <p>#(pros[i].title)考试报名表</p>
+                        </a>
+                    </li>
+                    <!-- #end -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    #include("/inc/footer.html",goto=false)
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // var aaa = #(obj);
+        // console.log(aaa)
+        // new Vue({
+        //     el: "#app",
+        //     data: {
+        //         list: aaa.list
+        //     }
+        // })
+        // $(".contain li").hover(function () {
+        //     console.log(1)
+        //     $(this).addClass("hover")
+        // }, function () {
+        //     $(this).removeClass("hover")
+        // })
+        console.log(#(obj))
+        //数据的总长度除以每行展示的个数    23/3  余2    每行显示3个   3-2 = 1，在后边补齐一个元素
+    </script>
+</body>
+
+</html>

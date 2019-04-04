@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<html lang="zh_CN" class="">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+#include("/inc/head.html",title="搜索")
+<link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<link href="/css/main-v2.css" rel="stylesheet">
+<link href="/css/header-white.css" rel="stylesheet">
+  </head>
+<body class="es-main-default es-nav-white ">
+#include("/inc/header.html")
+  <div class="es-wrap">          
+              
+  
+      <div id="content-container" class="container">
+          <div class="row">
+          <!-- #if(isEmpty(p.q)) -->
+          <div class="col-md-12">
+		      <div class="panel panel-default">
+		        <div class="panel-heading">
+		          <h3 class="panel-title">搜索结果</h3>
+		        </div>
+		        <div class="panel-body color-gray">
+		         	在上方搜索框输入关键词进行搜索.
+		        </div>
+		      </div>
+		    </div>
+		    <!-- #else -->
+    <div class="col-md-12">
+      <div class="es-section">
+        <ul class="nav nav-tabs" id="search-nav-tabs" role="tablist">
+                              <li class="#(isEmpty(p.type)||p.type=='course'?'active':'')" >
+              <a href="search?q=#(p.q)&type=course" data-type="course" >
+                                  课程
+                              </a>
+            </li>
+          
+                              <li class="#(p.type=='combo'?'active':'')">
+              <a href="search?q=#(p.q)&type=combo" data-type="classroom" >
+                                  套餐
+                              </a>
+            </li>
+          
+                              <li class="#(p.type=='teacher'?'active':'')">
+              <a href="search?q=#(p.q)&type=teacher" data-type="teacher" >
+                                  教师
+                              </a>
+            </li>
+          
+                              <li class="#(p.type=='article'?'active':'')">
+              <a href="search?q=#(p.q)&type=article" data-type="article" >
+                                  资讯
+                              </a>
+            </li>
+          
+                </ul>
+        <div class="search-result" id="search-result">
+                      <div class="alert alert-blank alert-sm">
+  为您找到课程结果约 <span class="color-danger">#(obj.count)</span>个
+
+</div>
+<div class="search-course-list" id="search-course">
+<!-- #for(c:obj.list) -->
+      <div class="course-item clearfix">
+  <div class="course-img">
+    <a href="/#(p.type??'course')/#(c.id)" target="_blank">
+                  <img style="width: 304px;height: 171px;" class="img-responsive" onerror="this.src='/img/wutu.png'" src="#(www)#(c.img)" alt="">
+    </a>
+  </div>
+  <div class="course-info">
+    <h3 class="title">
+      <a href="/#(p.type??'course')/#(c.id)" target="_blank">
+        #(c.title??c.name)
+        			
+        			<!-- #if(isEmpty(p.type)||p.type=="course") -->
+        		  <!-- #if(c.price>0) -->
+                  <small class="label label-primary label-xs">精品</small>
+                  <!-- #else -->
+                  <small class="label label-info label-xs">免费</small>
+                  <!-- #end -->
+                  	<!-- #end -->
+              </a>
+    </h3>
+     <!-- #if(p.type=="course") -->
+    <div class="content editor-text">
+    讲师:#(c.tname)
+    </div>
+    <div class="content editor-text">
+    <em style="color: red;">价格:#(c.price)</em>
+    </div>
+    <!-- #end -->
+    <!-- #if(p.type=="combo") -->
+    <div class="content editor-text">
+    	原价:<span style="text-decoration:line-through;">#(c.total_price)</span>
+    </div>
+    <div class="content editor-text">
+    <em style="color: red;">价格:#(c.price)</em>
+    </div>
+    <!-- #end -->
+    <div class="score">
+            <!-- #if(isEmpty(p.type)||p.type=="course") -->
+       <span>
+        #(c.duration/60/60)小时#(c.duration/60%60)分钟  共#(c.section)集
+                </span> 
+      <!-- #end -->
+          </div>
+    <div class="content editor-text">#(c.text)</div>
+          </div>
+</div>
+<!-- #end -->
+  </div>
+                  </div>
+        <nav class="text-center">
+            <div id="pager"></div>
+        </nav>
+      </div>
+    </div>
+    <!-- #end -->
+    
+  </div>
+
+      </div>
+    
+        
+      </div>
+#include("/inc/footer.html",goto=false)
+<script type="text/javascript">
+layui.use(['laypage', 'layer'], function(){
+	  var laypage = layui.laypage
+	  ,layer = layui.layer;
+	  
+	  laypage.render({
+		    elem: 'pager'
+		    ,count: #(obj.count)
+		    ,curr:#(p.page??1)
+		    ,layout: ['count', 'prev', 'page', 'next', 'refresh', 'skip']
+		    ,jump: function(obj,first){
+		    	if(!first){
+		    		var url=self.location.href;
+		    		if(url.indexOf("&page=")!=-1){
+		    			location.href=url.replace("&page="+#(p.page??1), "&page="+obj.curr);
+		    			
+		    		}else{
+		    			location.href=url+"&page="+obj.curr;
+		    		}
+		    	}
+		    }
+		  });
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    #include("/inc/head.html")
+    <link rel="stylesheet" href="/css/flink_6aab7d7.css" />
+    </head>
+	<body>
+	#include("/inc/header.html")
+        <div id="wrapper">
+
+            <div  id="pager">
+                
+     
+     <div class="crumbs">
+   <div class="w-1000">
+    <a href="/">首页</a>
+    <em>&gt;</em>
+    <span>友情链接</span>
+   </div>
+  </div>
+  <div id="partnerbox">
+   <div class="topbox cf">
+    <div class="f_l titlebox">
+     <h2>合作伙伴</h2>
+    </div>
+   </div>
+   <div class="partnersbox2 cf">
+    <!-- #for(link : obj) -->
+    <!-- #if(link.type==1) -->
+    <a href="#(link.url)" target="_blank" ><img src="#(link.img)" alt=""></a>
+    <!-- #end -->
+    <!-- #end -->
+   </div>
+   <div class="topbox cf">
+    <div class="f_l titlebox">
+     <h2>友情链接</h2>
+    </div>
+   </div>
+   <div class="card-list allpartners">
+    	<!-- #for(link : obj) -->
+    <!-- #if(link.type!=1) -->
+       <a href="#(isEmpty(link.url)?'javascript:void(0);':link.url)" #(isEmpty(link.url)?'':'target="_blank"')  title="#(link.title)"  >#(link.title)</a>
+    <!-- #end -->
+    <!-- #end -->
+   </div>
+  </div>
+
+  
+            </div>
+
+
+        </div>
+        #include("/inc/footer.html",goto=false)
+        </body>
+</html>

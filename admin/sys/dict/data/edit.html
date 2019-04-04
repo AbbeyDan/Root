@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="zh" >
+<meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet"/>
+	<!-- bootstrap-table 表格插件样式 -->
+	<link href="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/animate.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/style.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/select/select2.css" rel="stylesheet"/>
+	<link href="/assets/admin/ruoyi/css/ry-ui.css" rel="stylesheet"/>
+</head>
+<body class="white-bg">
+	<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+		<form class="form-horizontal m" id="form-dict-edit">
+			<input name="dictCode"  type="hidden" id="dictCode" value="1" />
+			<div class="form-group">
+				<label class="col-sm-3 control-label ">字典标签：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="dictLabel" id="dictLabel" required value="男">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label ">字典键值：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="dictValue" id="dictValue" required value="0">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">字典类型：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" readonly="true" id="dictType" name="dictType" value="sys_user_sex">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">样式属性：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" id="cssClass" name="cssClass" value="">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">字典排序：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="dictSort" required id="dictSort" value="1">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">回显样式：</label>
+				<div class="col-sm-8">
+					<select name="listClass" class="form-control m-b">
+					    <option value="" selected="selected">---请选择---</option>
+	                    <option value="default">默认</option>
+	                    <option value="primary">主要</option>
+	                    <option value="success">成功</option>
+	                    <option value="info">信息</option>
+	                    <option value="warning">警告</option>
+	                    <option value="danger">危险</option>
+	                </select>
+	                <span class="help-block m-b-none"><i class="fa fa-info-circle"></i> table表格字典列显示样式属性</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">系统默认：</label>
+				<div class="col-sm-8">
+					<div class="radio-box">
+						<input type="radio" id="10" name="isDefault" value="Y" checked="checked">
+						<label for="10">是</label>
+					</div>
+					<div class="radio-box">
+						<input type="radio" id="11" name="isDefault" value="N">
+						<label for="11">否</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">状态：</label>
+				<div class="col-sm-8">
+					<div class="radio-box">
+						<input type="radio" id="6" name="status" value="0" checked="checked">
+						<label for="6">正常</label>
+					</div>
+					<div class="radio-box">
+						<input type="radio" id="7" name="status" value="1">
+						<label for="7">停用</label>
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">备注：</label>
+				<div class="col-sm-8">
+					<textarea id="remark" name="remark" class="form-control">性别男</textarea>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div>
+	<script src="/assets/admin/js/jquery.min.js"></script>
+	<script src="/assets/admin/js/bootstrap.min.js"></script>
+	
+	<!-- bootstrap-table 表格插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.js"></script>
+	<!-- jquery-validate 表单验证插件 -->
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/messages_zh.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.extend.js"></script>
+	<!-- jquery-validate 表单树插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.js"></script>
+	<!-- jquery-export 表格导出插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/tableExport.js"></script>
+	<!-- 遮罩层 -->
+	<script src="/assets/admin/ajax/libs/blockUI/jquery.blockUI.js"></script>
+	<script src="/assets/admin/ajax/libs/iCheck/icheck.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layer/layer.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layui/layui.js"></script>
+	<script src="/assets/admin/ruoyi/js/common.js?v=3.2.0"></script>
+	<script src="/assets/admin/ruoyi/js/ry-ui.js?v=3.2.0"></script>
+	
+	<script> var ctx = "\/"; </script>
+</div>
+	<script type="text/javascript">
+		var prefix = ctx + "system/dict/data";
+	
+		$("#form-dict-edit").validate({
+			rules:{
+				dictSort:{
+					digits:true
+				},
+			},
+			focusCleanup: true
+		});
+		
+		function submitHandler() {
+	        if ($.validate.form()) {
+	        	$.operate.save(prefix + "/edit", $('#form-dict-edit').serialize());
+	        }
+	    }
+	</script>
+</body>
+</html>

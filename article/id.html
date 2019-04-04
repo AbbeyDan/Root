@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="资讯")
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white article-detail-page"> 
+ #include("/inc/header.html",nav="article")
+  <div class="es-wrap"> 
+   <div id="content-container" class="container"> 
+    <div class="article-detail row" id="detail-content"> 
+     <!-- 主内容 --> 
+     <div class="col-md-12 article-detail-main"> 
+      <section class="es-section article-content"> 
+       <ol class="breadcrumb"> 
+        <li><a href="/article/">全部资讯</a></li> 
+        <li class="active">正文</li> 
+       </ol> 
+       <div class="article-metas"> 
+        <div class="pull-left"> 
+         <div class="date"> 
+          <div class="day">
+           25
+          </div> 
+          <div class="month">
+           07月
+          </div> 
+         </div> 
+        </div> 
+        <div class="metas-body"> 
+         <h2 class="title"> #(obj.title??'测试')</h2> 
+         <div class="sns"> 
+          <span class="views-num"> <i class="es-icon es-icon-visibility"></i>17432 </span> 
+          <span class="comment-num"> <i class="es-icon es-icon-textsms"></i>2 </span> 
+          <span class="love-num"> <i class="es-icon es-icon-favorite"></i><span class="js-like-num">0</span> </span> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="article-text cke_editable cke_contents_ltr"> 
+        <p class="MsoNormal"> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; </p> 
+        <p class="MsoNormal"> #(obj.text??"测试正文") </p> 
+        #(obj.html??"测试图文")
+       </div> 
+       <div class="article-tags"> 
+       </div> 
+       <nav class="text-center"> 
+       </nav> 
+      </section> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  #include("/inc/footer.html",goto=false)
+ </body>
+</html>

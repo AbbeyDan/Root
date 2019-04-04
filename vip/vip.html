@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  #include("/inc/head.html",title=obj.title+obj.name)
+  <link rel="stylesheet" href="/css/videojs_7e755f4.css">
+  <link rel="stylesheet" href="/css/list_v7_aae031f.css">
+ </head> 
+ <body> 
+  <div id="wrapper"> 
+  	#include("/inc/header.html")
+   <div id="pager"> 
+    <!-- banner 图 --> 
+    <div class="banner" style="background-image:url('/images/b9b6fafd-7948-42c9-8105-502a47ebd6fe.jpg');"> 
+     <div class="banbox" style="padding-right: 0"> 
+      <div class="banner-crumbs"> 
+       <ul> 
+        <li><a href="/" target="_blank">首页</a></li> 
+        <li><a href="/combo/">套餐</a></li> 
+        <li class="grey">#(obj.title)</li> 
+       </ul> 
+      </div> 
+      <h1 id="slug" data-slug="wechatapp">#(obj.title)</h1> 
+      <div class="banner-info">
+       #(obj.text)
+      </div> 
+     </div> 
+    </div> 
+    <div class="main"> 
+     <!-- 左容器111 --> 
+     <div class="nav-left"> 
+      <div class="nav-block"> 
+       <ul id="navList"> 
+        <li data-nav="path">学习路径</li> 
+        <li data-nav="teacher">老师介绍</li> 
+        <li data-nav="question">常见问题</li> 
+       </ul> 
+       <div class="vip"> 
+        <a href="/buy/vip/#(obj.id)" target="_blank">现在加入</a> 
+        <p>#(obj.title)#(obj.name)</p> 
+       </div> 
+      </div> 
+     </div> 
+     <!-- 右容器 --> 
+     <div class="main-right" id="mainRight"> 
+      <div class="path"> 
+       <h2>学习路径</h2> 
+       <div class="contain"> 
+       	
+        <div class="path-level"> 
+         <h3 class="type_1">#(obj.title)#(obj.name)
+         <a href="/tag/name?name=#(obj.tag)" style="float: right;color: #ffeb3b;">查看包含课程>></a>
+         </h3> 
+         <div class="path-course"> 
+          <ul> 
+          	<!--#for(c:courses)  -->
+           <li class="course"> 
+           <a href="/course/#(c.id)" class="pic" target="_blank"> <img src="#(www)#(c.img)" alt="#(c.title)" > </a> <p class="title"> <a href="/course/#(c.id)" target="_blank">#(c.title) <i class="new">新</i> </a> </p> <p class="description">#(c.text)</p> 
+           <p class="name">主讲：#(c.tname)</p> 
+			<div class="path-lesson-list">
+				<p class="gather get_lesson_data" >课程大纲</p>
+					<ul class="lesson-list-content" style="display: none;">
+						<li class="path-lesson">
+						<div class="section_title">
+							<p class="title">
+							#(c.title)
+							</p>
+						</div>
+						<ul>
+						<!-- #for(c1:c.chapter) -->	
+						<li class="section">
+						<!-- #if(c1.type=="video") -->
+						<a href="#(isbuy?'/course/'+c.id+'?vid='+c1.val:'javascript:alert(\'请先购买课程或加入VIP或联系代理机构!详情咨询:010-82865508\');')">
+						<span class="section-content show-svip video"><i></i>
+						<span class="text">#(c1.title)</span>
+						<span class="num time_3">#(num(c1.duration/60,"0"))分钟</span>
+						</a>
+						<!-- #else -->
+						<span class="text">#(c1.title)</span>
+						<!-- #end -->
+						</span>
+						</li>
+						<!-- #end -->
+						</ul></li>
+					</ul>
+											</div>
+										</li> 
+            <!-- #end -->
+          </ul> 
+         </div> 
+        </div> 
+        
+       </div> 
+      </div> 
+      <div class="zhiye-vip" #(obj.id==4||5?"style='display:none;'":"")> 
+       <h2>价值够大，价格够低</h2> 
+       <div class="contain"> 
+        <div class="contain-left"> 
+         <h3>您将拥有如下特权：</h3> 
+         <ul> 
+          <li>完全开放 : 心教育学院 3000+门视频课程，500+门wiki图文教程。</li> 
+          <li>全部服务 : 本专业方向的全部内容（知识体系 / 学习路径 / 实战作业）。</li> 
+          <li>跟上趋势 : 心教育学院早晚报 , 助您在第一时间了解科技行业动态。</li> 
+          <li>专业人脉 : 专属教练圈子，结识更多志同道合的朋友。</li> 
+          <li>限时优惠 : 原价 998元/年，现价 99元/月 或者 499元/年。</li> 
+         </ul> 
+         <div class="btn-container"> 
+          <a href="/buy/vip/#(obj.id)" class="year-btn go-buy" target="_blank">开通Pro<span>(#(obj.price)元)</span></a> 
+          <!-- <a href="javascript:;" class="month-btn go-buy" data-good_id="7" target="_blank">开通月Pro<span>(99元)</span></a> --> 
+         </div> 
+        </div> 
+        <div class="contain-right"> 
+         <p class="description">专项超级会员，简称Pro，是心教育学院联合企业为每个职业构建的成体系的学习方案，也是最具性价比的学习方案。</p> 
+         <a href="javascript:;" class="why-btn" target="_blank">为什么要做Pro?</a> 
+         <a href="javascript:;" class="que-btn">有疑问，请联系我们</a> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="zhiye-mask"> 
+       <div class="zhiye-vip"> 
+        <i class="close-mask"></i> 
+        <div class="contain"> 
+         <div class="contain-left"> 
+          <h3>价值够大，价格够低。您需要开通 : 微信小程序工程师 。</h3> 
+          <ul> 
+           <li>完全开放 : 心教育学院 3000+门视频课程，500+门wiki图文教程。</li> 
+           <li>全部服务 : 本专业方向的全部内容（知识体系 / 学习路径 / 实战作业）。</li> 
+           <li>跟上趋势 : 心教育学院早晚报 , 助您在第一时间了解科技行业动态。</li> 
+           <li>专业人脉 : 专属教练圈子，结识更多志同道合的朋友。</li> 
+           <li>限时优惠 : 原价 998元/年，现价 99元/月 或者 499元/年。</li> 
+          </ul> 
+          <div class="btn-container"> 
+           <a href="javascript:;" class="year-btn go-buy" data-good_id="8" target="_blank">开通年Pro<span>(499元)</span></a> 
+           <a href="javascript:;" class="month-btn go-buy" data-good_id="7" target="_blank">开通月Pro<span>(99元)</span></a> 
+          </div> 
+         </div> 
+         <div class="contain-right"> 
+          <p class="description">专项超级会员，简称Pro，是心教育学院联合企业为每个职业构建的成体系的学习方案，也是最具性价比的学习方案。</p> 
+          <a href="javascript:;" class="why-btn" target="_blank">为什么要做Pro?</a> 
+          <a href="javascript:;" class="que-btn">有疑问，请联系我们</a> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="teacher"> 
+       <h2>讲师</h2> 
+       <div class="contain"> 
+        <ul> 
+        <!-- #for(t:teachers) -->
+         <li> 
+         <a href="/teacher/#(t.id)"> 
+          <div class="content"> 
+           <img style="width: 80px;height: 80px;" class="teach-img pic" src="#(www)#(t.img)" alt="贺嘉" id="4787667"> 
+           <div class="title"> 
+            <h3>#(t.name)</h3> 
+            <p>心教育学院-#(t.job)</p> 
+           </div> 
+           <p style="overflow:hidden;text-overflow: ellipsis;height: 100px;" class="desc">#(t.text)</p> 
+          </div></a> </li> 
+          <!-- #end -->
+        </ul> 
+       </div> 
+      </div> 
+      <div style="margin-top: 20px;">
+      <img style="width: 100%;height: 200px;" src="#(www)#(obj.img)" />
+      </div>
+      <div class="question"> 
+       <h2>常见问题</h2> 
+       <div class="contain" style="max-height:100%;"> 
+        <div class="content" id="faqCard"> 
+        <!-- #for(qa :obj.qa) -->
+         <h3>#(qa.q)</h3>
+         <p>#(qa.a)</p>
+         <!-- #end -->
+        </div> 
+        
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   #include("/inc/footer.html")  
+   <script type="text/javascript">
+   layui.use(['layer','jquery'],function(){
+	   var $=layui.$;
+	   $(".get_lesson_data").click(function(){
+		   if($(this).hasClass("open")){
+			   $(this).removeClass("open");
+			   $(this).next().css("display","none");
+		   }else{
+			   $(this).addClass("open");
+			   $(this).next().css("display","block");
+		   }
+	   })
+   })
+   </script>
+ </body>
+</html>

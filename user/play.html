@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="播放记录")
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet">
+  <style>
+    .thumbnail>a{
+      position: relative;
+      display: block;
+    }
+       .thumbnail .playericon {
+    position: absolute;
+    z-index: 120;
+    width: 50px;
+    height: 50px;
+    display: block;
+    left: 50%;
+    margin-left: -25px;
+    top: 50%;
+    margin-top: -25px;
+    background: url(../images/player_icon_5c67475.png) 0 0 no-repeat;
+    cursor: pointer;
+    background-size: 50px 50px;
+    }
+  </style>
+ </head> 
+ <body class="es-main-default es-nav-white cd-design"> 
+ #include("/inc/header.html",tab="play")
+  <div class="es-wrap"> 
+   <div class="container cd-container"> 
+    <div class="cd-content"> 
+     <div class="cd-sidebar"> 
+      <ul class="cd-sidebar__list"> 
+        <li class="cd-sidebar__heading"> 账户中心 </li> 
+        <li class="cd-sidebar__item active"> <a href="play">播放记录</a> </li>
+        <li class="cd-sidebar__item " > <a href="/my/">我的课程</a> </li>
+        <li class="cd-sidebar__item " style="display:none"> <a href="proCenter">Pro会员中心</a> </li>
+        <li class="cd-sidebar__item " style="display:none"> <a href="collect">我的收藏</a> </li>
+        <li class="cd-sidebar__item "> <a href="orders">我的订单</a> </li>
+        <li class="cd-sidebar__item "> <a href="point">我的积分</a> </li> 
+        <li class="cd-sidebar__heading"> 个人设置 </li> 
+        <li class="cd-sidebar__item "> <a href="/user/">个人信息</a> </li> 
+        <li class="cd-sidebar__item "> <a href="/msg/">系统消息</a> </li>
+      </ul> 
+     </div> 
+     <div class="cd-main"> 
+      <div class="cd-main__heading"> 
+       <div class="cd-main__title">
+         	播放记录 
+       </div> 
+      </div> 
+      <div class="cd-main__body"> 
+       <div class="table-responsive cd-table-responsive"> 
+        <div class="row">
+		<!-- #for(c:obj.list) -->
+        <div class="col-sm-6 col-md-4 col-lg-3 ">
+          <div class="thumbnail" style="height: 200px;">
+            <a href="#(root)#(c.tbl_name)/#(c.tbl_id)" title="#(c.title)" target="_blank" >
+              <img class="lazy" onerror="this.src='/img/wutu.png'" src="#(www)#(c.img)" style="height: 135px;width: 100%;" alt="#(c.title)">
+              <div class="lessonplay" style="opacity: 0;"><i class="playericon"></i></div>
+            </a>
+            <div class="caption">
+              <h3>
+                  <a href="#(root)#(c.tbl_name)/#(c.tbl_id)" title="#(c.title)" target="_blank" onclick="_hmt.push(['_trackEvent', 'tile', 'click', 'youzhan-tile'])">#(c.title)
+                  <br/><small>观看时间:#(format(c.update_time,"yyyy-MM-dd HH:mm:ss"))</small>
+                  </a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      <!-- #end -->
+    </div>
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  #include("/inc/footer.html",goto=false)
+  <script>
+    $(".thumbnail").hover(function(){
+      $(this).find(".lessonplay").css("opacity", "1");
+    },function(){
+      $(this).find(".lessonplay").css("opacity", "0");
+    })
+  </script>
+ </body>
+</html>

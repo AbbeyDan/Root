@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="个人资料")
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen"> 
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white cd-design"> 
+ 	#include("/inc/header.html")
+  <div class="es-wrap"> 
+   <div class="container cd-container"> 
+    <div class="cd-content"> 
+     <div class="cd-sidebar"> 
+      <ul class="cd-sidebar__list"> 
+       <li class="cd-sidebar__heading"> 账户中心 </li> 
+       <li class="cd-sidebar__item "> <a href="play">播放记录</a> </li>
+       <li class="cd-sidebar__item "> <a href="/my/">我的课程</a> </li>
+       <li class="cd-sidebar__item " style="display:none"> <a href="proCenter">Pro会员中心</a> </li>
+       <li class="cd-sidebar__item " style="display:none"> <a href="collect">我的收藏</a> </li>
+       <li class="cd-sidebar__item "> <a href="orders">我的订单</a> </li>
+       <li class="cd-sidebar__item "> <a href="point">我的积分</a> </li> 
+       <li class="cd-sidebar__heading"> 个人设置 </li> 
+       <li class="cd-sidebar__item active"> <a href="/user/">个人信息</a> </li> 
+       <li class="cd-sidebar__item "> <a href="pass">修改密码</a> </li> 
+       <li class="cd-sidebar__item "> <a href="/msg/">系统消息</a> </li> 
+      </ul> 
+     </div> 
+     <div class="cd-main"> 
+      <div class="cd-main__heading"> 
+       <div class="cd-main__title">
+         个人信息 
+       </div> 
+      </div> 
+      <div class="cd-main__body"> 
+       <form id="form1" action="update" class="row cd-row" method="post"> 
+        <div class="col-md-11"> 
+         <div class=" cd-mr24 cd-mb40"> 
+          <div class="cd-image-upload"> 
+           <img class="cd-avatar cd-avatar-square cd-avatar-lg js-upload-cover" id="avatar" src="#(www)#(session.user.img)"> 
+           <div class="image-upload-mask"> 
+            <div class="image-upload-content"> 
+             <i class="cd-icon cd-icon-camera"></i> 修改头像 
+            </div> 
+           </div> 
+           <label class="image-upload-label"> 
+           <input type="hidden" value="#(session.user.img)" name="img" id="img" />
+           <input type="button" id="img1" class="js-upload-input hidden" accept="image/bmp,image/jpeg,image/png" > </label> 
+          </div> 
+         </div> 
+         <p class="image-upload-tip">请上传jpg, gif, png格式的图片, 建议图片大小不超过2MB</p> 
+         <div class="form-group cd-form-group cd-form-group-inline cd-form-group-action" id="nickname-form-group"> 
+          
+          <label for="nickname">昵称</label> 
+          <div class="input-edit__edit-dom" > 
+           <input name="nickname" id="nickname" type="text" class="form-control input-edit__input" value="#(session.user.nickname)"> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="col-md-11"> 
+         <div class="form-group cd-form-group "> 
+          <label for="profile_truename" style="color:red;">真实姓名</label> 
+          <input type="text" style="width: 40%;" id="name" name="name" placeholder="必须完善" class="form-control" value="#(session.user.name)"> 
+         </div> 
+        </div> 
+        <div class="col-md-11"> 
+         <div class="form-group cd-form-group "> 
+          <label for="profile_title" style="color:red;">电话</label> 
+          <input type="number" style="width: 30%;float: left;" max="11" maxlength="11" id="phone" placeholder="必须完善" name="phone" class="form-control" value="#(session.user.phone)"> 
+         	<button type="button" id="smsbtn" style="width: 10%;" class="btn cd-btn cd-btn-info cd-btn-lg">验证码</button> 
+         </div> 
+        </div> 
+        <div class="col-md-11" id="smsdiv" style="display: none;"> 
+         <div class="form-group cd-form-group "> 
+          <label for="profile_truename" style="color:red;">短信验证码</label> 
+          <input type="text" style="width: 40%;" id="smscode" placeholder="点击验证码按钮获取" class="form-control" value=""> 
+         </div> 
+        </div> 
+        <div class="col-md-11"> 
+         <div class="form-group cd-form-group"> 
+          <label>性别</label> 
+          <div class="cd-radio-group"> 
+           <label style="margin-top: 12px;margin-bottom: 4px;" for="profile_gender_0"> <input type="radio" #(session.user.sex=='男'?'checked':'') name="sex" value="男" > 男 </label> 
+           &nbsp;&nbsp;&nbsp;&nbsp;
+           <label style="margin-top: 12px;margin-bottom: 4px;" for="profile_gender_1"> <input type="radio" #(session.user.sex=='女'?'checked':'') name="sex" value="女"> 女 </label> 
+          </div> 
+         </div> 
+        </div> 
+        
+        <div class="col-md-11"> 
+         <div class="form-group cd-form-group"> 
+          <label for="profile_about">自我介绍</label> 
+          <textarea name="readme" rows="10" id="profile_about" class="form-control" >#(session.user.readme)</textarea> 
+         </div> 
+        </div> 
+        <div class="col-md-11"> 
+         <button id="sub" type="button" class="btn cd-btn cd-btn-primary cd-btn-lg">保存</button> 
+        </div> 
+        <input type="hidden" name="id" value="#(session.user.id)"> 
+       </form> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   </div>
+  #include("/inc/footer.html",goto=false)
+  <script type="text/javascript">
+  layui.use('upload', function(){
+	  var $ = layui.jquery
+	  ,upload = layui.upload;
+	  
+	  //普通图片上传
+	  var uploadInst = upload.render({
+	    elem: '#img1'
+	    ,url: '/up/up.json'
+	    ,before: function(obj){
+	      //预读本地文件示例，不支持ie8
+	      obj.preview(function(index, file, result){
+	        $('#avatar').attr('src', result); //图片链接（base64）
+	      });
+	    }
+	    ,done: function(res){
+	      $("#img").val(res.file)
+	    }
+	  });
+  })
+  </script>
+  <script type="text/javascript">
+  var isyes="#(isEmpty(session.user.name)||isEmpty(session.user.phone))"
+  var phone="#(session.user.phone)"
+  var verify="#(now().time)"
+  var smsresult=false;
+  var wait=60;
+	function time(o) {
+	  if (wait == 0) {
+	   o.removeAttr("disabled");   
+	   o.text("获取验证码");
+	   wait = 60;
+	  } else { 
+	   o.attr("disabled", true);
+	   o.text("重新发送(" + wait + ")");
+	   wait--;
+	   setTimeout(function() {
+	    time(o)
+	   },
+	   1000)
+	  }
+	 }
+  $(function(){
+	  if(isyes=="true"){
+		  alert("请完善你的姓名和手机号才能访问其他内容!")
+	  }
+	  
+	  $("#smsbtn").click(function(){
+		  if($("#phone").val()==""){
+			  alert("请输入手机号!")
+		  }else if($("#phone").val().length!=11){
+			  alert("手机号不正确!")
+		  }else if($("#phone").val()==phone){
+			  alert("请修改为你要使用的新手机号再获取验证码!")
+		  }else{
+			  var num="";  
+				for(var i=0;i<4;i++){  
+				    num+=Math.floor(Math.random()*10)  
+				}
+				verify=num
+				$.ajax({
+		             type: "GET",
+		             url: "#(root)sms/send.json",
+		             data: {phone:$("#phone").val(),tmpl:"SMS_153998099","param.code":verify+""},
+		             dataType: "json",
+		             async:false,
+		             success: function(data){
+		            	 //verify=data.code;
+		                         smsresult=true;
+		             }
+		         });
+				if(smsresult)
+					time($(this))
+		  }
+	  })
+	  $("#phone").change(function(){
+		  if($("#phone").val().length==11){
+			  $("#smsdiv").show();
+		  }
+	  })
+	  $("#sub").click(function(){
+		  if($("#name").val()==""){
+			  alert("请完善姓名!")
+		  }else if($("#phone").val()==""){
+			  alert("请输入手机号!")
+		  }else{
+			  if(phone!=$("#phone").val()&&$("#smscode").val()==""){
+				  alert("请输入验证码!")
+			  }else{
+				  alert("保存成功!姓名:"+$("#name").val()+"手机号:"+$("#phone").val())
+				  $("#form1").submit();
+			  }  
+		  }
+	  })
+  })
+  </script>
+ </body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>编辑</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="/assets/layui/css/layui.css"  media="all">
+  <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+<fieldset class="layui-elem-field layui-field-title" style="margin-top: 50px;">
+  <legend>编辑</legend>
+</fieldset>
+<form class="layui-form layui-form-pane" action="save">
+  <input type="hidden" name=".table" value="app_zb" />
+        	<input type="hidden" name="id" value="#(obj.id)" />
+  <div class="layui-form-item">
+    <label class="layui-form-label">title</label>
+    <div class="layui-input-inline">
+      <input type="text" name="title" value="#(obj.title)" lay-verify="required" placeholder="填写title" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">img</label>
+    <div class="layui-input-inline">
+      <input type="text" name="img" value="#(obj.img)" lay-verify="required" placeholder="填写img" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">start_time</label>
+      <div class="layui-input-block">
+        <input type="text" id="start_time" name="start_time" value="#(obj.start_time)" autocomplete="off" class="date layui-input">
+      </div>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-inline">
+      <label class="layui-form-label">end_time</label>
+      <div class="layui-input-block">
+        <input type="text" id="end_time" name="end_time" value="#(obj.end_time)" autocomplete="off" class="date layui-input">
+      </div>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">user_id</label>
+    <div class="layui-input-inline">
+      <input type="text" name="user_id" value="#(obj.user_id)" lay-verify="required" placeholder="填写user_id" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">text</label>
+    <div class="layui-input-block">
+      <textarea name="text" placeholder="填写text" class="layui-textarea">#(obj.text)</textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">vid</label>
+    <div class="layui-input-inline">
+      <input type="text" name="vid" value="#(obj.vid)" lay-verify="required" placeholder="填写vid" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">phone</label>
+    <div class="layui-input-inline">
+      <input type="text" name="phone" value="#(obj.phone)" lay-verify="required" placeholder="填写phone" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">teacher</label>
+    <div class="layui-input-inline">
+      <input type="text" name="teacher" value="#(obj.teacher)" lay-verify="required" placeholder="填写teacher" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item layui-form-text">
+    <label class="layui-form-label">html</label>
+    <div class="layui-input-block">
+      <textarea name="html" placeholder="填写html" class="layui-textarea">#(obj.html)</textarea>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">vnum</label>
+    <div class="layui-input-inline">
+      <input type="text" name="vnum" value="#(obj.vnum)" lay-verify="required" placeholder="填写vnum" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">num</label>
+    <div class="layui-input-inline">
+      <input type="text" name="num" value="#(obj.num)" lay-verify="required" placeholder="填写num" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">price</label>
+    <div class="layui-input-inline">
+      <input type="text" name="price" value="#(obj.price)" lay-verify="required" placeholder="填写price" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">agency_id</label>
+    <div class="layui-input-inline">
+      <input type="text" name="agency_id" value="#(obj.agency_id)" lay-verify="required" placeholder="填写agency_id" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">tag</label>
+    <div class="layui-input-inline">
+      <input type="text" name="tag" value="#(obj.tag)" lay-verify="required" placeholder="填写tag" autocomplete="off" class="layui-input">
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+          
+<script src="/assets/layui/layui.js" charset="utf-8"></script>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 --> 
+ 
+<script>
+layui.use(['form', 'layedit', 'laydate'], function(){
+	  var form = layui.form
+	  ,layer = layui.layer
+	  ,layedit = layui.layedit
+	  ,laydate = layui.laydate;
+	  
+	  //日期
+	  laydate.render({
+	    elem: '#start_time'
+	    ,type: 'datetime'
+	  });
+	  laydate.render({
+		    elem: '#end_time'
+		    ,type: 'datetime'
+	  });
+	  //创建一个编辑器
+	  var editIndex = layedit.build('LAY_demo_editor');
+	 
+	  //自定义验证规则
+	  form.verify({
+	    title: function(value){
+	      if(value.length < 5){
+	        return '标题至少得5个字符啊';
+	      }
+	    }
+	    ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+	    ,content: function(value){
+	      layedit.sync(editIndex);
+	    }
+	  });
+	  
+	  //监听提交
+	  form.on('submit(demo1)', function(data){
+	    layer.alert(JSON.stringify(data.field), {
+	      title: '最终的提交信息'
+	    })
+	    return false;
+	  });
+	 
+	});
+</script>
+
+</body>
+</html>

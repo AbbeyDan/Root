@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="zh" >
+<meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet"/>
+	<!-- bootstrap-table 表格插件样式 -->
+	<link href="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/animate.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/style.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/select/select2.css" rel="stylesheet"/>
+	<link href="/assets/admin/ruoyi/css/ry-ui.css" rel="stylesheet"/>
+</head>
+<body class="white-bg">
+	<div class="wrapper wrapper-content animated fadeInRight ibox-content">
+		<form class="form-horizontal m" id="form-dept-edit">
+			<input name="deptId" type="hidden" id="deptId" value="101" />
+			<input id="treeId" name="parentId" type="hidden" value="100" />
+			<div class="form-group">
+				<label class="col-sm-3 control-label ">上级部门：</label>
+				<div class="col-sm-8">
+				    <div class="input-group">
+						<input class="form-control" type="text" id="treeName" onclick="selectDeptTree()" readonly="true" name="parentName" value="若依科技">
+					    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+				    </div>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">部门名称：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="deptName" id="deptName" required value="深圳总公司">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">显示排序：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="orderNum" required id="orderNum" value="1">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">负责人：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="leader" id="leader" value="若依">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">联系电话：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="phone" id="phone" value="15888888888">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">邮箱：</label>
+				<div class="col-sm-8">
+					<input class="form-control" type="text" name="email" id="email" value="ry@qq.com">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">部门状态：</label>
+				<div class="col-sm-8">
+					<div class="radio-box">
+						<input type="radio" id="6" name="status" value="0" checked="checked">
+						<label for="6">正常</label>
+					</div>
+					<div class="radio-box">
+						<input type="radio" id="7" name="status" value="1">
+						<label for="7">停用</label>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div>
+	<script src="/assets/admin/js/jquery.min.js"></script>
+	<script src="/assets/admin/js/bootstrap.min.js"></script>
+	
+	<!-- bootstrap-table 表格插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.js"></script>
+	<!-- jquery-validate 表单验证插件 -->
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/messages_zh.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.extend.js"></script>
+	<!-- jquery-validate 表单树插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.js"></script>
+	<!-- jquery-export 表格导出插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/tableExport.js"></script>
+	<!-- 遮罩层 -->
+	<script src="/assets/admin/ajax/libs/blockUI/jquery.blockUI.js"></script>
+	<script src="/assets/admin/ajax/libs/iCheck/icheck.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layer/layer.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layui/layui.js"></script>
+	<script src="/assets/admin/ruoyi/js/common.js?v=3.2.0"></script>
+	<script src="/assets/admin/ruoyi/js/ry-ui.js?v=3.2.0"></script>
+	
+	<script> var ctx = "\/"; </script>
+</div>
+	<script type="text/javascript">
+		var prefix = ctx + "system/dept";
+		
+		$("#form-dept-edit").validate({
+			rules:{
+				deptName:{
+					remote: {
+		                url: prefix + "/checkDeptNameUnique",
+		                type: "post",
+		                dataType: "json",
+		                data: {
+		                	"deptId": function() {
+		                        return $("#deptId").val();
+		                    },
+		                    "parentId": function() {
+		                        return $("input[name='parentId']").val();
+		                    },
+		        			"deptName": function() {
+		                        return $.common.trim($("#deptName").val());
+		                    }
+		                },
+		                dataFilter: function(data, type) {
+		                	return $.validate.unique(data);
+		                }
+		            }
+				},
+				orderNum:{
+					digits:true
+				},
+				email:{
+                    email:true,
+        		},
+        		phone:{
+        			isPhone:true,
+        		},
+			},
+			messages: {
+		        "deptName": {
+		            remote: "部门已经存在"
+		        }
+		    },
+		    focusCleanup: true
+		});
+		
+		function submitHandler() {
+	        if ($.validate.form()) {
+	        	$.operate.save(prefix + "/edit", $('#form-dept-edit').serialize());
+	        }
+	    }
+	
+		/*部门管理-修改-选择部门树*/
+		function selectDeptTree() {
+			var deptId = $("#treeId").val();
+			if(deptId > 0) {
+			    var options = {
+					title: '部门选择',
+					width: "380",
+					url: prefix + "/selectDeptTree/" + $("#treeId").val(),
+					callBack: doSubmit
+				};
+				$.modal.openOptions(options);
+			} else {
+        		$.modal.alertError("父部门不能选择");
+        	}
+		}
+		
+		function doSubmit(index, layero){
+			var tree = layero.find("iframe")[0].contentWindow.$._tree;
+			if ($.tree.notAllowLastLevel(tree)) {
+	   			var body = layer.getChildFrame('body', index);
+	   			$("#treeId").val(body.find('#treeId').val());
+	   			$("#treeName").val(body.find('#treeName').val());
+	   			layer.close(index);
+			}
+		}
+	</script>
+</body>
+</html>

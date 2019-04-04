@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="zh" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet"/>
+	<!-- bootstrap-table 表格插件样式 -->
+	<link href="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/animate.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/style.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/select/select2.css" rel="stylesheet"/>
+	<link href="/assets/admin/ruoyi/css/ry-ui.css" rel="stylesheet"/>
+</head>
+<body class="gray-bg">
+	
+	<div class="container-div">
+		<div class="row">
+			<div class="col-sm-12 search-collapse">
+				<form id="role-form">
+					<div class="select-list">
+						<ul>
+							<li>
+								文章标题：<input type="text" name="title"/>
+							</li>
+							
+							<li class="select-time">
+								<label>创建时间： </label>
+								<input type="text" class="time-input" id="startTime" placeholder="开始时间" name="params[beginTime]"/>
+								<span>-</span>
+								<input type="text" class="time-input" id="endTime" placeholder="结束时间" name="params[endTime]"/>
+							</li>
+							<li>
+								<a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+							    <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+							</li>
+						</ul>
+					</div>
+				</form>
+			</div>
+		
+			<div class="btn-group-sm" id="toolbar" role="group">
+		        <a class="btn btn-warning" id="sync">
+		            <i class="fa fa-download"></i> 同步文章
+		        </a>
+	        </div>
+	        
+	        <div class="col-sm-12 select-table table-striped">
+			    <table id="bootstrap-table" data-mobile-responsive="true"></table>
+			</div>
+		</div>
+	</div>
+	<div>
+	<script src="/assets/admin/js/jquery.min.js"></script>
+	<script src="/assets/admin/js/bootstrap.min.js"></script>
+	
+	<!-- bootstrap-table 表格插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.js"></script>
+	<!-- jquery-validate 表单验证插件 -->
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/messages_zh.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.extend.js"></script>
+	<!-- jquery-validate 表单树插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.js"></script>
+	<!-- jquery-export 表格导出插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/tableExport.js"></script>
+	<!-- 遮罩层 -->
+	<script src="/assets/admin/ajax/libs/blockUI/jquery.blockUI.js"></script>
+	<script src="/assets/admin/ajax/libs/iCheck/icheck.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layer/layer.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layui/layui.js"></script>
+	<script src="/assets/admin/ruoyi/js/common.js?v=3.2.0"></script>
+	<script src="/assets/admin/ruoyi/js/ry-ui.js?v=3.2.0"></script>
+	
+	<script> var ctx = "\/"; </script>
+</div>
+	<script>
+		var editFlag = "";
+		var removeFlag = "";
+		var datas = [{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u6B63\u5E38\u72B6\u6001","params":{},"dictCode":6,"dictSort":1,"dictLabel":"\u6B63\u5E38","dictValue":"0","dictType":"sys_normal_disable","cssClass":"","listClass":"primary","isDefault":"Y","status":"0"},{"searchValue":null,"createBy":"admin","createTime":"2018-03-16 03:33:00","updateBy":null,"updateTime":null,"remark":"\u505C\u7528\u72B6\u6001","params":{},"dictCode":7,"dictSort":2,"dictLabel":"\u505C\u7528","dictValue":"1","dictType":"sys_normal_disable","cssClass":"","listClass":"danger","isDefault":"N","status":"0"}];
+		var prefix = ctx + "admin/app/article";
+		
+
+		$(function() {
+		    var options = {
+		        url: prefix + "/list.json",
+		        createUrl: prefix + "/add",
+		        updateUrl: prefix + "/edit?id={id}",
+		        removeUrl: prefix + "/remove",
+		        exportUrl: prefix + "/export",
+		        sortName: "rsort",
+		        modalName: "角色",
+		        columns: [
+		        {
+		            field: 'id',
+		            title: '编号'
+		        },
+		        {
+		            field: 'img',
+		            title: '封面',
+		            formatter: function (value, row, index) {
+			        	return '<img style="width:120px;height:90px;" src="/'+value+'" />';
+			        }
+		        },
+		        {
+		            field: 'title',
+		            title: '文章标题',
+		            sortable: true
+		        },
+		        {
+		            field: 'author',
+		            title: '作者',
+		            sortable: true
+		        },
+		        {
+		        	field: 'url',
+		        	title: '链接',
+		        	align: 'center',
+		        	formatter: function (value, row, index) {
+		        		return '<a href="'+value+'" target="_blank">打开链接</a>';
+		        	}
+		        },
+		        {
+		            field: 'add_time',
+		            title: '创建时间',
+		            sortable: true
+		        }]
+		    };
+		    $.table.init(options);
+		    
+		    
+		});
+		$("#sync").click(function(){
+	    	$.ajax({
+	    		url:"/admin/app/article/sync",
+	    		dataType:"json",
+	    		success:function(data){
+	    			if(data.code==200){
+	    				$.modal.alert(data.msg);
+	    			}else{
+	    				$.modal.alertError("同步失败");
+	    			}
+	    		}
+	    	})
+	    })
+		/* 角色管理-分配数据权限 */
+		function rule(roleId) {
+		    var url = prefix + '/rule?id=' + roleId;
+		    $.modal.open("分配数据权限", url);
+		}
+		
+		/* 角色状态显示 */
+		function statusTools(row) {
+		    if (row.status == 1) {
+    			return '<i class=\"fa fa-toggle-off text-info fa-2x\" onclick="enable(\'' + row.id + '\')"></i> ';
+    		} else {
+    			return '<i class=\"fa fa-toggle-on text-info fa-2x\" onclick="disable(\'' + row.id + '\')"></i> ';
+    		}
+		}
+		
+		/* 角色管理-停用 */
+		function disable(roleId) {
+			$.modal.confirm("确认要停用角色吗？", function() {
+				$.operate.post(prefix + "/changeStatus", { "roleId": roleId, "status": 1 });
+		    })
+		}
+
+		/* 角色管理启用 */
+		function enable(roleId) {
+			$.modal.confirm("确认要启用角色吗？", function() {
+				$.operate.post(prefix + "/changeStatus", { "roleId": roleId, "status": 0 });
+		    })
+		}
+	</script>
+</body>
+</html>

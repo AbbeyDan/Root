@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>我的直播</title>
+</head>
+<body>
+<script type="text/javascript" src="/assets/layui/layui.js"></script>
+<script>
+layui.use('layer',function(){
+	var layer=layui.layer;
+	layer.alert('你没有在平台进行过直播身份认证，无法开播，详情咨询010-82865508!',{
+		  icon: 2,
+		  title:'提示'
+		},
+			function(index){
+				 history.go(-1);
+				});     
+})
+</script>
+</body>
+</html>

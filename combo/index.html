@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://www.jikexueyuan.com/zhiye/ -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> #include("/inc/head.html",title="套餐")
+	<link rel="stylesheet" href="/css/collect_499beb2.css">
+	<style>
+		.projectpath .status img {
+			width: 100%;
+		}
+
+		.projectpath li p {
+			margin-bottom: 10px;
+			font-size: 12px;
+			padding-right: 5px;
+		}
+
+		.projectpath .price {
+			color: rgb(48, 166, 235);
+		}
+
+		.projectpath .yanzhi {
+			display: inline-block;
+			color: #fff;
+			padding: 2px;
+			float: right;
+			background-color: rgb(181, 230, 29);
+		}
+		.projectpath .text{
+			padding-left:10px;
+		}
+	</style>
+</head>
+
+<body>
+	#include("/inc/header.html",nav="combo")
+	<div id="wrapper">
+
+		<div id="pager">
+
+
+			<div class="banner">
+				<h1>为了更好的职业前景</h1>
+				<p class="title">让每个人都能享受更好的职业教育，成就更好的自己。</p>
+				<p class="desc">心教育学院携手各领域企业和专家，精心构建职业方向和学习路径，为你提供最佳的学习方案</p>
+			</div>
+			<div class="projectpath">
+				<div class="contain">
+					<ul>
+						<!-- #for(c:obj.list) -->
+						<li class="status">
+							<a class="card " href="/course/#(c.id)" target="_blank">
+								<div class="img">
+									<img src="#(www)#(c.img)" alt="#(c.title)">
+								</div>
+								<div class="text">
+									<h3>#(c.title)</h3>
+									<p>
+										<i class="price">￥#(c.price)</i>
+										<del>原价</del>
+										<i style="color:#ffa511">(省20元)</i>
+										<i class="yanzhi">可使用研值</i>
+									</p>
+								</div>
+							</a>
+						</li>
+						<!-- #end -->
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		#include("/inc/footer.html")
+	</div>
+	<script>
+
+		//一般直接写在一个js文件中
+		layui.use(['layer', 'form', 'element', 'carousel'], function () {
+			var $ = layui.jquery;
+			var layer = layui.layer
+				, form = layui.form;
+			var carousel = layui.carousel;
+			//layer.msg('Hello World');
+
+		});
+	</script>
+</body>
+
+</html>

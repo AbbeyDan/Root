@@ -1,0 +1,805 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zh_CN" class="">
+ <!--<![endif]-->
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  <title>优惠码 - EduSoho网络课堂演示站 - 网校领导品牌，在线教育网站建站系统 - Powered By EduSoho</title> 
+  <meta name="keywords" content="
+EduSoho网络课堂,网校系统,在线教育,在线教学,开源教学软件"> 
+  <meta name="description" content="体验图文课时"> 
+  <meta name="format-detection" content="telephone=no"> 
+  <meta content="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE" name="csrf-token"> 
+  <meta content="1" name="is-login"> 
+  <meta content="0" name="wechat_login_bind"> 
+  <meta property="qc:admins" content="242073150776545370763757"> 
+  <link rel="icon" href="css/favicon_1427251704.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="/css/favicon_1427251704.ico" type="image/x-icon" media="screen"> 
+  <!--[if lt IE 9]>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/html5shiv.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-shim.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-sham.js?version=8.3.17"></script>
+  <![endif]--> 
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white course-dashboard-page"> 
+  <!--[if lt IE 9]>
+<script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/fix-ie.js?version=8.3.17"></script>
+<style>
+  .lt-ie9 {
+    overflow: hidden;
+  }
+  .ie-mask {
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    background: #000;
+  }
+  .ie-alert-wrap {
+    position: absolute;
+    z-index: 1000000;
+    margin: -200px auto 0;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .ie-alert {
+    width: 514px;
+    height: 397px;
+    margin: 0 auto;
+  }
+  .ie-alert__chrome,
+  .ie-alert__firefox {
+    position: absolute;
+    z-index: 1000001;
+    display: block;
+    bottom: 48px;
+    width: 60px;
+    height: 80px;
+  }
+  .ie-alert__chrome {
+    left: 50%;
+    margin-left: -80px;
+  }
+  .ie-alert__firefox {
+    right: 50%;
+    margin-right: -80px;
+  }
+</style>
+<div class="ie-mask"></div>
+<div class="ie-alert-wrap">
+  <div class="ie-alert" style="background:url('images/browser_update.png')">
+    <a href="http://www.baidu.com/s?wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank" class="ie-alert__chrome"></a>
+    <a href="http://firefox.com.cn/download/" target="_blank" class="ie-alert__firefox"></a>
+  </div>
+</div>
+
+<![endif]--> 
+  <div class="es-wrap"> 
+   <header class="es-header navbar"> 
+    <div class="navbar-header"> 
+     <div class="visible-xs  navbar-mobile"> 
+      <a href="javascript:;" class="navbar-more js-navbar-more"> <i class="es-icon es-icon-menu"></i> </a> 
+      <div class="html-mask"></div> 
+      <div class="nav-mobile"> 
+       <form class="navbar-form" action="/search" method="get"> 
+        <div class="form-group"> 
+         <input class="form-control" placeholder="搜索" name="q"> 
+         <button class="button es-icon es-icon-search"></button> 
+        </div> 
+       </form> 
+       <ul class="nav navbar-nav"> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">课程和班级 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="/course/explore" target="_blank">课程中心</a></li> 
+          <li><a href="/classroom/explore" target="_blank">班级中心</a></li> 
+         </ul> </li> 
+        <li class="nav-hover"> <a href="http://www.qiqiuyu.com/faq/433/detail" target="_blank">网站初建设 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.qiqiuyu.com/faq/522/detail" target="_blank">1.域名和备案</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/523/detail" target="_blank">2.接入教育云</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/525/detail" target="_blank">3.申请收款接口</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/526/detail" target="_blank">4.设置注册登录</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/524/detail" target="_blank">5.安装应用插件</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/527/detail" target="_blank">6.创建发布课程</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/528/detail" target="_blank">7.装扮网站主题</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/529/detail" target="_blank">8.学习其他功能</a></li> 
+         </ul> </li> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">免费APP <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.qiqiuyu.com/faq/532/detail" target="_blank">APP介绍</a></li> 
+          <li><a href="/mobile" target="_blank">APP体验</a></li> 
+         </ul> </li> 
+        <li class=""> <a href="/vip" target="_blank">会员专区 </a> </li> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">关于我们 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.edusoho.com" target="_blank">EduSoho官网</a></li> 
+          <li><a href="http://open.edusoho.com/" target="_blank">开放云平台</a></li> 
+          <li><a href="http://www.qiqiuyu.com/" target="_blank">气球鱼学院</a></li> 
+         </ul> </li> 
+       </ul> 
+      </div> 
+     </div> 
+     <a href="/" class="navbar-brand"> <img src="images/163626aa4fbc026102.png"> </a> 
+    </div> 
+    <nav class="collapse navbar-collapse"> 
+     <ul class="nav navbar-nav clearfix hidden-xs " id="nav"> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">课程和班级 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="/course/explore" target="_blank">课程中心</a></li> 
+        <li><a href="/classroom/explore" target="_blank">班级中心</a></li> 
+       </ul> </li> 
+      <li class="nav-hover"> <a href="http://www.qiqiuyu.com/faq/433/detail" target="_blank">网站初建设 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.qiqiuyu.com/faq/522/detail" target="_blank">1.域名和备案</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/523/detail" target="_blank">2.接入教育云</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/525/detail" target="_blank">3.申请收款接口</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/526/detail" target="_blank">4.设置注册登录</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/524/detail" target="_blank">5.安装应用插件</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/527/detail" target="_blank">6.创建发布课程</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/528/detail" target="_blank">7.装扮网站主题</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/529/detail" target="_blank">8.学习其他功能</a></li> 
+       </ul> </li> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">免费APP <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.qiqiuyu.com/faq/532/detail" target="_blank">APP介绍</a></li> 
+        <li><a href="/mobile" target="_blank">APP体验</a></li> 
+       </ul> </li> 
+      <li class=""> <a href="/vip" target="_blank">会员专区 </a> </li> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">关于我们 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.edusoho.com" target="_blank">EduSoho官网</a></li> 
+        <li><a href="http://open.edusoho.com/" target="_blank">开放云平台</a></li> 
+        <li><a href="http://www.qiqiuyu.com/" target="_blank">气球鱼学院</a></li> 
+       </ul> </li> 
+     </ul> 
+     <div class="navbar-user "> 
+      <ul class="nav user-nav"> 
+       <li class="user-manage-li visible-lg cd-ml24"> <a class="btn cd-btn user-manage-toggle" href="/my/">我的学习</a> </li> 
+       <li class="user-inform-li js-user-inform hidden-xs hidden-sm cd-ml24 cd-dropdown" data-toggle="cd-dropdown"> <a class="inform-dropdown-toggle"><i class="cd-icon cd-icon-bell"></i><span class="inform-dropdown-toggle__num cd-badge cd-badge-danger ">1</span></a> 
+        <div class="dropdown-menu inform-dropdown js-user-nav-dropdown" role="menu"> 
+         <div class="clearfix inform-dropdown-head" role="tablist"> 
+          <a class="inform-dropdown-head__tab js-inform-tab active" href="#notification" role="tab" data-toggle="tab" data-type="newNotification">通知</a> 
+          <a class="inform-dropdown-head__tab js-inform-tab" href="#message" role="tab" data-toggle="tab" data-type="conversation">私信<span class="inform-dropdown-dot"></span></a> 
+         </div> 
+         <div class="tab-content"> 
+          <div class="notification-content tab-pane active" role="tabpanel" id="notification"> 
+           <div class="inform-dropdown-body js-inform-dropdown-body"> 
+            <div class="inform-empty-status js-inform-empty"> 
+             <img class="cd-mb24" src="images/null-notice.png" srcset="//sca1dk-sb-qn.qiqiuyun.net/static-dist/app/img/notice/null-notice.png?version=8.3.17 1x, //sca1dk-sb-qn.qiqiuyun.net/static-dist/app/img/notice/null-notice@2x.png?version=8.3.17 2x"> 
+             <div class="inform-empty-status__tip">
+              暂无新的通知～
+             </div> 
+            </div> 
+           </div> 
+           <div class="inform-dropdown-foot"> 
+            <a class="cd-link-minor" href="/notification">查看全部通知</a> 
+           </div> 
+          </div> 
+          <div class="message-content tab-pane" role="tabpanel" id="message"> 
+           <div class="inform-dropdown-body js-inform-dropdown-body"> 
+            <div class="inform-loading js-inform-loading"></div> 
+            <div class="js-inform-conversation"></div> 
+           </div> 
+           <div class="inform-dropdown-foot"> 
+            <a class="cd-link-minor" href="/message/">查看全部私信</a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="user-avatar-li cd-dropdown cd-ml24" data-toggle="cd-dropdown"> <a class="user-avatar-toggle" href="javascript:;"> <img class="cd-avatar cd-avatar-xs" src="images/avatar.png"> </a> 
+        <div class="dropdown-menu user-dropdown hidden-sm hidden-xs hidden-md js-user-nav-dropdown"> 
+         <div class="user-dropdown-info cd-mb24"> 
+          <a class="user-dropdown-info__avatar cd-mr24" href="/user/29000"> <img class="cd-avatar" src="images/avatar.png"> </a> 
+          <div class="user-dropdown-profile"> 
+           <div class="user-dropdown-profile__nickname"> 
+            <span>aloofqq</span> 
+           </div> 
+           <div class="user-dropdown-profile__rank cd-mv8">
+            普通学员
+           </div> 
+          </div> 
+         </div> 
+         <div class="user-dropdown__link cd-mb24"> 
+          <a class="cd-link-minor" href="/my/orders"><i class="cd-icon cd-icon-payment"></i>账户中心</a> 
+          <a class="cd-link-minor" href="/settings"><i class="es-icon es-icon-setting"></i>个人设置</a> 
+         </div> 
+         <div class="user-dropdown__logout">
+          <a class="cd-link-minor" href="/logout">退出登录</a>
+         </div> 
+        </div> 
+        <ul class="dropdown-menu hidden-lg" role="menu"> 
+         <div class="dropdown-header">
+          <a class="cd-link-minor" href="/user/29000">aloofqq</a>
+         </div> 
+         <li><a href="/my/orders"><i class="es-icon es-icon-accountwallet"></i>账户中心</a></li> 
+         <li><a href="/settings"><i class="es-icon es-icon-setting"></i>个人设置</a></li> 
+         <li class="user-nav-li-my"> <a href="/my/"> <i class="es-icon es-icon-book"></i>我的学习 </a> </li> 
+         <li class="hidden-md"><a href="/notification"><span class="pull-right num"></span><i class="es-icon es-icon-notificationson"></i>通知</a></li> 
+         <li class="hidden-md"><a href="/message/"><span class="pull-right num">1</span><i class="es-icon es-icon-mail"></i>私信</a></li> 
+         <li class="user-nav-li-logout"><a href="/logout"><i class="es-icon es-icon-power"></i>退出登录</a></li> 
+        </ul> </li> 
+      </ul> 
+      <form class="navbar-form navbar-right hidden-xs" action="/search" method="get"> 
+       <div class="form-group"> 
+        <input class="form-control js-search" value="" name="q" placeholder="搜索"> 
+        <button class="button es-icon es-icon-search"></button> 
+       </div> 
+      </form> 
+     </div> 
+    </nav> 
+   </header> 
+   <div class="event-report" data-url="/event/dispatch" data-event-name="course.view" data-subject-type="course" data-subject-id="27" data-user-id="29000"></div> 
+   <!-- 3、加入后：任务式学习 --> 
+   <div class="container cd-container"> 
+    <ol class="breadcrumb breadcrumb-o"> 
+     <li><a href="/">首页</a></li> 
+     <li><a href="/course/explore/app">官方应用</a></li> 
+     <li class="active">优惠码 </li> 
+    </ol> 
+    <div class="es-section course-detail-section  clearfix"> 
+     <div class="course-detail-bottom"> 
+      <div class="course-detail-img"> 
+       <span class="tags mrm"> </span> 
+       <img class="img-responsive" src="images/161749d769de477057.jpg" alt=" "> 
+       <div class="image-overlay"></div> 
+       <div class="course-detail-remask"> 
+        <i class="es-icon es-icon-people"></i> 
+        <span class="mhs">214</span>人加入学习 
+        <div class="score pull-right mb0"> 
+         <i class="es-icon es-icon-star color-warning"></i> 
+         <i class="es-icon es-icon-star color-warning"></i> 
+         <i class="es-icon es-icon-star color-warning"></i> 
+         <i class="es-icon es-icon-star color-warning"></i> 
+         <i class="es-icon es-icon-star color-warning"></i> 
+         <span class="vertical-middle">(1人评价)</span> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="course-detail-info"> 
+       <div class="course-detail-info__text js-course-detail-info"> 
+        <div class="course-detail-info__title">
+          优惠码 
+        </div> 
+        <p class="course-detail-info__subtitle text-overflow subtitle cd-text-sm cd-mb16" data-toggle="tooltip" data-container="body" data-placement="top" data-trigger="hover" title="点击课程公告，获取优惠码，体验使用优惠码购买课程。"> <span>点击课程公告，获取优惠码，体验使用优惠码购买课程。</span> </p> 
+        <div class=" cd-mb16 "> 
+         <span class="course-detail__label vertical-sub">价格</span> 
+         <span class="course-detail-price-money vertical-sub mrm"> <b class="pirce-num"><span class="cd-text-lg">¥&nbsp;</span>0.01</b> </span> 
+        </div> 
+        <div class="course-detail-gray course-detail-gray--market  not-activity "> 
+         <div class="hidden-xs common-line-height"> 
+          <span class="course-detail-title">学习有效期</span> 
+          <span class="gray-dark course-detail-expiry mrl">永久有效</span> 
+         </div> 
+        </div> 
+        <div class="course-detail-section-responsive visible-xs visible-sm clearfix"> 
+         <ul class="clearfix"> 
+          <!--营销页显示--> 
+          <li class="js-unfavorite-btn hidden" id="unfavorite-btn" data-url="/course_set/27/unfavorite"> <a class="color-primary" href="javascript:;" data-toggle="tooltip" data-placement="top" title="已收藏" data-trigger="hover"> <i class="es-icon es-icon-favorite color-primary"></i> <br> 已收藏 </a> </li> 
+          <li class="js-favorite-btn " id="favorite-btn" data-url="/course_set/27/favorite"> <a class="" href="javascript:;" data-toggle="tooltip" data-placement="top" title="收藏" data-trigger="hover"> <i class="es-icon es-icon-favoriteoutline"></i> <br> 收藏 </a> </li> 
+          <li class="es-share top"> <a class=" dropdown-toggle" href="" data-toggle="dropdown" title="分享"> <i class="es-icon es-icon-share"></i> <br> 分享 </a> 
+           <div class="dropdown-menu  js-social-share-params" data-title="优惠码" data-summary="体验图文课时" data-message="我正在学习《优惠码》，收获巨大哦，一起来学习吧！" data-url="http://demo.edusoho.com/course/27" data-picture="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2016/05-23/161749d769de477057.jpg"> 
+            <a href="javascript:;" class="js-social-share" data-cmd="weixin" title="分享到微信" data-share="weixin" data-qrcode-url="/common/qrcode?text=http%3A//demo.edusoho.com/course/27"><i class="es-icon es-icon-weixin"></i></a> 
+            <a href="javascript:;" class="js-social-share" data-cmd="tsina" title="分享到新浪微博" data-share="weibo"><i class="es-icon es-icon-weibo"></i></a> 
+            <a href="javascript:;" class="js-social-share" data-cmd="qq" title="分享到QQ好友" data-share="qq"><i class="es-icon es-icon-qq"></i></a> 
+            <a href="javascript:;" class="js-social-share" data-cmd="qzone" title="分享到QQ空间" data-share="qzone"><i class="es-icon es-icon-qzone"></i></a> 
+           </div> </li> 
+         </ul> 
+        </div> 
+       </div> 
+       <div class="course-detail-info__btn js-course-header-operation"> 
+        <ul class="course-operation course-operation--market hidden-xs hidden-sm clearfix mb0"> 
+         <li class="es-qrcode top hidden-xs mrl" data-url="/course/27/qrcode"> <a class="cd-link-assist" href="javascript:;"><i class="es-icon es-icon-saoyisao course-operation__icon"></i><span class="cd-text-sm cd-text-medium">扫一扫</span></a> <span class="qrcode-popover"> <img class="mb0" src="/27" alt="">扫二维码继续学习 二维码时效为半小时 </span> </li> 
+         <li class="es-share es-share-item top mrl"> <a class="dropdown-toggle cd-link-assist" href="javascript:;" data-toggle="dropdown"> <i class="es-icon es-icon-share course-operation__icon"></i><span class="cd-text-sm cd-text-medium">分享</span> </a> 
+          <div class="dropdown-menu  js-social-share-params" data-title="优惠码" data-summary="体验图文课时" data-message="我正在学习《优惠码》，收获巨大哦，一起来学习吧！" data-url="http://demo.edusoho.com/course/27" data-picture="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2016/05-23/161749d769de477057.jpg"> 
+           <a href="javascript:;" class="js-social-share" data-cmd="weixin" title="分享到微信" data-share="weixin" data-qrcode-url="/common/qrcode?text=http%3A//demo.edusoho.com/course/27"><i class="es-icon es-icon-weixin"></i></a> 
+           <a href="javascript:;" class="js-social-share" data-cmd="tsina" title="分享到新浪微博" data-share="weibo"><i class="es-icon es-icon-weibo"></i></a> 
+           <a href="javascript:;" class="js-social-share" data-cmd="qq" title="分享到QQ好友" data-share="qq"><i class="es-icon es-icon-qq"></i></a> 
+           <a href="javascript:;" class="js-social-share" data-cmd="qzone" title="分享到QQ空间" data-share="qzone"><i class="es-icon es-icon-qzone"></i></a> 
+          </div> </li> 
+         <!--营销页显示--> 
+         <li class="js-unfavorite-btn mrl hidden " id="unfavorite-btn" data-url="/course_set/27/unfavorite"> <a class="cd-link-assist" href="javascript:;"><i class="es-icon es-icon-favorite color-danger course-operation__icon"></i><span class="cd-text-sm cd-text-medium">已收藏</span> </a> </li> 
+         <li class="js-favorite-btn mrl " id="favorite-btn" data-url="/course_set/27/favorite"> <a class="cd-link-assist" href="javascript:;"><i class="es-icon es-icon-favoriteoutline course-operation__icon"></i><span class="cd-text-sm cd-text-medium">收藏</span> </a> </li> 
+        </ul> 
+        <div class="text-right buy-btn-group course-operation-btn "> 
+         <span class="cd-btn cd-btn-default mr10 btn-vip" data-trigger="hover" data-toggle="popover" data-container=".btn-vip" data-placement="top" data-content="你还不是黄金会员，<a class='color-primary' href='/vip/buy' target='_blank'>购买会员</a>">会员免费学</span> 
+         <a class="cd-btn cd-btn-primary js-buy-btn " href="javascript:" data-url="/course/27/buy"> 购买课程 </a> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="container cd-container"> 
+    <div class="row cd-row"> 
+     <div class="col-lg-9 col-md-8 course-detail-content"> 
+      <div class="alert alert-warning announcements aside-notice" role="alert"> 
+       <div class="swiper-container"> 
+        <div class="swiper-wrapper"> 
+         <div class="swiper-slide"> 
+          <a style="color:#ff5e06" class="alert-link" href="#modal" data-toggle="modal" data-url="/announcement/24/27/show?targetType=course"> <i class="es-icon es-icon-infooutline"></i> 点击链接领取优惠码购买课程~http://demo.edusoho.com/coupon/NfMYh...</a> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <section class="es-section"> 
+       <div class="nav-btn-tab"> 
+        <ul class="nav nav-tabs " role="tablist"> 
+         <li role="presentation" id="summary" class="active"> <a href="/course/27"> 介绍 </a> </li> 
+         <li role="presentation" id="tasks" class=""> <a href="/course/27/tasks"> 目录 <span class="badge badge-primary">免费</span> </a> </li> 
+         <li role="presentation" id="notes" class=""> <a href="/course/27/notes"> 笔记 <small>(0)</small> </a> </li> 
+         <li role="presentation" id="reviews" class=""> <a href="/course/27/reviews"> 评价 <small>(1)</small> </a> </li> 
+        </ul> 
+       </div> 
+       <div class="es-piece"> 
+        <div class="piece-header">
+         课程介绍
+        </div> 
+        <div class="piece-body p-lg clearfix"> 
+         <p>体验图文课时</p> 
+        </div> 
+       </div> 
+      </section> 
+      <div class="panel panel-default hidden-xs"> 
+       <div class="panel-heading "> 
+        <h3 class="panel-title">目录</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="course-detail-content js-course-detail-content"> 
+         <!-- 见 app/Resources/static-src/app/js/courseset/show/index.js --> 
+         <div class="js-infinite-item-template hidden"> 
+          <li class="task-item bg-gray-lighter js-task-chapter infinite-item" display-if="{isChapter}"><i class="es-icon es-icon-menu left-menu"></i> <a href="javascript:" class="title gray-dark">{getChapterName}</a> <i class="right-menu es-icon es-icon-remove js-remove-icon"></i> </li> 
+          <li class="task-item color-gray bg-gray-lighter infinite-item" display-if="{isUnit}"> <span class="title">{getUnitName}</span> </li> 
+          <li class="task-item infinite-item {lessonContainerClass}" display-if="{isLesson}"> <span class="title">{getLessonName}</span> 
+           <tmp display-if="{isItemDisplayedAsUnpublished}"> 
+            <span class="right-menu ">敬请期待</span> 
+           </tmp> </li> 
+          <li class="task-item task-content mouse-control infinite-item {lessonContainerClass}" display-if="{isTask}"> <i display-if="{isTaskLocked}" class="{taskClass}" data-toggle="tooltip" data-trigger="hover" data-placement="top" title="需要解锁上一个任务才能学习"> </i> <i hide-if="{isTaskLocked}" class="{taskClass}"> </i> 
+           <tmp hide-if="{isItemDisplayedAsUnpublished}"> 
+            <a class="title" href="#modal" data-toggle="modal" data-url="/course/27/task/%7BtaskId%7D/preview" style="margin-top:-6px"> <span display-if="{isTaskFree}" class="label label-success mr10">免费</span> {getTaskName}</a> 
+            <span class="right-menu color-gray  mouse-leave "> <span class="hidden-xs mr20" display-if="{hasWatchLimitRemaining}"> 剩余观看时长：{watchLimitRemaining} </span> 
+             <tmp display-if="{isLive}"> 
+              <tmp display-if="{isLiveReplayGenerated}">
+                回放 
+              </tmp> 
+              <tmp hide-if="{isLiveReplayGenerated}"> 
+               <tmp display-if="{isLiveNotStarted}">
+                 {activityStartTimeStr} 
+               </tmp> 
+               <tmp display-if="{isLiveStarting}">
+                 正在直播中 
+               </tmp> 
+               <tmp display-if="{isLiveFinished}">
+                 直播结束 
+               </tmp> 
+              </tmp> 
+             </tmp> 
+             <tmp hide-if="{isLive}">
+               {activityLength} 
+             </tmp> <i class="{getMetaIcon}" data-toggle="tooltip" data-placement="top" title="" data-original-title="{getMetaName}任务" data-container="body"></i> </span> 
+            <span class="right-menu mouse-enter"> 
+             <tmp display-if="{isTaskFree}"> 
+              <a class="btn btn-primary" href="#modal" data-toggle="modal" data-url="/course/27/task/%7BtaskId%7D/preview" style="margin-top:-6px">预览</a> 
+             </tmp> 
+             <tmp hide-if="{isTaskFree}"> 
+              <tmp display-if="{isTaskTryLookable}"> 
+               <a class="btn btn-warning" href="#modal" data-toggle="modal" data-url="/course/27/task/%7BtaskId%7D/preview" style="margin-top:-6px">试看</a> 
+              </tmp> 
+              <tmp hide-if="{isTaskTryLookable}"> 
+               <a class="btn btn-warning" href="#modal" data-toggle="modal" data-url="/course/27/task/%7BtaskId%7D/preview" style="margin-top:-6px">购买</a> 
+              </tmp> 
+             </tmp> </span> 
+           </tmp> 
+           <tmp display-if="{isItemDisplayedAsUnpublished}"> 
+            <span class="title"> <span display-if="{isTaskFree}" class="label label-success mr10">免费</span> {getTaskName} </span> 
+            <span class="right-menu color-gray"> 敬请期待 </span> 
+           </tmp> </li> 
+         </div> 
+         <!-- 
+  接受参数 showOptional, 表示是否显示选修课程
+--> 
+         <div class="hidden js-hidden-course-info">
+           { "id": "27", "isDefault": "1", "learnMode": "freeMode", "isMember": "", "status": "published", "currentTaskId": "", "isHideUnpublish": "0" } 
+         </div> 
+         <div class="hidden js-hidden-current-task-id"></div> 
+         <div class="hidden js-hidden-i18n">
+           { "i18nChapterName": "章", "i18nUnitName": "节", "i18nLessonName": "课时", "i18nTaskName":"任务" } 
+         </div> 
+         <div class="hidden js-hidden-cached-data">
+           [{"itemType":"task","number":"1","published_number":0,"title":"\u4f18\u60e0\u7801\u4ecb\u7ecd","result":"","resultStatus":"","lock":false,"status":"published","taskId":"1975","isOptional":"0","type":"text","isTaskFree":"1","watchLimitRemaining":false,"replayStatus":"","activityStartTimeStr":"","activityStartTime":"","activityLength":"","activityEndTime":"","fileStorage":"","isTaskTryLookable":0,"isSingleTaskLesson":true}] 
+         </div> 
+         <div class="hidden js-hidden-activity-metas">
+           { "text": { "icon": "es-icon es-icon-graphicclass", "name": "图文" } , "video": { "icon": "es-icon es-icon-videoclass", "name": "视频" } , "audio": { "icon": "es-icon es-icon-audioclass", "name": "音频" } , "live": { "icon": "es-icon es-icon-videocam", "name": "直播" } , "discuss": { "icon": "es-icon es-icon-comment", "name": "讨论" } , "flash": { "icon": "es-icon es-icon-flashclass", "name": "Flash" } , "doc": { "icon": "es-icon es-icon-description", "name": "文档" } , "ppt": { "icon": "es-icon es-icon-pptclass", "name": "PPT" } , "testpaper": { "icon": "es-icon es-icon-kaoshi", "name": "考试" } , "homework": { "icon": "es-icon es-icon-zuoye", "name": "作业" } , "exercise": { "icon": "es-icon es-icon-mylibrarybooks", "name": "练习" } , "download": { "icon": "es-icon es-icon-filedownload", "name": "下载资料" } , "reservation": { "icon": "es-icon es-icon-videocam", "name": "预约直播" } , "share": { "icon": "es-icon es-icon-share1", "name": "Share" } } 
+         </div> 
+         <div class="hidden js-hidden-current-timestamp">
+          1544203322
+         </div> 
+         <ul class="task-list task-list-md task-list-hover infinite-container"></ul> 
+         <div class="js-down-loading-more" style="min-height: 1px"></div> 
+        </div> 
+        <div class="js-only-display-one-page"></div> 
+       </div> 
+      </div>  
+      <div class="panel panel-default hidden-xs pt10"> 
+       <div class="course-list"> 
+        <div class="row"> 
+         <div class="col-lg-3 col-md-4 col-xs-6"> 
+          <div class="course-item"> 
+           <div class="course-img"> 
+            <a href="/course/427?ref=relatedCourseSets" target="_blank"> <img src="images/lazyload_course.png" alt="运营管理" class="img-responsive" data-echo="http://sca1dk-sb-qn.qiqiuyun.net/files/course/2016/10-31/1036066b465e703375.jpg"> </a> 
+           </div> 
+           <div class="course-info"> 
+            <div class="title"> 
+             <a class="link-dark" href="/course/427?ref=relatedCourseSets" target="_blank"> 运营管理 </a> 
+            </div> 
+            <div class="metas clearfix"> 
+             <span class="num"><i class="es-icon es-icon-people"></i>632</span> 
+             <span class="comment"><i class="es-icon es-icon-textsms"></i>3</span> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="col-lg-3 col-md-4 col-xs-6"> 
+          <div class="course-item"> 
+           <div class="course-img"> 
+            <a href="/course/471?ref=relatedCourseSets" target="_blank"> <img src="images/lazyload_course.png" alt="学习卡体验课程" class="img-responsive" data-echo="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2015/06-23/16132667fb8f634247.jpg"> </a> 
+           </div> 
+           <div class="course-info"> 
+            <div class="title"> 
+             <a class="link-dark" href="/course/471?ref=relatedCourseSets" target="_blank"> 学习卡体验课程 </a> 
+            </div> 
+            <div class="metas clearfix"> 
+             <span class="num"><i class="es-icon es-icon-people"></i>599</span> 
+             <span class="comment"><i class="es-icon es-icon-textsms"></i>4</span> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="col-lg-3 col-md-4 col-xs-6"> 
+          <div class="course-item"> 
+           <div class="course-img"> 
+            <a href="/course/125?ref=relatedCourseSets" target="_blank"> 
+             <!-- 折扣 --> <span class="tag-discount"></span> <img src="images/lazyload_course.png" alt="打折限免（课程限时免费/打折）" class="img-responsive" data-echo="http://sca1dk-sb-qn.qiqiuyun.net/files/course/2016/10-31/1034295a2fa8845050.jpg"> </a> 
+           </div> 
+           <div class="course-info"> 
+            <div class="title"> 
+             <a class="link-dark" href="/course/125?ref=relatedCourseSets" target="_blank"> 打折限免（课程限时免费/打折） </a> 
+            </div> 
+            <div class="metas clearfix"> 
+             <span class="num"><i class="es-icon es-icon-people"></i>3949</span> 
+             <span class="comment"><i class="es-icon es-icon-textsms"></i>7</span> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="col-lg-3 col-md-4 col-xs-6"> 
+          <div class="course-item"> 
+           <div class="course-img"> 
+            <a href="/course/121?ref=relatedCourseSets" target="_blank"> <img src="images/lazyload_course.png" alt="虚拟币+学习卡体验" class="img-responsive" data-echo="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2017/06-12/14452330f5aa842377.jpg"> </a> 
+           </div> 
+           <div class="course-info"> 
+            <div class="title"> 
+             <a class="link-dark" href="/course/121?ref=relatedCourseSets" target="_blank"> 虚拟币+学习卡体验 </a> 
+            </div> 
+            <div class="metas clearfix"> 
+             <span class="num"><i class="es-icon es-icon-people"></i>643</span> 
+             <span class="comment"><i class="es-icon es-icon-textsms"></i>7</span> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-lg-3 col-md-4 course-sidebar"> 
+      <div class="panel panel-default"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title">授课教师</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="media media-default"> 
+         <div class="media-left"> 
+          <a class="js-user-card" href="/user/2487" data-card-url="/user/2487/card/show" data-user-id="2487" data-original-title="" title=""> <img class="avatar-md" src="images/0910080084cc142484.jpg"></a> 
+         </div> 
+         <div class="media-body"> 
+          <div class="title"> 
+           <a class="link-dark link-dark" href="/user/2487">格洛咪</a> 
+          </div> 
+          <div class="content">
+           EduSoho官方运营
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="panel panel-default"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title">课程特色</h3> 
+       </div> 
+       <div class="panel-body pt0"> 
+        <div class="course-features pl0"> 
+         <div class="course-features-item clearfix"> 
+          <div class="media"> 
+           <div class="media-left prm"> 
+            <span class="color-lump bg-primary"> <i class="es-icon es-icon es-icon-graphicclass media-logo"></i> </span> 
+           </div> 
+           <div class="media-body media-middle">
+            图文(1)
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="panel panel-default"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title">最新学员</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <ul class="user-avatar-list clearfix"> 
+         <li> <a class=" js-user-card" href="/user/17264" data-card-url="/user/17264/card/show" data-user-id="17264" data-original-title="" title=""> <img class="avatar-sm" src="images/141524c61724978624.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/20782" data-card-url="/user/20782/card/show" data-user-id="20782" data-original-title="" title=""> <img class="avatar-sm" src="images/114949de45d2704956.PNG"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/23023" data-card-url="/user/23023/card/show" data-user-id="23023" data-original-title="" title=""> <img class="avatar-sm" src="images/134146a4c7bd494425.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/23196" data-card-url="/user/23196/card/show" data-user-id="23196" data-original-title="" title=""> <img class="avatar-sm" src="images/123221553629368183.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/23731" data-card-url="/user/23731/card/show" data-user-id="23731" data-original-title="" title=""> <img class="avatar-sm" src="images/063511fa157c476112.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/25346" data-card-url="/user/25346/card/show" data-user-id="25346" data-original-title="" title=""> <img class="avatar-sm" src="images/175132407d0e209565.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/25566" data-card-url="/user/25566/card/show" data-user-id="25566" data-original-title="" title=""> <img class="avatar-sm" src="images/15353024e190866158.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/26848" data-card-url="/user/26848/card/show" data-user-id="26848" data-original-title="" title=""> <img class="avatar-sm" src="images/1148088cdc7e177883.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/26946" data-card-url="/user/26946/card/show" data-user-id="26946" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/26991" data-card-url="/user/26991/card/show" data-user-id="26991" data-original-title="" title=""> <img class="avatar-sm" src="images/1846488a1d98249032.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/26992" data-card-url="/user/26992/card/show" data-user-id="26992" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27261" data-card-url="/user/27261/card/show" data-user-id="27261" data-original-title="" title=""> <img class="avatar-sm" src="images/110323b722c8454336.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27280" data-card-url="/user/27280/card/show" data-user-id="27280" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27343" data-card-url="/user/27343/card/show" data-user-id="27343" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27392" data-card-url="/user/27392/card/show" data-user-id="27392" data-original-title="" title=""> <img class="avatar-sm" src="images/165210a7c601113289.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27865" data-card-url="/user/27865/card/show" data-user-id="27865" data-original-title="" title=""> <img class="avatar-sm" src="images/153619315d29263605.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27941" data-card-url="/user/27941/card/show" data-user-id="27941" data-original-title="" title=""> <img class="avatar-sm" src="images/110835351e83179508.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27949" data-card-url="/user/27949/card/show" data-user-id="27949" data-original-title="" title=""> <img class="avatar-sm" src="images/181751f3a0d8541918.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27995" data-card-url="/user/27995/card/show" data-user-id="27995" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28554" data-card-url="/user/28554/card/show" data-user-id="28554" data-original-title="" title=""> <img class="avatar-sm" src="images/194935f7451f481805.jpg"> </a> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="panel panel-default"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title"><i class="es-icon es-icon-recentactors"></i>学员动态</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/23196">王厚然Kevinwan</a> 开始学习 
+         <a class="link-dark" href="/course/27/task/1975/show?from=student_status" title="优惠码介绍">优惠码介绍</a> 
+        </div> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/23196">王厚然Kevinwan</a> 加入学习 
+        </div> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/23731">victorx</a> 开始学习 
+         <a class="link-dark" href="/course/27/task/1975/show?from=student_status" title="优惠码介绍">优惠码介绍</a> 
+        </div> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/18983">陌上</a> 加入学习 
+        </div> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/28554">少宇123</a> 加入学习 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="hidden jweixin-data" data-config="{&quot;appId&quot;:&quot;wxe2d699a880ac55d5&quot;,&quot;timestamp&quot;:1544203322,&quot;nonceStr&quot;:&quot;edusoho5c0aac3a6350b&quot;,&quot;jsApiList&quot;:[&quot;onMenuShareTimeline&quot;,&quot;onMenuShareAppMessage&quot;,&quot;onMenuShareQZone&quot;,&quot;onMenuShareQQ&quot;],&quot;string&quot;:&quot;jsapi_ticket=bxLdikRXVbTPdHSM05e5uzAOjVF2ok0nWzS64PVKKYGQolN6DOEs2fyrDytO8cWPKGvwhNMX7tGA_XhgUj5QfQ&amp;noncestr=edusoho5c0aac3a6350b&amp;timestamp=1544203322&amp;url=http:\/\/demo.edusoho.com\/course\/27&quot;,&quot;signature&quot;:&quot;445dd102d27f02dc6b96a2a50a117b7247914c97&quot;}" data-title="优惠码" data-desc="体验图文课时" data-link="http://demo.edusoho.com/course/27" data-img-url="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2016/05-23/161749d769de477057.jpg" data-type="" data-data-url=""> 
+   </div> 
+   <div class="es-footer-link"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-md-8 footer-main clearfix"> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item hidden-xs"> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item hidden-xs"> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="col-md-4 footer-logo hidden-sm hidden-xs"> 
+       <a class="" href="http://www.qiqiuyu.com/faq/531/detail" target="_blank"><img src="images/block_picture_1518091361.png" alt="建议图片大小为233*64"></a> 
+       <div class="footer-sns"> 
+        <a href="http://weibo.com/edusoho" target="_blank"><i class="es-icon es-icon-weibo"></i></a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-weixin"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/weixin.png" alt=""> 
+         </div> </a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-apple"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/apple.png" alt=""> 
+         </div> </a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-android"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/android.png" alt=""> 
+         </div> </a> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <footer class="es-footer"> 
+    <div class="copyright"> 
+     <div class="container">
+       Powered by 
+      <a href="http://www.edusoho.com/" target="_blank">EduSoho v8.3.17</a> ©2014-2018 
+      <a class="mlm" href="http://www.howzhi.com/" target="_blank">好知网</a> 
+      <!-- START HEAD STAT CODE (重要：请勿遗漏、修改、移除此行代码，以及以下代码，以下代码通过模板自动生成！) 2018-11-16 10:23 --> 
+      <script type="text/javascript">
+var _mkt = { _visitorFields: {}, _chatManager: null };
+_mkt.setVisitorField = function(key, value) {
+    this._visitorFields[key] = value;
+    if (this._chatManager) {
+    this._chatManager.set("customerFields", this.getFieldsForChat());
+    this._chatManager.set("userinfo", { partnerId: this.getVisitorId()});
+    }
+};
+_mkt.getVisitorFields = function() {
+    return this._visitorFields;
+};
+_mkt.getVisitorId = function() {
+    return this._visitorFields.visitorId ? this._visitorFields.visitorId : '';
+},
+_mkt.setChatManager = function(chatManager) {
+    this._chatManager = chatManager;
+    if (this._visitorFields.visitorId) {
+    this._chatManager.set("customerFields", this.getFieldsForChat());
+    this._chatManager.set("userinfo", { partnerId: this.getVisitorId()});
+    }
+};
+_mkt.getFieldsForChat = function() {
+    var fields = {};
+    fields.customField2 = this._visitorFields.visitorId ? this._visitorFields.visitorId : "";
+    return JSON.stringify(fields);
+};
+
+var _paq = _paq || [];
+_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+_paq.push(["setDomains", ["*.edusoho.com","*.esspoc.com","*.haomuke.com","*.qiqiuyu.com"]]);
+_paq.push(["enableCrossDomainLinking"]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+_paq.push(['enableHeartBeatTimer', 15]);
+_paq.push([ function() {
+    _mkt.setVisitorField('visitorId', this.getVisitorId());
+    window._VISITOR_ID = this.getVisitorId();
+}]);
+(function() {
+    var u="//stat.edusoho.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+})();
+</script> 
+      <!-- END HEAD STAT CODE (重要：请勿遗漏、修改、移除此行代码！) --> 
+      <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?81a080dc472dfaa6aba49ad8936049c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+      <script src="js/entrance.js" class="zhiCustomBtn" id="zhichiScript"></script> 
+      <script>_mkt.setChatManager(getzhiSDKInstance());</script> 
+      <script src="/sidebar"></script> 
+      <a class="mlm" href="/archive/course">课程存档</a> 
+      <div class="mts">
+        课程内容版权均归 
+       <a href="/"> 杭州阔知网络科技有限公司 </a> 所有 
+       <a class="mlm" href="http://www.miibeian.gov.cn/" target="_blank"> 浙ICP备13006852号-1 </a> 
+      </div> 
+     </div> 
+    </div> 
+   </footer> 
+  </div> 
+  <div id="login-modal" class="modal" data-url="/login/ajax"></div> 
+  <div id="modal" class="modal"></div> 
+  <div id="attachment-modal" class="modal"></div> 
+  <script>
+  if (typeof app === 'undefined') {
+      var app = {};
+  }
+  app.version = '8.3.17';
+  app.httpHost = 'http://demo.edusoho.com';
+  app.basePath = 'http://sca1dk-sb-qn.qiqiuyun.net';
+  app.theme = 'jianmo';
+
+    
+  var CLOUD_FILE_SERVER = ""; 
+
+  app.config = {"api":{"weibo":{"key":"1549269531"},"qq":{"key":"101252320"},"douban":{"key":""},"renren":{"key":""}},"loading_img_path":"\/\/sca1dk-sb-qn.qiqiuyun.net\/assets\/img\/default\/loading.gif?version=8.3.17"};
+
+  app.arguments = {};
+      
+  app.scripts = null;
+
+  app.fileSingleSizeLimit = 10;
+  app.uploadUrl = '/file/upload';
+  app.imgCropUrl = '/file/img/crop';
+  app.lessonCopyEnabled = '0';
+  app.cloudPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/sdk-v1.js?15442033';
+  app.cloudPlayServer = '';
+  app.cloudVideoPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/video-player/sdk-v1.js?15442033';
+  app.cloudOldUploaderSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/uploader/sdk-v1.js?15442033';
+  app.cloudOldDocumentSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/document-player/v7/viewer.html?15442033';
+  app.lang = 'zh_CN';
+</script> 
+  <script src="js/translator.min.js"></script> 
+  <script src="js/zh_CN.js"></script> 
+  <script src="js/base.js"></script> 
+  <script src="js/common.js"></script> 
+  <script src="js/main.js"></script> 
+  <script src="js/main_d17f01509f9a4db29c2ee86b8e271c25.js"></script> 
+  <script src="js/jquery.easypiechart.js"></script> 
+  <script src="js/excanvas-compiled.js"></script> 
+  <script src="js/jquery-countdown.js"></script> 
+  <script src="js/index_0f117f218cff4a3b8e9e3745d22cfcdc.js"></script> 
+  <script src="js/index_cec540d1656d4067a00bb268414b95f8.js"></script> 
+  <script src="js/index_56b631ca0c4d4fcca1fcaf4170f927d7.js"></script> 
+  <script src="js/index_adcf864a531048b4882262108e2dd125.js"></script> 
+  <script src="js/index_321e63253f774e618f8880176aab18e6.js"></script> 
+  <script src="js/index_67d1fd6844d448f8a65c976a3c01b7f4.js"></script> 
+  <script type="text/javascript">
+  window.seajsBoot && window.seajsBoot();
+</script>  
+ </body>
+</html>

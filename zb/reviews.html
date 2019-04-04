@@ -1,0 +1,1688 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zh_CN" class="">
+ <!--<![endif]-->
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  <title>EduSoho直播教室演示 - EduSoho网络课堂演示站 - 网校领导品牌，在线教育网站建站系统 - Powered By EduSoho</title> 
+  <meta name="keywords" content="
+EduSoho网络课堂,网校系统,在线教育,在线教学,开源教学软件"> 
+  <meta name="description" content="本课程演示直播教室。"> 
+  <meta name="format-detection" content="telephone=no"> 
+  <meta content="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE" name="csrf-token"> 
+  <meta content="1" name="is-login"> 
+  <meta content="0" name="wechat_login_bind"> 
+  <meta property="qc:admins" content="242073150776545370763757"> 
+  <link rel="icon" href="css/favicon_1427251704.ico" type="image/x-icon"> 
+  <link rel="shortcut icon" href="css/favicon_1427251704.ico" type="image/x-icon" media="screen"> 
+  <!--[if lt IE 9]>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/html5shiv.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-shim.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-sham.js?version=8.3.17"></script>
+  <![endif]--> 
+  <link href="css/bootstrap.css" rel="stylesheet"> 
+  <link href="css/main.css" rel="stylesheet"> 
+  <link href="css/main-v2.css" rel="stylesheet"> 
+  <link href="css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white course-dashboard-page"> 
+  <!--[if lt IE 9]>
+<script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/fix-ie.js?version=8.3.17"></script>
+<style>
+  .lt-ie9 {
+    overflow: hidden;
+  }
+  .ie-mask {
+    z-index: 999999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    background: #000;
+  }
+  .ie-alert-wrap {
+    position: absolute;
+    z-index: 1000000;
+    margin: -200px auto 0;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+  .ie-alert {
+    width: 514px;
+    height: 397px;
+    margin: 0 auto;
+  }
+  .ie-alert__chrome,
+  .ie-alert__firefox {
+    position: absolute;
+    z-index: 1000001;
+    display: block;
+    bottom: 48px;
+    width: 60px;
+    height: 80px;
+  }
+  .ie-alert__chrome {
+    left: 50%;
+    margin-left: -80px;
+  }
+  .ie-alert__firefox {
+    right: 50%;
+    margin-right: -80px;
+  }
+</style>
+<div class="ie-mask"></div>
+<div class="ie-alert-wrap">
+  <div class="ie-alert" style="background:url('images/browser_update.png')">
+    <a href="http://www.baidu.com/s?wd=%E8%B0%B7%E6%AD%8C%E6%B5%8F%E8%A7%88%E5%99%A8" target="_blank" class="ie-alert__chrome"></a>
+    <a href="http://firefox.com.cn/download/" target="_blank" class="ie-alert__firefox"></a>
+  </div>
+</div>
+
+<![endif]--> 
+  <div class="es-wrap"> 
+   <header class="es-header navbar"> 
+    <div class="navbar-header"> 
+     <div class="visible-xs  navbar-mobile"> 
+      <a href="javascript:;" class="navbar-more js-navbar-more"> <i class="es-icon es-icon-menu"></i> </a> 
+      <div class="html-mask"></div> 
+      <div class="nav-mobile"> 
+       <form class="navbar-form" action="/search" method="get"> 
+        <div class="form-group"> 
+         <input class="form-control" placeholder="搜索" name="q"> 
+         <button class="button es-icon es-icon-search"></button> 
+        </div> 
+       </form> 
+       <ul class="nav navbar-nav"> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">课程和班级 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="/course/explore" target="_blank">课程中心</a></li> 
+          <li><a href="/classroom/explore" target="_blank">班级中心</a></li> 
+         </ul> </li> 
+        <li class="nav-hover"> <a href="http://www.qiqiuyu.com/faq/433/detail" target="_blank">网站初建设 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.qiqiuyu.com/faq/522/detail" target="_blank">1.域名和备案</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/523/detail" target="_blank">2.接入教育云</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/525/detail" target="_blank">3.申请收款接口</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/526/detail" target="_blank">4.设置注册登录</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/524/detail" target="_blank">5.安装应用插件</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/527/detail" target="_blank">6.创建发布课程</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/528/detail" target="_blank">7.装扮网站主题</a></li> 
+          <li><a href="http://www.qiqiuyu.com/faq/529/detail" target="_blank">8.学习其他功能</a></li> 
+         </ul> </li> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">免费APP <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.qiqiuyu.com/faq/532/detail" target="_blank">APP介绍</a></li> 
+          <li><a href="/mobile" target="_blank">APP体验</a></li> 
+         </ul> </li> 
+        <li class=""> <a href="/vip" target="_blank">会员专区 </a> </li> 
+        <li class="nav-hover"> <a href="javascript:;" target="_blank">关于我们 <b class="caret"></b></a> 
+         <ul class="dropdown-menu" role="menu"> 
+          <li><a href="http://www.edusoho.com" target="_blank">EduSoho官网</a></li> 
+          <li><a href="http://open.edusoho.com/" target="_blank">开放云平台</a></li> 
+          <li><a href="http://www.qiqiuyu.com/" target="_blank">气球鱼学院</a></li> 
+         </ul> </li> 
+       </ul> 
+      </div> 
+     </div> 
+     <a href="/" class="navbar-brand"> <img src="images/163626aa4fbc026102.png"> </a> 
+    </div> 
+    <nav class="collapse navbar-collapse"> 
+     <ul class="nav navbar-nav clearfix hidden-xs " id="nav"> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">课程和班级 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="/course/explore" target="_blank">课程中心</a></li> 
+        <li><a href="/classroom/explore" target="_blank">班级中心</a></li> 
+       </ul> </li> 
+      <li class="nav-hover"> <a href="http://www.qiqiuyu.com/faq/433/detail" target="_blank">网站初建设 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.qiqiuyu.com/faq/522/detail" target="_blank">1.域名和备案</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/523/detail" target="_blank">2.接入教育云</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/525/detail" target="_blank">3.申请收款接口</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/526/detail" target="_blank">4.设置注册登录</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/524/detail" target="_blank">5.安装应用插件</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/527/detail" target="_blank">6.创建发布课程</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/528/detail" target="_blank">7.装扮网站主题</a></li> 
+        <li><a href="http://www.qiqiuyu.com/faq/529/detail" target="_blank">8.学习其他功能</a></li> 
+       </ul> </li> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">免费APP <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.qiqiuyu.com/faq/532/detail" target="_blank">APP介绍</a></li> 
+        <li><a href="/mobile" target="_blank">APP体验</a></li> 
+       </ul> </li> 
+      <li class=""> <a href="/vip" target="_blank">会员专区 </a> </li> 
+      <li class="nav-hover"> <a href="javascript:;" target="_blank">关于我们 <b class="caret"></b></a> 
+       <ul class="dropdown-menu" role="menu"> 
+        <li><a href="http://www.edusoho.com" target="_blank">EduSoho官网</a></li> 
+        <li><a href="http://open.edusoho.com/" target="_blank">开放云平台</a></li> 
+        <li><a href="http://www.qiqiuyu.com/" target="_blank">气球鱼学院</a></li> 
+       </ul> </li> 
+     </ul> 
+     <div class="navbar-user "> 
+      <ul class="nav user-nav"> 
+       <li class="user-manage-li visible-lg cd-ml24"> <a class="btn cd-btn user-manage-toggle" href="/my/">我的学习</a> </li> 
+       <li class="user-inform-li js-user-inform hidden-xs hidden-sm cd-ml24 cd-dropdown" data-toggle="cd-dropdown"> <a class="inform-dropdown-toggle"><i class="cd-icon cd-icon-bell"></i><span class="inform-dropdown-toggle__num cd-badge cd-badge-danger ">1</span></a> 
+        <div class="dropdown-menu inform-dropdown js-user-nav-dropdown" role="menu"> 
+         <div class="clearfix inform-dropdown-head" role="tablist"> 
+          <a class="inform-dropdown-head__tab js-inform-tab active" href="#notification" role="tab" data-toggle="tab" data-type="newNotification">通知</a> 
+          <a class="inform-dropdown-head__tab js-inform-tab" href="#message" role="tab" data-toggle="tab" data-type="conversation">私信<span class="inform-dropdown-dot"></span></a> 
+         </div> 
+         <div class="tab-content"> 
+          <div class="notification-content tab-pane active" role="tabpanel" id="notification"> 
+           <div class="inform-dropdown-body js-inform-dropdown-body"> 
+            <div class="inform-empty-status js-inform-empty"> 
+             <img class="cd-mb24" src="images/null-notice.png" srcset="//sca1dk-sb-qn.qiqiuyun.net/static-dist/app/img/notice/null-notice.png?version=8.3.17 1x, //sca1dk-sb-qn.qiqiuyun.net/static-dist/app/img/notice/null-notice@2x.png?version=8.3.17 2x"> 
+             <div class="inform-empty-status__tip">
+              暂无新的通知～
+             </div> 
+            </div> 
+           </div> 
+           <div class="inform-dropdown-foot"> 
+            <a class="cd-link-minor" href="/notification">查看全部通知</a> 
+           </div> 
+          </div> 
+          <div class="message-content tab-pane" role="tabpanel" id="message"> 
+           <div class="inform-dropdown-body js-inform-dropdown-body"> 
+            <div class="inform-loading js-inform-loading"></div> 
+            <div class="js-inform-conversation"></div> 
+           </div> 
+           <div class="inform-dropdown-foot"> 
+            <a class="cd-link-minor" href="/message/">查看全部私信</a> 
+           </div> 
+          </div> 
+         </div> 
+        </div> </li> 
+       <li class="user-avatar-li cd-dropdown cd-ml24" data-toggle="cd-dropdown"> <a class="user-avatar-toggle" href="javascript:;"> <img class="cd-avatar cd-avatar-xs" src="images/avatar.png"> </a> 
+        <div class="dropdown-menu user-dropdown hidden-sm hidden-xs hidden-md js-user-nav-dropdown"> 
+         <div class="user-dropdown-info cd-mb24"> 
+          <a class="user-dropdown-info__avatar cd-mr24" href="/user/29000"> <img class="cd-avatar" src="images/avatar.png"> </a> 
+          <div class="user-dropdown-profile"> 
+           <div class="user-dropdown-profile__nickname"> 
+            <span>aloofqq</span> 
+           </div> 
+           <div class="user-dropdown-profile__rank cd-mv8">
+            普通学员
+           </div> 
+          </div> 
+         </div> 
+         <div class="user-dropdown__link cd-mb24"> 
+          <a class="cd-link-minor" href="/my/orders"><i class="cd-icon cd-icon-payment"></i>账户中心</a> 
+          <a class="cd-link-minor" href="/settings"><i class="es-icon es-icon-setting"></i>个人设置</a> 
+         </div> 
+         <div class="user-dropdown__logout">
+          <a class="cd-link-minor" href="/logout">退出登录</a>
+         </div> 
+        </div> 
+        <ul class="dropdown-menu hidden-lg" role="menu"> 
+         <div class="dropdown-header">
+          <a class="cd-link-minor" href="/user/29000">aloofqq</a>
+         </div> 
+         <li><a href="/my/orders"><i class="es-icon es-icon-accountwallet"></i>账户中心</a></li> 
+         <li><a href="/settings"><i class="es-icon es-icon-setting"></i>个人设置</a></li> 
+         <li class="user-nav-li-my"> <a href="/my/"> <i class="es-icon es-icon-book"></i>我的学习 </a> </li> 
+         <li class="hidden-md"><a href="/notification"><span class="pull-right num"></span><i class="es-icon es-icon-notificationson"></i>通知</a></li> 
+         <li class="hidden-md"><a href="/message/"><span class="pull-right num">1</span><i class="es-icon es-icon-mail"></i>私信</a></li> 
+         <li class="user-nav-li-logout"><a href="/logout"><i class="es-icon es-icon-power"></i>退出登录</a></li> 
+        </ul> </li> 
+      </ul> 
+      <form class="navbar-form navbar-right hidden-xs" action="/search" method="get"> 
+       <div class="form-group"> 
+        <input class="form-control js-search" value="" name="q" placeholder="搜索"> 
+        <button class="button es-icon es-icon-search"></button> 
+       </div> 
+      </form> 
+     </div> 
+    </nav> 
+   </header> 
+   <div class="event-report" data-url="/event/dispatch" data-event-name="course.view" data-subject-type="course" data-subject-id="283" data-user-id="29000"></div> 
+   <!-- 3、加入后：任务式学习 --> 
+   <div class="container cd-container"> 
+    <ol class="breadcrumb breadcrumb-o"> 
+     <li><a href="/">首页</a></li> 
+     <li><a href="/course/explore/fuction">功能体验</a></li> 
+     <li><a href="/course/283">EduSoho直播教室演示 </a></li> 
+    </ol> 
+    <div class="es-section course-detail-section course-detail-section--normal  clearfix"> 
+     <div class="course-detail-top clearfix"> 
+      <span class="tags mrm"> </span> 
+      <span class="course-detail-heading"> EduSoho直播教室演示 <span class="es-qrcode top pt5 hidden-xs" data-url="/course/283/qrcode"> <i class="es-icon es-icon-qrcode"></i> <span class="qrcode-popover"> <img src="/reviews" alt=""> 扫二维码继续学习 二维码时效为半小时 </span> </span> </span> 
+      <ul class="course-operation  course-operation--normal   hidden-xs hidden-sm clearfix"> 
+       <!--非营销页显示--> 
+       <li> <span class="btn btn-xs cursor-default"> <i class="es-icon es-icon-people text-16"></i> <span class="mls">6798人 </span> </span> </li> 
+       <!--营销页显示--> 
+       <li class="es-share top"> <a class="btn btn-default btn-xs dropdown-toggle" href="" data-toggle="dropdown" title="分享"> <i class="es-icon es-icon-share"></i> </a> 
+        <div class="dropdown-menu  js-social-share-params" data-title="EduSoho直播教室演示" data-summary="&nbsp; &nbsp; 本课程演示直播教室。" data-message="我正在学习《EduSoho直播教室演示》，收获巨大哦，一起来学习吧！" data-url="http://demo.edusoho.com/course/283" data-picture="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2016/05-23/1621040d5f2e441658.jpg"> 
+         <a href="javascript:;" class="js-social-share" data-cmd="weixin" title="分享到微信" data-share="weixin" data-qrcode-url="/common/qrcode?text=http%3A//demo.edusoho.com/course/283"><i class="es-icon es-icon-weixin"></i></a> 
+         <a href="javascript:;" class="js-social-share" data-cmd="tsina" title="分享到新浪微博" data-share="weibo"><i class="es-icon es-icon-weibo"></i></a> 
+         <a href="javascript:;" class="js-social-share" data-cmd="qq" title="分享到QQ好友" data-share="qq"><i class="es-icon es-icon-qq"></i></a> 
+         <a href="javascript:;" class="js-social-share" data-cmd="qzone" title="分享到QQ空间" data-share="qzone"><i class="es-icon es-icon-qzone"></i></a> 
+        </div> </li> 
+       <li> <a class="btn btn-default btn-xs" data-toggle="modal" data-target="#modal" data-url="/course/show_exit_modal?action=/course/283/exit"><i class="es-icon es-icon-exit"></i> </a> </li> 
+      </ul> 
+     </div> 
+     <!-- 2、加入后：自由式学习 --> 
+     <section class="course-freelearn-section"> 
+      <div class="row"> 
+       <div class="col-md-3"> 
+        <div class="course-progress"> 
+         <div class="cricle-progress" id="freeprogress" data-percent="0"> 
+          <span class="percent"></span> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="col-md-7 hidden-xs hidden-sm"> 
+        <ul class="clearfix text-12 course-learn-list "> 
+         <li> <p class="mb15 color-gray"> <i class="es-icon es-icon-iccheckcircleblack24px mrm"></i>已完成 </p> <span class="text-16"><span class="color-primary">0</span> / <span class="mrl">4</span> 任务</span> </li> 
+         <li> <p class="mb15 color-gray"> <i class="es-icon es-icon-today mrm"></i>学习有效期 </p> <span class="text-16"> 2018-12-28 <span class="color-warning text-12">（剩余 20 天）</span> </span> </li> 
+         <li> <p class="mb15 color-gray"> <i class="es-icon es-icon-book mrm"></i>下一学习任务 </p> <a class="link-dark text-16" href="/course/283/task/3230/show">第一场直播</a> </li> 
+        </ul> 
+       </div> 
+       <div class="col-md-2 hidden-xs hidden-sm pt10"> 
+        <a class="btn btn-primary btn-lg " href="/course/283/task/3230/show"> 开始学习 </a> 
+       </div> 
+      </div> 
+      <div class="course-detail-section-responsive visible-xs visible-sm clearfix"> 
+       <ul class="clearfix"> 
+        <!--营销页显示--> 
+        <li class="es-share top   learn-es-share "> <a class=" dropdown-toggle" href="" data-toggle="dropdown" title="分享"> <i class="es-icon es-icon-share"></i> <br> 分享 </a> 
+         <div class="dropdown-menu  js-social-share-params" data-title="EduSoho直播教室演示" data-summary="&nbsp; &nbsp; 本课程演示直播教室。" data-message="我正在学习《EduSoho直播教室演示》，收获巨大哦，一起来学习吧！" data-url="http://demo.edusoho.com/course/283" data-picture="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2016/05-23/1621040d5f2e441658.jpg"> 
+          <a href="javascript:;" class="js-social-share" data-cmd="weixin" title="分享到微信" data-share="weixin" data-qrcode-url="/common/qrcode?text=http%3A//demo.edusoho.com/course/283"><i class="es-icon es-icon-weixin"></i></a> 
+          <a href="javascript:;" class="js-social-share" data-cmd="tsina" title="分享到新浪微博" data-share="weibo"><i class="es-icon es-icon-weibo"></i></a> 
+          <a href="javascript:;" class="js-social-share" data-cmd="qq" title="分享到QQ好友" data-share="qq"><i class="es-icon es-icon-qq"></i></a> 
+          <a href="javascript:;" class="js-social-share" data-cmd="qzone" title="分享到QQ空间" data-share="qzone"><i class="es-icon es-icon-qzone"></i></a> 
+         </div> </li> 
+       </ul> 
+      </div> 
+      <div class="text-right buy-btn-group visible-xs visible-sm"> 
+       <span class="mr20">完成任务：0 / 4</span> 
+       <a class="btn btn-primary btn-lg " href="/course/283/task/3230/show"> 开始学习 </a> 
+      </div> 
+     </section> 
+    </div> 
+   </div> 
+   <div class="container cd-container"> 
+    <div class="row cd-row"> 
+     <div class="col-lg-9 col-md-8 course-detail-content"> 
+      <section class="es-section"> 
+       <div class="nav-btn-tab"> 
+        <ul class="nav nav-tabs " role="tablist"> 
+         <li role="presentation" id="tasks" class=""> <a href="/my/course/283"> 目录 </a> </li> 
+         <li role="presentation" id="threads" class=""> <a href="/my/course/283/threads"> 话题 <small>(6)</small> </a> </li> 
+         <li role="presentation" id="notes" class=""> <a href="/my/course/283/notes"> 笔记 <small>(37)</small> </a> </li> 
+         <li role="presentation" id="material" class=""> <a href="/my/course/283/material"> 资料区 <small>(0)</small> </a> </li> 
+         <li role="presentation" id="reviews" class="active"> <a href="/my/course/283/reviews"> 评价 <small>(20)</small> </a> </li> 
+         <li role="presentation" id="summary" class=""> <a href="/my/course/283/summary"> 介绍 </a> </li> 
+        </ul> 
+       </div> 
+       <div class="clearfix"> 
+        <button class="btn btn-primary btn-sm pull-right js-show-review-form" style="display:none;">重新评价</button> 
+       </div> 
+       <form id="review-form" method="post" action="/course/283/review/create"> 
+        <div class="form-group controls">
+          请打分： 
+         <span data-rating="0" data-img-path="/assets/img/raty" class="rating-btn"></span> 
+         <input type="hidden" name="rating" value="0"> 
+        </div> 
+        <div class="form-group controls"> 
+         <textarea class="form-control" rows="8" data-display="评价详细内容" name="content"></textarea> 
+        </div> 
+        <div class="form-group clearfix"> 
+         <span class="color-success pull-left js-review-remind" style="display: none;">评价已保存！</span> 
+         <a href="javascript:;" class="btn btn-primary pull-right js-btn-save" data-loading-text="正在保存..." autocomplete="off">保存</a> 
+         <a href="javascript:;" class="btn btn-link pull-right js-hide-review-form">取消</a> 
+        </div> 
+        <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+       </form> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/28562" data-card-url="/user/28562/card/show" data-user-id="28562"> <img class="avatar-small" src="images/162341d767c2718611.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/28562">九月_枫</a> 
+           <span>教学计划 完成进度:0/4</span>&nbsp;&nbsp; 2018-10-25 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            人大啊 
+           </div> 
+           <div class="full-content" style="display:none;">
+            人大啊 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/459/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/28404" data-card-url="/user/28404/card/show" data-user-id="28404"> <img class="avatar-small" src="images/avatar.png"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/28404">小付打天下</a> 
+           <span>教学计划 完成进度:0/4</span>&nbsp;&nbsp; 2018-09-21 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            对对对哎哎哎对对对 
+            <span class="label label-success">追评</span> 
+           </div> 
+           <div class="full-content" style="display:none;">
+            对对对哎哎哎对对对 
+            <span class="label label-success">追评</span> 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/457/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/19732" data-card-url="/user/19732/card/show" data-user-id="19732"> <img class="avatar-small" src="images/165406e18194246483.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/19732">zhangfeng</a> 
+           <span>教学计划 完成进度:1/10</span>&nbsp;&nbsp; 2018-09-10 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            ok 
+           </div> 
+           <div class="full-content" style="display:none;">
+            ok 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/453/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/27630" data-card-url="/user/27630/card/show" data-user-id="27630"> <img class="avatar-small" src="images/1445564c283c250010.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/27630">小魔女</a> 
+           <span>教学计划 完成进度:0/10</span>&nbsp;&nbsp; 2018-08-31 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            666 
+           </div> 
+           <div class="full-content" style="display:none;">
+            666 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/451/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/27865" data-card-url="/user/27865/card/show" data-user-id="27865"> <img class="avatar-small" src="images/153619315d29263605.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/27865">松土师</a> 
+           <span>教学计划 完成进度:0/10</span>&nbsp;&nbsp; 2018-08-03 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发... 
+            <span class="label label-success">追评</span> 
+           </div> 
+           <div class="full-content" style="display:none;">
+            的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送的发送到发送送到发送的发送到发送 
+            <span class="label label-success">追评</span> 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/449/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/25032" data-card-url="/user/25032/card/show" data-user-id="25032"> <img class="avatar-small" src="images/22311869d275787265.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/25032">尼莫</a> 
+           <span>教学计划 完成进度:2/10</span>&nbsp;&nbsp; 2017-10-22 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            课程很好，很喜欢 
+           </div> 
+           <div class="full-content" style="display:none;">
+            课程很好，很喜欢 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/424/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/23988" data-card-url="/user/23988/card/show" data-user-id="23988"> <img class="avatar-small" src="images/1551379a418d756261.png"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/23988">wind123</a> 
+           <span>教学计划 完成进度:1/7</span>&nbsp;&nbsp; 2017-08-06 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            1 
+            <span class="label label-success">追评</span> 
+           </div> 
+           <div class="full-content" style="display:none;">
+            1 
+            <span class="label label-success">追评</span> 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/422/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/19846" data-card-url="/user/19846/card/show" data-user-id="19846"> <img class="avatar-small" src="images/153129141167768732.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/19846">白鹤</a> 
+           <span>教学计划 完成进度:3/6</span>&nbsp;&nbsp; 2017-06-19 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            满分好评。 
+            <span class="label label-success">追评</span> 
+           </div> 
+           <div class="full-content" style="display:none;">
+            满分好评。 
+            <span class="label label-success">追评</span> 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/405/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/23023" data-card-url="/user/23023/card/show" data-user-id="23023"> <img class="avatar-small" src="images/134146a4c7bd494425.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/23023">阳光不放假</a> 
+           <span>教学计划 完成进度:0/6</span>&nbsp;&nbsp; 2017-05-22 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            123213323 
+           </div> 
+           <div class="full-content" style="display:none;">
+            123213323 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/398/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/19714" data-card-url="/user/19714/card/show" data-user-id="19714"> <img class="avatar-small" src="images/142602ae6659008266.jpeg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/19714">风吟</a> 
+           <span>教学计划 完成进度:0/9</span>&nbsp;&nbsp; 2017-05-04 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            厉害 
+           </div> 
+           <div class="full-content" style="display:none;">
+            厉害 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/393/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/19715" data-card-url="/user/19715/card/show" data-user-id="19715"> <img class="avatar-small" src="images/15352915787b063924.png"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/19715">demost1</a> 
+           <span>教学计划 完成进度:0/6</span>&nbsp;&nbsp; 2017-04-26 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            棒 
+           </div> 
+           <div class="full-content" style="display:none;">
+            棒
+            <br> 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/391/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/21889" data-card-url="/user/21889/card/show" data-user-id="21889"> <img class="avatar-small" src="images/1514251d3582776077.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/21889">陈龙某</a> 
+           <span>教学计划 完成进度:0/2</span>&nbsp;&nbsp; 2017-03-02 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            没有直播了 只有录播 大家注意啦 每日 12:00~20:00 也是录播！！ 
+           </div> 
+           <div class="full-content" style="display:none;">
+            没有直播了 只有录播 大家注意啦 每日 12:00~20:00 也是录播！！ 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/376/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/21596" data-card-url="/user/21596/card/show" data-user-id="21596"> <img class="avatar-small" src="images/135228c41b93303962.png"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/21596">徐坚</a> 
+           <span>教学计划 完成进度:1/1</span>&nbsp;&nbsp; 2017-02-08 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            制作呈现通俗易懂 
+           </div> 
+           <div class="full-content" style="display:none;">
+            制作呈现通俗易懂 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/370/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/21599" data-card-url="/user/21599/card/show" data-user-id="21599"> <img class="avatar-small" src="images/1358571846c9019756.jpeg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/21599">talla</a> 
+           <span>教学计划 完成进度:1/1</span>&nbsp;&nbsp; 2017-02-08 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            感觉不错 
+           </div> 
+           <div class="full-content" style="display:none;">
+            感觉不错 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/368/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/14501" data-card-url="/user/14501/card/show" data-user-id="14501"> <img class="avatar-small" src="images/avatar.png"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/14501">九局下半</a> &nbsp;&nbsp; 2015-11-19 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            很好看 
+           </div> 
+           <div class="full-content" style="display:none;">
+            很好看 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/305/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/12052" data-card-url="/user/12052/card/show" data-user-id="12052"> <img class="avatar-small" src="images/112641131e79235016.png"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/12052">adobe</a> &nbsp;&nbsp; 2015-08-25 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            不错很好 
+           </div> 
+           <div class="full-content" style="display:none;">
+            不错很好 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/281/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/4893" data-card-url="/user/4893/card/show" data-user-id="4893"> <img class="avatar-small" src="images/20115397791f599392.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/4893">刘小平</a> &nbsp;&nbsp; 2015-05-04 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            很好。 
+           </div> 
+           <div class="full-content" style="display:none;">
+            很好。 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/245/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/7375" data-card-url="/user/7375/card/show" data-user-id="7375"> <img class="avatar-small" src="images/avatar.png"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/7375">suju88</a> &nbsp;&nbsp; 2014-10-15 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-staroutline"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            不错 
+           </div> 
+           <div class="full-content" style="display:none;">
+            不错 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/149/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/6300" data-card-url="/user/6300/card/show" data-user-id="6300"> <img class="avatar-small" src="images/124427b22656501156.jpg"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/6300">lvsmart</a> &nbsp;&nbsp; 2014-09-02 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            5星好评 
+           </div> 
+           <div class="full-content" style="display:none;">
+            5星好评 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/129/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="js-reviews"> 
+        <div class="media media-evaluate"> 
+         <div class="media-left"> 
+          <a class="avatar-link-small js-user-card" href="/user/5061" data-card-url="/user/5061/card/show" data-user-id="5061"> <img class="avatar-small" src="images/avatar.png"> </a> 
+         </div> 
+         <div class="media-body thread-post"> 
+          <div class="title"> 
+           <a class="link-dark " href="/user/5061">孫永MOOC</a> &nbsp;&nbsp; 2014-07-08 
+          </div> 
+          <div class="score"> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+           <i class="es-icon es-icon-star color-warning"></i> 
+          </div> 
+          <div class="content"> 
+           <div class="short-content">
+            体验下 
+           </div> 
+           <div class="full-content" style="display:none;">
+            体验下 
+           </div> 
+          </div> 
+          <div class="actions clearfix"> 
+           <a href="javascript:;" class="show-full-btn" style="display:none;">[展开全文]</a> 
+           <a href="javascript:;" class="show-short-btn" style="display:none;">[收起全文]</a> 
+          </div> 
+          <div class="thread-subpost-container subcomments clearfix hide"> 
+           <div class="thread-subpost-content"> 
+            <ul class="media-list thread-post-list thread-subpost-list"> 
+            </ul> 
+           </div> 
+           <form method="post" action="/course/283/review/103/post" class="thread-subpost-form "> 
+            <div class="form-group"> 
+             <div class="controls"> 
+              <textarea class="form-control" name="content" data-display="内容"></textarea> 
+             </div> 
+            </div> 
+            <div class="form-group"> 
+             <input type="hidden" name="_csrf_token" value="o4MUtVidehL1m19iUhkGgOt3jsuyruuCTV6zP6RJROE"> 
+             <button type="submit" data-loading-text="正在发表..." class="btn btn-primary btn-sm pull-right">发表</button> 
+            </div> 
+           </form> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </section> 
+      <div class="panel panel-default hidden-xs pt10"> 
+       <div class="course-list"> 
+        <div class="row"> 
+         <div class="col-lg-3 col-md-4 col-xs-6"> 
+          <div class="course-item"> 
+           <div class="course-img"> 
+            <a href="/course/420?ref=relatedCourseSets" target="_blank"> <img src="images/lazyload_course.png" alt="课程管理" class="img-responsive" data-echo="http://sca1dk-sb-qn.qiqiuyun.net/files/course/2016/10-31/103511fc1e91648521.jpg"> </a> 
+           </div> 
+           <div class="course-info"> 
+            <div class="title"> 
+             <a class="link-dark" href="/course/420?ref=relatedCourseSets" target="_blank"> 课程管理 </a> 
+            </div> 
+            <div class="metas clearfix"> 
+             <span class="num"><i class="es-icon es-icon-people"></i>801</span> 
+             <span class="comment"><i class="es-icon es-icon-textsms"></i>7</span> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="col-lg-3 col-md-4 col-xs-6"> 
+          <div class="course-item"> 
+           <div class="course-img"> 
+            <a href="/course/225?ref=relatedCourseSets" target="_blank"> <img src="images/lazyload_course.png" alt="考试系统（题库）体验" class="img-responsive" data-echo="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2016/05-23/16193689be0f565122.jpg"> </a> 
+           </div> 
+           <div class="course-info"> 
+            <div class="title"> 
+             <a class="link-dark" href="/course/225?ref=relatedCourseSets" target="_blank"> 考试系统（题库）体验 </a> 
+            </div> 
+            <div class="metas clearfix"> 
+             <span class="num"><i class="es-icon es-icon-people"></i>3665</span> 
+             <span class="comment"><i class="es-icon es-icon-textsms"></i>13</span> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="col-lg-3 col-md-4 col-xs-6"> 
+          <div class="course-item"> 
+           <div class="course-img"> 
+            <a href="/course/1?ref=relatedCourseSets" target="_blank"> <img src="images/lazyload_course.png" alt="课程功能体验" class="img-responsive" data-echo="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2016/05-23/16152192a17c953270.jpg"> </a> 
+           </div> 
+           <div class="course-info"> 
+            <div class="title"> 
+             <a class="link-dark" href="/course/1?ref=relatedCourseSets" target="_blank"> 课程功能体验 </a> 
+            </div> 
+            <div class="metas clearfix"> 
+             <span class="num"><i class="es-icon es-icon-people"></i>6115</span> 
+             <span class="comment"><i class="es-icon es-icon-textsms"></i>50</span> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-lg-3 col-md-4 course-sidebar"> 
+      <div class="panel panel-default"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title">授课教师</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="media media-default"> 
+         <div class="media-left"> 
+          <a class="js-user-card" href="/user/4623" data-card-url="/user/4623/card/show" data-user-id="4623" data-original-title="" title=""> <img class="avatar-md" src="images/140101da14a5566120.png"></a> 
+         </div> 
+         <div class="media-body"> 
+          <div class="title"> 
+           <a class="link-dark link-dark" href="/user/4623">linjay</a> 
+          </div> 
+          <div class="content">
+           初级教师
+          </div> 
+         </div> 
+        </div> 
+        <div class="media media-default"> 
+         <div class="media-left"> 
+          <a class="js-user-card" href="/user/2487" data-card-url="/user/2487/card/show" data-user-id="2487" data-original-title="" title=""> <img class="avatar-md" src="images/0910080084cc142484.jpg"></a> 
+         </div> 
+         <div class="media-body"> 
+          <div class="title"> 
+           <a class="link-dark link-dark" href="/user/2487">格洛咪</a> 
+          </div> 
+          <div class="content">
+           EduSoho官方运营
+          </div> 
+         </div> 
+        </div> 
+        <div class="media media-default"> 
+         <div class="media-left"> 
+          <a class="js-user-card" href="/user/27099" data-card-url="/user/27099/card/show" data-user-id="27099" data-original-title="" title=""> <img class="avatar-md" src="images/152101d7cfab461248.jpg"></a> 
+         </div> 
+         <div class="media-body"> 
+          <div class="title"> 
+           <a class="link-dark link-dark" href="/user/27099">ilhamtahir</a> 
+          </div> 
+          <div class="content">
+           水电费
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+      </div> 
+      <div class="panel panel-default"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title">最新学员</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <ul class="user-avatar-list clearfix"> 
+         <li> <a class=" js-user-card" href="/user/19309" data-card-url="/user/19309/card/show" data-user-id="19309" data-original-title="" title=""> <img class="avatar-sm" src="images/161141d056ef457191.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/22198" data-card-url="/user/22198/card/show" data-user-id="22198" data-original-title="" title=""> <img class="avatar-sm" src="images/1305073cb540031498.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/25555" data-card-url="/user/25555/card/show" data-user-id="25555" data-original-title="" title=""> <img class="avatar-sm" src="images/085208834b5b541036.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/27839" data-card-url="/user/27839/card/show" data-user-id="27839" data-original-title="" title=""> <img class="avatar-sm" src="images/2033062a36ee951924.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28965" data-card-url="/user/28965/card/show" data-user-id="28965" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28966" data-card-url="/user/28966/card/show" data-user-id="28966" data-original-title="" title=""> <img class="avatar-sm" src="images/10490734cd3f044095.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28970" data-card-url="/user/28970/card/show" data-user-id="28970" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28971" data-card-url="/user/28971/card/show" data-user-id="28971" data-original-title="" title=""> <img class="avatar-sm" src="images/181915324bf9925349.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28972" data-card-url="/user/28972/card/show" data-user-id="28972" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28976" data-card-url="/user/28976/card/show" data-user-id="28976" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28977" data-card-url="/user/28977/card/show" data-user-id="28977" data-original-title="" title=""> <img class="avatar-sm" src="images/151335fb2bd4001637.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28978" data-card-url="/user/28978/card/show" data-user-id="28978" data-original-title="" title=""> <img class="avatar-sm" src="images/15561606f00e711398.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28979" data-card-url="/user/28979/card/show" data-user-id="28979" data-original-title="" title=""> <img class="avatar-sm" src="images/1630273551ae431869.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28980" data-card-url="/user/28980/card/show" data-user-id="28980" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28982" data-card-url="/user/28982/card/show" data-user-id="28982" data-original-title="" title=""> <img class="avatar-sm" src="images/215728898a8d828642.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28985" data-card-url="/user/28985/card/show" data-user-id="28985" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28988" data-card-url="/user/28988/card/show" data-user-id="28988" data-original-title="" title=""> <img class="avatar-sm" src="images/1420193834f2825603.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28993" data-card-url="/user/28993/card/show" data-user-id="28993" data-original-title="" title=""> <img class="avatar-sm" src="images/19374048b675042781.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/28999" data-card-url="/user/28999/card/show" data-user-id="28999" data-original-title="" title=""> <img class="avatar-sm" src="images/224445d48e06001191.jpg"> </a> </li> 
+         <li> <a class=" js-user-card" href="/user/29000" data-card-url="/user/29000/card/show" data-user-id="29000" data-original-title="" title=""> <img class="avatar-sm" src="images/avatar.png"> </a> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="panel panel-default"> 
+       <div class="panel-heading"> 
+        <h3 class="panel-title"><i class="es-icon es-icon-recentactors"></i>学员动态</h3> 
+       </div> 
+       <div class="panel-body"> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/29000">aloofqq</a> 加入学习 
+        </div> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/28999">skyskysky</a> 加入学习 
+        </div> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/28993">程晓明</a> 加入学习 
+        </div> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/22198">双色调</a> 加入学习 
+        </div> 
+        <div class="media media-number-o color-gray text-overflow"> 
+         <a class="link-dark " href="/user/28988">Rui_Lee</a> 加入学习 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="hidden jweixin-data" data-config="{&quot;appId&quot;:&quot;wxe2d699a880ac55d5&quot;,&quot;timestamp&quot;:1544203333,&quot;nonceStr&quot;:&quot;edusoho5c0aac4583186&quot;,&quot;jsApiList&quot;:[&quot;onMenuShareTimeline&quot;,&quot;onMenuShareAppMessage&quot;,&quot;onMenuShareQZone&quot;,&quot;onMenuShareQQ&quot;],&quot;string&quot;:&quot;jsapi_ticket=bxLdikRXVbTPdHSM05e5uzAOjVF2ok0nWzS64PVKKYGQolN6DOEs2fyrDytO8cWPKGvwhNMX7tGA_XhgUj5QfQ&amp;noncestr=edusoho5c0aac4583186&amp;timestamp=1544203333&amp;url=http:\/\/demo.edusoho.com\/my\/course\/283\/reviews&quot;,&quot;signature&quot;:&quot;627c17a8384c44404100db18ae834d9dae0207cb&quot;}" data-title="EduSoho直播教室演示" data-desc="本课程演示直播教室。" data-link="http://demo.edusoho.com/my/course/283/reviews" data-img-url="http://sca1dk-sb-qn.qiqiuyun.net/files/default/2016/05-23/1621040d5f2e441658.jpg" data-type="" data-data-url=""> 
+   </div> 
+   <div class="es-footer-link"> 
+    <div class="container"> 
+     <div class="row"> 
+      <div class="col-md-8 footer-main clearfix"> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item "> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item hidden-xs"> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+       <div class="link-item hidden-xs"> 
+        <h3>底部区域</h3> 
+        <ul> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改底部链接</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">修改二维码和logo</a> </li> 
+         <li> <a href="http://www.qiqiuyu.com/faq/533/detail" target="_blank">好知网与课程存档</a> </li> 
+        </ul> 
+       </div> 
+      </div> 
+      <div class="col-md-4 footer-logo hidden-sm hidden-xs"> 
+       <a class="" href="http://www.qiqiuyu.com/faq/531/detail" target="_blank"><img src="images/block_picture_1518091361.png" alt="建议图片大小为233*64"></a> 
+       <div class="footer-sns"> 
+        <a href="http://weibo.com/edusoho" target="_blank"><i class="es-icon es-icon-weibo"></i></a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-weixin"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/weixin.png" alt=""> 
+         </div> </a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-apple"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/apple.png" alt=""> 
+         </div> </a> 
+        <a class="qrcode-popover top"> <i class="es-icon es-icon-android"></i> 
+         <div class="qrcode-content"> 
+          <img src="images/android.png" alt=""> 
+         </div> </a> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <footer class="es-footer"> 
+    <div class="copyright"> 
+     <div class="container">
+       Powered by 
+      <a href="http://www.edusoho.com/" target="_blank">EduSoho v8.3.17</a> ©2014-2018 
+      <a class="mlm" href="http://www.howzhi.com/" target="_blank">好知网</a> 
+      <!-- START HEAD STAT CODE (重要：请勿遗漏、修改、移除此行代码，以及以下代码，以下代码通过模板自动生成！) 2018-11-16 10:23 --> 
+      <script type="text/javascript">
+var _mkt = { _visitorFields: {}, _chatManager: null };
+_mkt.setVisitorField = function(key, value) {
+    this._visitorFields[key] = value;
+    if (this._chatManager) {
+    this._chatManager.set("customerFields", this.getFieldsForChat());
+    this._chatManager.set("userinfo", { partnerId: this.getVisitorId()});
+    }
+};
+_mkt.getVisitorFields = function() {
+    return this._visitorFields;
+};
+_mkt.getVisitorId = function() {
+    return this._visitorFields.visitorId ? this._visitorFields.visitorId : '';
+},
+_mkt.setChatManager = function(chatManager) {
+    this._chatManager = chatManager;
+    if (this._visitorFields.visitorId) {
+    this._chatManager.set("customerFields", this.getFieldsForChat());
+    this._chatManager.set("userinfo", { partnerId: this.getVisitorId()});
+    }
+};
+_mkt.getFieldsForChat = function() {
+    var fields = {};
+    fields.customField2 = this._visitorFields.visitorId ? this._visitorFields.visitorId : "";
+    return JSON.stringify(fields);
+};
+
+var _paq = _paq || [];
+_paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+_paq.push(["setDomains", ["*.edusoho.com","*.esspoc.com","*.haomuke.com","*.qiqiuyu.com"]]);
+_paq.push(["enableCrossDomainLinking"]);
+_paq.push(['trackPageView']);
+_paq.push(['enableLinkTracking']);
+_paq.push(['enableHeartBeatTimer', 15]);
+_paq.push([ function() {
+    _mkt.setVisitorField('visitorId', this.getVisitorId());
+    window._VISITOR_ID = this.getVisitorId();
+}]);
+(function() {
+    var u="//stat.edusoho.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+})();
+</script> 
+      <!-- END HEAD STAT CODE (重要：请勿遗漏、修改、移除此行代码！) --> 
+      <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?81a080dc472dfaa6aba49ad8936049c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+      <script src="js/entrance.js" class="zhiCustomBtn" id="zhichiScript"></script> 
+      <script>_mkt.setChatManager(getzhiSDKInstance());</script> 
+      <script src="/sidebar"></script> 
+      <a class="mlm" href="/archive/course">课程存档</a> 
+      <div class="mts">
+        课程内容版权均归 
+       <a href="/"> 杭州阔知网络科技有限公司 </a> 所有 
+       <a class="mlm" href="http://www.miibeian.gov.cn/" target="_blank"> 浙ICP备13006852号-1 </a> 
+      </div> 
+     </div> 
+    </div> 
+   </footer> 
+  </div> 
+  <div id="login-modal" class="modal" data-url="/login/ajax"></div> 
+  <div id="modal" class="modal"></div> 
+  <div id="attachment-modal" class="modal"></div> 
+  <script>
+  if (typeof app === 'undefined') {
+      var app = {};
+  }
+  app.version = '8.3.17';
+  app.httpHost = 'http://demo.edusoho.com';
+  app.basePath = 'http://sca1dk-sb-qn.qiqiuyun.net';
+  app.theme = 'jianmo';
+
+    
+  var CLOUD_FILE_SERVER = ""; 
+
+  app.config = {"api":{"weibo":{"key":"1549269531"},"qq":{"key":"101252320"},"douban":{"key":""},"renren":{"key":""}},"loading_img_path":"\/\/sca1dk-sb-qn.qiqiuyun.net\/assets\/img\/default\/loading.gif?version=8.3.17"};
+
+  app.arguments = {};
+      
+  app.scripts = null;
+
+  app.fileSingleSizeLimit = 10;
+  app.uploadUrl = '/file/upload';
+  app.imgCropUrl = '/file/img/crop';
+  app.lessonCopyEnabled = '0';
+  app.cloudPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/sdk-v1.js?15442033';
+  app.cloudPlayServer = '';
+  app.cloudVideoPlayerSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/video-player/sdk-v1.js?15442033';
+  app.cloudOldUploaderSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/uploader/sdk-v1.js?15442033';
+  app.cloudOldDocumentSdkUrl = '//service-cdn.qiqiuyun.net/js-sdk/document-player/v7/viewer.html?15442033';
+  app.lang = 'zh_CN';
+</script> 
+  <script src="js/translator.min.js"></script> 
+  <script src="js/zh_CN.js"></script> 
+  <script src="js/base.js"></script> 
+  <script src="js/common.js"></script> 
+  <script src="js/main.js"></script> 
+  <script src="js/main_d17f01509f9a4db29c2ee86b8e271c25.js"></script> 
+  <script src="js/jquery.easypiechart.js"></script> 
+  <script src="js/excanvas-compiled.js"></script> 
+  <script src="js/jquery-countdown.js"></script> 
+  <script src="js/index_0f117f218cff4a3b8e9e3745d22cfcdc.js"></script> 
+  <script src="js/index_cec540d1656d4067a00bb268414b95f8.js"></script> 
+  <script src="js/index_56b631ca0c4d4fcca1fcaf4170f927d7.js"></script> 
+  <script src="js/index_adcf864a531048b4882262108e2dd125.js"></script> 
+  <script src="js/index_321e63253f774e618f8880176aab18e6.js"></script> 
+  <script src="js/jquery-raty.js"></script> 
+  <script src="js/jquery-validation.js"></script> 
+  <script src="js/index_69fd173135cb45ddb958e660abd2f8c2.js"></script> 
+  <script src="js/index_67d1fd6844d448f8a65c976a3c01b7f4.js"></script> 
+  <script type="text/javascript">
+  window.seajsBoot && window.seajsBoot();
+</script>  
+ </body>
+</html>

@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+<html lang="zh" >
+<meta charset="utf-8">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link href="/assets/admin/css/bootstrap.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/font-awesome.min.css" rel="stylesheet"/>
+	<!-- bootstrap-table 表格插件样式 -->
+	<link href="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/animate.css" rel="stylesheet"/>
+	<link href="/assets/admin/css/style.css" rel="stylesheet"/>
+	<link href="/assets/admin/ajax/libs/select/select2.css" rel="stylesheet"/>
+	<link href="/assets/admin/ruoyi/css/ry-ui.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="form-content">
+        <form id="form-user-add" class="form-horizontal">
+            <input name="id" type="hidden" id="treeId"/>
+            <h4 class="form-header h4">基本信息</h4>
+            <div class="row">
+            	<div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>用户名称：</label>
+                        <div class="col-sm-8">
+                            <input name="userName" autocomplete="off" placeholder="请输入用户名称" class="form-control" type="text" maxlength="30" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>归属部门：</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                            	<input name="deptName" onclick="selectDeptTree()" id="treeName" type="text" placeholder="请选择归属部门" class="form-control" required>
+                                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>手机号码：</label>
+                        <div class="col-sm-8">
+                            <input name="phonenumber" autocomplete="off" placeholder="请输入手机号码" class="form-control" type="text" maxlength="11" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>邮箱：</label>
+                        <div class="col-sm-8">
+                            <input name="email" autocomplete="off" class="form-control email" type="text" maxlength="50" placeholder="请输入邮箱" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>登录账号：</label>
+                        <div class="col-sm-8">
+                            <input name="loginName" placeholder="请输入登录账号" autocomplete="off" class="form-control required" type="text" maxlength="30" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label"><span style="color: red; ">*</span>登录密码：</label>
+                        <div class="col-sm-8">
+                            <input name="password" placeholder="请输入登录密码" autocomplete="off" class="form-control" type="password" value="123456" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">用户性别：</label>
+                        <div class="col-sm-8">
+                            <div class="input-group" style="width: 100%">
+                                <select name="sex" class="form-control m-b">
+				                    <option value="0">男</option>
+				                    <option value="1">女</option>
+				                    <option value="2">未知</option>
+				                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">用户状态：</label>
+                        <div class="col-sm-8">
+                            <div class="onoffswitch">
+		                         <input type="checkbox" class="onoffswitch-checkbox" id="status" checked="checked">
+		                         <label class="onoffswitch-label" for="status">
+		                             <span class="onoffswitch-inner"></span>
+		                             <span class="onoffswitch-switch"></span>
+		                         </label>
+		                     </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">岗位：</label>
+                        <div class="col-xs-4">
+                            <select id="post" class="form-control select2-hidden-accessible" multiple="">
+								<option value="1">董事长</option>
+								<option value="2">项目经理</option>
+								<option value="3">人力资源</option>
+								<option value="4">普通员工</option>
+							</select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            	<div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">角色：</label>
+                        <div class="col-xs-10">
+                            <label class="check-box">
+								<input name="role" type="checkbox" value="1">管理员</input>
+							</label><label class="check-box">
+								<input name="role" type="checkbox" value="2">普通角色</input>
+							</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4 class="form-header h4">其他信息</h4>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label class="col-xs-2 control-label">备注：</label>
+                        <div class="col-xs-10">
+                            <textarea name="remark" autocomplete="off" maxlength="500" class="form-control" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-sm-offset-5 col-sm-10">
+            <button type="button" class="btn btn-sm btn-primary" onclick="submitHandler()"><i class="fa fa-check"></i>保 存</button>&nbsp;
+            <button type="button" class="btn btn-sm btn-danger" onclick="closeItem()"><i class="fa fa-reply-all"></i>关 闭 </button>
+        </div>
+    </div>
+	<div>
+	<script src="/assets/admin/js/jquery.min.js"></script>
+	<script src="/assets/admin/js/bootstrap.min.js"></script>
+	
+	<!-- bootstrap-table 表格插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/bootstrap-table.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/locale/bootstrap-table-zh-CN.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/toolbar/bootstrap-table-toolbar.min.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/columns/bootstrap-table-fixed-columns.js"></script>
+	<!-- jquery-validate 表单验证插件 -->
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/messages_zh.min.js"></script>
+	<script src="/assets/admin/ajax/libs/validate/jquery.validate.extend.js"></script>
+	<!-- jquery-validate 表单树插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-treetable/bootstrap-treetable.js"></script>
+	<!-- jquery-export 表格导出插件 -->
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>
+	<script src="/assets/admin/ajax/libs/bootstrap-table/extensions/export/tableExport.js"></script>
+	<!-- 遮罩层 -->
+	<script src="/assets/admin/ajax/libs/blockUI/jquery.blockUI.js"></script>
+	<script src="/assets/admin/ajax/libs/iCheck/icheck.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layer/layer.min.js"></script>
+	<script src="/assets/admin/ajax/libs/layui/layui.js"></script>
+	<script src="/assets/admin/ruoyi/js/common.js?v=3.2.0"></script>
+	<script src="/assets/admin/ruoyi/js/ry-ui.js?v=3.2.0"></script>
+	
+	<script> var ctx = "\/"; </script>
+</div>
+	<script src="/assets/admin/ajax/libs/select/select2.js"></script>
+	<script>
+	    var prefix = ctx + "system/user";
+	
+        $("#form-user-add").validate({
+        	rules:{
+        		loginName:{
+        			minlength: 2,
+        			maxlength: 20,
+        			remote: {
+                        url: prefix + "/checkLoginNameUnique",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                        	name : function() {
+                                return $.common.trim($("#loginName").val());
+                            }
+                        },
+                        dataFilter: function(data, type) {
+                        	return $.validate.unique(data);
+                        }
+                    }
+        		},
+        		password:{
+        			minlength: 5,
+        			maxlength: 20
+        		},
+        		email:{
+                    email:true,
+                    remote: {
+                        url: prefix + "/checkEmailUnique",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            name: function () {
+                                return $.common.trim($("#email").val());
+                            }
+                        },
+                        dataFilter: function (data, type) {
+                        	return $.validate.unique(data);
+                        }
+                    }
+        		},
+        		phonenumber:{
+        			isPhone:true,
+                    remote: {
+                        url: prefix + "/checkPhoneUnique",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            name: function () {
+                                return $.common.trim($("#phonenumber").val());
+                            }
+                        },
+                        dataFilter: function (data, type) {
+                        	return $.validate.unique(data);
+                        }
+                    }
+        		},
+        	},
+        	messages: {
+                "loginName": {
+                    remote: "用户已经存在"
+                },
+        		"email": {
+                    remote: "Email已经存在"
+                },
+        		"phonenumber":{
+                	remote: "手机号码已经存在"
+        		}
+            },
+            focusCleanup: true
+        });
+        
+        function submitHandler() {
+	        if ($.validate.form()) {
+	        	var data = $("#form-user-add").serializeArray();
+	        	var status = $("input[id='status']").is(':checked') == true ? 0 : 1;
+	        	var roleIds = $.form.selectCheckeds("role");
+	        	var postIds = $.form.selectSelects("post");
+	        	data.push({"name": "status", "value": status});
+	        	data.push({"name": "roleIds", "value": roleIds});
+	        	data.push({"name": "postIds", "value": postIds});
+	        	$.operate.saveTab(prefix + "/add", data);
+	        }
+	    }
+         
+        /*用户管理-新增-选择部门树*/
+        function selectDeptTree() {
+        	var treeId = $("#treeId").val();
+        	var deptId = $.common.isEmpty(treeId) ? "100" : $("#treeId").val();
+        	var url = ctx + "admin/sys/unit/tree?pid=" + deptId;
+			var options = {
+				title: '选择部门',
+				width: "380",
+				url: ctx + "admin/sys/unit/tree?pid=" + deptId,
+				callBack: doSubmit
+			};
+			$.modal.openOptions(options);
+		}
+		
+		function doSubmit(index, layero){
+			var tree = layero.find("iframe")[0].contentWindow.$._tree;
+			if ($.tree.notAllowParents(tree)) {
+				var body = layer.getChildFrame('body', index);
+    			$("#treeId").val(body.find('#treeId').val());
+    			$("#treeName").val(body.find('#treeName').val());
+    			layer.close(index);
+			}
+		}
+    </script>
+</body>
+</html>

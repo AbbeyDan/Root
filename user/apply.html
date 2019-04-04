@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="报名表")
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen">
+    <!-- <link href="/css/bootstrap.css" rel="stylesheet"> -->
+    <!-- <link href="/css/main.css" rel="stylesheet"> -->
+    <!-- <link href="/css/main-v2.css" rel="stylesheet"> -->
+    <!-- <link href="/css/header-white.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../assets/layui/css/layui.css">
+    <script src="../assets/layui/layui.js"></script>
+    <script src="../assets/jquery/jquery.min.js"></script>
+    <style>
+        body {
+            background: url(../images/oldbg2-bg.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        .cd-content {
+            width: 920px;
+            margin: 50px auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 30px;
+            line-height: 100px;
+            background: url(../images/oldbg2.jpg) no-repeat;
+            background-size: cover;
+            color: #666;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 50px 30px;
+            border-radius: 10px;
+        }
+
+        @media screen and (max-width:920px) {
+            .cd-content {
+                width: auto;
+            }
+            form {
+                padding: 10px;
+            }
+        }
+
+        canvas {
+            display: none;
+        }
+
+        .demo1 {
+            width: 100px;
+            height: 129px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="es-main-default es-nav-white cd-design">
+    <div class="es-wrap" id="app">
+        <div class="container cd-container">
+            <div class="cd-content">
+                <h2>心理社工初级报名表</h2>
+                <form class="layui-form"  action="1.php" target="layui-upload-iframe" method="post" key="set-mine" enctype="multipart/form-data">
+                    <!-- 报名机构 -->
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">报名机构</label>
+                            <div class="layui-input-inline">
+                                <select name="modules" lay-verify="required" lay-search="">
+                                    <option value="">直接选择或搜索选择</option>
+                                    <option value="1">layer</option>
+                                    <option value="2">form</option>
+                                    <option value="3">layim</option>
+                                    <option value="4">element</option>
+                                    <option value="5">laytpl</option>
+                                    <option value="6">upload</option>
+                                    <option value="7">laydate</option>
+                                    <option value="8">laypage</option>
+                                    <option value="9">flow</option>
+                                    <option value="10">util</option>
+                                    <option value="11">code</option>
+                                    <option value="12">tree</option>
+                                    <option value="13">layedit</option>
+                                    <option value="14">nav</option>
+                                    <option value="15">tab</option>
+                                    <option value="16">table</option>
+                                    <option value="17">select</option>
+                                    <option value="18">checkbox</option>
+                                    <option value="19">switch</option>
+                                    <option value="20">radio</option>
+                                </select>
+                                <div class="layui-form-select">
+                                    <div class="layui-select-title">
+                                        <input type="text" placeholder="直接选择或搜索选择" value="" class="layui-input">
+                                        <i class="layui-edge"></i>
+                                    </div>
+                                    <dl class="layui-anim layui-anim-upbit" style="">
+                                        <dd lay-value="" class="layui-select-tips layui-this" style="">直接选择或搜索选择</dd>
+                                        <dd lay-value="1" class="">layer</dd>
+                                        <dd lay-value="2" class="">form</dd>
+                                        <dd lay-value="3" class="">layim</dd>
+                                        <dd lay-value="4" class="">element</dd>
+                                        <dd lay-value="5" class="">laytpl</dd>
+                                        <dd lay-value="6" class="">upload</dd>
+                                        <dd lay-value="7" class="">laydate</dd>
+                                        <dd lay-value="8" class="">laypage</dd>
+                                        <dd lay-value="9" class="">flow</dd>
+                                        <dd lay-value="10" class="">util</dd>
+                                        <dd lay-value="11" class="">code</dd>
+                                        <dd lay-value="12" class="">tree</dd>
+                                        <dd lay-value="13" class="">layedit</dd>
+                                        <dd lay-value="14" class="">nav</dd>
+                                        <dd lay-value="15" class="">tab</dd>
+                                        <dd lay-value="16" class="">table</dd>
+                                        <dd lay-value="17" class="">select</dd>
+                                        <dd lay-value="18" class="">checkbox</dd>
+                                        <dd lay-value="19" class="">switch</dd>
+                                        <dd lay-value="20" class="">radio</dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 上传图片 -->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">姓名</label>
+                        <div class="layui-upload layui-input-block">
+                            <button type="button" class="layui-btn" id="test1">上传图片</button>
+                            <input type="file" name="avator" id="load" style="display:none;" onchange="verificationPicFile(this)" multiple>
+                            <div class="layui-upload-list">
+                                <img src="" alt="" class="demo1">
+                                <canvas id="canvas"></canvas>
+                                <!--提示上传信息-->
+                                <p id="demoText"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 姓名 -->
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">姓名</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="username" lay-verify="required" autocomplete="off" placeholder="请输入姓名" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 性别 -->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">性别</label>
+                        <div class="layui-input-block">
+                            <input type="radio" name="sex" value="男" title="男" checked="">
+                            <div class="layui-unselect layui-form-radio layui-form-radioed">
+                                <i class="layui-anim layui-icon"></i>
+                                <div>男</div>
+                            </div>
+                            <input type="radio" name="sex" value="女" title="女">
+                            <div class="layui-unselect layui-form-radio">
+                                <i class="layui-anim layui-icon"></i>
+                                <div>女</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 民族 -->
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">民族</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="nation" lay-verify="required" autocomplete="off" placeholder="请输入民族" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 身份证号 -->
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">身份证号</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="card" placeholder="请输入身份证号" autocomplete="off" class="layui-input" lay-verify="required|">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 电话邮箱 -->
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">联系电话</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="phone" lay-verify="required" placeholder="请输入手机号" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">电子邮箱</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="email" lay-verify="required" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 工作单位 -->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">工作单位</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="company" placeholder="请输入公司名称" autocomplete="off" class="layui-input" lay-verify="required">
+                        </div>
+                    </div>
+                    <!-- 工作年限 -->
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label">工作年限</label>
+                            <div class="layui-input-block">
+                                <input type="number" name="years" placeholder="请输入工作年限" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 通讯地址 -->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">通讯地址</label>
+                        <div class="layui-input-block">
+                            <input type="text" name="address" placeholder="请输入通讯地址" autocomplete="off" class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">相关培训经历及证书情况</label>
+                        <div class="layui-input-block">
+                            <textarea placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <div class="layui-input-block">
+                            <button class="layui-btn submit"  lay-filter="demo1">立即提交</button>
+                            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var isNext = false;
+        // 上传图片
+        //建立一個可存取到該file的url
+        function getObjectURL(file) {
+            console.log()
+            if (!file) {
+                return false;
+            }
+            var url = null;
+            if (window.createObjectURL != undefined) { // basic
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+        // 触发文件上传
+        $("#test1").click(function () {
+            $("#load").trigger("click");
+        })
+        //图片尺寸验证
+        function verificationPicFile(file) {
+            var fileTypes = [".jpg"];
+            var filePath = file.value;
+            //读取图片数据
+            var filePic = file.files[0];
+            var objUrl = getObjectURL(file.files[0]); //图片不在本地
+            if (filePath) {
+                // 验证格式
+                // var isNext = false;
+                var fileEnd = filePath.substring(filePath.indexOf("."));
+                for (var i = 0; i < fileTypes.length; i++) {
+                    if (fileTypes[i] == fileEnd) {
+                        isNext = true;
+                        break;
+                    }
+                }
+                if (!isNext) {
+                    alert('请上传jpg格式图片');
+                    file.value = "";
+                    return false;
+                }
+                // 验证尺寸
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var data = e.target.result;
+                    //加载图片获取图片真实宽度和高度
+                    var image = new Image();
+                    image.onload = function () {
+                        var width = image.width;
+                        var height = image.height;
+                        if (width == 350 | height == 450) {
+                            alert("文件尺寸符合！");
+                            var canvas = document.querySelector("#canvas");
+                            var ctx = canvas.getContext("2d");
+                            var img = new Image();
+                            img.src = objUrl;
+                            img.onload = function () {
+                                ctx.drawImage(img, 0, 0, 100, 129);
+                                var imageData = ctx.getImageData(0, 0, 1, 1);
+                                imageData.data.forEach(element => {
+                                    if (element < 250) {
+                                        isNext = false;
+                                    }
+                                });
+                                if (!isNext) {
+                                    alert("请上传白色底色的照片");
+                                    $(".demo1").css("display", "none")
+                                    return false;
+                                } else {
+                                    $(".demo1").css("display", "block").attr("src", objUrl)
+                                    isNext = true;
+                                }
+                            }
+                        } else {
+                            alert("文件尺寸应为：720*1280！");
+                            file.value = "";
+                            return false;
+                        }
+                    };
+                    image.src = data;
+                };
+                reader.readAsDataURL(filePic);
+            } else {
+                //没有上传
+                return false;
+            }
+        }
+        layui.use(['form', 'layedit', 'laydate', "upload", "jquery"], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate
+                , upload = layui.upload
+                , $ = layui.jquery
+            //自定义验证规则
+            form.verify({
+                title: function (value) {
+                    if (value.length = 0) {
+                        return '姓名不能为空';
+                    }
+                }
+                , pass: [
+                    /^[\S]{6,12}$/
+                    , '密码必须6到12位，且不能出现空格'
+                ]
+                , img: function (value) {
+                    if (!value) {
+                        return "没图片"
+                    }
+                }
+                , content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            form.on('submit(demo1)', function (data) {
+
+                var data = new FormData(document.querySelector("form"));
+                $.ajax({
+                    url: "1.php",
+                    type: "post",
+                    data: data,
+                    dataType: "json",
+                    contentType: false, //不设置内容类型
+                    processData: false, //不处理数据
+                    success: function (res) {
+                        console.log(1)
+                    }
+                })
+                return false;
+            });
+        })
+        // $.ajax({
+        //     url: "form.json",
+        //     type: "post",
+        //     success: function (res) {
+        //         new Vue({
+        //             el: "#app",
+        //             data: {
+        //                 list: res
+        //             }
+        //         })
+        //     }
+        // })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="机构申请")
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen">
+    <!-- <link href="/css/bootstrap.css" rel="stylesheet"> -->
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/main-v2.css" rel="stylesheet">
+    <link href="/css/header-white.css" rel="stylesheet">
+    <style>
+        /* 介绍 */
+
+        .lubo {
+            text-align: center;
+            height: 200px;
+            line-height: 200px;
+            background-color: rgb(3, 83, 70);
+            color: #fff;
+        }
+
+        /* 资质要求 */
+
+        .demand {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        #app h2 {
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .demand ul {
+            text-align: left;
+            line-height: 30px;
+        }
+
+        /* 申请表 */
+
+        .apply-table {
+            background-color: #fff;
+            padding: 50px;
+        }
+
+        form .layui-form-label {
+            width: auto;
+        }
+
+        /* 附件上传 */
+
+        .images-box {
+            margin-top: 20px;
+            border: 1px solid #eee;
+            border-left: 2px solid #ccc;
+            padding: 15px;
+            line-height: 33px;
+        }
+
+        .images-box img {
+            width: 80px;
+            height: 100px;
+            margin-left: 10px;
+        }
+
+        .file {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="es-main-default es-nav-white cd-design">
+    #include("/inc/header.html")
+    <div class="es-wrap" id="app">
+        <!-- 轮播图 -->
+        <div class="lubo">
+            专注心理学·独一无二的在线心理大学
+        </div>
+        <div class="container cd-container">
+            <div class="cd-content">
+                <div class="demand">
+                    <h2>公告:培训机构申报资质要求
+                    </h2>
+                    <ul>
+                        <li>1、具有合法办学资质和相应的法人资格；</li>
+                        <li>2、有志于发展青少年心理健康事业的各省团校、青少年宫、团属培训机构、教育系统的培训机构、或具有相应资源的知名社会心理培训办学机构；</li>
+                        <li>3、具备培训所需的场地及教学设备；</li>
+                        <li>4、具有健全的管理机构及相应的管理规章制度；</li>
+                        <li>5、具有心理学相关培训项目的推广经验及招生能力；</li>
+                        <li>6、具有与政府部门的相关合作经验。</li>
+                    </ul>
+                </div>
+                <div class="apply-table">
+                    <h2>心理社工专业技能培养基地机构申请表</h2>
+                    <form class="layui-form jigou" target="layui-upload-iframe" method="post" key="set-mine" enctype="multipart/form-data">
+                        <!-- 单位 -->
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">单位名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="company" lay-verify="required" autocomplete="off" placeholder="请输入单位名称" class="layui-input">
+                            </div>
+                        </div>
+                        <!-- 地址 -->
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">通讯地址</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="address" lay-verify="required" autocomplete="off" placeholder="请输入通讯地址" class="layui-input">
+                            </div>
+                        </div>
+                        <!-- 邮政编码 -->
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">邮政编码</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="card" placeholder="请输入邮政编码" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 负责人、职务、电话 -->
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">负责人</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="p1" lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">职务</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="j1" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">电话</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="tel1" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 联系人、职务、电话 -->
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">联系人</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="p2" lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">职务</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="j2" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-inline">
+                                <label class="layui-form-label">电话</label>
+                                <div class="layui-input-inline">
+                                    <input type="text" name="tel2" lay-verify="required" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 工作单位 -->
+                        <div class="layui-form-item">
+                            <div class="layui-inline">
+                                <label class="layui-form-label">联系邮箱</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="email" placeholder="请输入邮箱" autocomplete="off" class="layui-input" lay-verify="required">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 附件 -->
+                        <div class="layui-form-item file-box">
+                            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+                                <legend>上传附件</legend>
+                            </fieldset>
+                            <input type="file" value="" class="file file1" name="file1" multiple onclick="changeInput()">
+                            <button type="button" class="layui-btn" id="upload">选择图片</button>
+                            <div class="images-box">
+                                <p>预览图</p>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn submit" lay-submit  lay-filter="jigou">立即提交</button>
+                                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    #include("/inc/footer.html",goto=false)
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var num = 1;
+        //建立一個可存取到該file的url
+        function getObjectURL(file) {
+            if (!file) {
+                return false;
+            }
+            var url = null;
+            if (window.createObjectURL != undefined) { // basic
+                url = window.createObjectURL(file);
+            } else if (window.URL != undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file);
+            } else if (window.webkitURL != undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file);
+            }
+            return url;
+        }
+        $("#upload").click(function () {
+            // $("#upload").before($("<input type='file'  class='file file" + num + " ' name='file" + num + "' multiple onclick='changeInput()'> "));
+            $(".file-box .file" + num).click();
+        })
+        function changeInput() {
+            $(".file-box").on("change", ".file" + num, function (event) {
+                var objUrl = getObjectURL(this.files[0]);
+                var objName = this.files[0].name;
+                $('.images-box').append('<img src="' + objUrl + '" title="' + objName + '" class="layui-upload-img" alt="' + objName + '"> ');
+
+                num++;
+                $("#upload").before($("<input type='file'  class='file file" + num + " ' name='file" + num + "' multiple onclick='changeInput()'> "));
+            })
+        }
+        // layui
+        layui.use(['form', 'layedit', 'laydate', "upload", "jquery"], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate
+                , upload = layui.upload
+                , $ = layui.jquery
+            //自定义验证规则
+            form.verify({
+                title: function (value) {
+                    if (value.length = 0) {
+                        return '姓名不能为空';
+                    }
+                }
+                , content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+
+            //表单初始赋值
+            form.val('example', {
+                "username": "贤心" // "name": "value"
+                , "password": "123456"
+                , "interest": 1
+                , "like[write]": true //复选框选中状态
+                , "close": true //开关状态
+                , "sex": "女"
+                , "desc": "我爱 layui"
+            })
+            form.on('submit(jigou)', function (data) {
+                // layer.alert(JSON.stringify(data.field), {
+                //     title: '最终的提交信息'
+                // })
+                console.log(num)
+                $("[name='file"+num+"']").remove()
+                var data = new FormData(document.querySelector("form"));
+                $.ajax({
+                    url: "1.php",
+                    type: "post",
+                    data: data,
+                    dataType: "json",
+                    contentType: false, //不设置内容类型
+                    processData: false, //不处理数据
+                    success: function (res) {
+                        console.log(1)
+                    }
+                })
+                return false;
+            });
+        })
+    </script>
+</body>
+
+</html>

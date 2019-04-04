@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+   #include("/inc/head.html",title="搜索榜")
+  <link rel="stylesheet" href="/css/common_sync0_libs_4d81287.css">
+  <link rel="stylesheet" href="/css/common_sync1_libs_769abc5.css">
+  <link rel="stylesheet" href="/css/tag_b81f15d.css">
+ </head> 
+ <body> 
+#include("/inc/header.html",nav="course")
+  <div id="wrapper"> 
+   <div id="pager"> 
+    <div id="container"> 
+     <div class="wrap w-1000 mar-t20"> 
+      <div id="tagAll"> 
+       <h3>通过标签可以找到相关的课程</h3> 
+       <ul> 
+       	<!-- #for(t:obj.list) -->
+        <li><strong class="tagElem"> <a href="/tag/#(t.name).html" title="iOS" target="_blank" >#(t.name)</a> </strong><span><em>×</em>#(t.cnum)</span> </li> 
+       	<!-- #end -->
+       </ul> 
+      </div> 
+      <div id="page-nav"></div> 
+     </div> 
+    </div> 
+   </div> 
+  </div>  
+  #include("/inc/footer.html")
+<script>
+//一般直接写在一个js文件中
+layui.use(['layer','element','laypage','jquery'], function(){
+	var $ = layui.jquery;
+  var layer = layui.layer
+  var laypage = layui.laypage
+  
+  laypage.render({
+      elem: 'page-nav'
+      ,count: #(obj.pager.recordCount) //数据总数
+      ,curr: #(obj.pager.pageNumber) //获取hash值为fenye的当前页
+      ,limit:100
+      ,theme: '#35b558'
+      ,jump:  function(obj, first){
+          if(!first)
+        location.href="/tag/?page="+obj.curr
+      }
+    });
+})
+</script>
+ </body>
+</html>

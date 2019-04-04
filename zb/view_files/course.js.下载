@@ -1,0 +1,230 @@
+var video_img = null;
+var $curTab = null;
+var $navFixed = $('#nav-fixed');
+var $navCourse = $('#nav-course');
+var $navCourseLi = $('#nav-course').find('li');
+var $courseDetail = $('#course-detail');
+var $tabPane = $courseDetail.find('.tab-pane');
+var $coursePeriods = $courseDetail.find('.course-periods');
+var $courseIntro = $courseDetail.find('.course-intro');
+$(function(){
+	$('#cat_tab li').click(function(e){
+		e.preventDefault();
+		var index = $(this).index();
+		$(this).addClass('active').siblings().removeClass('active');
+		$('#cat_wp li').removeClass('show');
+		$('#cat_wp li:eq(' + index + ')').addClass('show');
+	});
+	$pagerWp = $('.course-pager .pager');
+	$pagerWp.css('marginLeft', - $pagerWp.width() / 2);
+
+	$('#course_menu li').mouseover(function(){
+		$(this).addClass('active');
+	}).mouseout(function(){
+		$(this).removeClass('active');
+	});
+
+	//IE7添加热门推荐ICON
+	$('.icon-recommand').append($('<i/>'));
+    $('.player .has-video').click(function() {
+        video_img = $(this).html();
+        var video_url = $(this).attr('video_url');
+
+        var $shower = $(this).closest('.player-inner');
+        var $player = createPlayer({
+            url : video_url,
+            autostart : 1
+        });
+        $shower.empty().append($player);
+    });
+
+    //讲师简介头像截取中间
+    var avatarImg = $('.teacher .avatar img');
+      var  avatarH = avatarImg.height(),avatarW=avatarImg.width(),rate=1;
+        if(avatarH!=avatarW)
+        {
+           rate=parseFloat(avatarW)/parseFloat(avatarH);
+            if(avatarH>avatarW)
+            {
+                avatarW=60,avatarH=avatarW/rate;
+                avatarImg.css({'height':avatarH,'width':avatarW+"px","margin-top":-(avatarH-avatarW)/2+"px","max-width":"none"});
+           }else{
+                 avatarH=60,avatarW=avatarH*rate;
+               avatarImg.css({'height':avatarH,'width':avatarW+"px","margin-left":-(avatarW-avatarH)/2+"px","max-width":"none"});
+           }
+
+        }
+    $('.teacher .avatar img').load(function(){
+        $(this).removeAttr("style");
+       avatarH = $(this).height();
+       avatarW=$(this).width();
+        if(avatarH!=avatarW)
+        {
+            rate=parseFloat(avatarW)/parseFloat(avatarH);
+          if(avatarH>avatarW)
+            {
+                avatarW=60,avatarH=avatarW/rate;
+                $(this).css({'height':avatarH,'width':avatarW+"px","margin-top":-(avatarH-avatarW)/2+"px","max-width":"none"});
+           }else{
+                 avatarH=60,avatarW=avatarH*rate;
+               $(this).css({'height':avatarH,'width':avatarW+"px","margin-left":-(avatarW-avatarH)/2+"px","max-width":"none"});
+           }
+
+        }
+    });
+    
+	
+});
+
+function play_end_show_img() {
+    if(video_img) {
+        $('.player .has-video').html(video_img);
+    }
+}
+function s2j_onPlayOver() {
+    play_end_show_img();
+}
+//课程详情页
+var pg=getQueryString('page');
+$(function(){
+	var ad_pos=$('#layout .main').length > 0 ? $('#layout .main').offset().top : 0;
+	$(window).scroll(function(){
+		var sctop=jQuery(document).scrollTop();
+		if( $navFixed.length>0) {
+			if(sctop>ad_pos) {
+				$navFixed.show();
+			} else {
+				$navFixed.hide();
+			}
+		}
+	});
+    var ajaxPage =new AjaxPage({wrap: '#course-detail .course-periods', menuWrap: '#nav-course'});
+
+	$navCourseLi.click(function(){
+        var $this = $(this);
+        var $thisA = $(this).find('a');
+        $curTab = $thisA;
+        if($thisA.attr("target")) return ;
+        if ($this.hasClass('active')) return false;
+        var url = $thisA.attr('jump');
+        if(typeof url != 'undefined') {
+            $tabPane.removeClass('active');
+            $coursePeriods.addClass('active');
+            ajaxPage.pageJump(url,{}, function (data) {
+                $navCourseLi.removeClass('active');
+                $this.addClass('active');
+                adjustfooter();
+            });
+        } else {
+            $navCourseLi.removeClass('active');
+            $(this).addClass('active');
+            $tabPane.removeClass('active');
+            $courseIntro.addClass('active');
+        }
+		var nth=$(this).index();
+		$navFixed.find('li').removeClass('active').eq(nth).addClass('active');
+		$("html,body").animate({'scrollTop':$navCourse.offset().top-20},"200");
+	});
+	
+	$('.btn-course span').click(function(){
+        var $this = $(this);
+        var $thisA = $(this).find('a');
+        if($this.hasClass('active')) return false;
+        var url = $thisA.attr('jump');
+        if(typeof url != 'undefined') {
+            $tabPane.removeClass('active');
+            $coursePeriods.addClass('active');
+            ajaxPage.pageJump(url,{}, function (data) {
+            	$navCourseLi.removeClass('active');
+                if($('.btn-course span a').attr('attr') == 'is_live'){
+                	$('#pageLive').addClass('active');
+                }
+                if($('.btn-course span a').attr('attr') == 'is_period'){
+                	$('#pagePeriods').addClass('active');
+                }
+                if($('.btn-course span a').attr('attr') == 'is_old_live'){
+                	$('#pageOldLive').addClass('active');
+                }
+                if($('.btn-course span a').attr('attr') != 'is_live' && $('.btn-course a').attr('attr') != 'is_period' && $('.btn-course a').attr('attr') != 'is_old_live'){
+                	$('#is_detail').addClass('active');
+                }
+                adjustfooter();
+            });
+        } else {
+            $navCourseLi.removeClass('active');
+            $(this).addClass('active');
+            $tabPane.removeClass('active');
+            $courseIntro.addClass('active');
+        }
+		var nth=$(this).index();
+		$navFixed.find('li').removeClass('active').eq(nth).addClass('active');
+		$("html,body").animate({'scrollTop':$navCourse.offset().top-20},"200");
+	});
+
+	$navFixed.find('li').click(function(){
+		var n = $(this).index();
+		$navCourseLi.eq(n).click();
+	});
+
+	if(pg) {
+		$navCourseLi.eq(1).click();
+	}
+
+    $('#tollgate').unbind('click');
+    //vm-share
+    $('.vm-share').hover(function () {
+        $('.vm-share-box').show();
+    }, function () {
+        if (!$('.vm-share-btn.btn-copy').hasClass('zeroclipboard-is-hover')) {
+            $('.vm-share-box').hide();
+        }
+    });
+    var zcVmShare = new ZeroClipboard($('.vm-share-btn.btn-copy'));
+    zcVmShare.on("ready", function () {
+        var len = 0;
+        return function (readyEvent) {
+            if (++len <= 1) {
+                console.log(1);
+                zcVmShare.on('copy', function (event) {
+                    event.clipboardData.setData('text/plain', $('.vm-share-box p.tag').text() + '\n' + $('.vm-share-input').val());
+                });
+                zcVmShare.on("aftercopy", function (event) {
+                    console.log(0);
+                    $(".vm-share-alert").fadeIn(100).delay(1000).fadeOut(0);
+                    setTimeout(function () {
+                        $('.vm-share-box').removeClass('active');
+                    }, 1000);
+                    $(document.body).on("click", function () {
+                        $('.vm-share-box').removeClass('active');
+                    });
+                });
+            }
+        }
+    }());
+});
+
+function getQueryString(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+	var r = window.location.search.substr(1).match(reg);
+	if (r != null) return unescape(r[2]); return null;
+}
+
+$(document).on('click', '.pop-close, .pop-box .btn-cancel', function() {
+    $(this).parents('.pop-box').hide();
+});
+
+$(document).on('click', '#nav-live li', function() {
+    $(this).addClass('active').siblings().removeClass('active');
+    var index = $(this).index();
+    $(this).parents('.nav-tabs').siblings('.tab-content').find('.tab-panel').removeClass('active').hide().eq(index).show();
+});
+
+$(document).on('click', '.choose-radio label', function() {
+    $(this).parents('li').addClass('active').siblings().removeClass('active').find('input').removeAttr('checked');
+});
+
+$('.choose-radio input').each(function(index, el) {
+    if (this.checked) {
+        $(this).parents('li').addClass('active');
+    }
+});

@@ -1,0 +1,259 @@
+$(function() {
+    //document.domain = location.host;
+    var protocol = location.protocol;
+    var port = protocol == 'https:' ? 8443 : 8000;
+    // var socket = io('http://dev.xsteach.com:8000/message');
+    var host = 'ms1.xsteach.com';
+    if (location.host.indexOf('dev.xsteach.com') > -1) {
+        host = 'dev.xsteach.com';
+        // host = 'message.dev.xsteach.com';
+    } else if (location.host.indexOf('test.xsteach.com') > -1) {
+        host = 'test.xsteach.com';
+    }
+    var timer = null,
+        countdown = 59;
+    var livePath = '/live/course/view';
+    var cousrePath = '/course/default/view'
+    var socket = io(protocol + '//' + host + ':' + port + '/message');
+    var $container = $('.live-notification');
+
+    /*var data = {
+      type: 'jump',
+      url: 'http://dev.xsteach.com/live/course/view?id=351',
+      courseName: 'UI设计公开课教室UI设计公开课教室UI设计公开课教室',
+      subject: 'UI设计公开课UI设计公开课UI设计公开课',
+      summary: '正在直播教室恭候你的大驾！',
+      imageUrl: 'http://f.cdn.xsteach.cn/uploaded/cb/6b/d1/cb6bd16fa86c2e4ed0eb357323ba8d01001.jpg',
+      force: false
+    };*/
+
+    socket.on('connect', function() {
+        console.log('live notification connect!');
+
+        /*if (data && data['type'] == 'jump') {
+
+          // 如果强制或者在直播页面中，则直接本页跳转，否则弹窗提示
+          if (data['force'] || location.pathname.indexOf('/live/course') == 0) {
+
+            // 如果已经在要跳转的页面，则不跳转
+            if (!matchURL(data['url'])) {
+              location.href = data['url'];
+            }
+          } else {
+            showJumpPopup(data);
+          }
+        }*/
+    });
+
+    socket.on('connect_error', function(evt) {
+        console.log(evt);
+    });
+
+    socket.on('message', function(data) {
+        if (data && data['type'] == 'jump' && !matchURL(data['url'])) {
+
+            // 如果强制或者在直播页面中，则直接本页跳转，否则弹窗提示
+            if (data['force'] && beforeJump()) { // 如果已经在要跳转的页面，则不跳转
+                //location.href = data['url'];
+                jumpToRoom({
+                    roomName: data.courseName,
+                    roomUrl: data.url
+                });
+            } else {
+                showJumpPopup(data);
+            }
+        }
+    });
+
+    
+
+    // 监听挖宝
+    socket.on('global_message', function (data) {
+      console.log('挖宝：', data)
+      var interval = null;
+      if (data && (!window.courseType || (window.courseType && courseType != 'V'))) {
+        var tdata = data.data
+        if (tdata.type == 1) { // 发送宝藏
+          if (!matchLiveId(tdata.course_id)) {
+            createTreasure(tdata);
+          }
+          if (!!window.$treasure && matchLiveId(tdata.course_id) && courseType == 'R') {
+            $treasure.initUI(tdata);
+          }
+        } else if (tdata.type == 2) { // 宝藏被挖完了
+          console.log('挖完了');
+          if (!!window.$treasure && matchLiveId(tdata.course_id) && courseType == 'R') {
+            $treasure.failUI('空空如也');
+            $treasure.hideTreasure(tdata);
+          }
+        }
+      }
+    })
+    
+    var showLiveTreasure = function (tdata) {
+      if (!!window.$treasure && matchLiveId(tdata.course_id)) {
+        $treasure.initUI(tdata);
+      }
+    }
+
+    var stripHTML = function (str) {
+      var reTag = /<(?:.|\s)*?>/g;
+      return str.replace(reTag,"");
+    }
+    
+    var treasureTimeout = null;
+    // 创建挖宝提示功能
+    var createTreasure = function (data) {
+      var treasurePopup = $('.treasure-popup');
+      if (!!treasurePopup) {
+        treasureTimeout && clearTimeout(treasureTimeout);
+        treasurePopup.remove();
+      }
+      var path = matchLiveId(data.course_id) ? 'javascript: void(0)' : '/live/course/view/'+ data.course_id;
+      var teacher = stripHTML(data.teacher_name)
+      var template = '<div class="treasure-popup clearfix">'
+        + '<div class="popup-container">'
+          +'<p class="treasure-desc">'
+            +'<em>' + teacher + '</em> 在直播间埋了大量宝藏'
+          +'</p>'
+          +'<a class="goto" target="_blank" href="'+ path +'">'
+            +'<div>'
+              +'<span class="treasure-icon">'
+                +'<img src="/static/images/live/ehall/gold.png" alt="">'
+              +'</span>'
+              +'<span class="text">去挖宝</span>'
+              +'<span class="arrow">→</span>'
+            +'</div>'
+          +'</a>'
+        +'</div>'
+      +'</div>'
+      $('body').append(template);
+      treasurePopup = $('.treasure-popup');
+      treasurePopup.show(function () {
+        treasurePopup.addClass('is-show');
+      });
+      treasureTimeout = setTimeout(function () {
+        treasurePopup.fadeOut(function () {
+          treasurePopup.remove();
+        });
+      }, 10000)
+    }
+    // if (!!window.$treasure) {
+    //   $treasure.init()
+    // }
+    // createTreasure();
+
+    // 是否不进行跳转网址
+    var beforeJump = function() {
+        var list = [
+            'xsteach.com/cart',
+            'xsteach.com/order/pay',
+            'xsteach.com/order/update',
+            'xsteach.com/course/package',
+            'xsteach.com/forum/topic',
+            'xsteach.com/forum/index',
+            /xsteach\.com\/certify\/\d+\/package/
+        ];
+
+        for (var i = 0; i < list.length; i++) {
+            if (location.href.indexOf(list[i]) > 0 || (typeof list[i] == 'object' && list[i].test(location.href))) {
+                return false;
+            }
+        }
+        return true
+    }
+
+    // 强制跳转到指定直播教室
+    //console.log(window.frames["pop_live_rocket"]);
+    $('body').append($('<iframe id="pop_live_rocket" src="/live-rocket.html?20171206" scrolling="no" allowTransparency="true" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 999999;"></iframe>'));
+
+    // 强制跳转
+    var jumpToRoom = function(options) {
+        setTimeout(function() {
+            var $rocket = document.getElementById('pop_live_rocket');
+            var iframeWindow = $rocket.contentWindow || $rocket.document;
+            if (iframeWindow && iframeWindow.startUp) {
+                $('#pop_live_rocket').show();
+                iframeWindow.startUp({
+                    roomName: options.roomName,
+                    roomUrl: options.roomUrl,
+                    close: function() {
+                        $('#pop_live_rocket').remove();
+                        window.location.href = options.roomUrl;
+                    }
+                })
+            }
+        }, 500);
+    }
+
+    /*setTimeout(function() {
+      jumpToRoom({roomName: '邢帅教育娱乐大厅2',
+          roomUrl: '//dev.xsteach.com/course'});
+    }, 1000);*/
+
+    // 关闭直播通知
+    $(document).on('click', '.live-notification .btn-close', function() {
+        $container.removeClass('live-notification-show');
+        clearInterval(timer);
+    });
+
+    var showJumpPopup = function(data) {
+        data.summary = data.summary || '正在直播教室恭候你的大驾！';
+
+        var htmlStr = '<div class="hd"><h3>直播通知</h3><p><span class="s">59</span>s后自动关闭 \
+      <a class="btn-close" href="javascript:void(0);" title="点击关闭"></a></p></div>\
+      <div class="bd"><h3 class="tit">' + data.courseName + '</h3><a class="info" href="' + data.url + '">\
+        <img src="' + data.imageUrl + '" alt=""><p class="sub"><span>主题：</span>' + data.subject + '</p>\
+        <p>' + data.summary + '</p><span class="btn btn-primary">马上观看</span></a></div>';
+
+        if ($container.length) {
+            $container.removeClass('live-notification-show').html(htmlStr);
+        } else {
+            $container = $('<div class="live-notification"></div>');
+            $('body').append($container.html(htmlStr));
+        };
+
+        setTimeout(function() {
+            countdown = 59;
+            $container.addClass('live-notification-show');
+            timer && clearInterval(timer);
+
+            timer = setInterval(function() {
+                if (--countdown > 0) {
+                    $('.live-notification .s').html(countdown);
+                } else {
+                    $('.live-notification .btn-close').click();
+                }
+
+            }, 1000);
+        }, 500);
+    }
+
+    var matchURL = function(toUrl) {
+        var urls = toUrl.split('?');
+        if (urls && urls[1] && location.pathname.indexOf(livePath) === 0) {
+            var toId = xst.getQueryString('id', urls[1]);
+            var currentId = xst.getQueryString('id');
+            if (toId && toId == currentId) {
+                return true;
+            }
+        }
+    }
+
+    
+    var matchLiveId = function (id) {
+      var urls = location.href.split('?');
+      var pathname = location.pathname;
+      var params = pathname.split('/');
+      var reg = new RegExp('/' + id + '/', 'g');
+      if ((pathname.indexOf(cousrePath) > -1 || pathname.indexOf(livePath) > -1) && (params[params.length - 1] == id || reg.test(pathname))) {
+        return true;
+      }
+      if (urls && urls[1] && pathname.indexOf(livePath) === 0) {
+        var toId = xst.getQueryString('id', urls[1]);
+        if (id == toId) {
+          return true;
+        }
+      }
+    }
+})

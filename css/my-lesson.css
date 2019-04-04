@@ -1,0 +1,39 @@
+    /* 我的课程 */
+    label{
+      margin-bottom:0;
+    }
+    input{
+      margin-bottom:4px;
+      *margin-bottom:4px;
+    }
+    .pro-vip,
+    .combo,
+    .others{
+      display:none;
+    }
+    .panel-body .playericon{
+      position: absolute;
+    z-index: 120;
+    width: 50px;
+    height: 50px;
+    display: none;
+    left: 50%;
+    margin-left: -25px;
+    top: 50%;
+    margin-top: -25px;
+    background: url(../images/player_icon_5c67475.png) 0 0 no-repeat;
+    cursor: pointer;
+    background-size: 50px 50px;
+    }
+    .panel-body .vip-icon{
+      height: 22px;
+    width: 38px;
+    display: inline-block;
+    position: absolute;
+    top: -2px;
+    right: 8px;
+    z-index: 101;
+    font-size: 14px;
+    background: url(../images/tag_vip_4d846c2.png) 0 0 no-repeat;
+    background-size: 100% 100%;
+    } 

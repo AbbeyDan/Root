@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="https://unpkg.com/mint-ui/lib/style.css">
+</head>
+<body>
+  <div id="app">
+    <mt-button @click.native="handleClick">按钮</mt-button>
+    
+    <mt-navbar v-model="selected">
+  <mt-tab-item id="1">选项一</mt-tab-item>
+  <mt-tab-item id="2">选项二</mt-tab-item>
+  <mt-tab-item id="3">选项三</mt-tab-item>
+</mt-navbar>
+
+<!-- tab-container -->
+<mt-tab-container v-model="selected">
+  <mt-tab-container-item id="1">
+    <mt-cell v-for="n in 10" :title="'内容 ' + n" />
+  </mt-tab-container-item>
+  <mt-tab-container-item id="2">
+    <mt-cell v-for="n in 4" :title="'测试 ' + n" />
+  </mt-tab-container-item>
+  <mt-tab-container-item id="3">
+    <mt-cell v-for="n in 6" :title="'选项 ' + n" />
+  </mt-tab-container-item>
+</mt-tab-container>
+    <mt-switch v-model="value">开关</mt-switch>
+    
+    <mt-button size="small">small</mt-button>
+<mt-button size="large">large</mt-button>
+<mt-button size="normal">normal</mt-button>
+    
+  </div>
+</body>
+  <!-- 先引入 Vue -->
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- 引入组件库 -->
+  <script src="https://unpkg.com/mint-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data:{
+    	  selected:"",
+    	  value:""
+      },
+      methods: {
+        handleClick: function() {
+          this.$toast('Hello world!')
+          
+        }
+      }
+    })
+  </script>
+</html>

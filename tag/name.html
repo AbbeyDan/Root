@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  #include("/inc/head.html")
+  <link rel="stylesheet" href="/css/tag_b81f15d.css">
+ </head> 
+ <body> 
+ #include("/inc/header.html",nav="course")
+  <div id="wrapper"> 
+   <div id="pager"> 
+    <div id="container"> 
+     <div class="wrap w-1000 cf"> 
+      <div class="crumbs"> 
+       <div class="w-1000"> 
+        <a href="/">首页</a> 
+        <em>&gt;</em> 
+        <a href="/tag/">标签库</a> 
+        <em>&gt;</em>#(p.name)
+       </div> 
+      </div> 
+      <div id="main"> 
+       <div class="tagGather"> 
+        <div class="hd"> 
+         <h1>#(p.name)</h1> 
+        </div> 
+        <div class="bd"> 
+         <div class="listbox"> 
+          <div class="lesson-list" id="changeid"> 
+           <ul class="cf noshow" style="display: block;"> 
+           	<!-- #for(c:obj.list) -->
+            <li id="119" test="0" deg="0"> 
+             <div class="lessonimg-box"> 
+              <i class="user-action lesson-shoucang " style="display: none;" ></i> 
+              <i class="rz-icon"></i> 
+              <a href="/course/#(c.id)" target="_blank" > 
+              <img src="#(www)#(c.img)" onerror="this.src='/img/wutu.png'" class="lessonimg" title="#(c.title)" alt="#(c.title)"> 
+               <div class="lessonplay" style="opacity: 0;"> 
+                <i class="playericon" ></i> 
+               </div> </a> 
+             </div> 
+             <div class="lesson-infor" style="height: 88px;"> 
+              <h2 class="lesson-info-h2"><a href="/course/#(c.id)" target="_blank" >#(c.title)</a></h2> 
+              <p style="height: 0px; opacity: 0; display: none;">#(c.text)</p> 
+              <div class="timeandicon"> 
+               <div class="cf"> 
+                <dl> 
+                 <dd class="mar-b8">
+                  <i class="time-icon"></i>
+                  <em>7课时 32分钟</em> 
+                 </dd> 
+                 <dd class="zhongji"> 
+                  <i class="xinhao-icon"></i>
+                  <em>初级</em> 
+                 </dd> 
+                </dl> 
+                <em class="learn-number">27883人学习</em> 
+               </div> 
+               <div class="cf"> 
+                <div class="lessonicon-box"> 
+                 <a href="javascript:void(0);"> <img width="16" src="/images/webframe.png" alt="ios" title="iOS" jktag="&amp;posGP=101001&amp;posArea=0001&amp;posOper=11003&amp;aCId=119&amp;posColumn=119.1&amp;aCCate=ios"> </a> 
+                </div> 
+               </div> 
+              </div> 
+             </div> </li> 
+             <!-- #end -->
+           </ul> 
+           
+          </div> 
+         </div> 
+         
+        </div> 
+       </div> 
+      </div> 
+     
+      <div id="aside"> 
+       <div class="aside-list"> 
+        <div class="hd"> 
+         <h2>热门标签</h2> 
+        </div> 
+        <div class="bd"> 
+         <ul class="al-tagClass"> 
+         <!-- #for(t:cache.get("tags")) -->
+         	<!-- #if(for.index<10) -->
+          <li><a href="#(t.name)" title="#(t.name)"><strong class="al-tag">#(t.name)</strong><span>#(t.cnum)</span></a></li> 
+          	<!-- #end -->
+          <!-- #end -->
+         </ul> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div id="page-nav"></div> 
+    </div> 
+   </div> 
+   #include("/inc/footer.html")
+     <script type="text/javascript">
+  layui.use(['laypage', 'layer','jquery'], function(){
+	  var laypage = layui.laypage
+	  ,layer = layui.layer;
+	  var $ = layui.jquery;
+laypage.render({
+    elem: 'page-nav'
+    ,count: #(obj.count??'0')
+    ,theme: '#35b558'
+    ,curr: #(obj.pager.pageNumber??1) //获取hash值为fenye的当前页
+    ,limit:24
+    ,layout: ['prev', 'page', 'next']
+    ,jump: function(obj,first){
+    	if(!first){
+    	 location.href='?page='+obj.curr
+    	}
+    }
+  });
+ })
+  </script>
+ </body>
+</html>

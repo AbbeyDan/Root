@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>心教育学院-注册</title>
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="/css/passport.min.css">
+	<script src="/assets/jquery/jquery.min.js"></script>
+	<style type="text/css">
+		.phonetxt {
+			display: none;
+		}
+
+		.phonereg {
+			display: none;
+		}
+
+		.pwdtxt {
+			display: none;
+		}
+
+		.yzmtxt {
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="passport-wrapper">
+		<header id="header" class="passport-header">
+			<div id="logo">
+				<a href="/">
+					<img src="images/logo.png">
+				</a>
+			</div>
+		</header>
+		<!--feg-box-- -->
+		<link type="text/css" href="css/nc.css" rel="stylesheet">
+		<div id="app">
+			<div class="passport-sign">
+				<div class="main-form">
+					<h2>新用户注册</h2>
+					<p></p>
+					<!-- form -->
+					<form class="passport-form passport-form-sign" id="register-form" action="/user/reg" method="post">
+						<div class="form-item">
+							<div class="form-cont">
+								<input type="text" id="phone" maxlength="11" name="phone" class="passport-txt xl w-full" tabindex="1" autocomplete="off"
+								 placeholder="请输入手机号">
+								<div class="phonetxt passport-note passport-error-text">
+									<span>手机格式不正确</span>
+								</div>
+								<div class="phonereg passport-note passport-error-text">
+									<span>该手机号已存在请登录</span>
+								</div>
+							</div>
+						</div>
+						<div class="form-item">
+							<div class="form-cont">
+								<input type="password" id="password" v-model="password" name="password" class="passport-txt xl w-full" tabindex="2" autocomplete="off"
+								 placeholder="输入6~32位密码">
+								<div class="pwdtxt passport-note passport-error-text">
+									<span>请输入6位以上密码</span>
+								</div>
+								<ul class="passport-safely" id="safely">
+									<li class="danger">弱</li>
+									<li class="general">中</li>
+									<li class="safe">高</li>
+								</ul>
+							</div>
+						</div>
+						<div class="form-item form-mcode mb-25">
+							<div class="form-cont">
+								<input type="text" id="verify" class="passport-txt xl w-full" tabindex="4" autocomplete="off" placeholder="动态码">
+								<div class="yzmtxt passport-note passport-error-text">
+									<span>请输入正确验证码</span>
+								</div>
+								<div class="btn-getcode">
+									<button type="button" class="passport-btn js-getcode">获取验证码</button>
+								</div>
+							</div>
+						</div>
+						<div class="form-item form-treaty">
+							<div class="form-cont">
+								<input type="checkbox" id="agree" checked value="treaty">
+								<span>同意</span>
+								<a href="/help/用户协议.html" target="_blank" class="treaty">心教育学院用户协议</a>
+							</div>
+						</div>
+						<div class="form-item">
+							<div class="form-cont">
+								<button type="button" id="register" class="passport-btn passport-btn-def xl w-full" tabindex="5" href="javascript:;">注册</button>
+							</div>
+						</div>
+					</form>
+					<!-- form end -->
+				</div>
+				<div class="aside">
+					<div class="passport-goto mg-b100" style="margin-bottom:0px;">
+						已有帐号
+						<a href="/login" tabindex="6">立即登录</a>
+					</div>
+					<!--ad-->
+					<!--/ad-->
+					<div class="passport-third" style="margin-top:20px;">
+						<header class="hd">
+							<div class="layout-inner">
+								<h3>快速登录</h3>
+							</div>
+						</header>
+						<div class="links">
+							<a href="/login/qq">
+								<i class="passport-icon icon-tencent"></i>
+							</a>
+							<a href="/login/weibo">
+								<i class="passport-icon icon-weibo"></i>
+							</a>
+							<a href="/login/weixin">
+								<i class="passport-icon icon-weixin"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/assets/vue/vue.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el: '#app',
+			data: {
+				password: "",
+				phone: "",
+				alexa: "10000"
+			},
+			methods: {
+				details: function () {
+					return this.site + " - 学的不仅是技术，更是梦想！";
+				}
+			},
+		})
+
+		vm.$watch('password', function (nval, oval) {
+			var qd = pwdqiangdu(nval);
+			console.log(qd)
+			if (qd == '低') {
+				ispwd = true;
+				$("#safely .danger").css("background-color", "red")
+				$("#safely .general").css("background-color", "#ddd")
+				$("#safely .safe").css("background-color", "#ddd")
+				$(".pwdtxt").hide();
+			} else if (qd == '中') {
+				ispwd = true;
+				$("#safely .danger").css("background-color", "#ddd")
+				$("#safely .general").css("background-color", "red")
+				$("#safely .safe").css("background-color", "#ddd")
+				$(".pwdtxt").hide();
+			} else if (qd == '高') {
+				ispwd = true;
+				$("#safely .danger").css("background-color", "#ddd")
+				$("#safely .general").css("background-color", "#ddd")
+				$("#safely .safe").css("background-color", "red")
+				$(".pwdtxt").hide();
+			} else {
+				$("#safely .danger").css("background-color", "#ddd")
+				$("#safely .general").css("background-color", "#ddd")
+				$("#safely .safe").css("background-color", "#ddd")
+				$(".pwdtxt").show();
+			}
+		});
+		var isphone = false;
+		var isregphone = false;
+		var ispwd = false;
+		var verify = "#(now().time)"
+		var smsresult = false;
+		var wait = 60;
+		function time(o) {
+			if (wait == 0) {
+				o.removeAttr("disabled");
+				o.text("获取验证码");
+				wait = 60;
+			} else {
+				o.attr("disabled", true);
+				o.text("重新发送(" + wait + ")");
+				wait--;
+				setTimeout(function () {
+					time(o)
+				},
+					1000)
+			}
+		}
+		$(function () {
+			$("#phone").focus(function () { $(".phonetxt").hide(); $(".phonereg").hide(); })
+			$("#phone").blur(function () {
+				if ($(this).val() == "") {
+					$(".phonereg").hide();
+					$(".phonetxt").show();
+				} else if (!(/^1[3|4|5|6|7|8|9][0-9]\d{8,11}$/.test($(this).val()))) {
+					isphone = true;
+					$(".phonereg").hide();
+					$(".phonetxt").show();
+				} else {
+					$.ajax({
+						type: "GET",
+						url: "#(root)op/user/isreg.json",
+						data: { phone: $("#phone").val() },
+						dataType: "json",
+						async: false,
+						success: function (data) {
+							if (data.code == 200) {
+								$(".phonetxt").hide();
+								$(".phonereg").show();
+							} else {
+								isphone = true;
+								isregphone = true;
+								$(".phonetxt").hide();
+								$(".phonereg").hide();
+							}
+						}
+					});
+
+				}
+			})
+			$(".js-getcode").click(function () {
+				if (!isphone) {
+					$(".phonetxt").show();
+					$(".phonereg").hide();
+				} else if (!isregphone) {
+					$(".phonetxt").hide();
+					$(".phonereg").show();
+				}
+				if (!ispwd) {
+					$(".pwdtxt").show();
+				} else {
+					$(".pwdtxt").hide();
+				}
+				if (isphone && isregphone && ispwd) {
+					var num = "";
+					for (var i = 0; i < 4; i++) {
+						num += Math.floor(Math.random() * 10)
+					}
+					verify = num
+					$.ajax({
+						type: "GET",
+						url: "#(root)sms/send.json",
+						data: { phone: $("#phone").val(), tmpl: "SMS_153998099", "param.code": verify + "" },
+						dataType: "json",
+						async: false,
+						success: function (data) {
+							//verify=data.code;
+							smsresult = true;
+						}
+					});
+					if (smsresult)
+						time($(this))
+				}
+			})
+			$("#register").click(function () {
+				if (!isphone) {
+					$(".phonetxt").show();
+					$(".phonereg").hide();
+				} else if (!isregphone) {
+					$(".phonetxt").hide();
+					$(".phonereg").show();
+				}
+				if (!ispwd) {
+					$(".pwdtxt").show();
+				} else {
+					$(".pwdtxt").hide();
+				}
+				if (isphone && isregphone && ispwd) {
+					if ($("#verify").val() == "") {
+						$(".yzmtxt").show();
+					} else if ($("#verify").val() != verify) {
+						$(".yzmtxt").show();
+					} else {
+						$("#register-form").submit();
+					}
+				}
+			})
+			$("#agree").click(function () {
+				if ($(this).is(':checked')) {
+					$('#register').removeAttr("disabled");
+				} else {
+					$("#register").attr("disabled", true);
+				}
+			})
+
+		})
+
+		function pwdqiangdu(val) {
+			var aLvTxt = ['', '低', '中', '高'];
+			var lv = 0;
+			if (val.match(/[a-z]/g) && val.length > 5) { lv++; }
+			if (val.match(/[0-9]/g) && val.length > 5) { lv++; }
+			if (val.match(/(.[^a-z0-9])/g) && val.length > 8) { lv++; }
+			if (val.length < 6) { lv = 0; }
+			if (lv > 3) { lv = 3; }
+			return aLvTxt[lv];
+		};
+	</script>
+</body>
+
+</html>

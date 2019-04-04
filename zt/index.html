@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+#include("/inc/head.html",title="专题")
+          <link href="/css/bootstrap.css" rel="stylesheet">
+<link href="/css/main.css" rel="stylesheet">
+<link href="/css/main-v2.css" rel="stylesheet">
+</head>
+<body>
+#include("/inc/header.html")
+<div class="es-banner">
+    <div class="container">
+      <div class="title">
+       	历届专题
+      </div>
+      <div class="more">
+      </div>
+    </div>
+  </div>
+<div id="content-container" class="container">
+          <div class="open-course-list">
+    <div class="row course-list es-open-course-list">
+    	<!-- #for(zt :obj) -->
+        <div class="col-md-4 col-xs-6">
+          <div class="course-item">
+            <div class="course-img">
+              <a href="/#(zt.url)" target="_blank">
+                                <img style="height: 192px;" src="#(www)#(zt.img)" alt="#(zt.title)" class="img-responsive">
+              </a>
+                          </div>
+            <div class="course-info clearfix">
+              <div class="title">
+                <a class="link-dark" href="/#(zt.url)" target="_blank" title="#(zt.title)">
+                 #(zt.title)
+                </a>
+              </div>
+              <div class="metas pull-right">
+                <span class="comment">#(format(zt.add_time,"yyyy-MM-dd"))</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- #end -->
+        
+          </div>
+      </div>
+      </div>
+#include("/inc/footer.html",goto=false)
+</body>
+</html>

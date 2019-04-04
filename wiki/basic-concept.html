@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+  <meta http-equiv="Content-Language" content="zh-cn"> 
+  <meta content="always" name="referrer"> 
+  <meta name="keywords" content="Java 基本概念,Java 面试宝典,笔试面试教程"> 
+  <meta name="description" content="简单、高效Java语言与C++类似，如果用户了解C++和面向对象的概念，就可以很快编写出Java程序；此外，Java又不..."> 
+  <title>Java 基本概念 - Java 面试宝典 - 心教育学院Wiki</title> 
+  <link rel="stylesheet" type="text/css" href="css/register_61d29025d3af4f7290808e0c3211cc21.css"> 
+  <link rel="shortcut icon" href="css/favicon_4a598ccfc59b49d3be1d392b9b35c10c.ico" type="image/x-icon"> 
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min_eb35ee07d89f4153b9587def40f9838d.css"> 
+  <link rel="stylesheet" type="text/css" href="css/detail_038a207b9ce4497db46a4e10552f74e8.css"> 
+  <link rel="stylesheet" type="text/css" href="css/markdownbody_b1f78f57ae36441eb612a0521e6a2548.css"> 
+  <style type="text/css">
+		#footer{
+			display: none;
+		}
+	</style> 
+ </head> 
+ <body> 
+  <script type="text/javascript" src="js/growingio.js"></script> 
+  <script type="text/javascript" src="js/mask.js"></script> 
+  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/header.min_76eb34525ecd48a2bf670c55db88df45.js"></script> 
+  <script type="text/javascript" src="js/web_socket.js"></script> 
+  <script type="text/javascript" src="js/websocket.js"></script> 
+  <div id="header_top_notice"></div> 
+  <div id="jk-header"> 
+   <div class="header"> 
+    <h1> <a href="//www.jikexueyuan.com" class="logo"> <img src="images/logo.png" width="100" alt="心教育学院"> </a> </h1> 
+    <nav style="width:490px;"> 
+     <ul> 
+      <li> <a href="//www.jikexueyuan.com" class="home">首页</a> </li> 
+      <li class="careerpath"> <a href="//www.jikexueyuan.com/zhiye/">职业</a><i class="slide-icon"></i> 
+       <div class="zhiye-submenu slide-submeu"> 
+        <strong>前端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/web"><i class="web-icon"></i>Web前端工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/wechatapp"><i class="wx-icon"></i>微信小程序</a> 
+        <strong>移动端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/android"><i class="android-icon"></i>Android工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/ios"><i class="ios-icon"></i>iOS工程师</a> 
+        <strong>后端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/python"><i class="python-icon"></i>Python工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/php"><i class="php-icon"></i>PHP工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/go"><i class="golang-icon"></i>Golang工程师</a> 
+        <strong>大数据</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/bigdata"><i class="data-icon"></i>大数据平台研发工程师</a> 
+        <strong>人工智能</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/ml"><i class="mlearning-icon"></i>机器学习工程师</a> 
+        <strong>区块链</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/blockchain"><i class="yw-icon"></i>区块链工程师</a> 
+        <!--<a href="#"><i class="yw-icon"></i>运维工程师</a>
+								<a href="#"><i class="xmjl-icon"></i>项目经理</a>--> 
+       </div> </li> 
+      <li> <a href="//www.jikexueyuan.com/course/">课程</a><i class="slide-icon"></i> 
+       <div class="slide-submeu"> 
+        <a href="//www.jikexueyuan.com/course/">课程库</a> 
+        <a href="//ke.jikexueyuan.com/zhiye/">职业路径</a> 
+        <a href="//www.jikexueyuan.com/path/">知识体系图</a> 
+        <a href="//ke.jikexueyuan.com/xilie/">系列课程</a> 
+       </div> </li> 
+      <li> <a href="//www.jikexueyuan.com/partner">企业</a><i class="slide-icon"></i> 
+       <div class="slide-submeu qy-box"> 
+        <a href="//zt.jikexueyuan.com/microsoftai"><i class="wr-icon"></i>微软人工智能 </a> 
+        <a href="//zt.jikexueyuan.com/baiduai"><i class="baidu-icon"></i>百度AI图像技术课</a> 
+        <a href="//zt.jikexueyuan.com/aws"><i class="aws-icon"></i>AWS云计算</a> 
+        <a href="//zt.jikexueyuan.com/qcloud"><i class="txy-icon"></i>腾讯云课程专区</a> 
+        <a href="//zt.jikexueyuan.com/qualcomm"><i class="gt-icon"></i>Qualcomm公开课 </a> 
+        <a href="//zt.jikexueyuan.com/b" class="youke-nav"><i class="youke-icon bounce"></i>企业合作新模式</a> 
+       </div> </li> 
+      <li> <a href="//wiki.jikexueyuan.com/">社区</a><i class="slide-icon"></i> 
+       <div class="slide-submeu"> 
+        <a href="//wiki.jikexueyuan.com/">Wiki</a> 
+        <a href="//wenda.jikexueyuan.com/">技术问答</a> 
+        <!--<a href="//qun.jikexueyuan.com/">社群</a>
+						<a href="//download.jikexueyuan.com/">资料下载</a>--> 
+       </div> </li> 
+     </ul> 
+    </nav> 
+    <div class="search"> 
+     <input class="searchinput" id="searchinput" placeholder="搜索课程、问答或Wiki"> 
+     <span class="search-icon" id="search-bottom"></span> 
+     <div class="search-result"> 
+      <!-- <a href="javascript:;" class="search-hot">热门搜索 <span class="label label-green">职业课程</span></a>
+				<a href="javascript:;">hello world <span class="label label-blue">知识图谱</span></a>
+				<a href="javascript:;">hello world <span class="label label-purple">系列课程</span></a> --> 
+     </div> 
+    </div> 
+    <div class="nav-other" id="nav-other"> 
+     <div class="centerbox" style="display: none;"> 
+      <a href="//xue.jikexueyuan.com/" class="learn-center" title="学习中心"></a> 
+     </div> 
+     <div class="centerbox" style="display: none;"> 
+      <a href="//www.jikexueyuan.com/member/notifications/" class="message" id="message" title="消息中心"><i class="have" id="have" style="display: none;"></i></a> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <ol class="breadcrumb"> 
+   <li class="head-catalog-list"> <a href="https://www.jikexueyuan.com/">首页</a> </li> 
+   <li class="head-catalog-list"> <a href="http://wiki.jikexueyuan.com">Wiki</a> </li> 
+   <li class="head-catalog-list"> <a href="http://wiki.jikexueyuan.com/list/career">职业规划</a> </li> 
+   <li class="head-catalog-list"> <a href="http://wiki.jikexueyuan.com/list/written-interview">笔试面试</a> </li> 
+   <li class="head-catalog-list"> <a href="http://wiki.jikexueyuan.com/project/java-interview-bible" class="active">Java 面试宝典</a> </li> 
+  </ol> 
+  <div class="detail-wrapper w-1200  clearfix"> 
+   <div class="detail-left"> 
+    <!-- 目录 --> 
+    <ul class="detail-nav"> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/">关于</a>
+      </div> </li> 
+     <li class="detail-navlist navlist-one  navlist-active "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/basic-concept.html">Java 基本概念</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/OOP.html">面向对象编程</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/keyword.html">关键字</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/type-operation.html">基本类型与运算</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/string-array.html">字符串与数组</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/io.html">输入输出流</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/collection.html">集合类</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/platorm-memory.html">Java 虚拟机与内存管理</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/exception.html">异常处理</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/xml.html">XML</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/multi-thread.html">Java 多线程</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/jdbc.html">JDBC 与数据库</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/servlet-jsp.html">Servlet 与 JSP</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/j2ee-ejb.html">J2EE 与 EJB</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/struts.html">SSH(Struts,Spring,Hibernate)架构</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/uml.html">UML</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/java-interview-bible/design-pattern.html">常见设计模式</a> 
+      </div> </li> 
+    </ul> 
+    <!-- ／目录 --> 
+    <!-- ad --> 
+    <ul> 
+    </ul> 
+    <!-- ／ad --> 
+   </div> 
+   <!-- 暂时隐藏 --> 
+   <aside class="detail-right" style="display: none"> 
+    <!-- /author --> 
+    <div class="mg-t10 ad" id="banner03-1"></div> 
+    <div class="mg-t10 ad" id="banner03-2"></div> 
+    <script type="text/javascript" src="js/os.js"></script> 
+    <script type="text/javascript">
+    BAIDU_CLB_fillSlotAsync('1176465', 'banner03-1');
+    BAIDU_CLB_fillSlotAsync('1176466', 'banner03-2');
+</script> 
+    <!-- download --> 
+    <h2 class="right-h2">离线下载</h2> 
+    <div class="right-download"> 
+     <a href=" /download/java-interview-bible/pdf/ " target="_blank" class="download-pdf blue-btn">PDF版</a> 
+     <a href=" /download/java-interview-bible/epub/ " target="_blank" class="download-epub blue-btn">ePub版</a> 
+    </div> 
+    <!-- /download --> 
+    <!-- resource --> 
+    <h2 class="right-h2">相关资源</h2> 
+    <ul class="right-resource"> 
+     <li class="resource-item"> <img src="images/iconblog_e8a67d36afcd4e02895bab6a791db1fb.png"><a href="//wiki.jikexueyuan.com/project/for-offer" target="_blank"> 剑指 Offer 学习心得</a> </li> 
+     <li class="resource-item"> <img src="images/iconblog_e8a67d36afcd4e02895bab6a791db1fb.png"><a href="//wiki.jikexueyuan.com/project/leetcode-book" target="_blank"> LeetCode 题解</a> </li> 
+     <li class="resource-item"> <img src="images/iconvideo_9eff5df9ca5e48cd84d726677da6f2d1.png"><a href="//www.jikexueyuan.com/course/178.html" target="_blank"> JavaScript语法详解</a> </li> 
+     <li class="resource-item"> <img src="images/iconask_aa428f0708d64001b9bc26ce367db2ee.png"><a href="//wenda.jikexueyuan.com/question/26588" target="_blank"> 感觉像是为了避免万向节死锁才产生的误差</a> </li> 
+     <li class="resource-item"> <img src="images/icondown_136c5820075b4b0c80ce7b4ca7fc46dd.png"><a href="//download.jikexueyuan.com/detail/id/832" target="_blank"> CAShapeLayer+陀螺仪设计</a> </li> 
+     <li class="resource-item"> <img src="images/icongroup_cbca6f20d16942339b02188c6e8b3dfe.png"><a href="//qun.jikexueyuan.com/web/topic/114" target="_blank"> 程序员如何应对诸如“给我弄个网站吧”的请求？</a> </li> 
+    </ul> 
+    <!-- /resource --> 
+   </aside> 
+   <div class="detail-main"> 
+    <!-- download --> 
+    <div class="offline-download"> 
+     <table> 
+      <thead> 
+       <tr> 
+        <th colspan="2">离线下载</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td><a href=" /download/java-interview-bible/pdf/ " target="_blank">PDF版</a></td> 
+        <td><a href=" /download/java-interview-bible/epub/ " target="_blank">ePub版</a></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+    </div> 
+    <!-- /download --> 
+    <div class="markdown-body"> 
+     <!-- 欢迎成为心教育学院WIKI作者 --> 
+     <!-- 心教育学院团队出品 --> 
+     <p class="author">心教育学院团队出品 · 更新于 2018-11-28 11:00:43</p> 
+     <!-- 内容 --> 
+     <h1>Java 基本概念</h1> 
+     <h2 id="85571fb73acbad055b1746bcc7e10a37">1. Java 语言的优点?</h2> 
+     <p><strong>简单、高效</strong></p> 
+     <p>Java 语言与 C++ 类似，如果用户了解 C++ 和面向对象的概念，就可以很快编写出 Java 程序；此外，Java 又不同于诸如 C++ 语言提供的各种各样的方法，它只提供了基本的方法，这样就减少了编程的复杂性，例如去掉了头文件、指针变量、结构、运算符重载、多重继承等复杂特性。Java 语言虽然简单，却很高效，它可以用面向对象的方法来描述用户的每一个动作。</p> 
+     <p><strong>面向对象</strong></p> 
+     <p>Java 语言是一种新的面向对象的程序设计语言，它除了几种基本的数据类型外，大都是类似 C++ 中的对象和方法，程序代码大多体现了类机制，以类的形式组织，由类来定义对象的各种行为。Java 同样支持类继承，这样也减少了程序设计的复杂性。</p> 
+     <p><strong>平台无关性</strong></p> 
+     <p>所谓一处编译处处运行。Java 语言经编译后生成与计算机硬件结构无关的字节代码（ Bytecode ），这些字节代码被定义为不依赖任何硬件平台和操作系统。当 Java 程序在运行时，需要由一个解释程序对生成的字节代码解释执行。这体现了Java语言的与平台无关性，使得 Java 程序可以在任何平台上运行，如 MS-DOS , Windows，Unix 等，因此具有很强的移植性。</p> 
+     <p><strong>交互式特性</strong></p> 
+     <p>Java 是面向对象的网络编程语言，由于它支持 TCP／IP 协议，使得用户可以通过浏览器访问到 Internet 上的各种动态对象。并且在网络上用户可以交互式地进行各种动作，而多线程技术的引入使得这种交互式操作更为容易。</p> 
+     <p><strong>多线程机制</strong></p> 
+     <p>Java 语言支持多线程机制，多线程机制使得 Java 程序能够并行处理多项任务。Java 程序可以设计成具有多个线程，例如让一个线程负责数据的检索、查寻，另一个线程与用户进行交互，这样，两个线程得以并行执行。多线程机制可以很容易地实现网络上的交互式操作。</p> 
+     <p><strong>动态的内存管理机制</strong></p> 
+     <p>Java 语言采用了自动垃圾回收机制进行内存的管理。在 C++ 语言中，程序员在编写程序时要仔细地处理内存的使用，例如当某个内存快使用完毕时，要及时释放，以供其它程序使用，一旦内存管理不当，就有可能造成内存空间浪费或程序运行故障。 在 Java 系统中包括了一个自动垃圾回收程序，它可以自动、安全地回收不再使用的内存块，这样，程序员在编程时就无需担心内存的管理问题，从而使 Java 程序的编写变得简单，同时也减少了内存管理方面出错的可能性。</p> 
+     <p><strong>安全性</strong> </p> 
+     <p>在类似 Internet 的这种分布式网络环境中，安全性是个不容忽视的问题。Java 语言在安全性方面引入了实时内存分配及布局来防止程序员直接修改物理内存布局；通过字节代码验证器对字节代码的检验，以防止网络病毒及其它非法代码侵入。此外，Java 语言还采用了许多面向对象的异常处理机制，负责对一些异常事件进行处理，如内存空间不够，程序异常中止等的处理</p> 
+     <p><strong>Java 是解释型的</strong> 运行 Java 程序需要一个解释器。Java 程序编译成 Java 虚拟机编码，这种编码称为字节码。字节码是独立于计算机的，他能在所有具有 Java 解释器的机器上运行，Java 解释器也是 JVM 的一部分。 </p> 
+     <p><strong>Java 的效率</strong> </p> 
+     <p>早期 Sun 发现 JVM 的用户注意到了 Java 运行很慢，但是新的 Java 虚拟机显著加快。新的虚拟机使用了一种称为实时编译的技术，他把字节码编译并储存成本机的机器码。当执行字节码时，重调本地码。</p> 
+     <h2 id="8259a653db23548bd9bff5ef098bf8eb">2. 什么是 Java 虚拟机？为什么 Java 被称作是“平台无关的编程语言”？</h2> 
+     <p>Java 虚拟机是一个可以执行 Java 字节码的虚拟机进程。Java 源文件被编译成能被 Java 虚拟机执行的字节码文件。</p> 
+     <p>Java 被设计成允许应用程序可以运行在任意的平台，而不需要程序员为每一个平台单独重写或者是重新编译。Java 虚拟机让这个变为可能，因为它知道底层硬件平台的指令长度和其他特性。</p> 
+     <h2 id="9a4bfd36b07cc6618b2f17ef9337d72f">3. Java 和 C++ 有何区别?</h2> 
+     <p>Java 和 C++ 都是面向对象语言。也就是说，它们都能够实现面向对象思想（封装，继乘，多态）。而由于 C++ 为了照顾大量的 C 语言使用者，而兼容了 C ，使得自身仅仅成为了带类的 C 语言，多多少少影响了其面向对象的彻底性！Java 则是完全的面向对象语言，它句法更清晰，规模更小，更易学。它是在对多种程序设计语言进行了深入细致研究的基础上，据弃了其他语言的不足之处，从根本上解决了 C++ 的固有缺陷。</p> 
+     <p>Java 和 C++ 的相似之处多于不同之处，但两种语言问几处主要的不同使得Java更容易学习，并且编程环境更为简单。我在这里不能完全列出不同之处，仅列出比较显著的区别： </p> 
+     <p><strong>指针</strong> </p> 
+     <p>Java 语言让编程者无法找到指针来直接访问内存无指针，并且增添了自动的内存管理功能，从而有效地防止了 C/C++ 语言中指针操作失误，如野指针所造成的系统崩溃。但也不是说 Java 没有指针，虚拟机内部还是使用了指针，只是外人不得使用而已。这有利于 Java 程序的安全。 </p> 
+     <p><strong>多重继承</strong> </p> 
+     <p>C++ 支持多重继承，这是 C++ 的一个特征，它允许多父类派生一个类。尽管多重继承功能很强，但使用复杂，而且会引起许多麻烦，编译程序实现它也很不容易。Java 不支持多重继承，但允许一个类继承多个接口 (extends+implement) ，实现了 C++ 多重继承的功能，又避免了 C++ 中的多重继承实现方式带来的诸多不便。 </p> 
+     <p><strong>数据类型及类</strong> </p> 
+     <p>Java 是完全面向对象的语言，所有函数和变量部必须是类的一部分。除了基本数据类型之外，其余的都作为类对象，包括数组。对象将数据和方法结合起来，把它们封装在类中，这样每个对象都可实现自己的特点和行为。而 C++ 允许将函数和变量定义为全局的。此外，Java 中取消了 C/C++ 中的结构和联合，消除了不必要的麻烦。 </p> 
+     <p><strong>自动内存管理</strong> </p> 
+     <p>Java 程序中所有的对象都是用 new 操作符建立在内存堆栈上，这个操作符类似于 C++ 的 new 操作符。下面的语句由一个建立了一个类Read的对象，然后调用该对象的 work 方法： </p> 
+     <pre><code class="language-Java">Read r＝new Read()；
+r.work()；</code></pre> 
+     <p>语句 <code>Read r＝new Read()</code> ；在堆栈结构上建立了一个 Read 的实例。Java 自动进行无用内存回收操作，不需要程序员进行删除。而 C++ 中必须由程序员释放内存资源，增加了程序设计者的负担。Java 中当一个对象不被再用到时，无用内存回收器将给它加上标签以示删除。Java 里无用内存回收程序是以线程方式在后台运行的，利用空闲时间工作。 </p> 
+     <p><strong>操作符重载</strong> </p> 
+     <p>Java 不支持操作符重载。操作符重载被认为是 C++ 的突出特征，在Java 中虽然类大体上可以实现这样的功能，但操作符重载的方便性仍然丢失了不少。Java 语言不支持操作符重载是为了保持 Java 语言尽可能简单。 </p> 
+     <p><strong>预处理功能</strong> </p> 
+     <p>Java 不支持预处理功能。C/C++ 在编译过程中都有一个预编泽阶段，即众所周知的预处理器。预处理器为开发人员提供了方便，但增加了编译的复杂性。Java 虚拟机没有预处理器，但它提供的引入语句 (import) 与 C++ 预处理器的功能类似。 </p> 
+     <p><strong>Java不支持缺省函数参数，而C++支持</strong> </p> 
+     <p>在 C 中，代码组织在函数中，函数可以访问程序的全局变量。C++ 增加了类，提供了类算法，该算法是与类相连的函数，C++ 类方法与 Java 类方法十分相似，然而，由于 C++ 仍然支持 C ，所以不能阻止 C++ 开发人员使用函数，结果函数和方法混合使用使得程序比较混乱。 </p> 
+     <p>Java 没有函数，作为一个比 C++ 更纯的面向对象的语言，Java 强迫开发人员把所有例行程序包括在类中，事实上，用方法实现例行程序可激励开发人员更好地组织编码。 </p> 
+     <p><strong>字符串</strong> </p> 
+     <p>C 和 C++ 不支持字符串变量，在 C 和 C++ 程序中使用 Null 终止符代表字符串的结束，在 Java 中字符串是用类对象 ( string 和stringBuffer )来实现的，这些类对象是 Java 语言的核心，用类对象实现字符串有以下几个优点： </p> 
+     <p>(1)在整个系统中建立字符串和访问字符串元素的方法是一致的； (2)Java 字符串类是作为 Java 语言的一部分定义的，而不是作为外加的延伸部分； (3)Java 字符串执行运行时检查，可帮助排除一些运行时发生的错误； (4)可对字符串用“+”进行连接操作。 </p> 
+     <p><strong>goto 语句</strong> </p> 
+     <p>“可怕”的 goto 语句是 C 和 C++ 的“遗物”，它是该语言技术上的合法部分，引用 goto 语句引起了程序结构的混乱，不易理解，goto 语句子要用于无条件转移子程序和多结构分支技术。鉴于以广理由，Java 不提供 goto 语句，它虽然指定 goto 作为关键字，但不支持它的使用，使程序简洁易读。 </p> 
+     <p><strong>类型转换</strong> </p> 
+     <p>在 C 和 C++ 中有时出现数据类型的隐含转换，这就涉及了自动强制类型转换问题。例如，在 C++ 中可将一浮点值赋予整型变量，并去掉其尾数。Java 不支持 C++ 中的自动强制类型转换，如果需要，必须由程序显式进行强制类型转换。 </p> 
+     <p><strong>异常</strong> </p> 
+     <p>Java 中的异常机制用于捕获例外事件，增强系统容错能力 </p> 
+     <pre><code class="language-Java">try{
+
+   //可能产生意外的代码
+}catch(exceptionType name){
+    //处理
+}</code></pre> 
+     <p>其中 exceptionType 表示异常类型。而 C++ 则没有如此方便的机制。</p> 
+     <h2 id="c1f8286ffbfe18b5193e16c65e348138">4. JDK 和 JRE 的区别是什么？</h2> 
+     <p>Java 运行时环境( JRE )是将要执行 Java 程序的 Java 虚拟机。它同时也包含了执行 Applet 需要的浏览器插件。Java 开发工具包( JDK )是完整的 Java 软件开发包，包含了 JRE ，编译器和其他的工具(比如： JavaDoc，Java 调试器)，可以让开发者开发、编译、执行 Java 应用程序。</p> 
+     <h2 id="a353ddbdb00258125e3933bcee12383d">5. Java 支持的数据类型有哪些？什么是自动拆装箱？</h2> 
+     <p>Java 语言支持的 8 中基本数据类型是：</p> 
+     <ul> 
+      <li>byte </li> 
+      <li>short</li> 
+      <li>int</li> 
+      <li>long</li> 
+      <li>float</li> 
+      <li>double</li> 
+      <li>boolean</li> 
+      <li>char</li> 
+     </ul> 
+     <p>自动装箱是 Java 编译器在基本数据类型和对应的对象包装类型之间做的一个转化。比如：把 int 转化成 Integer ，double 转化成 Double，等等。反之就是自动拆箱。</p> 
+     <h2 id="0f0cdfbccd2d11440d81bb9a9645e0ec">6. 什么是值传递和引用传递？</h2> 
+     <p>对象被值传递，意味着传递了对象的一个副本。因此，就算是改变了对象副本，也不会影响源对象的值。</p> 
+     <p>对象被引用传递，意味着传递的并不是实际的对象，而是对象的引用。因此，外部对引用对象所做的改变会反映到所有的对象上。</p> 
+     <h2 id="fc180be72c9780586d691e521a1c5486">7. 一个 ".java" 源文件中是否可以包括多个类（不是内部类）？有什么限制？</h2> 
+     <p>可以有多个类，但只能有一个 public 的类，并且 public 的类名必须与文件名相一致。</p> 
+     <h2 id="fb75a55b01c5d07a166fe5019884bc80">8. 静态变量和实例变量的区别？</h2> 
+     <p>在语法定义上的区别：静态变量前要加 static 关键字，而实例变量前则不加。</p> 
+     <p>在程序运行时的区别：实例变量属于某个对象的属性，必须创建了实例对象，其中的实例变量才会被分配空间，才能使用这个实例变量。静态变量不属于某个实例对象，而是属于类，所以也称为类变量，只要程序加载了类的字节码，不用创建任何实例对象，静态变量就会被分配空间，静态变量就可以被使用了。总之，实例变量必须创建对象后才可以通过这个对象来使用，静态变量则可以直接使用类名来引用。</p> 
+     <p>例如，对于下面的程序，无论创建多少个实例对象，永远都只分配了一个 staticVar 变量，并且每创建一个实例对象，这个 staticVar 就会加 1 ；但是，每创建一个实例对象，就会分配一个 instanceVar ，即可能分配多个 instanceVar ，并且每个instanceVar 的值都只自加了 1 次。 </p> 
+     <pre><code class="language-Java"> public class VariantTest{   
+    public static int staticVar = 0;    
+    public int instanceVar = 0;    
+    public VariantTest(){    
+        staticVar++;    
+        instanceVar++;    
+        System.out.println(“staticVar=” + staticVar + ”,instanceVar=” + instanceVar);   
+        } 
+ }    </code></pre> 
+     <h2 id="9f0db17bae09a1a0c7335e48b1f3f20c">9. 不通过构造函数也能创建对象吗?</h2> 
+     <p>A. 是<br> B. 否</p> 
+     <p>答案：A</p> 
+     <p>解析：Java 创建对象的几种方式（重要）：</p> 
+     <p>(1) 用 new 语句创建对象，这是最常见的创建对象的方法。 (2) 运用反射手段,调用 java.lang.Class 或者 java.lang.reflect.Constructor 类的 newInstance() 实例方法。 (3) 调用对象的 clone() 方法。 (4) 运用反序列化手段，调用 java.io.ObjectInputStream 对象的 readObject() 方法。</p> 
+     <p>(1)和(2)都会明确的显式的调用构造函数 ；(3)是在内存上对已有对象的影印，所以不会调用构造函数 ；(4)是从文件中还原类的对象，也不会调用构造函数。</p> 
+     <h2 id="d4a0865dff626bb249b4681e7c24b42c">10. 静态变量和实例变量的区别？</h2> 
+     <p>答：静态变量是被 static 修饰符修饰的变量，也称为类变量，它属于类，不属于类的任何一个对象，一个类不管创建多少个对象，静态变量在内存中有且仅有一个拷贝；实例变量必须依存于某一实例，需要先创建对象然后通过对象才能访问到它。静态变量可以实现让多个对象共享内存。在 Java 开发中，上下文类和工具类中通常会有大量的静态成员。</p> 
+     <h2 id="d96996611004c1f66d2b0ebd28fa0eb7">11. 是否可以从一个静态（static）方法内部发出对非静态（non-static）方法的调用？</h2> 
+     <p>答：不可以，静态方法只能访问静态成员，因为非静态方法的调用要先创建对象，因此在调用静态方法时可能对象并没有被初始化。</p> 
+     <h2 id="40436e1376bdd93917d8a121224f85aa">12. 如何实现对象克隆？</h2> 
+     <p>答：有两种方式：</p> 
+     <p>1.实现 Cloneable 接口并重写 Object 类中的 clone() 方法；</p> 
+     <p>2.实现 Serializable 接口，通过对象的序列化和反序列化实现克隆，可以实现真正的深度克隆。</p> 
+     <h2 id="5edf3db21f35ea942f992ff471cad34d">13. 一个“.java”源文件中是否可以包含多个类（不是内部类）？有什么限制？</h2> 
+     <p>答：可以，但一个源文件中最多只能有一个公开类（public class）而且文件名必须和公开类的类名完全保持一致。</p> 
+     <h2 id="ea4493ed53976d5eafa7640596749f2a">14. Anonymous Inner Class(匿名内部类)是否可以继承其它类？是否可以实现接口？</h2> 
+     <p>答：可以继承其他类或实现其他接口，在Swing编程中常用此方式来实现事件监听和回调。</p> 
+     <h2 id="fc147f2ea9f97ad79ad78d2eef427af7">15. 内部类可以引用它的包含类（外部类）的成员吗？有没有什么限制？</h2> 
+     <p>答：一个内部类对象可以访问创建它的外部类对象的成员，包括私有成员</p> 
+     <h2 id="964991605c6e37193093ff8396fb36dd">16. 列出自己常用的 jdk 包.</h2> 
+     <p>答：JDK 常用的 package</p> 
+     <p>java.lang：这个是系统的基础类，比如 String 等都是这里面的，这个 package 是唯一一个可以不用 import 就可以使用的 Package</p> 
+     <p>java.io: 这里面是所有输入输出有关的类，比如文件操作等</p> 
+     <p>java.net: 这里面是与网络有关的类，比如 URL,URLConnection 等。</p> 
+     <p>java.util: 这个是系统辅助类，特别是集合类 Collection,List,Map 等。</p> 
+     <p>java.sql: 这个是数据库操作的类，Connection, Statememt，ResultSet 等</p> 
+     <h2 id="089d28c57b272268a0c94ed547aa6fea">17. JDK, JRE 和 JVM 的区别？</h2> 
+     <p>JDK, JRE 和 JVM 是 Java 编程语言的核心概念。尽管它们看起来差不多，作为程序员我们也不怎么关心这些概念，但是它们是不同的针对特定目的的产品。这是一道常见的 Java 面试题，而本文则会一一解释这些概念并给出它们之间的区别。</p> 
+     <p>Java 开发工具包 (JDK)</p> 
+     <p>Java 开发工具包是 Java 环境的核心组件，并提供编译、调试和运行一个 Java 程序所需的所有工具，可执行文件和二进制文件。JDK 是一个平台特定的软件，有针对 Windows，Mac 和 Unix 系统的不同的安装包。可以说 JDK 是 JRE 的超集，它包含了 JRE 的 Java 编译器，调试器和核心类。目前 JDK 的版本号是 1.7，也被称为 Java 7。</p> 
+     <p>Java 虚拟机(JVM)</p> 
+     <p>JVM 是 Java 编程语言的核心。当我们运行一个程序时，JVM 负责将字节码转换为特定机器代码。JVM 也是平台特定的，并提供核心的 Java 方法，例如内存管理、垃圾回收和安全机制等。JVM 是可定制化的，我们可以通过 Java 选项(java options)定制它，比如配置 JVM 内存的上下界。JVM 之所以被称为虚拟的是因为它提供了一个不依赖于底层操作系统和机器硬件的接口。这种独立于硬件和操作系统的特性正是 Java 程序可以一次编写多处执行的原因。</p> 
+     <p>Java 运行时环境(JRE)</p> 
+     <p>JRE 是 JVM 的实施实现，它提供了运行 Java 程序的平台。JRE 包含了 JVM、Java 二进制文件和其它成功执行程序的类文件。JRE 不包含任何像 Java 编译器、调试器之类的开发工具。如果你只是想要执行 Java 程序，你只需安装 JRE 即可，没有安装 JDK 的必要。</p> 
+     <p>JDK, JRE 和 JVM 的区别</p> 
+     <p>JDK 是用于开发的而 JRE 是用于运行 Java 程序的。<br> JDK 和 JRE 都包含了 JVM，从而使得我们可以运行 Java 程序。<br> JVM 是 Java 编程语言的核心并且具有平台独立性。 </p> 
+     <p>即时编译器(JIT)</p> 
+     <p>有时我们会听到 JIT 这个概念，并说它是 JVM 的一部分，这让我们很困惑。JIT 是 JVM 的一部分，它可以在同一时间编译类似的字节码来优化将字节码转换为机器特定语言的过程相似的字节码，从而将优化字节码转换为机器特定语言的过程，这样减少转换过程所需要花费的时间。</p> 
+    </div> 
+    <div class="previous-and-next"> 
+     <span class="pull-left">上一篇: <a id="previous_link" href="/project/java-interview-bible/" data-toggle="tooltip" data-placement="top" title="上翻页快捷键：左方向键">关于</a></span> 
+     <span class="pull-right">下一篇: <a id="next_link" href="/project/java-interview-bible/OOP.html" data-toggle="tooltip" data-placement="top" title="下翻页快捷键：右方向键">面向对象编程</a></span> 
+    </div> 
+    <div class="detail-share clearfix"> 
+     <div class="bdsharebuttonbox share-item"> 
+      <a href="#" class="bds_more" data-cmd="more"></a> 
+      <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> 
+      <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> 
+      <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> 
+      <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a> 
+     </div> 
+     <script>
+				window._bd_share_config = {
+					"common": {
+						"bdSnsKey": {},
+						"bdText": "",
+						"bdMini": "2",
+						"bdMiniList": false,
+						"bdPic": "",
+						"bdStyle": "0",
+						"bdSize": "16"
+					},
+					"share": {},
+					"image": {
+						"viewList": ["weixin", "tsina", "qzone", "youdao"],
+						"viewText": "分享到：",
+						"viewSize": "16"
+					}
+				};
+				with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+			</script> 
+    </div> 
+    <!--广告--> 
+    <!--/广告--> 
+    <!-- 评论 --> 
+    <div id="jkcomments"></div> 
+    <!-- 新 footer --> 
+    <div class="wiki-footer"> 
+     <ul> 
+      <li><a href="//help.jikexueyuan.com/" target="_blank">关于我们</a></li> 
+      <li><a href="//help.jikexueyuan.com/join.html" target="_blank">加入我们</a></li> 
+      <li><a href="//help.jikexueyuan.com/contact.html" target="_blank">联系我们</a></li> 
+      <li><a href="//j.jikexueyuan.com/evangelist/apply" target="_blank">讲师合作</a></li> 
+      <li><a href="//help.jikexueyuan.com/" target="_blank">帮助中心</a></li> 
+      <li><a href="//blog.jikexueyuan.com/" target="_blank">黑板报 </a></li>
+      <li><a href="//www.jikexueyuan.com/friendlink.html" target="_blank">友情链接</a></li> 
+      <li><a href="javascript:void(0)" onclick="meiqia()" target="_blank">意见反馈</a></li> 
+     </ul> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript" src="js/jquery.min_b3a81c33c11044f7b80004d67622f28e.js"></script> 
+  <script type="text/javascript" src="js/detail_9c0fc476f4fe420781b1c3fd43be8ee5.js"></script> 
+  <script type="text/javascript" src="js/bootstrap.min_cb2685ed31504a8898d31efdccab462b.js"></script> 
+  <script type="text/javascript" src="js/login_register.min_9e2423e1c038450588177630cafb9b58.js"></script> 
+  <script>
+		var JKcomments = {
+			perPage: 15,
+			model: "wiki", //模块名称（必填）
+			parent_id: "java-interview-bible",
+			item_id: "c62f4cc20c3666b16d455ce6a8c6deb3" //被评论信息ID（必填）
+		}
+	</script> 
+  <script type="text/javascript" src="js/jquery.qqFace_2373f1022cff45b7a57af1d88cc14d06.js"></script> 
+  <script type="text/javascript" src="js/comments.min_88e33c6e5ea54ef8ba9125ea14d9e212.js"></script> 
+  <script type="text/javascript">
+    $(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    var _Sjkxy     = _Sjkxy || [];
+    _Sjkxy['params']    = {wikiP:'Java 面试宝典' , posId:117001, po:69001 , wPId : '379'};
+</script> 
+  <link rel="stylesheet" href="css/footer.css"> 
+  <div id="footer"> 
+   <div class="footer-content"> 
+    <div class="contact-way"> 
+     <div class="other-way"> 
+      <a href="//blog.jikexueyuan.com/28.html " target="_blank" class="weixin-icon"></a> 
+      <!--<a href="" class="tencen-icon"></a>--> 
+      <a href="//weibo.com/jikexueyuan" target="_blank" class="sina-icon"></a> 
+      <a href="//twitter.com/jikexueyuan" target="_blank" class="facebook-icon"></a> 
+      <a href="//plus.google.com/communities/117673330839635588089" target="_blank" class="google-icon"></a> 
+     </div> 
+    </div> 
+    <nav> 
+     <a href="//help.jikexueyuan.com/" target="_blank">关于我们</a>
+     <i>|</i> 
+     <a href="//help.jikexueyuan.com/join.html" target="_blank">加入我们</a>
+     <i>|</i> 
+     <a href="//help.jikexueyuan.com/contact.html" target="_blank">联系我们</a>
+     <i>|</i> 
+     <a href="//zt.jikexueyuan.com/b" target="_blank">企业合作</a>
+     <i>|</i> 
+     <a href="//j.jikexueyuan.com/evangelist/apply" target="_blank">讲师合作</a>
+     <i>|</i> 
+     <a href="//help.jikexueyuan.com/" target="_blank">帮助中心</a>
+     <i>|</i> 
+     <a href="//blog.jikexueyuan.com/" target="_blank">黑板报</a>
+     <i>|</i> 
+     <a href="//www.jikexueyuan.com/friendlink.html" target="_blank">友情链接</a> 
+    </nav> 
+    <div class="copyright">
+     Copyright © 2013-2018 jikexueyuan.com All Rights Reserved. 京ICP备11018032号 京公网安备11010802013056
+    </div> 
+   </div> 
+   <div class="gotop" id="gototop"> 
+    <span class="tel-icon"> 
+     <div class="tel-number"></div> </span> 
+    <!-- <a class="service" href="javascript:void(0);" onclick="meiqia()"></a> --> 
+    <span class="wx"> 
+     <div class="appewm"></div> </span> 
+    <span class="top"><i></i></span> 
+   </div> 
+  </div> 
+  <script type="text/javascript" src="js/login_register.min.js"></script> 
+  <script>
+function gotop(){var html=$("#gototop");if($(window).scrollTop()<=0){$("#gototop>.top>i").hide()}$("#gototop>.top").bind("click",function(){if($(window).scrollTop()<=0){return false}$("body,html").animate({scrollTop:0},200);return false});$(window).scroll(function(){if($(window).scrollTop()>0){$("#gototop>.top>i").fadeIn()}else{$("#gototop>.top>i").fadeOut()}})}$(function(){gotop()});
+		</script> 
+  <script type="text/javascript" src="js/meiqia.js"></script> 
+  <script type="text/javascript" src="js/growingio_536496b2ab67415798e6815b98b3bfb4.js"></script> 
+  <!-- 增加latex 数学公式--> 
+  <script type="text/javascript" src="js/MathJax.js"></script> 
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>   
+ </body>
+</html>

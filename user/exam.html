@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="考试试卷")
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen">
+    <!-- <link href="/css/bootstrap.css" rel="stylesheet"> -->
+    <!-- <link href="/css/main.css" rel="stylesheet"> -->
+    <!-- <link href="/css/main-v2.css" rel="stylesheet"> -->
+    <!-- <link href="/css/header-white.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="../assets/layui/css/layui.css">
+    <script src="../assets/layui/layui.js"></script>
+    <script src="../assets/jquery/jquery.min.js"></script>
+    <style>
+        body {
+            background: #F3F6FA;
+            background-size: cover;
+        }
+
+        .cd-content {
+            background: url(../images/dream-seeker@2x.jpg) no-repeat top center;
+            width: 920px;
+            background-size: 920px 130px;
+            margin: 0px auto;
+            padding-top: 120px;
+            background-color: #fff;
+        }
+
+        .box {
+            width: 780px;
+            margin: 0 auto;
+        }
+
+        .exam-desc {
+            text-align: center;
+            font-size: 24px;
+            color: #555;
+            padding: 30px;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .exam-desc h2 {
+            color: #5A83E5;
+            /* font-size: 24px; */
+            line-height: 24px;
+            padding: 15px 0;
+            font-weight: bold;
+        }
+
+        /* 要求 */
+
+        .rule {
+            line-height: 30px;
+            padding: 15px 0;
+        }
+
+        .rule h2 {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .rule .rule-item {
+            color: #6d201b;
+            font-size: 16px;
+        }
+
+        form {
+            padding: 50px 30px;
+            border-radius: 10px;
+        }
+
+        .layui-form-label {
+            width: 100%;
+            text-align: left;
+            font-size:16px;
+            line-height: 20px;
+            font-weight: bold;
+            position: relative;
+            color:#444;
+        }
+
+        .layui-form-label .req {
+            color: red;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 0px;
+        }
+
+        @media screen and (max-width:920px) {
+            .cd-content {
+                width: auto;
+            }
+            form {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body class="es-main-default es-nav-white cd-design">
+    <div class="es-wrap" id="app">
+        <div class="container cd-container">
+            <div class="cd-content">
+                <div class="box">
+                    <div class="exam-desc">
+                        <h2>心理社工初级考试A卷</h2>
+                        <span>（满分100分，60分及格）</span>
+                    </div>
+                    <div class="rule">
+                        <h2>《心理健康社会工作职业技能培训》线上理论考试</h2>
+                        <div class="rule-item">
+                            1.本次考试试卷题型分为：单选题共25题，每题2分；多选题共20题，每题1分；判断题共30题，每题1分。
+                        </div>
+                        <div class="rule-item">
+                            2.本次考试时长为：90分钟，请考生在规定时间内完成答题，提交考卷。
+                        </div>
+                    </div>
+                    <form class="layui-form" target="layui-upload-iframe" method="post" key="set-mine" enctype="multipart/form-data">
+                        <!-- 性别 -->
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">
+                                <i class="req">*</i> 1.短时记忆容量有限，为了使其包含更多的信息，可采用的方式是（）。</label>
+                            <div class="layui-input-block">
+                                <input type="radio" name="sex" value="男" title="男" checked="">
+                                <div class="layui-unselect layui-form-radio layui-form-radioed">
+                                    <i class="layui-anim layui-icon"></i>
+                                    <div>男</div>
+                                </div>
+                                <input type="radio" name="sex" value="女" title="女">
+                                <div class="layui-unselect layui-form-radio">
+                                    <i class="layui-anim layui-icon"></i>
+                                    <div>女</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <div class="layui-input-block">
+                                <button class="layui-btn submit" lay-submit lay-filter="demo1">立即提交</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        layui.use(['form', 'layedit', 'laydate', "upload", "jquery"], function () {
+            var form = layui.form
+                , layer = layui.layer
+                , layedit = layui.layedit
+                , laydate = layui.laydate
+                , upload = layui.upload
+                , $ = layui.jquery
+            //自定义验证规则
+            form.verify({
+                title: function (value) {
+                    if (value.length = 0) {
+                        return '姓名不能为空';
+                    }
+                }
+                , pass: [
+                    /^[\S]{6,12}$/
+                    , '密码必须6到12位，且不能出现空格'
+                ]
+                , img: function (value) {
+                    if (!value) {
+                        return "没图片"
+                    }
+                }
+                , content: function (value) {
+                    layedit.sync(editIndex);
+                }
+            });
+            form.on('submit(demo1)', function (data) {
+                var data = new FormData(document.querySelector("form"));
+                $.ajax({
+                    url: "1.php",
+                    type: "post",
+                    data: data,
+                    dataType: "json",
+                    contentType: false, //不设置内容类型
+                    processData: false, //不处理数据
+                    success: function (res) {
+                        console.log(1)
+                    }
+                })
+                return false;
+            });
+        })
+    </script>
+</body>
+
+</html>

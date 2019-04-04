@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+   #include("/inc/head.html",title="安全设置")
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white cd-design"> 
+ #include("/inc/header.html")
+  <div class="es-wrap"> 
+   <div class="container cd-container"> 
+    <div class="cd-content"> 
+     <div class="cd-sidebar"> 
+      <ul class="cd-sidebar__list"> 
+       <li class="cd-sidebar__heading"> 账户中心 </li> 
+       <li class="cd-sidebar__item "> <a href="play">播放记录</a> </li> <li class="cd-sidebar__item "> <a href="orders">我的订单</a> </li>
+       <li class="cd-sidebar__item  "> <a href="coin">学习币账户</a> </li> 
+       <li class="cd-sidebar__item "> <a href="invitecode">邀请码</a> </li> 
+       <li class="cd-sidebar__item "> <a href="coupon">优惠券</a> </li> 
+       <li class="cd-sidebar__item "> <a href="history">会员记录</a> </li> 
+       <li class="cd-sidebar__item  "> <a href="cards">学习卡</a> </li> 
+       <li class="cd-sidebar__item "> <a href="point">我的积分</a> </li> 
+       <li class="cd-sidebar__heading"> 个人设置 </li> 
+       <li class="cd-sidebar__item "> <a href="/user/">个人信息</a> </li> 
+       <li class="cd-sidebar__item "> <a href="ca">实名认证</a> </li> 
+       <li class="cd-sidebar__item active"> <a href="security">安全设置</a> </li> 
+       <li class="cd-sidebar__item "> <a href="binds">第三方登录</a> </li> 
+      </ul> 
+     </div> 
+     <div class="cd-main"> 
+      <div class="cd-main__heading"> 
+       <div class="cd-main__title">
+         安全设置 
+       </div> 
+      </div> 
+      <div class="cd-main__body"> 
+       <div class="es-security es-security-warning cd-mb32"> 
+        <span class="security-icon"> <i class="cd-icon cd-icon-warning"></i> </span> 
+        <span class="security-title">安全等级</span> 
+        <span class="security-progress done"></span> 
+        <span class="security-progress done"></span> 
+        <span class="security-progress "></span> 
+        <span class="security-level">中</span> 
+       </div> 
+       <div class="es-setting"> 
+        <span class="setting-icon"><i class="cd-icon cd-icon-lock"></i></span> 
+        <span class="setting-title">登录密码</span> 
+        <span class="setting-content">经常更改密码有助于保护您的帐号安全</span> 
+        <span class="setting-action"> <span class="es-setting-status es-setting-status-done">已设置</span> <button class="btn cd-btn cd-btn-ghost-default" data-url="/settings/password" data-toggle="modal" data-target="#modal"> 修改 </button> </span> 
+       </div> 
+       <div class="es-setting"> 
+        <span class="setting-icon"><i class="cd-icon cd-icon-payment"></i></span> 
+        <span class="setting-title">支付密码</span> 
+        <span class="setting-content">用于支付时的二次密码校验，加强账户安全性</span> 
+        <span class="setting-action"> <span class="es-setting-status">未设置</span> <button class="btn cd-btn cd-btn-ghost-default" data-url="/settings/pay_password" data-toggle="modal" data-target="#modal">设置</button> </span> 
+       </div> 
+       <div class="es-setting"> 
+        <span class="setting-icon"><i class="cd-icon cd-icon-safe"></i></span> 
+        <span class="setting-title">安全问题</span> 
+        <span class="setting-content">设置安全问题，保护帐号密码安全，也可用于找回支付密码</span> 
+        <span class="setting-action"> <span class="es-setting-status">未设置</span> <button class="btn cd-btn cd-btn-ghost-default" data-url="security_questions" data-toggle="modal" data-target="#modal">设置</button> </span> 
+       </div> 
+       <div class="es-setting"> 
+        <span class="setting-icon"><i class="cd-icon cd-icon-iphone"></i></span> 
+        <span class="setting-title">手机绑定</span> 
+        <span class="setting-content"> 已绑定手机：156****0338 </span> 
+        <span class="setting-action"> <span class="es-setting-status es-setting-status-done">已绑定</span> <button class="btn cd-btn cd-btn-ghost-default" data-url="/settings/bind_mobile" data-toggle="modal" data-target="#modal">修改</button> </span> 
+       </div> 
+       <div class="es-setting"> 
+        <span class="setting-icon"><i class="cd-icon cd-icon-email"></i></span> 
+        <span class="setting-title">邮箱设置</span> 
+        <span class="setting-content"> 可用于找回登录密码 </span> 
+        <span class="setting-action"> <span class="es-setting-status">未设置</span> <button class="btn cd-btn cd-btn-ghost-default" data-url="/settings/email" data-toggle="modal" data-target="#modal">绑定</button> </span> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  #include("/inc/footer.html",goto=false)
+ </body>
+</html>

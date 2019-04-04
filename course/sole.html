@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+ <head> 
+  #include("/inc/head.html",title="课程-心教育学院")
+  <link rel="stylesheet" href="/css/detail_0ec121e.css">
+  <style type="text/css">
+  .lessonplay .playericon {
+    position: relative;
+    z-index: 120;
+    width: 50px;
+    height: 50px;
+    display: block;
+    left: 50%;
+    margin-left: -25px;
+    top: 50%;
+    margin-top: -125px;
+    background: url(../images/player_icon_5c67475.png) 0 0 no-repeat;
+    cursor: pointer;
+    background-size: 50px 50px;
+}
+  </style>
+ </head> 
+ <body> 
+ #include("/inc/header.html")
+  <div id="wrapper"> 
+   <div id="pager"> 
+    <div class="crumbs"> 
+     <div class="w-1000"> 
+      <a href="/">首页</a> 
+      <em> &gt; </em> 
+      <a href="/course/">课程</a> 
+      <em> &gt; </em> #(obj.title)
+     </div> 
+    </div> 
+    <!-- /crumbs --> 
+    <!-- zyd-top --> 
+    <div class="zyd-top w-1000 cf"> 
+     <div class="media f_l"> 
+      <img src="#(www)#(obj.img)" onerror="this.src='/img/wutu.png'" alt="#(obj.title)"> 
+      <div class="lessonplay" style="opacity: 1;"><i class="playericon"></i></div>
+     </div> 
+     <ul class="explain f_r"> 
+      <li> <h1>#(obj.title)</h1> <i class="icon-tag-yellow">精品</i> 
+       <!-- <i class="icon-tag-red">周年庆</i> --> </li> 
+      <li class="author">主讲 : #(obj.tname)</li> 
+      <li class="intor">#(obj.text)</li> 
+      <li class="price"> <span class="curr-price">PRO独家课</span> </li> 
+      <li class="cf last"> 
+       <!-- 免费试学、立即报名、去学习 --> 
+       <!-- 登录用户已购买 --> 
+       <a class="greenbtn" style="width: 125px;font-size: 14px;vertical-align: top" href="/vip/?svip_slug=vip" target="_blank">Pro会员免费学</a> <p class="time"> <span>159人学习</span><span>时长 : 3 小时</span><span>有效期 : 30 天 <i class="icon-ques2" style="display: none;"> <span class="absolute pop-buy-infor"><em></em>有效期自支付成功后开始计算，到期后仍可观看课程视频和图文，但不再享受问答和作业批改服务。Pro用户可享受无视有效期权限，随时随意轻松看。单课购买用户需关注课程有效期，合理安排学习计划。</span> </i> </span> </p> </li> 
+     </ul> 
+    </div> 
+    <!-- /zyd-top --> 
+    <div class="zyd-main w-1000 cf"> 
+     <!-- zyd-tab --> 
+     <div class="zyd-tab mar-t20 mar-r20 f_l"> 
+      <div id="fixed"> 
+       <ul class="tabnav cf"> 
+        <li class="active"> 课程大纲 </li>  
+        <li >课程详情 </li> 
+       </ul> 
+      </div> 
+      <!-- tabcon --> 
+      <div class="tabcon"> 
+       <div class="ke-detail "> 
+        <h2>课程概览</h2> 
+        <p>#(obj.text)</p> 
+        <h2>图文说明</h2> 
+        <div style="max-width: 683px;widht:100%;height:100%;word-wrap: break-word;overflow:hidden;">#(obj.html)</div>
+        <h2>常见问题</h2> 
+        <p> Q：如果有问题，我去哪里咨询？<br> A：关于课程的任何问题，都可以点击“右下角”的在线客服，我们会有专人为您解答。<br> <br> Q：『有效期』是什么？<br> A:『有效期』从订单支付成功后开始计算，到期后仍然可以观看课程视频和图文，但不再享受问答和作业批改等服务。<br> <br> Q：VIP价格是什么？<br> A：购买过心教育学院 VIP 会员的用户，可享受职业学院课程 VIP 价格，这个价格会比现价有一定的优惠。<br> <br> Q: 有的章节的知识我已经会了，可以跳过吗？<br> A: 可以，整个课程采用自由学习方式，不设置每个课时的前后限制要求。<br> <br> Q: 课程的视频提供下载么？<br> A: 我们的课程视频进行加密处理，暂时不支持下载。 <br> <br> </p> 
+       </div> 
+       <div class="ke-outline active"> 
+        <!-- 没有分组 --> 
+        <!-- 课程完成 --> 
+        <div class="catalog"> 
+         <h2 class="theme">#(obj.title)</h2> 
+         <span class="author">主讲：#(obj.tname)</span> 
+         <p class="desc">#(obj.text)</p> 
+         <!-- 部分 --> 
+         <div class="book"> 
+         <!-- #for(c:obj.chapter) -->
+          <!-- #if(c.type=="mulu") -->
+          <h3 class="sub-theme">#(c.title) <em>#(c.val)</em></h3> 
+          <!-- #end -->
+          <dl class="play"> 
+          	<!-- #if(c.type=="jie") -->
+           <dt>#(c.title)
+            <span>#(c.val)</span>
+           </dt> 
+           <!-- #end --> 
+           <!-- #if(c.type=="zb") -->
+           <dd ><a style="color: #9c27b0;" href="/zb/#(c.val)">
+           	#(c.title)
+            <span class="icon-play"></span> 
+            </a>
+           </dd> 
+           <!-- #end --> 
+           <!-- #if(c.type=="test") -->
+           <dd >
+           	<a  href="javascript:alert('练习题暂未开放');">#(c.title)
+            <span style="float: right;">练习题</span> 
+            </a>
+           </dd> 
+           <!-- #end --> 
+           <!-- #if(c.type=="video") -->
+           	<!-- #if(c.open=="是") -->
+           	<dd ><a style="color: #4caf50;" href="/course/#(obj.id)?vid=#(c.val)">
+           	#(c.title)
+            <span class="icon-play"></span> 
+            </a>
+           </dd> 
+           	<!-- #else -->
+           <dd >#(c.title)
+            <span class="icon-play"></span> 
+           </dd> 
+           	<!-- #end -->
+           <!-- #end --> 
+          </dl> 
+          <!-- #end -->
+         </div> 
+        </div> 
+        <!-- 课程未完成 --> 
+        <!-- /课程未完成 --> 
+        <!-- 有分组 --> 
+        <div class="serve"> 
+         <h4>学员服务</h4> 
+         <ul class="cf"> 
+         </ul> 
+        </div> 
+       </div> 
+      </div> 
+      <!-- /tabcon --> 
+     </div> 
+     <!-- /zyd-tab --> 
+     <!-- zyd-aside --> 
+     <div class="zyd-aside mar-t20 f_r"> 
+      <h3 class="caption">主讲老师</h3> 
+      <ul class="list"> 
+       <!-- #for(t:teachers) -->
+       <li style="cursor: pointer;" onclick="location.href='/teacher/#(t.id)'"> 
+        <div class="teacher cf"> 
+         <a class="headpic" href="javascript:;"> <img src="#(www)#(t.img)" alt=""> </a> 
+         <h2 class="tit"><a href="javascript:;">#(t.name)</a></h2> 
+         <span class="desc">#(t.type)&nbsp;#(t.job)</span> 
+        </div> <p class="intor">#(t.text)</p> 
+       </li> 
+       <!-- #end -->
+      </ul> 
+     </div> 
+     <!-- /zyd-aside --> 
+    </div> 
+    <!-- pop --> 
+    <ul id="notifyPop" data-id="49" style="display: none;"> 
+     <input type="hidden" name="CSRF" value="Tiz30kbxN8EcUmgVa3+hXB8k"> 
+     <li class="cf"> <label>姓名</label> <input type="text" name="nickname" id="nickName" placeholder="如何称呼您" value=""> <span class="err"></span> </li> 
+     <li class="cf"> <label>手机 <span class="must">*</span></label> <input type="text" name="" id="mobile" placeholder="请填写11位手机号码" value=""> <span class="err"></span> </li> 
+     <li class="btn-def"><a class="greenbtn" id="notifyBtn" href="javascript:;">提交</a></li> 
+    </ul> 
+    <!-- pop --> 
+   </div> 
+    #include("/inc/footer.html")
+    <script type="text/javascript">
+    $(".tabnav li").click(function(){
+    	$(".tabnav").children("li").toggleClass("active");
+    	$(".tabcon").children("div").toggleClass("active");
+    })
+    	//#if(!isplay&&!isEmpty(p.vid))
+    	alert("购买该课程后才可观看!")
+    	//#end
+    </script>
+ </body>
+</html>

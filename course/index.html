@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+
+<head>
+  #include("/inc/head.html",title="心教育学院")
+  <link rel="stylesheet" href="/css/cleft_ec22570.css">
+  <link rel="stylesheet" href="/css/course_fefbd4c.css">
+  <link rel="stylesheet" href="/css/loading_03ba72f.css">
+</head>
+
+<body>
+  #include("/inc/header.html",nav="course")
+
+  <div id="app">
+    <div id="container">
+      <!-- crumbs-->
+      <div class="wrap w-1000 mar-t20">
+        <div id="main" class="f_r">
+          <!-- tagGather -->
+          <div class="tagGather">
+            <div class="bd">
+              <div class="listbox">
+                <!-- sort -->
+                <div class="sort">
+                  <div class="wrap">
+                    <div class="sortMode">
+                      <h3>全部课程</h3>
+                      <dl>
+                        <dt>
+                          <span class="type-title-one">#(isEmpty(p.sort)?'最新':'') #(p.sort=='id'?'最新':'')#(p.sort=="num"?'最热':'')
+                          </span>
+                          <i class="arrow"></i>
+                        </dt>
+                        <dd>
+                          <p class="lesson-new">
+                            <a href="?sort=id" ref="nofollow">最新</a>
+                          </p>
+                          <p class="lesson-new">
+                            <a href="?sort=num" ref="nofollow">最热</a>
+                          </p>
+                        </dd>
+                      </dl>
+                      <!-- new课程类型 -->
+                      <dl>
+                        <dt>
+                          <span class="type-title-tow">#(isEmpty(p.price)?'课程类型':'') #(p.price=='>'?'精品':'')#(p.price=='='?'免费':'')
+                          </span>
+                          <i class="arrow"></i>
+                        </dt>
+                        <dd>
+                          <p class="lesson-detailed">
+                            <a href="#(root)course/?price=>" ref="nofollow">精品</a>
+                          </p>
+                          <p class="lesson-detailed">
+                            <a href="#(root)course/?price==" ref="nofollow">免费</a>
+                          </p>
+                          <p class="lesson-all">
+                            <a href="#(root)course/" ref="nofollow">全部</a>
+                          </p>
+                        </dd>
+                      </dl>
+                      <!-- /new课程类型 -->
+                      <dl>
+                        <dt>
+                          <span class="type-title-tow">#(isEmpty(p.type)?'内容类型':p.type)</span>
+                          <i class="arrow"></i>
+                        </dt>
+                        <dd>
+                          <p class="lesson-detailed">
+                            <a href="#(root)course/?type=心理工作者" ref="nofollow">心理工作者</a>
+                          </p>
+                          <p class="lesson-detailed">
+                            <a href="#(root)course/?type=心理爱好者" ref="nofollow">心理爱好者</a>
+                          </p>
+                          <p class="lesson-all">
+                            <a href="#(root)course/" ref="nofollow">全部</a>
+                          </p>
+                        </dd>
+                      </dl>
+                      <dl>
+                        <dt>
+                          <span class="type-title-three">#(isEmpty(p.leve)?'难度等级':'') #(p.leve=='1'?'初级':'') #(p.leve=='2'?'中级':'') #(p.leve=='3'?'高级':'')
+                          </span>
+                          <i class="arrow"></i>
+                        </dt>
+                        <dd>
+                          <p class="level-one">
+                            <a href="#(root)course/?leve=1" ref="nofollow">初级</a>
+                          </p>
+                          <p class="level-one">
+                            <a href="#(root)course/?leve=2" ref="nofollow">中级</a>
+                          </p>
+                          <p class="level-one">
+                            <a href="#(root)course/?leve=3" ref="nofollow">高级</a>
+                          </p>
+                          <p class="level-all">
+                            <a href="#(root)course/" ref="nofollow"> 全部 </a>
+                          </p>
+                        </dd>
+                      </dl>
+                    </div>
+                    <div class="previewMode">
+                      <ul>
+                        <li class="kuai-icon curr">
+                          <i class="icon"></i>
+                        </li>
+                        <li class="list-icon">
+                          <i class="icon"></i>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- sort end -->
+                <div class="lesson-list" id="changeid">
+                  <ul class="cf" style="display: block;">
+                    <li v-for="c in obj.list">
+                      <div class="lessonimg-box">
+                        <i class="user-action lesson-shoucang " style="display: none;"></i>
+                        <i v-if="c.price>0" class="vip-icon" style="background-image: none;
+              background-color: #e03d31;color: white;">&nbsp;&nbsp;{{c.type}}</i>
+
+                        <i v-if="c.price==0" class="vip-icon" style="background-image: none;
+              background-color: #4caf50;color: white;">公开课</i>
+                        <a :href="'/course/'+c.id" target="_blank">
+                          <img :src="'#(www)'+c.img" onerror="this.src='/img/wutu.png'" class="lessonimg" title="" alt="">
+                          <div class="lessonplay" style="opacity: 0;">
+                            <i class="playericon"></i>
+                          </div>
+                        </a>
+                      </div>
+                      <div class="lesson-infor" style="height: 88px;">
+                        <h2 class="lesson-info-h2">
+                          <a :href="'/course/'+c.id" target="_blank">{{c.title}}</a>
+                        </h2>
+                        <p style="height: 0px; opacity: 0; display: none;">{{c.text}} </p>
+                        <div class="timeandicon">
+                          <div class="cf">
+                            <dl>
+                              <dd class="mar-b8">
+                                <i class="time-icon"></i>
+                                <em>{{c.section}}课时</em>
+                              </dd>
+                              <dd class="zhongji">
+                                <i class="xinhao-icon"></i>
+                                <em>初级</em>
+                              </dd>
+                            </dl>
+                            <em class="learn-number">{{c.num}}人学习</em>
+                          </div>
+                          <div class="cf">
+                            <div class="lessonicon-box">
+                              <a href="javascript:void(0);">
+                                <img width="16" src="/images/webframe.png" alt="" title="Three.js"> </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                  </ul>
+                </div>
+                <div id="page-nav"></div>
+              </div>
+              <!--listbox end -->
+            </div>
+          </div>
+          <!-- tagGather end -->
+        </div>
+        <!-- left 分类 -->
+        <div id="aside" class="f_l">
+          <div class="aside-allCategory">
+            <div class="hd">
+              <h2>
+                <a href="#(root)course">
+                  <i class="icon-course-curr"></i>课程库</a>
+              </h2>
+            </div>
+            <div class="bd">
+              <ul class="aside-cList">
+                <!-- #for(d:cache.get("cates")) -->
+                <li>
+                  <div>
+                    <a cgid="2" href="javascript:void(0);">#(d.name)</a>
+                    <div class="list-show">
+                      <div>
+
+                        <dl>
+                          <dt>
+                            <a href="javascript:void(0);" cgid="16">#(d.name)</a>
+                          </dt>
+                          <dd class="cf">
+                            <!-- #for(v:d.dval) -->
+                            <a href="/course/?#(d.dkey)=#(v)">#(v)</a>
+                            <!-- #end -->
+                          </dd>
+                        </dl>
+
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <!-- #end -->
+              </ul>
+            </div>
+            <!-- /bd -->
+          </div>
+          <ul class="hdlist">
+            <li>
+              <a href="#(root)teacher/">
+                <i class="icon-zstx"></i>讲师 </a>
+            </li>
+            <li>
+              <a href="#(root)tag/">
+                <i class="icon-kcbq"></i>标签库
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  #include("/inc/footer.html")
+  <script>
+    var defaultlist =#(obj ?? '[]');
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        key: "",
+        obj: #(obj ?? '[]'),
+      param: {
+        sort: "#(p.sort??'id')",
+        field: "#(p.field??'')",
+        crowd: "#(p.crowd??'')",
+        sect: "#(p.sect??'')",
+        cases: "#(p.cases??'')",
+        auth: "#(p.auth??'')",
+        train: "#(p.train??'')",
+        meet: "#(p.meet??'')",
+        ttype: "#(p.ttype??'')",
+        price: "#(p.price??'')",
+        type: "#(p.type??'')",
+        page: 1
+      }
+    },
+      methods: {
+
+      }
+})
+
+    layui.use(['laypage', 'layer', 'jquery'], function () {
+      var laypage = layui.laypage
+        , layer = layui.layer;
+      var $ = layui.jquery;
+      laypage.render({
+        elem: 'page-nav'
+        , count: #(obj.count ?? '0')
+        , theme: '#35b558'
+        , limit: 24
+        , layout: ['prev', 'page', 'next']
+        , jump: function (obj, first) {
+          if (!first) {
+            vm.param.page = obj.curr;
+            $.ajax({
+              type: "post",
+              url: 'index.json',
+              data: vm.param,
+              success: function (res) {
+                vm.obj = (res);
+              }
+            })
+          }
+        }
+  });
+    var view = "grid"
+    $(".cf > li").hover(function () {
+      $(this).find(".lessonimg-box").find("a").find(".lessonplay").css("opacity", "1")
+      if (view == "grid") {
+        $(this).find(".lesson-infor").css("height", "175px")
+          .find("p").css("height", "52px").css("opacity", "1").css("display", "block")
+        $(this).find(".lesson-infor").find(".zhongji").css("display", "block")
+        $(this).find(".lesson-infor").find(".learn-number").css("display", "block")
+      }
+    }, function () {
+      $(this).find(".lessonimg-box").find("a").find(".lessonplay").css("opacity", "0")
+      if (view == "grid") {
+        $(this).find(".lesson-infor").css("height", "88px")
+          .find("p").css("height", "0px").css("opacity", "0").css("display", "block")
+        $(this).find(".lesson-infor").find(".zhongji").css("display", "none")
+        $(this).find(".lesson-infor").find(".learn-number").css("display", "none")
+      }
+    })
+
+    $(".kuai-icon").click(function () {
+      $(".lesson-infor").find("p").css("height", "0px").css("display", "none")
+      $(".zhongji").css("display", "none")
+      $(".learn-number").css("display", "none")
+      $("#changeid").removeClass("lesson-list2")
+      $("#changeid").addClass("lesson-list")
+      view = "grid"
+    })
+    $(".list-icon").click(function () {
+      $(".lesson-infor").find("p").css("height", "36px").css("display", "block")
+      $(".zhongji").css("display", "block")
+      $(".learn-number").css("display", "block")
+      $("#changeid").removeClass("lesson-list")
+      $("#changeid").addClass("lesson-list2")
+      view = "list"
+    })
+})
+  </script>
+</body>
+
+</html>

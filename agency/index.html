@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport"
+    content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+#include("/inc/head.html",title="机构")
+  <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen"/>
+  <!--[if lt IE 9]>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/libs/html5shiv.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-shim.js?version=8.3.17"></script>
+  <script src="//sca1dk-sb-qn.qiqiuyun.net/static-dist/es5-shim/es5-sham.js?version=8.3.17"></script>
+  <![endif]-->
+<link href="/css/bootstrap.css?version=8.3.17" rel="stylesheet" />
+<link href="/css/main.css?version=8.3.17" rel="stylesheet" />
+<link href="/css/main-v2.css?version=8.3.17" rel="stylesheet" />
+
+  </head>
+<body class="es-main-default es-nav-white classroom-list-page bg-blank">
+	#include("/inc/header.html",nav="agency")
+  <div class="es-wrap">
+  <div class="layui-row">
+    <div class="layui-col-xs6 layui-col-md12" style="background-image: url('img/bg1.jpg');
+    background-size:100% 100%;text-align:center;
+    height: 280px;">
+      <button style="margin-top: 120px;" onclick="alert('暂未开放线上机构,请联系:010-82865508');" class="layui-btn layui-btn-lg layui-btn-normal layui-btn-radius">申请机构</button>
+    </div>
+  </div>
+      <div id="content-container" class="container">
+                  
+  
+    
+<div class="tabs-wrapper" style="border:0px;">
+  <div class="class-list row">
+  			<!-- #for(a : obj) -->
+	     	<div class="col-md-4 col-sm-6">
+	          <div class="class-item">
+	            <div class="class-img">
+	              <a href="javascript:alert('该机构为心教育官方站!');" target="_blank">
+	                <img style="height: 241px;" src="#(www)#(a.img)" alt="#(a.name)" class="img-responsive" />
+	                <h3>#(a.name)</h3>
+	                <div class="image-overlay"></div>
+	              </a>
+	            </div>
+	            <div class="class-serve">
+	              <ul class="list-unstyled clearfix">
+			      	<li style="width:auto;" class="active"><a>#(a.name)</a></li></ul>
+			      </div>
+	          </div>
+	        </div>
+      		<!-- #end -->
+      </div>
+      </div>
+
+          
+                                                                                                          
+      </div>
+#include("/inc/footer.html",goto=false)
+</body>
+</html>

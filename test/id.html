@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+#include("/inc/head.html",title="测试")
+<link href="/css/test/main.css" rel="stylesheet" type="text/css" />
+<link href="/assets/font/css/font.min.css" rel="stylesheet" type="text/css" />
+<link href="/css/test/test.css" rel="stylesheet" type="text/css" />
+
+<style>
+.hasBeenAnswer {
+	background: #5d9cec;
+	color:#fff;
+}
+
+</style>
+</head>
+
+<body>
+ #include("/inc/header.html")
+	<div class="main">
+		<!--nr start-->
+		<div class="test_main">
+			<div class="nr_left">
+				<div class="test">
+					<form action="save" id="form1" method="post">
+						<input type="hidden" name="tid" value="#(obj.id)">
+						<input type="hidden" name="title" value="#(obj.title)">
+						<input type="hidden" name="start_time" value="#date(now(),'yyyy-MM-dd HH:mm:ss')">
+						<div class="test_title ">
+							<p class="test_time">
+								<i class="icon iconfont">&#xe6fb;</i><b class="alt-1">00:#(obj.items.size()<10?'0'+obj.items.size():obj.items.size())</b>
+							</p>
+							<font><input type="button" id="sub" value="交卷"></font>
+						</div>
+						
+							<div class="test_content">
+								<div class="test_content_title">
+									<h2>#(obj.title)</h2>
+									<p>
+										<span>共</span><i class="content_lit">#(obj.items.size())</i><span>题，</span><span>合计</span><i class="content_fs">#(obj.score)</i><span>分</span>
+									</p>
+								</div>
+							</div>
+							<div class="test_content_nr">
+								<ul>
+									<!-- #for(ti:obj.items) -->
+										
+										<li id="qu_0_#(for.index)">
+											<div class="test_content_nr_tt">
+												<i>#(for.count)</i><span>(#(ti.score)分)</span><font>#(ti.title)</font><b style="width: 40px;" class="icon iconfont">#(ti.type)</b>
+											</div>
+											<div class="test_content_nr_main">
+												<ul>
+													<!-- #for(d:ti.item) -->
+														<li class="option">
+															<input data-index="#(for.outer.count)" type="#(ti.type=='单选'||ti.type=='判断'?'radio':'checkbox')" class="radioOrCheck" name="items[#(for.outer.count)]"
+																	id="0_answer_#(for.outer.count)_option_#(for.count)" value="#(for.count)">
+															<label for="0_answer_#(for.outer.count)_option_#(for.count)">
+																#(for.count).
+																<p class="ue" style="display: inline;">#(d)</p>
+															</label>
+														</li>
+													<!-- #end -->
+												</ul>
+											</div>
+										</li>
+									<!-- #end -->
+								</ul>
+							</div>
+						
+					</form>
+				</div>
+
+			</div>
+			<div class="nr_right">
+				<div class="nr_rt_main">
+					<div class="rt_nr1">
+						<div class="rt_nr1_title">
+							<h1>
+								<i class="icon iconfont">&#xe692;</i>答题卡
+							</h1>
+							<p class="test_time">
+								<i class="icon iconfont">&#xe6fb;</i><b class="alt-1">00:#(obj.items.size()<10?'0'+obj.items.size():obj.items.size())</b>
+							</p>
+						</div>
+						
+							<div class="rt_content">
+								<div class="rt_content_tt">
+									<h2>#(obj.type)题</h2>
+									<p>
+										<span>共</span><i class="content_lit">#(obj.items.size()??0)</i><span>题</span>
+									</p>
+								</div>
+								<div class="rt_content_nr answerSheet">
+									<ul>
+										<!-- #for(it:obj.items) -->
+											<li><a href="#qu_0_#(for.index)">#(for.count)</a></li>
+										<!-- #end -->
+									</ul>
+								</div>
+							</div>
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--nr end-->
+		<div class="foot"></div>
+	</div>
+
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/jquery.easy-pie-chart.js"></script>
+	<!--时间js-->
+	<script src="/js/jquery.countdown.js"></script>
+	
+	<script>
+		window.jQuery(function($) {
+			"use strict";
+			
+			$('.alt-1').countDown({
+				css_class : 'countdown-alt-1'
+			});
+			
+			$("#sub").click(function(){
+				var istrue=true;
+				var msg="你尚未答第"
+				//#for(ti:obj.items) 
+				var is#(for.count)=false;
+				$("li.option input[name='items[#(for.count)]']").each(function(){
+					
+					if($(this).is(':checked')){
+						is#(for.count)=true;
+					}
+					
+				})
+				if(!is#(for.count)&&istrue){
+					istrue=false;
+					msg="你尚未答第#(for.count)道题!"
+				}
+				//#end
+				if(istrue){
+					$("#form1").submit();
+				}else{
+					alert(msg+",请认真检查!")
+				}
+			})
+		});
+		
+		var count=#(obj.items.size()??0);
+		var num=0;
+		$(function() {
+			$('li.option label').click(function() {
+			debugger;
+				var examId = $(this).closest('.test_content_nr_main').closest('li').attr('id'); // 得到题目ID
+				var cardLi = $('a[href=#' + examId + ']'); // 根据题目ID找到对应答题卡
+				// 设置已答题
+				if(!cardLi.hasClass('hasBeenAnswer')){
+					cardLi.addClass('hasBeenAnswer');
+				}
+				
+			});
+		});
+	</script>
+
+</body>
+
+</html>

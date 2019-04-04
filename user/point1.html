@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="我的积分")
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/main-v2.css" rel="stylesheet">
+    <link href="/css/header-white.css" rel="stylesheet">
+    <link href="/css/user.css" rel="stylesheet">
+    <style>
+        .cd-alert {
+            height: 100px;
+            background: transparent;
+            background: url(/images/score-info-bg.png) no-repeat;
+            background-size: 100%;
+        }
+
+        /* 每日任务 */
+
+        .score-subtit {
+            height: 18px;
+            padding-left: 5px;
+            border-left: 2px solid #5aa700;
+            margin: 30px 0 15px;
+            line-height: 18px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .score-task-list {
+            /* margin-left: -30px; */
+            margin-bottom: -20px;
+        }
+
+        .score-task-list li {
+            position: relative;
+            float: left;
+            width: 289px;
+            height: 98px;
+            margin-left: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #e9e9e9;
+        }
+
+        .icon-score-task {
+            float: left;
+            width: 50px;
+            height: 50px;
+            background: url(/images/icon-score-task.png) no-repeat;
+            margin: 24px 11px 0 19px;
+        }
+
+        .ist-sign {
+            background-position: 0 0;
+        }
+
+        .score-task-name {
+            position: relative;
+            display: inline-block;
+            margin-top: 24px;
+            line-height: 26px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .score-task-tips {
+            position: absolute;
+            top: -10px;
+            left: 100%;
+            z-index: 2;
+            height: 16px;
+            padding: 0 6px;
+            margin-left: 4px;
+            background-color: #fc9b2d;
+            border-radius: 8px;
+            font-size: 0;
+            white-space: nowrap;
+        }
+
+        .tipsbg-left {
+            position: absolute;
+            top: 0;
+            left: -2px;
+            width: 9px;
+            height: 16px;
+            background: url(/images/icon-score-20171220.png) no-repeat -51px 0;
+        }
+
+        .score-task-tips em {
+            display: block;
+            height: 16px;
+            line-height: 15px;
+            font-size: 12px;
+            color: #fff;
+            vertical-align: top;
+        }
+
+        .score-done-stamp {
+            position: absolute;
+            right: 9px;
+            bottom: 17px;
+            width: 64px;
+            height: 64px;
+            background: url(/images/task-completed.png) no-repeat;
+        }
+
+        .score-task-done {
+            line-height: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .score-task-btn-wrapper {
+            position: absolute;
+            top: 33px;
+            right: 9px;
+        }
+
+        .score-task-btn {
+            display: block;
+            width: 64px;
+            height: 28px;
+            background: #fff;
+            border: 2px solid #ff6000;
+            border-radius: 32px;
+            font-size: 16px;
+            line-height: 28px;
+            text-align: center;
+            color: #ff6000;
+        }
+        /* 积分换研值按钮*/
+
+        .convert{
+            margin-left:10px;
+        }
+
+        /* 兑换研值弹出层 */
+    </style>
+</head>
+
+<body class="es-main-default es-nav-white cd-design">
+    #include("/inc/header.html")
+    <div class="es-wrap">
+        <div class="container cd-container">
+            <div class="cd-content">
+                <div class="cd-sidebar">
+                    <ul class="cd-sidebar__list">
+                        <li class="cd-sidebar__heading"> 账户中心 </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="play">播放记录</a>
+                        </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="/my/">我的课程</a>
+                        </li>
+                        <li class="cd-sidebar__item " style="display:none">
+                            <a href="proCenter">Pro会员中心</a>
+                        </li>
+                        <li class="cd-sidebar__item " style="display:none">
+                            <a href="collect">我的收藏</a>
+                        </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="orders">我的订单</a>
+                        </li>
+                        <li class="cd-sidebar__item active">
+                            <a href="point">我的积分</a>
+                        </li>
+                        <li class="cd-sidebar__heading"> 个人设置 </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="/user/">个人信息</a>
+                        </li>
+                        <li class="cd-sidebar__item ">
+                            <a href="/msg/">系统消息</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cd-main">
+                    <div class="cd-main__heading">
+                        <div class="cd-main__title">
+                            我的积分
+                        </div>
+                    </div>
+                    <div class="cd-main__body">
+                        <ul class="cd-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a href="javascript:void(0);">我的积分</a>
+                            </li>
+                        </ul>
+                        <div class="score-info-banner j-score-wrap" data-total-score="585">
+                            <div class="alert cd-alert cd-alert-warning">
+                                <div class="rule">
+                                    <ul class="score-info-project-list">
+                                        <li>
+                                            <a href="javascript:void(0);" class="j-score-rule" rseat="801041_intro">
+                                                <i class="icon-score-rule"></i>积分规则</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="score-info-current">
+                                    <h3 class="score-info-current-txt" style="color:#eee;">
+                                        <em style="font-size:18px">累计积分</em>
+                                        <span class="curScoreNum J-personal-score" style="font-size:36px;margin-right:15px;">465</span>
+                                        <i class="icon-myscore"></i>
+                                        <em style="font-size:18px">可兑换研值</em>
+                                        <span style="font-size:36px">4.65</span>
+                                    </h3>
+                                    <p class="score-deadline" style="line-height:24px">465积分将在2019-12-31清空</p>
+                                </div>
+                                <!-- <div class="duihuan"> -->
+                                    <button class="layui-btn layui-btn-radius convert">兑换研值</button> 
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <!-- 每日任务 -->
+                        <div class="score-task-wrapper j-task-wrap" data-usertotal-score="585">
+                            <h2 class="score-subtit">
+                                <i></i>每日任务</h2>
+                            <ul class="score-task-list clearfix">
+                                <li class="score-task-sign-box">
+                                    <i class="icon-score-task ist-sign"></i>
+                                    <div class="fl">
+                                        <h3 class="score-task-name">签到
+                                            <span class="score-task-tips">
+                                                <i class="tipsbg-left"></i>
+                                                <em>+5分</em>
+                                                <i class="tipsbg-right"></i>
+                                            </span>
+                                        </h3>
+                                        <p class="score-task-done">完成
+                                            <span class="score-task-done-num j-sign-count">0</span>/1</p>
+                                    </div>
+                                    <div class="score-task-btn-wrapper j-task-notSign">
+                                        <a href="javascript:void(0);" class="score-task-btn j-task-sign none" data-task-signcore="5" rseat="801041_signup2">签到</a>
+                                    </div>
+                                    <i class="score-done-stamp j-sign-done"></i>
+                                    <!-- 我的积分toast -->
+                                    <div class="toast-myscore j-sign-failure" style="display: none;">签到失败，请重试！</div>
+                                </li>
+                                <li class="score-task-sign-box">
+                                    <i class="icon-score-task ist-sign"></i>
+                                    <div class="fl">
+                                        <h3 class="score-task-name">签到
+                                            <span class="score-task-tips">
+                                                <i class="tipsbg-left"></i>
+                                                <em>+5分</em>
+                                                <i class="tipsbg-right"></i>
+                                            </span>
+                                        </h3>
+                                        <p class="score-task-done">完成
+                                            <span class="score-task-done-num j-sign-count">0</span>/1</p>
+                                    </div>
+                                    <div class="score-task-btn-wrapper j-task-notSign">
+                                        <a href="javascript:void(0);" class="score-task-btn j-task-sign" data-task-signcore="5" rseat="801041_signup2">签到</a>
+                                    </div>
+                                    <i class="score-done-stamp j-sign-done" style="display:none;"></i>
+                                    <!-- 我的积分toast -->
+                                    <div class="toast-myscore j-sign-failure" style="display: none;">签到失败，请重试！</div>
+                                </li>
+                                <li class="score-task-watch-box">
+                                    <i class="icon-score-task ist-watch"></i>
+                                    <div class="fl">
+                                        <h3 class="score-task-name">每观看视频30分钟
+                                            <span class="score-task-tips">
+                                                <i class="tipsbg-left"></i>
+                                                <em>+10分</em>
+                                                <i class="tipsbg-right"></i>
+                                            </span>
+                                        </h3>
+                                        <p class="score-task-done">完成
+                                            <span class="score-task-done-num">0</span>/3</p>
+                                    </div>
+                                    <div class="score-task-btn-wrapper">
+                                        <a href="//www.iqiyi.com/u/record" class="score-task-btn" rseat="803141_record">去观看</a>
+                                    </div>
+                                </li>
+                                <li class="score-task-visitpp-box">
+                                    <i class="icon-score-task ist-visitpp"></i>
+                                    <div class="fl">
+                                        <h3 class="score-task-name">访问泡泡首页
+                                            <span class="score-task-tips">
+                                                <i class="tipsbg-left"></i>
+                                                <em>+10分</em>
+                                                <i class="tipsbg-right"></i>
+                                            </span>
+                                        </h3>
+                                        <p class="score-task-done">完成
+                                            <span class="score-task-done-num j-paopao-count" data-paopao-count="count">
+                                                0
+                                            </span>/1</p>
+                                    </div>
+                                    <div class="score-task-btn-wrapper j-task-notComplete">
+                                        <a href="//www.iqiyi.com/paopao" class="score-task-btn j-task-paopao" data-task-paoscore="10" data-pao-rewardcount="0" target="_blank"
+                                            rseat="801041_go">
+                                            去逛逛
+                                        </a>
+                                    </div>
+                                    <i class="score-done-stamp j-task-complete" style="display:none;"></i>
+                                    <!-- 我的积分toast -->
+                                    <div class="toast-myscore j-paopao-failure" style="display: none;">领取失败，请重试！</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--积分明细-->
+                        <div class="detail">
+                            <p class="detail-title">我的积分明细</p>
+                            <table>
+                                <tr>
+                                    <th class="type">项目分类</th>
+                                    <th class="project">项目</th>
+                                    <th class="score-change-time">时间</th>
+                                    <th class="score-value">研值变化</th>
+                                </tr>
+                                <tr>
+                                    <td class="type">购买</td>
+                                    <td class="project">【中级】社工</td>
+                                    <td class="score-change-time">时间</td>
+                                    <td class="score-value">+10</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">购买</td>
+                                    <td class="project">某个课程</td>
+                                    <td class="score-change-time">时间</td>
+                                    <td class="score-value">+10</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">购买</td>
+                                    <td class="project">VIP开卡</td>
+                                    <td class="score-change-time">时间</td>
+                                    <td class="score-value">+10</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">充值</td>
+                                    <td class="project">研值充值</td>
+                                    <td class="score-change-time">时间</td>
+                                    <td class="score-value">+5</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">购买</td>
+                                    <td class="project">通过肢体语言解读内心</td>
+                                    <td class="score-change-time">时间</td>
+                                    <td class="score-value">+10</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">任务</td>
+                                    <td class="project">累计观看100小时</td>
+                                    <td class="score-change-time">时间</td>
+                                    <td class="score-value">+10</td>
+                                </tr>
+                                <tr>
+                                    <td class="type">任务</td>
+                                    <td class="project">累计观看500小时</td>
+                                    <td class="score-change-time">时间</td>
+                                    <td class="score-value">+20</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <!-- 积分明细结束 -->
+                    </div>
+                </div>
+                <!-- 遮罩 -->
+                <div class="mask"></div>
+                <!-- 积分规则弹出层 -->
+                <div class="popup">
+                    <div class="popup-score-wrapper j-rule-popup" style="display: block;">
+                        <h3 class="popup-score-tit">
+                            <a href="javascript:void(0);" class="popup-score-close j-rule-close"></a>积分规则</h3>
+                        <div class="popup-score-con">
+                            <div class="popup-score-rule">
+                                <dl>
+                                    <dt>Q:积分可以用来做什么？</dt>
+                                    <dd>A:积分可以在积分商城中兑换商品，如：爱奇艺VIP体验券</dd>
+                                </dl>
+                                <dl>
+                                    <dt>Q:如何获得积分？</dt>
+                                    <dd>A:通过做任务可以赚取积分。每日24点刷新，任务含：签到，观看视频30分钟，访问爱奇艺泡泡首页。</dd>
+                                </dl>
+                                <dl>
+                                    <dt>Q:积分是否做完任务自动发放？</dt>
+                                    <dd>A:不是。用户需要在个人中心我的积分中手动领取，未领取的积分将在每日24点失效。</dd>
+                                </dl>
+                                <dl>
+                                    <dt>Q:会有用作弊的方式来获得积分吗？</dt>
+                                    <dd>A:对以不正当手段（包括但不限于作弊，网络攻击，扰乱系统等）参与积分任务的用户，爱奇艺有权禁止其参与积分任务，并取消其所获积分。</dd>
+                                </dl>
+                                <dl>
+                                    <dt>任务规则：</dt>
+                                    <dd>签到任务：</dd>
+                                    <dd>1.每日可完成一次。</dd>
+                                    <dd>2.连续签到天数越多，可获得的积分值越高。</dd>
+                                </dl>
+                                <dl>
+                                    <dt>观看视频30分钟：</dt>
+                                    <dd>1.每日可完成三次。</dd>
+                                    <dd>2.观看任意视频累计30分钟即算任务完成一次。</dd>
+                                </dl>
+                                <dl>
+                                    <dt>访问爱奇艺泡泡首页：</dt>
+                                    <dd>1.每日可完成一次。</dd>
+                                    <dd>2.打开爱奇艺泡泡页面并且加载完毕，即算任务完成。</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 研值兑换弹出层 -->
+                <div class="convertpop none">
+                    <h3 class="popup-score-tit">
+                        <a href="javascript:void(0);" class="popup-score-close j-rule-close"></a>兑换研值
+                    </h3>
+                    <div class="im-dialog-bd">
+                        <div class="exchange-dialog-wrap exchange-dialog-wrap1">
+                            <i class="dialog-left icon-readpackage"></i>
+                            <div class="dialog-right">
+                                <h4>可兑换研值
+                                    <span class="canuse"> 4.65</span>
+                                </h4>
+                                <p>将存入我的研值，全平台付费课程可用</p>
+                                <p>100积分＝1.00研值</p>
+                                <button data-method="offset" data-type="auto" class="layui-btn layui-btn-normal">确认兑换</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    #include("/inc/footer.html",goto=false)
+    <script>
+        $(function () {
+            // 点击积分规则弹出层
+            $(".rule li").click(function () {
+                $(".mask").css("display", "block");
+                $(".popup").css("display", "block");
+            })
+            $(".popup .popup-score-close").click(function () {
+                $(".mask").css("display", "none");
+                $(".popup").css("display", "none");
+            })
+            // 点击研值兑换积分弹出层
+            $(".convert").click(function () {
+                $(".mask").css("display", "block");
+                $(".convertpop").removeClass("none");
+            })
+            $(".convertpop .popup-score-close").click(function () {
+                $(".mask").css("display", "none");
+                $(".convertpop").addClass("none");
+            })
+
+        })
+        layui.use('layer', function () { //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+            $(".convertpop .layui-btn").click(function () {
+                $(".convertpop .popup-score-close").trigger("click");
+                layer.msg('兑换研值成功喽', {
+                    icon:1,
+                    time: 2000, //2s后自动关闭
+                    btn: ['去我的研值看看', '知道啦', ],
+                   btn1:function(){
+                       location.href="balance"
+                   }
+                });
+            })
+        })
+    </script>
+    </script>
+</body>
+
+</html>

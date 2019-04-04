@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="班级-学习中心")
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white "> 
+  #include("/inc/header.html",tab="my")
+  <div class="es-wrap"> 
+   <div id="content-container" class="container"> 
+    
+    <div class="row row-3-9 my-layout"> 
+     <div class="col-md-3"> 
+      <div class="sidenav"> 
+       <ul class="list-group"> 
+        <li class="list-group-heading">我的学习</li> 
+        <li class="list-group-item "> <a href="/my/">我的课程</a> </li> 
+        <li class="list-group-item  active "> <a href="/my/classrooms"> 我的班级 </a> </li> 
+        <li class="list-group-item
+          "> <a href="/my/live">我的直播</a> </li> 
+        <li class="list-group-item
+        "> <a href="/my/questions">我的问答</a> </li> 
+        <li class="list-group-item
+        "> <a href="/my/ht">我的话题</a> </li> 
+        <li class="list-group-item
+        "> <a href="/my/notebooks">我的笔记</a> </li> 
+        <li class="list-group-item "> <a href="/my/work">我的作业</a> </li> 
+        <li class="list-group-item "> <a href="/my/exam">我的考试</a> </li> 
+        <li class="list-group-item
+        "> <a href="/my/group">我的小组</a> </li> 
+       </ul> 
+      </div> 
+     </div> 
+     <div class="col-md-9">
+      <style>
+.classroom-footer{
+
+  margin-top: 50px;
+}
+</style> 
+      <div class="panel panel-default panel-col lesson-manage-panel"> 
+       <div class="panel-heading">
+         我的班级 
+       </div> 
+       <div class="panel-body"> 
+        <ul class="course-wide-list"> 
+         <li class="course-item clearfix" style="display: none;"> <a class="course-picture-link" href="/classroom/1" target="_blank"> <img class="course-picture" src="/img/wutu.png" alt="ES学习圈"> </a> 
+          <div class="course-body"> 
+           <h4 class="mbl"> <a href="/classroom/1" target="_blank">班级1</a> </h4> 
+           <div class="pull-right"> 
+            <span class="color-gray">已学了0天</span>
+            <br> 
+            <a href="/classroom/1" class="btn btn-info btn-sm mts">继续学习</a> 
+           </div> 
+           <div class="classroom-footer clearfix"> 
+            <div class="col-md-7"> 
+             <div class="progress"> 
+              <div class="progress-bar" style="width: 0%"> 
+              </div> 
+             </div> 
+            </div> 
+           </div> 
+          </div> </li> 
+        </ul> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  #include("/inc/footer.html",goto=false)
+ </body>
+</html>

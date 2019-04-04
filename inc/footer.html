@@ -1,0 +1,68 @@
+﻿<div id="footer"> 
+    <div class="footer-content"> 
+     <div class="contact-way"> 
+      <div class="other-way"> 
+       <a class="weixin-icon"></a> 
+       <!--<a href="" class="tencen-icon"></a>--> 
+       <a href="https://weibo.com/xjypt" target="_blank" class="sina-icon"></a> 
+      </div> 
+     </div> 
+     <nav> 
+      <a href="/help/关于我们" target="_blank">关于我们</a>
+      <i>|</i> 
+      <a href="/help/加入我们" target="_blank">加入我们</a>
+      <i>|</i> 
+      <a href="/help/联系我们" target="_blank">联系我们</a>
+      <i>|</i> 
+      <a href="/corp/b" target="_blank">企业合作</a>
+      <i>|</i> 
+      <a href="/teacher/apply" target="_blank">讲师合作</a>
+      <i>|</i> 
+      <a href="/help/帮助中心" target="_blank">帮助中心</a>
+      <i>|</i> 
+      <a href="http://life.iepsy.com" target="_blank">婚姻家庭</a>
+      <i>|</i> 
+      <a href="#(root)friendlink.html" target="_blank">友情链接</a> 
+     </nav> 
+     <div class="copyright">
+      Copyright © 2013-2019 iepsy.com All Rights Reserved. 京ICP备14057133号
+     </div> 
+    </div> 
+    <!-- #if(goto!=false) -->
+    <div class="gotop" id="gototop"> 
+     <span class="tel-icon"> 
+      <div class="tel-number"></div> </span> 
+     <!-- <a class="service" href="javascript:void(0);" onclick="meiqia()"></a> --> 
+     <span class="wx"> 
+      <div class="appewm"></div> </span> 
+     <a href="#site_head_simple"><span class="top"><i></i></span></a>
+    </div> 
+    <!-- #end -->
+   </div> 
+<script src="/assets/layui/layui.js"></script>
+<script src="/assets/jquery/jquery.min.js"></script>
+<script src="/assets/vue/vue.js"></script>
+<script>
+layui.use(['layer'],function(){
+	var $=layui.$,layer=layui.layer;
+	$(".weixin-icon").click(function(){
+		layer.open({
+		    type: 2,
+		    title:false,
+		    shade: false,
+		    maxmin: false, //开启最大化最小化按钮
+		    area: ['125px', '120px'],
+		    content: '/images/qrcode.png'
+		  });
+	})
+        //显示隐藏  
+	$("#userlogindiv").hover(function(){
+		$("#mod_head_notice_pop").show();
+	},function(){
+	});
+	$("#mod_head_notice_pop").hover(function(){
+	},function(){
+		$("#mod_head_notice_pop").hide();
+	});
+})
+</script>

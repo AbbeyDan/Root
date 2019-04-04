@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+  <meta http-equiv="Content-Language" content="zh-cn"> 
+  <meta content="always" name="referrer"> 
+  <meta name="keywords" content="心教育学院 Wiki 作者帮助中心,产品 &amp; 设计教程"> 
+  <meta name="description" content="本文旨在帮助作者快速上手，创作 Wiki 内容。"> 
+  <title>心教育学院 Wiki 作者帮助中心-心教育学院Wiki</title> 
+  <link rel="stylesheet" type="text/css" href="css/register_61d29025d3af4f7290808e0c3211cc21.css"> 
+  <link rel="shortcut icon" href="css/favicon_4a598ccfc59b49d3be1d392b9b35c10c.ico" type="image/x-icon"> 
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min_eb35ee07d89f4153b9587def40f9838d.css"> 
+  <link rel="stylesheet" type="text/css" href="css/detail_038a207b9ce4497db46a4e10552f74e8.css"> 
+  <link rel="stylesheet" type="text/css" href="css/markdownbody_b1f78f57ae36441eb612a0521e6a2548.css"> 
+  <style type="text/css">
+		#footer{
+			display: none;
+		}
+	</style> 
+ </head> 
+ <body> 
+  <script type="text/javascript" src="js/growingio.js"></script> 
+  <script type="text/javascript" src="js/mask.js"></script> 
+  <script type="text/javascript" src="js/jquery.min.js"></script> 
+  <script type="text/javascript" src="js/header.min_76eb34525ecd48a2bf670c55db88df45.js"></script> 
+  <script type="text/javascript" src="js/web_socket.js"></script> 
+  <script type="text/javascript" src="js/websocket.js"></script> 
+  <div id="header_top_notice"></div> 
+  <div id="jk-header"> 
+   <div class="header"> 
+    <h1> <a href="//www.jikexueyuan.com" class="logo"> <img src="images/logo.png" width="100" alt="心教育学院"> </a> </h1> 
+    <nav style="width:490px;"> 
+     <ul> 
+      <li> <a href="//www.jikexueyuan.com" class="home">首页</a> </li> 
+      <li class="careerpath"> <a href="//www.jikexueyuan.com/zhiye/">职业</a><i class="slide-icon"></i> 
+       <div class="zhiye-submenu slide-submeu"> 
+        <strong>前端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/web"><i class="web-icon"></i>Web前端工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/wechatapp"><i class="wx-icon"></i>微信小程序</a> 
+        <strong>移动端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/android"><i class="android-icon"></i>Android工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/ios"><i class="ios-icon"></i>iOS工程师</a> 
+        <strong>后端</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/python"><i class="python-icon"></i>Python工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/php"><i class="php-icon"></i>PHP工程师</a> 
+        <a href="//www.jikexueyuan.com/zhiye/go"><i class="golang-icon"></i>Golang工程师</a> 
+        <strong>大数据</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/bigdata"><i class="data-icon"></i>大数据平台研发工程师</a> 
+        <strong>人工智能</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/ml"><i class="mlearning-icon"></i>机器学习工程师</a> 
+        <strong>区块链</strong> 
+        <a href="//www.jikexueyuan.com/zhiye/blockchain"><i class="yw-icon"></i>区块链工程师</a> 
+        <!--<a href="#"><i class="yw-icon"></i>运维工程师</a>
+								<a href="#"><i class="xmjl-icon"></i>项目经理</a>--> 
+       </div> </li> 
+      <li> <a href="//www.jikexueyuan.com/course/">课程</a><i class="slide-icon"></i> 
+       <div class="slide-submeu"> 
+        <a href="//www.jikexueyuan.com/course/">课程库</a> 
+        <a href="//ke.jikexueyuan.com/zhiye/">职业路径</a> 
+        <a href="//www.jikexueyuan.com/path/">知识体系图</a> 
+        <a href="//ke.jikexueyuan.com/xilie/">系列课程</a> 
+       </div> </li> 
+      <li> <a href="//www.jikexueyuan.com/partner">企业</a><i class="slide-icon"></i> 
+       <div class="slide-submeu qy-box"> 
+        <a href="//zt.jikexueyuan.com/microsoftai"><i class="wr-icon"></i>微软人工智能 </a> 
+        <a href="//zt.jikexueyuan.com/baiduai"><i class="baidu-icon"></i>百度AI图像技术课</a> 
+        <a href="//zt.jikexueyuan.com/aws"><i class="aws-icon"></i>AWS云计算</a> 
+        <a href="//zt.jikexueyuan.com/qcloud"><i class="txy-icon"></i>腾讯云课程专区</a> 
+        <a href="//zt.jikexueyuan.com/qualcomm"><i class="gt-icon"></i>Qualcomm公开课 </a> 
+        <a href="//zt.jikexueyuan.com/b" class="youke-nav"><i class="youke-icon bounce"></i>企业合作新模式</a> 
+       </div> </li> 
+      <li> <a href="//wiki.jikexueyuan.com/">社区</a><i class="slide-icon"></i> 
+       <div class="slide-submeu"> 
+        <a href="//wiki.jikexueyuan.com/">Wiki</a> 
+        <a href="//wenda.jikexueyuan.com/">技术问答</a> 
+        <!--<a href="//qun.jikexueyuan.com/">社群</a>
+						<a href="//download.jikexueyuan.com/">资料下载</a>--> 
+       </div> </li> 
+     </ul> 
+    </nav> 
+    <div class="search"> 
+     <input class="searchinput" id="searchinput" placeholder="搜索课程、问答或Wiki"> 
+     <span class="search-icon" id="search-bottom"></span> 
+     <div class="search-result"> 
+      <!-- <a href="javascript:;" class="search-hot">热门搜索 <span class="label label-green">职业课程</span></a>
+				<a href="javascript:;">hello world <span class="label label-blue">知识图谱</span></a>
+				<a href="javascript:;">hello world <span class="label label-purple">系列课程</span></a> --> 
+     </div> 
+    </div> 
+    <div class="nav-other" id="nav-other"> 
+     <div class="centerbox" style="display: none;"> 
+      <a href="//xue.jikexueyuan.com/" class="learn-center" title="学习中心"></a> 
+     </div> 
+     <div class="centerbox" style="display: none;"> 
+      <a href="//www.jikexueyuan.com/member/notifications/" class="message" id="message" title="消息中心"><i class="have" id="have" style="display: none;"></i></a> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  <ol class="breadcrumb"> 
+   <li class="head-catalog-list"> <a href="https://www.jikexueyuan.com/">首页</a> </li> 
+   <li class="head-catalog-list"> <a href="http://wiki.jikexueyuan.com">Wiki</a> </li> 
+   <li class="head-catalog-list"> <a href="http://wiki.jikexueyuan.com/list/tool">开发工具</a> </li> 
+   <li class="head-catalog-list"> <a href="http://wiki.jikexueyuan.com/list/product">产品 &amp; 设计</a> </li> 
+   <li class="head-catalog-list"> <a href="http://wiki.jikexueyuan.com/project/help" class="active">心教育学院 Wiki 作者帮助中心</a> </li> 
+  </ol> 
+  <div class="detail-wrapper w-1200  clearfix"> 
+   <div class="detail-left"> 
+    <!-- 目录 --> 
+    <ul class="detail-nav"> 
+     <li class="detail-navlist navlist-one navlist-active "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/">关于</a>
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/about.html">关于我们</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/setup-repo.html">第一步，Fork 示例仓库</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/operate-toc.html">第二步，修改仓库名</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/start-writing.html">第三步，撰写内容</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/webhook-config.html">第四步，配置 Webhook</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/inform-us.html">第五步，通知我们</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/put-online.html">发布上线</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/contact-us.html">我们的联系方式</a> 
+      </div> </li> 
+     <li class="detail-navlist navlist-one "> 
+      <div class="detail-navlist-title">
+       <a href="http://wiki.jikexueyuan.com/project/help/config-json.html">自定义config参数</a> 
+      </div> </li> 
+    </ul> 
+    <!-- ／目录 --> 
+    <!-- ad --> 
+    <ul> 
+    </ul> 
+    <!-- ／ad --> 
+   </div> 
+   <!-- 暂时隐藏 --> 
+   <aside class="detail-right" style="display: none"> 
+    <!-- /author --> 
+    <div class="mg-t10 ad" id="banner03-1"></div> 
+    <div class="mg-t10 ad" id="banner03-2"></div> 
+    <script type="text/javascript" src="js/os.js"></script> 
+    <script type="text/javascript">
+    BAIDU_CLB_fillSlotAsync('1176465', 'banner03-1');
+    BAIDU_CLB_fillSlotAsync('1176466', 'banner03-2');
+</script> 
+    <!-- download --> 
+    <h2 class="right-h2">离线下载</h2> 
+    <div class="right-download"> 
+     <a href=" /download/help/pdf/ " target="_blank" class="download-pdf blue-btn">PDF版</a> 
+     <a href=" /download/help/epub/ " target="_blank" class="download-epub blue-btn">ePub版</a> 
+    </div> 
+    <!-- /download --> 
+    <!-- resource --> 
+    <h2 class="right-h2">相关资源</h2> 
+    <ul class="right-resource"> 
+     <li class="resource-item"> <img src="images/iconblog_e8a67d36afcd4e02895bab6a791db1fb.png"><a href="//wiki.jikexueyuan.com/project/geek-weekly-newsletter" target="_blank"> 极客周刊</a> </li> 
+     <li class="resource-item"> <img src="images/iconblog_e8a67d36afcd4e02895bab6a791db1fb.png"><a href="//wiki.jikexueyuan.com/project/balsamiq-mockups-doc" target="_blank"> Balsamiq Mockups 3 中文教程</a> </li> 
+     <li class="resource-item"> <img src="images/iconvideo_9eff5df9ca5e48cd84d726677da6f2d1.png"><a href="//www.jikexueyuan.com/course/178.html" target="_blank"> JavaScript语法详解</a> </li> 
+     <li class="resource-item"> <img src="images/iconask_aa428f0708d64001b9bc26ce367db2ee.png"><a href="//wenda.jikexueyuan.com/question/26588" target="_blank"> 感觉像是为了避免万向节死锁才产生的误差</a> </li> 
+     <li class="resource-item"> <img src="images/icondown_136c5820075b4b0c80ce7b4ca7fc46dd.png"><a href="//download.jikexueyuan.com/detail/id/832" target="_blank"> CAShapeLayer+陀螺仪设计</a> </li> 
+     <li class="resource-item"> <img src="images/icongroup_cbca6f20d16942339b02188c6e8b3dfe.png"><a href="//qun.jikexueyuan.com/web/topic/114" target="_blank"> 程序员如何应对诸如“给我弄个网站吧”的请求？</a> </li> 
+    </ul> 
+    <!-- /resource --> 
+   </aside> 
+   <div class="detail-main"> 
+    <!-- download --> 
+    <div class="offline-download"> 
+     <table> 
+      <thead> 
+       <tr> 
+        <th colspan="2">离线下载</th> 
+       </tr> 
+      </thead> 
+      <tbody> 
+       <tr> 
+        <td><a href=" /download/help/pdf/ " target="_blank">PDF版</a></td> 
+        <td><a href=" /download/help/epub/ " target="_blank">ePub版</a></td> 
+       </tr> 
+      </tbody> 
+     </table> 
+    </div> 
+    <!-- /download --> 
+    <div class="markdown-body"> 
+     <!-- 欢迎成为心教育学院WIKI作者 --> 
+     <p class="author"><a href="http://wiki.jikexueyuan.com/project/help" class="right-top-img" data-name="成为作者" target="_blank">点击这里成为作者</a> · 更新于 2018-11-28 11:00:43</p> 
+     <!-- 内容 --> 
+     <h1>心教育学院 Wiki 作者帮助中心</h1> 
+     <p>本手册包涵了 Wiki 创作的整个过程，新手只需一步步按手册操作就能完成。</p> 
+     <blockquote> 
+      <p>同时，我们已经完美兼容 GitBook，只需花费几分钟时间通过简单地配置，就能搞定。如果你是 GitBook 用户，那么直接从 <a href="webhook-config.html">配置 Webhook</a> 章节开始。</p> 
+      <p>如果您不了解GitBook，那么你可以从<a href="setup-repo.html">第一步，Fork 示例仓库</a>开始，只需要一步步操作，10分钟就能上手。</p> 
+     </blockquote> 
+     <h2 id="610f98cf5bfae8b075102e77e7b35f7e">投入与产出</h2> 
+     <p><img src="images/cincot.png" alt=""></p> 
+     <h2 id="767fa455bb6826f4b550c21a6bca7182">目录</h2> 
+     <ul> 
+      <li><a href="about.html">关于我们</a></li> 
+      <li><a href="setup-repo.html">第一步，Fork 示例仓库</a></li> 
+      <li><a href="operate-toc.html">第二步，修改仓库名</a></li> 
+      <li><a href="start-writing.html">第三步，撰写内容</a></li> 
+      <li><a href="webhook-config.html">第四步，配置 Webhook</a></li> 
+      <li><a href="inform-us.html">第五步，通知我们</a></li> 
+      <li><a href="put-online.html">发布上线</a></li> 
+      <li><a href="contact-us.html">我们的联系方式</a></li> 
+      <li><a href="config-json.html">自定义config参数</a></li> 
+     </ul> 
+    </div> 
+    <div class="previous-and-next"> 
+     <span class="pull-right">下一篇: <a id="next_link" href="/project/help/about.html" data-toggle="tooltip" data-placement="top" title="下翻页快捷键：右方向键">关于我们</a></span> 
+    </div> 
+    <div class="detail-share clearfix"> 
+     <div class="bdsharebuttonbox share-item"> 
+      <a href="#" class="bds_more" data-cmd="more"></a> 
+      <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a> 
+      <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a> 
+      <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a> 
+      <a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记"></a> 
+     </div> 
+     <script>
+				window._bd_share_config = {
+					"common": {
+						"bdSnsKey": {},
+						"bdText": "",
+						"bdMini": "2",
+						"bdMiniList": false,
+						"bdPic": "",
+						"bdStyle": "0",
+						"bdSize": "16"
+					},
+					"share": {},
+					"image": {
+						"viewList": ["weixin", "tsina", "qzone", "youdao"],
+						"viewText": "分享到：",
+						"viewSize": "16"
+					}
+				};
+				with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+			</script> 
+    </div> 
+    <!--广告--> 
+    <!--/广告--> 
+    <!-- 评论 --> 
+    <div id="jkcomments"></div> 
+    <!-- 新 footer --> 
+    <div class="wiki-footer"> 
+     <ul> 
+      <li><a href="//help.jikexueyuan.com/" target="_blank">关于我们</a></li> 
+      <li><a href="//help.jikexueyuan.com/join.html" target="_blank">加入我们</a></li> 
+      <li><a href="//help.jikexueyuan.com/contact.html" target="_blank">联系我们</a></li> 
+      <li><a href="//j.jikexueyuan.com/evangelist/apply" target="_blank">讲师合作</a></li> 
+      <li><a href="//help.jikexueyuan.com/" target="_blank">帮助中心</a></li> 
+      <li><a href="//blog.jikexueyuan.com/" target="_blank">黑板报 </a></li>
+      <li><a href="//www.jikexueyuan.com/friendlink.html" target="_blank">友情链接</a></li> 
+      <li><a href="javascript:void(0)" onclick="meiqia()" target="_blank">意见反馈</a></li> 
+     </ul> 
+    </div> 
+   </div> 
+  </div> 
+  <script type="text/javascript" src="js/jquery.min_b3a81c33c11044f7b80004d67622f28e.js"></script> 
+  <script type="text/javascript" src="js/detail_9c0fc476f4fe420781b1c3fd43be8ee5.js"></script> 
+  <script type="text/javascript" src="js/bootstrap.min_cb2685ed31504a8898d31efdccab462b.js"></script> 
+  <script type="text/javascript" src="js/login_register.min_9e2423e1c038450588177630cafb9b58.js"></script> 
+  <script>
+		var JKcomments = {
+			perPage: 15,
+			model: "wiki", //模块名称（必填）
+			parent_id: "help",
+			item_id: "03d2cee169c0243213dbd11b85746692" //被评论信息ID（必填）
+		}
+	</script> 
+  <script type="text/javascript" src="js/jquery.qqFace_2373f1022cff45b7a57af1d88cc14d06.js"></script> 
+  <script type="text/javascript" src="js/comments.min_88e33c6e5ea54ef8ba9125ea14d9e212.js"></script> 
+  <script type="text/javascript">
+    $(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+    var _Sjkxy     = _Sjkxy || [];
+    _Sjkxy['params']    = {wikiP:'心教育学院 Wiki 作者帮助中心' , posId:117001, po:69001 , wPId : '405'};
+</script> 
+  <link rel="stylesheet" href="css/footer.css"> 
+  <div id="footer"> 
+   <div class="footer-content"> 
+    <div class="contact-way"> 
+     <div class="other-way"> 
+      <a href="//blog.jikexueyuan.com/28.html " target="_blank" class="weixin-icon"></a> 
+      <!--<a href="" class="tencen-icon"></a>--> 
+      <a href="//weibo.com/jikexueyuan" target="_blank" class="sina-icon"></a> 
+      <a href="//twitter.com/jikexueyuan" target="_blank" class="facebook-icon"></a> 
+      <a href="//plus.google.com/communities/117673330839635588089" target="_blank" class="google-icon"></a> 
+     </div> 
+    </div> 
+    <nav> 
+     <a href="//help.jikexueyuan.com/" target="_blank">关于我们</a>
+     <i>|</i> 
+     <a href="//help.jikexueyuan.com/join.html" target="_blank">加入我们</a>
+     <i>|</i> 
+     <a href="//help.jikexueyuan.com/contact.html" target="_blank">联系我们</a>
+     <i>|</i> 
+     <a href="//zt.jikexueyuan.com/b" target="_blank">企业合作</a>
+     <i>|</i> 
+     <a href="//j.jikexueyuan.com/evangelist/apply" target="_blank">讲师合作</a>
+     <i>|</i> 
+     <a href="//help.jikexueyuan.com/" target="_blank">帮助中心</a>
+     <i>|</i> 
+     <a href="//blog.jikexueyuan.com/" target="_blank">黑板报</a>
+     <i>|</i> 
+     <a href="//www.jikexueyuan.com/friendlink.html" target="_blank">友情链接</a> 
+    </nav> 
+    <div class="copyright">
+     Copyright © 2013-2018 jikexueyuan.com All Rights Reserved. 京ICP备11018032号 京公网安备11010802013056
+    </div> 
+   </div> 
+   <div class="gotop" id="gototop"> 
+    <span class="tel-icon"> 
+     <div class="tel-number"></div> </span> 
+    <!-- <a class="service" href="javascript:void(0);" onclick="meiqia()"></a> --> 
+    <span class="wx"> 
+     <div class="appewm"></div> </span> 
+    <span class="top"><i></i></span> 
+   </div> 
+  </div> 
+  <script type="text/javascript" src="js/login_register.min.js"></script> 
+  <script>
+function gotop(){var html=$("#gototop");if($(window).scrollTop()<=0){$("#gototop>.top>i").hide()}$("#gototop>.top").bind("click",function(){if($(window).scrollTop()<=0){return false}$("body,html").animate({scrollTop:0},200);return false});$(window).scroll(function(){if($(window).scrollTop()>0){$("#gototop>.top>i").fadeIn()}else{$("#gototop>.top>i").fadeOut()}})}$(function(){gotop()});
+		</script> 
+  <script type="text/javascript" src="js/meiqia.js"></script> 
+  <script type="text/javascript" src="js/growingio_536496b2ab67415798e6815b98b3bfb4.js"></script> 
+  <!-- 增加latex 数学公式--> 
+  <script type="text/javascript" src="js/MathJax.js"></script> 
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>   
+ </body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-hans">
+ <head> 
+  #include("/inc/head.html",title="帮助中心")
+  <link rel="stylesheet" href="/css/style.css"> 
+  <link rel="stylesheet" href="/css/search.css"> 
+  <link rel="stylesheet" href="/css/website.css"> 
+  <meta name="HandheldFriendly" content="true"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+  <meta name="apple-mobile-web-app-capable" content="yes"> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"> 
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"> 
+  <link rel="stylesheet" href="/css/page_custom.min.css"> 
+ </head> 
+ <body> 
+  <div class="gb-page-wrapper"> 
+   <header class="gb-page-header"> 
+    <div class="container"> 
+     <!-- search_input --> 
+     <div id="book-search-input" role="search"> 
+      <input type="text" placeholder="输入并搜索"> 
+     </div> 
+     <!-- search_input --> 
+     <a href="/" class="logo" style="font-size: 26px;"> <img style="height: 40px;" src="/img/logo.png">心教育</a> 
+     <a href="." class="logo"> <h1>帮助中心</h1> </a> 
+    </div> 
+   </header> 
+   <div class="gb-page-body"> 
+    <div class="gb-page-inner"> 
+     <div class="container"> 
+      <div class="row"> 
+       <div class="col-md-3"> 
+        <div class="panel panel-default"> 
+         <div class="list-group"> 
+         <!-- #for(h : list) -->
+          <a href="/help/#(h.name)" class="list-group-item #(obj.name==h.name?'active':'')"> #(h.name) </a> 
+          <!-- #end -->
+         </div> 
+        </div> 
+       </div> 
+       <div class="col-md-9"> 
+        <!-- search_result --> 
+        <div id="book-search-results"> 
+         <div class="search-noresults"> 
+          <!-- page --> 
+          <div class="gb-markdown book-page-inner page-inner"> 
+           <h1 >#(obj.name)</h1>
+           <link rel="stylesheet" href="/css/page_about.css"> 
+           <div id="aboutus"> 
+           		#(obj.html)
+           </div> 
+          </div> 
+          <!-- page --> 
+         </div> 
+         <div class="search-results"> 
+          <div class="has-results"> 
+           <h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1> 
+           <ul class="search-results-list"></ul> 
+          </div> 
+          <div class="no-results"> 
+           <h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1> 
+          </div> 
+         </div> 
+        </div> 
+        <!-- search_result --> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   
+  </div> 
+  #include("/inc/footer.html")
+ </body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh_CN" class="">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"> 
+  <meta name="renderer" content="webkit"> 
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+  #include("/inc/head.html",title="学习币")
+  <link href="/css/bootstrap.css" rel="stylesheet"> 
+  <link href="/css/main.css" rel="stylesheet"> 
+  <link href="/css/main-v2.css" rel="stylesheet"> 
+  <link href="/css/header-white.css" rel="stylesheet"> 
+ </head> 
+ <body class="es-main-default es-nav-white cd-design"> 
+  #include("/inc/header.html")
+  <div class="es-wrap"> 
+   <div class="container cd-container"> 
+    <div class="cd-content"> 
+     <div class="cd-sidebar"> 
+      <ul class="cd-sidebar__list"> 
+       <li class="cd-sidebar__heading"> 账户中心 </li> 
+       <li class="cd-sidebar__item "> <a href="play">播放记录</a> </li> <li class="cd-sidebar__item "> <a href="orders">我的订单</a> </li>
+       <li class="cd-sidebar__item   active "> <a href="coin">学习币账户</a> </li> 
+       <li class="cd-sidebar__item "> <a href="invitecode">邀请码</a> </li> 
+       <li class="cd-sidebar__item "> <a href="coupon">优惠券</a> </li> 
+       <li class="cd-sidebar__item "> <a href="history">会员记录</a> </li> 
+       <li class="cd-sidebar__item  "> <a href="cards">学习卡</a> </li> 
+       <li class="cd-sidebar__item "> <a href="point">我的积分</a> </li> 
+       <li class="cd-sidebar__heading"> 个人设置 </li> 
+       <li class="cd-sidebar__item "> <a href="/settings">个人信息</a> </li> 
+       <li class="cd-sidebar__item "> <a href="/settings/approval/submit">实名认证</a> </li> 
+       <li class="cd-sidebar__item "> <a href="security">安全设置</a> </li> 
+       <li class="cd-sidebar__item "> <a href="binds">第三方登录</a> </li> 
+      </ul> 
+     </div> 
+     <div class="cd-main"> 
+      <div class="cd-main__heading"> 
+       <div class="cd-main__title">
+         学习币账户 
+       </div> 
+      </div> 
+      <div class="cd-main__body"> 
+       <div class="row cd-row"> 
+        <div class="col-md-7"> 
+         <div class="es-colorful-card es-colorful-card-danger"> 
+          <div class="card-icon">
+           <i class="es-icon es-icon-money"></i>
+          </div> 
+          <div class="card-body"> 
+           <p>账户余额</p> 
+           <p><span class="card-money">#(session.user.price??0.00)</span></p> 
+          </div> 
+          <div class="card-action"> 
+           <a href="javascript:;" class="btn cd-btn btn-card-danger" data-url="/my/coin/buy" data-toggle="modal" data-target="#modal">现金充值</a> 
+           <a href="javascript:;" class="btn cd-btn btn-card-white" data-url="/moneycard/use" data-toggle="modal" data-target="#modal">学习卡</a> 
+          </div> 
+         </div> 
+        </div> 
+        <div class="col-md-5"> 
+         <div class="es-data-card"> 
+          <div class="card-item"> 
+           <div class="card-item-label">
+            总计收入
+           </div> 
+           <div class="card-item-value">
+            <span>0.00</span>
+           </div> 
+          </div> 
+          <div class="card-item"> 
+           <div class="card-item-label">
+            总计支出
+           </div> 
+           <div class="card-item-value">
+            <span>0.00</span>
+           </div> 
+          </div> 
+         </div> 
+        </div> 
+       </div> 
+       <div class="table-responsive cd-table-responsive"> 
+        <table class="table cd-table"> 
+         <thead> 
+          <tr> 
+           <th width="30%">名称</th> 
+           <th>流水号</th> 
+           <th>订单号</th> 
+           <th>交易时间</th> 
+           <th class="text-right">收支</th> 
+          </tr> 
+         </thead> 
+         <tbody> 
+          <tr> 
+           <td colspan="20"> 
+            <div class="cd-empty">
+             暂无记录
+            </div> </td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  
+ #include("/inc/user/cz.html")
+ #include("/inc/footer.html",goto=false)
+   <script type="text/javascript">
+  layui.use(['form', 'layedit', 'laydate','layer'], function(){
+  	var $=layui.$,layer=layui.layer;
+  	
+  	
+  	
+  })
+  </script>
+ </body>
+</html>

@@ -1,0 +1,40 @@
+﻿/**
+ * Created by sdd on 14-4-14.
+ */
+var TOTALCONFIG = {
+	API_CAREER:'//zs.microyan.com/career',
+	API_COMMON:'//zs.microyan.com/api/webchannel/common',
+	API_QA:'//zs.microyan.com/api/qa',
+   	API_GU: '//zs.microyan.com/api/guestbook',
+	API_SIDEBAR: '//zs.microyan.com/api/sidebar',
+	API_EDU:'//zs.microyan.com/api/eduportal',
+    API_DIALOG:'//zs.microyan.com/api/dialog',
+	API_VISITOR:'//zs.microyan.com/api/visitor',
+    API_CS:'//zs.microyan.com/api/cs',
+	app_btn: false,
+	app_href: '//zs.microyan.com/appdownload',
+
+//	广告位
+    adv_sidebar: false,
+    adv_sidebar_text:'\u624b\u673a\u54a8\u8be2',
+	adv_sidebar_href: '//zs.microyan.com/appdownload',
+	adv1: false,
+	adv1_img:'//static.microyan.com/res/image/adv1.png',
+	adv1_href: '//zs.microyan.com/appdownload',
+	adv2: false,
+    adv2_text:'学姐教你上大学必备的几项技能，戳我马上get！',
+    adv2_href: 'https://at.umeng.com/iGXPbm',
+	adv3: false,
+    adv3_text:'下载APP咨询',
+    adv3_href: '//zs.microyan.com/appdownload',
+	adv4: false,
+    adv4_text:'下载APP咨询',
+    adv4_href: '//zs.microyan.com/appdownload',
+	adv1_m: false,
+	adv1_m_img:'//api.microyan.com/res/image/dialog/adv1-m.png',
+	adv1_m_href:'//m.dareyan.com/eve-h5/mobile_download/index.html',
+
+//  版权信息
+    surpport_content_dialog: '技术支持：杭州达言科技有限公司',
+	surpport_content_guestbook: 'Copyright&copy;2012-2016&nbsp;&nbsp;杭州达言科技&nbsp;&nbsp;地址：杭州市经济技术开发区6号大街高科技企业孵化器3幢6层&nbsp;&nbsp;浙ICP备14002474号'
+};

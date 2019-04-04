@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> #include("/inc/head.html",title=obj.title+obj.name)
+  <link rel="stylesheet" href="/css/videojs_7e755f4.css">
+  <link rel="stylesheet" href="/css/list_v7_aae031f.css">
+  <style>
+    .step {
+      background-color: #f4f4f4;
+    }
+
+    .step .content {
+      background-color: #fff;
+    }
+
+    .step-inner {
+      position: relative;
+    }
+
+    .step ul {
+      display: flex;
+    }
+
+    .step li {
+      flex: 1;
+      text-align: center;
+    }
+
+    .step-item li {
+      height: 120px;
+      position: relative;
+    }
+
+    .step .line {
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #ccc;
+      top: 50%;
+    }
+
+    .step .contain {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateY(-50%) translateX(-50%);
+    }
+
+    .step .circle {
+      color: #666;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: #fff;
+      border: 1px solid #35b558;
+      overflow: hidden;
+
+    }
+
+    .step .info {
+      width: 200px;
+      height: 20px;
+      position: absolute;
+      bottom: 0;
+      border-radius: 47%;
+      overflow: hidden;
+      background-size: cover;
+      background-color: #35b558;
+      transform: translateX(-27%);
+    }
+
+    .circle p {
+      margin-top: 30px;
+    }
+
+    .step .contain a {
+      padding: 10px;
+      background: rgb(120, 127, 162);
+      border: 1px #E5E7EA solid;
+      border-radius: 10px;
+      color:#fff;
+    }
+
+    .step .contain a:active {
+      background: #AFC1DC
+    }
+
+    .step h2 {
+      line-height: 60px;
+      height: 60px;
+      text-align: left;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .step .detail {
+      padding: 20px;
+    }
+
+    .step.scroll {
+      position: fixed;
+      top: 0px;
+      width: 770px;
+      padding-top: 50px;
+      z-index: 999;
+      /* border-bottom:2px solid  #35b558; */
+      box-shadow: 0px 2px 0px 0px #ddd;
+    }
+
+    .step.scroll h2 {
+      background-color: #fff;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    #include("/inc/header.html")
+    <div id="pager">
+      <!-- banner 图 -->
+      <div class="banner" style="background-image:url('/images/b9b6fafd-7948-42c9-8105-502a47ebd6fe.jpg');background-size: 100% 100%;">
+        <div class="banbox" style="padding-right: 0">
+          <div class="banner-crumbs">
+            <ul>
+              <li>
+                <a href="/" target="_blank">首页</a>
+              </li>
+              <li>
+                <a href="/vip/">VIP</a>
+              </li>
+              <li class="grey">#(obj.title)</li>
+            </ul>
+          </div>
+          <h1 id="slug" data-slug="wechatapp">#(obj.title)</h1>
+          <div class="banner-info">
+            #(obj.text)
+          </div>
+        </div>
+      </div>
+      <div class="main">
+        <!-- 左容器111 -->
+        <div class="nav-left">
+          <div class="nav-block">
+            <ul id="navList">
+              <li data-nav="step">
+                <a href="#step">学习进度</a>
+              </li>
+              <li data-nav="path">
+                <a href="#path">学习路径</a>
+              </li>
+              <li data-nav="teacher">
+                <a href="#teacher">老师介绍</a>
+              </li>
+              <li data-nav="question">
+                <a href="#question">常见问题</a>
+              </li>
+            </ul>
+            <div class="vip">
+              <!-- #if(isplay) -->
+              <a href="javascript:void(0);" target="_blank">你已是会员</a>
+              <!-- #else -->
+              <a href="/buy/course/#(obj.id)" target="_blank">现在加入</a>
+              <!-- #end -->
+              <p>#(obj.title)</p>
+            </div>
+          </div>
+        </div>
+        <!-- 右容器 -->
+        <div class="main-right" id="mainRight">
+          <!-- 步骤条 -->
+          <div class="step" id="step">
+            <h2>学习进度</h2>
+            <div class="content">
+              <div class="step-inner">
+                <div class="line"></div>
+                <ul class="step-item">
+                  <li>
+                    <div class="contain circle">
+                      <div href="" class="info"></div>
+                      <p>50%</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contain circle">
+                      <div href="" class="info"></div>
+                      <p>10%</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contain">
+                      <a>暂未提交</a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="contain">
+                      <a>暂未开放</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <ul class="desc">
+                <li>视频学习</li>
+                <li>章节自测</li>
+                <li>论文提交</li>
+                <li>开始考试</li>
+              </ul>
+              <div class="detail">
+                视频学习、章节自测全部完成以及论文通过后，才可以申请考试，考试通过后您可以通过网站查询您的证书。稍后相关工作人员会将纸质证书邮寄。
+              </div>
+            </div>
+          </div>
+          <div class="path" id="path">
+            <h2>学习路径</h2>
+            <div class="contain">
+              <!-- #for(c:obj.chapter) -->
+              <div class="path-level">
+                <!-- #if(c.type=="mulu") -->
+                <h3 class="type_1">#(c.title)</h3>
+                <!-- #end -->
+                <div class="path-course">
+                  <ul>
+                    <!-- #if(c.type=="course") -->
+                    <li class="course">
+                      <a href="/course/#(obj.id)?play=1" class="pic" target="_blank">
+                        <img onerror="this.src='/img/wutu.png'" src="#(www)#(c.img)" alt="#(c.title)"> </a>
+                      <p class="title">
+                        <a href="/course/#(obj.id)?play=1" target="_blank">#(c.title)
+                          <i class="new">新</i>
+                        </a>
+                      </p>
+                      <p class="description">#(c.text)</p>
+                      <p class="name">主讲：#(c.tname)</p>
+                      <div class="path-lesson-list">
+                        <p class="gather get_lesson_data">课程大纲</p>
+                        <ul class="lesson-list-content" style="display: none;">
+                          <li class="path-lesson">
+                            <div class="section_title">
+                              <p class="title">
+                                #(c.title)
+                              </p>
+                            </div>
+                            <ul>
+                              <!-- #for(c1:c.chapter) -->
+                              <li class="section">
+                                <!-- #if(c1.type=="video") -->
+                                <a href="#(isplay?'/course/'+obj.id+'?vid='+c1.val:'javascript:alert(\'请先购买课程或加入VIP或联系代理机构!详情咨询:010-82865508\');')">
+                                  <span class="section-content show-svip video">
+                                    <i></i>
+                                    <span class="text">#(c1.title)</span>
+                                    <span class="num time_3">#(parseInt(num(c1.duration,"#"))/60)分钟</span>
+                                </a>
+                                <!-- #else if(c1.type=="zb") -->
+                                <a href="#(isplay?'/zb/'+c1.val:'javascript:alert(\'请先购买课程或加入VIP或联系代理机构!详情咨询:010-82865508\');')">
+                                  <span class="section-content show-svip video">
+                                    <i></i>
+                                    <span class="text">#(c1.title)</span>
+                                    <span class="num time_3">直播</span>
+                                </a>
+                                <!-- #else if(c1.type=="test") -->
+                                <a href="#(isplay?'/test/'+c1.val:'javascript:alert(\'请先购买课程或加入VIP或联系代理机构!详情咨询:010-82865508\');')">
+                                  <span class="section-content show-svip video">
+                                    <i></i>
+                                    <span class="text">#(c1.title)</span>
+                                    <span class="num time_3">练习</span>
+                                </a>
+                                <!-- #else -->
+                                <span class="text">#(c1.title)</span>
+                                <!-- #end -->
+                                </span>
+                              </li>
+                              <!-- #end -->
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                    <!-- #end -->
+                  </ul>
+                </div>
+              </div>
+              <!-- #end -->
+
+            </div>
+          </div>
+          <div class="zhiye-vip" #((obj.id==4||obj.id==5)? "style='display:none;'": "")>
+            <h2>系统培训，一步到位</h2>
+            <div class="contain">
+              <div class="contain-left">
+                <h3>您将拥有如下特权：</h3>
+                <ul>
+                  <!-- #for(d:obj.descs) -->
+                  <li>#(d)</li>
+                  <!-- #end -->
+                </ul>
+                <div class="btn-container">
+                  <a href="/buy/vip/#(obj.id)" class="year-btn go-buy" target="_blank">开通Pro
+                    <span>(#(obj.price)元)</span>
+                  </a>
+                  <!-- <a href="javascript:;" class="month-btn go-buy" data-good_id="7" target="_blank">开通月Pro<span>(99元)</span></a> -->
+                </div>
+              </div>
+              <div class="contain-right">
+                <p class="description">专项超级会员，简称Pro，是心教育学院联合企业为每个职业构建的成体系的学习方案，也是最具性价比的学习方案。</p>
+                <!-- <a href="javascript:;" class="why-btn" target="_blank">为什么要做Pro?</a> 
+         <a href="javascript:;" class="que-btn">有疑问，请联系我们</a>  -->
+              </div>
+            </div>
+          </div>
+          <div class="zhiye-mask">
+            <div class="zhiye-vip">
+              <i class="close-mask"></i>
+              <div class="contain">
+                <div class="contain-left">
+                  <h3>价值够大，价格够低。您需要开通 : 微信小程序工程师 。</h3>
+                  <ul>
+                    <li>完全开放 : 心教育学院 3000+门视频课程，500+门wiki图文教程。</li>
+                    <li>全部服务 : 本专业方向的全部内容（知识体系 / 学习路径 / 实战作业）。</li>
+                    <li>跟上趋势 : 心教育学院早晚报 , 助您在第一时间了解科技行业动态。</li>
+                    <li>专业人脉 : 专属教练圈子，结识更多志同道合的朋友。</li>
+                    <li>限时优惠 : 原价 998元/年，现价 99元/月 或者 499元/年。</li>
+                  </ul>
+                  <div class="btn-container">
+                    <a href="javascript:;" class="year-btn go-buy" data-good_id="8" target="_blank">开通年Pro
+                      <span>(499元)</span>
+                    </a>
+                    <a href="javascript:;" class="month-btn go-buy" data-good_id="7" target="_blank">开通月Pro
+                      <span>(99元)</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="contain-right">
+                  <p class="description">专项超级会员，简称Pro，是心教育学院联合企业为每个职业构建的成体系的学习方案，也是最具性价比的学习方案。</p>
+                  <a href="javascript:;" class="why-btn" target="_blank">为什么要做Pro?</a>
+                  <a href="javascript:;" class="que-btn">有疑问，请联系我们</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="teacher" class="teacher">
+            <h2>讲师</h2>
+            <div class="contain">
+              <ul>
+                <!-- #for(t:teachers) -->
+                <li>
+                  <a href="/teacher/#(t.id)">
+                    <div class="content">
+                      <img style="width: 80px;height: 80px;" class="teach-img pic" src="#(www)#(t.img)" alt="贺嘉" id="4787667">
+                      <div class="title">
+                        <h3>#(t.name)</h3>
+                        <p>心教育学院-#(t.job)</p>
+                      </div>
+                      <p style="overflow:hidden;text-overflow: ellipsis;height: 100px;" class="desc">#(t.text)</p>
+                    </div>
+                  </a>
+                </li>
+                <!-- #end -->
+              </ul>
+            </div>
+          </div>
+          <!-- #for(ex : obj.extend) -->
+          <div style="margin-top: 20px;">
+            <a href="#(ex.url)" target="_blank">
+              <img style="width: 100%;height: 200px;" src="#(ex.img)" />
+            </a>
+          </div>
+          <!-- #end -->
+          <div id="question" class="question">
+            <h2>常见问题</h2>
+            <div class="contain" style="max-height:100%;">
+              <div class="content" id="faqCard">
+                #(obj.html)
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    #include("/inc/footer.html")
+    <script type="text/javascript">
+      layui.use(['layer', 'jquery'], function () {
+        var $ = layui.$;
+        $(".get_lesson_data").click(function () {
+          if ($(this).hasClass("open")) {
+            $(this).removeClass("open");
+            $(this).next().css("display", "none");
+          } else {
+            $(this).addClass("open");
+            $(this).next().css("display", "block");
+          }
+        })
+      })
+      $(window).scroll(function () {
+        if ($(window).scrollTop() >= 70) {
+          $(".nav-block").addClass("scroll");
+        } else {
+          $(".nav-block").removeClass("scroll");
+        }
+        if ($(window).scrollTop() >= 350) {
+          $(".step").addClass("scroll");
+        } else {
+          $(".step").removeClass("scroll");
+        }
+      })
+      var number = 5;
+      var obj = {
+        number: 3,
+        fn1: (function () {
+          var number;
+          this.number *= 2;
+          number = number * 2;
+          number = 3;
+          return function () {
+            var num = this.number;
+            this.number *= 2;
+            console.log(num);
+            number *= 3;
+            console.log(number);
+          }
+        })()
+
+      }
+      var fn1 = obj.fn1;
+      fn1.call(null);
+      obj.fn1();
+      console.log(window.number);
+    </script>
+</body>
+
+</html>

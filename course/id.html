@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<html lang="zh_CN" class="">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="课程")
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/main-v2.css" rel="stylesheet">
+  <link href="/css/header-white.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/layui/css/layui.css">
+  <style type="text/css">
+    body {
+      height: 100%;
+    }
+
+    .bg-gray-lighter {
+      background-color: red;
+    }
+
+    .main {
+      flex-flow: column;
+      display: flex;
+      height: 100%;
+    }
+
+    .app {
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      flex: 1;
+    }
+
+    .app .content {
+      flex: 1;
+      height: 100%;
+    }
+
+    @media (max-width: 400px) {
+      .aside {
+        display: none;
+      }
+    }
+
+    header {
+      color: #fff;
+      padding: 10px 30px;
+      font-size: 18px;
+      position: relative;
+      z-index: 999;
+    }
+
+    header a {
+      color: rgb(12, 167, 89);
+      cursor: pointer;
+    }
+
+    header a::after {
+      content: " | ";
+      margin: 0 20px;
+      color: #eee;
+    }
+
+    .es-icon {
+      font-size: 18px;
+    }
+
+    .video-body {
+      height: 100%;
+      position: relative;
+      bottom: 50px;
+      padding-top: 60px;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* 侧边栏 */
+
+    .aside {
+      position: relative;
+      height: 100%;
+    }
+
+    .none {
+      display: none;
+    }
+
+    .aside-body {
+      width: 300px;
+      height: 100%;
+      background-color: rgb(90, 85, 85);
+      overflow: hidden;
+    }
+
+    .aside-con {
+      overflow-y: scroll;
+      height: 100%;
+    }
+    /*滚动条整体样式*/
+    .aside-con::-webkit-scrollbar {
+        width: 5px;
+        height: 1px;
+    }
+    /*滚动条滑块*/
+    .aside-con::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 5px #39cc8f;
+        background: #535353;
+    }
+    /*滚动条轨道*/
+    .aside-con::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 1px rgba(243, 21, 21);
+        border-radius: 10px;
+        background: #ccc;
+    }
+    .aside .mulu li {
+      line-height: 30px;
+      color: #fff;
+    }
+
+    .aside .mulu a {
+      color: #eee;
+      display: block;
+      padding: 2px 0 2px 30px;
+    }
+
+    .aside .mulu a:hover {
+      color: rgb(12, 167, 89);
+      background-color: #ccc;
+    }
+
+    .aside .mulu a.active {
+      color: rgb(14, 117, 14);
+      background-color: #fff;
+      font-weight: bold;
+    }
+
+    .aside a.active i {
+      display: inline-block;
+    }
+
+    /* 播放按钮隐藏 */
+
+    .aside i {
+      padding-right: 5px;
+    }
+
+    .aside .mulu h1 {
+      padding: 12px 0;
+      text-align: center;
+      font-size: 25px;
+      background-color: #e4e2e2;
+      color: #000;
+    }
+
+    /* 第二标题 */
+
+    .aside .mulu h3 {
+      padding: 12px 5px;
+      cursor: pointer;
+      border-top: 1px solid #eee;
+    }
+
+    .aside h3 div {
+      padding-top: 10px;
+    }
+
+    .aside h3 img {
+      width: 100%;
+    }
+
+    /* 课程列表下拉按钮 */
+
+    .layui-icon-down,
+    .layui-icon-up {
+      float: right;
+    }
+
+    /* 第三标题 */
+
+    .aside .mulu h4 {
+      padding: 12px 5px;
+      font-size: 16px;
+      color: #aaa;
+    }
+
+    .aside .mulu h5 {
+      padding: 12px 10px;
+      font-size: 16px;
+      color: #ccc;
+    }
+
+    /* 工具栏 */
+
+    .aside .toolbar {
+      position: absolute;
+      top: 50%;
+      left: -58px;
+    }
+
+    .aside .toolbar li {
+      margin-bottom: 10px;
+    }
+
+    .aside .toolbar a {
+      display: inline-block;
+      width: 58px;
+      padding: 12px 0;
+      background-color: rgb(49, 49, 49);
+      text-align: center;
+      color: #eee;
+    }
+
+    .toolbar li.active a {
+      color: rgb(12, 167, 89);
+    }
+    /* 简介 */
+    .intro{
+      padding:20px;
+      background-color: rgb(65, 64, 64);
+      color:#eee;
+      line-height:30px;
+    }
+    .intro>p{
+      color:#39cc8f;
+      padding:10px 0;
+    }
+    .intro li em{
+      color:#999;
+    }
+  </style>
+</head>
+
+<body class="es-main-default es-nav-white ">
+  <div class="main">
+    <div class="app">
+      <div class="content">
+        <!-- 课程名和返回 -->
+        <header>
+          <a class="back-link" href="/my/">
+            <i class="es-icon es-icon-chevronleft"></i>返回课程
+          </a>
+          #(obj.title)
+        </header>
+        <div class="video-body" controls>
+          <!-- 视频 -->
+          <!-- <video src="http://iepsy.com/xinlisg/vedio/v4.mp4" controls autoplay></video> -->
+          <div id="player-video" class=" all-wrapper">
+
+          </div>
+          <!-- 视频结束 -->
+          <!-- ppt大图 -->
+          <div id="ppt" class="none">
+            <img src="" alt="">
+          </div>
+        </div>
+      </div>
+      <!-- 侧边栏 -->
+      <div class="aside">
+        <div class="aside-body">
+          <div class="aside-con">
+            <!-- 侧边目录列表 -->
+            <ul class="mulu">
+              <!-- #for(c:obj.chapter) -->
+              <li>
+                <!-- #if(c.type=="course") -->
+                <h3>
+                  <i class="layui-icon layui-icon-template-1"></i>课#(c.val)：#(c.title)
+                  <i class="layui-icon layui-icon-down none more"></i>
+                  <i class="layui-icon layui-icon-up more"></i>
+                  <div>
+                    <img style="height: 120px;" src="#(www)#(c.img)" alt="">
+                  </div>
+                </h3>
+                <!-- #for(x:c.chapter) -->
+                <!-- #if(x.type=="video") -->
+                <a class="#((p.vid==x.val)?'active':'')" href="?vid=#(x.val)">
+                  <i class="layui-icon layui-icon-play"></i> #(x.title)
+                </a>
+                <!-- #else if(x.type=="test") -->
+                <a class="title #((p.vid==x.val)?'active':'')" target="_blank" href="/test/#(x.val)">
+                  <i class="layui-icon layui-icon-list"></i>练习题#(x.title)
+                </a>
+                <!-- #else if(x.type=="mulu") -->
+                <h4>
+                  <i class="layui-icon layui-icon-video"></i>#(x.title)</h4>
+                <!-- #else -->
+                <h5>#(x.title)</h5>
+                <!-- #end -->
+                <!-- #end -->
+                <!-- #else if(c.type=="video") -->
+                <a class="title #((p.vid==c.val)?' active':'')" href="?vid=#(c.val)">
+                  <i class="layui-icon layui-icon-play"></i> #(c.title)
+                </a>
+                <!-- #else if(c.type=="test") -->
+                <a class="title #((p.vid==c.val)?'active':'')" target="_blank" href="/test/#(c.val)">
+                  <i class="layui-icon layui-icon-list"></i>练习题#(c.title)
+                </a>
+                <!-- #else -->
+                <h1>#(c.title)</h1>
+                <!-- #end -->
+              </li>
+              <!-- #end -->
+            </ul>
+          </div>
+        </div>
+        <!-- 工具栏 -->
+        <ul class="toolbar">
+          <li data="mulu" class="active">
+            <a href="#">
+              <div class="mbs es-icon es-icon-menu"></div>目录</a>
+          </li>
+          <li data="none">
+            <a href="#">收起</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="intro">
+      <p><i class="layui-icon layui-icon-star-fill"></i> 内容简介 <em>展开</em></p>
+      <ul class="none">
+        <li>
+          <em>讲师：</em><span>#(obj.tname)</span>
+        </li>
+        <li>
+          <em>价格：</em><span>￥#(obj.price)</span>
+          </li>
+        <li>
+            <em>详情：</em><span>#(obj.text)</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="/assets/jquery/jquery.min.js"></script>
+  <script src="/assets/vue/vue.js"></script>
+  <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.0/skins/default/aliplayer-min.css" />
+  <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.0/aliplayer-min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="https://player.alicdn.com/aliplayer/presentation/js/aliplayercomponents.min.js"></script>
+  <script>
+    var player = new Aliplayer({
+      id: "player-video",
+      source: "#(video.url??'')",
+      width: "100%",
+      height: "100%",
+      autoplay: false,
+      preload: false,
+      isLive: false,
+      cover: "#(www)#(obj.img)",
+      components: [{
+        name: 'BulletScreenComponent',
+        type: AliPlayerComponent.BulletScreenComponent,
+        /** 跑马灯组件三个参数 text, style, bulletPosition 
+         * text: 跑马灯文字内容
+         * style: 跑马灯样式
+         * bulletPosition: 跑马灯位置, 可选的值为 'top' (顶部), 'bottom' (底部), 'random' (随机), 不传值默认为 'random' 
+         */
+        args: ['欢迎观看uid:#(session.user.id)', { fontSize: '16px', color: 'while' }, 'random']
+      }]
+    }, function (player) {
+      console.log("播放器创建成功");
+    });
+    player.on('ended', function (data) {
+      alert("该视频已播放完毕，请点击右侧目录中的视频观看!")
+    })
+    function check(dom) {
+      $(".aside-body").toggleClass("none");
+      if (dom.find("a").html() == "收起") {
+        dom.find("a").html("展开");
+      } else {
+        dom.find("a").html("收起");
+      }
+    }
+    // 点击目录或ppt，工具栏高亮
+    $(".aside .toolbar li").click(function () {
+      var data = $(this).attr("data");
+      if (data != "none") {
+        $(this).addClass("active").siblings().removeClass("active")
+      }
+      if (data == "none") {
+        check($(this))
+      } else if (data == "mulu") {
+        $(".aside .mulu").removeClass("none")
+        $(".aside .ppt").addClass("none")
+      } else {
+        $(".aside .ppt").removeClass("none")
+        $(".aside .mulu").addClass("none")
+      }
+    })
+    // 点击目录列表
+    $(".aside .mulu li a").click(function () {
+      $(".aside .mulu a").removeClass("active");
+      $(this).addClass("active");
+      $("this").find("i").removeClass("none");
+    })
+    //点击目录课程右侧按钮，展开收起视频和章节
+    $(".aside h3").click(function () {
+      $(this).parents("li").find("a").toggleClass("none")
+      $(this).parents("li").find("h4").toggleClass("none")
+      $(this).find(".more").toggleClass("none")
+    })
+    // 页面刷新滚动条位置不变
+    var scroll = 0;
+    $(".aside-con a").click(function () {
+      scroll = $(".aside-con").scrollTop()
+      console.log(scroll)
+      document.cookie = "scrollTop=" + scroll;
+    })
+    window.onload = function () {
+      if (document.cookie.match(/scrollTop=([^;]+)(;|$)/) != null) {
+        var arr = document.cookie.match(/scrollTop=([^;]+)(;|$)/); //cookies中不为空，则读取滚动条位置
+        $(".aside-con").scrollTop(parseInt(arr[1]));
+        document.cookie = "scrollTop=" + 0;
+      }
+    }
+    // 简介
+    $(".intro>p").click(function(){
+      console.log($(this).find("em").html())
+      $(".intro ul").toggleClass("none");
+      if($(this).find("em").html()=="展开"){
+        $(this).find("em").html("收起")
+      }else if($(this).find("em").html()=="收起"){
+        $(this).find("em").html("展开")
+      }
+    })
+  </script>
+</body>
+
+</html>

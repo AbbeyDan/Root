@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://www.jikexueyuan.com/vip/?_comefrom=jikexueyuan&_code_slot=11&_creative=41 -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> #include("/inc/head.html",title="会员")
+	<link href="/css/bootstrap.css" rel="stylesheet">
+	<link href="/css/main.css" rel="stylesheet">
+	<link href="/css/main-v2.css" rel="stylesheet">
+	<link href="/css/main_2e7dbab340e4480885df0ad66991f9d4.css" rel="stylesheet">
+	<link rel="stylesheet" href="/css/vip_4e295cd.css">
+	<link rel="stylesheet" href="/css/vip_c78a484.css">
+	<style>
+		.icon.active {
+			animation: vip 2s ease;
+		}
+
+		@keyframes vip {
+			0% {
+				transform: scale(0);
+			}
+			50% {
+				transform: scale(0.5);
+			}
+			75% {
+				transform: scale(1);
+			}
+			100% {
+				transform: scale(0);
+			}
+		}
+
+		.vip-svip .table-item.bg {
+			background-color: rgb(235, 235, 221);
+			/* color:white; */
+		}
+		.vip-svip ul .svip-name .icon.pro-icon {
+			background-color: rgb(57, 152, 241);
+		}
+		.vip-svip ul .svip-name .icon.vip-icon {
+			background-color: rgb(247, 223, 8);
+		}
+		.vip-svip ul .svip-name .icon.svip-icon {
+			background-color: rgb(252, 173, 5);
+		}	
+	</style>
+</head>
+
+<body>
+	#include("/inc/header.html",tab="vip")
+	<div id="wrapper">
+
+		<div id="pager">
+
+
+			<div class="vip-banner" style="background:#d3293c;padding-top: 20px;">
+				<div class="container">
+					<div class="vip-banner-thumb" style="width: 100%;">
+						<img class="img-responsive" style="height: 350px;" src="/images/vip_banner.jpg" alt="">
+					</div>
+					<!-- #if(session.user!=null) -->
+					<div style="display: none;" class="vip-user hidden-sm hidden-xs">
+						<a class="user-avatar" href="/user/#(session.user.id)">
+							<img src="#(root)#(session.user.img)" alt=""> </a>
+						<h3>
+							<a class="link-dark" href="/user/#(session.user.id)">#(session.user.nickname)</a>
+						</h3>
+						<p class="text-muted mbl">您还不是会员</p>
+						<p>
+							<a class="btn btn-danger btn-xlg" href="#kt">开通会员</a>
+						</p>
+						<p class="text-muted text-sm mtl">开通会员，享受更多课程！</p>
+					</div>
+					<!-- #else -->
+					<div style="display: none;" class="vip-user hidden-sm hidden-xs">
+						<a class="user-avatar" href="/login?gotourl=/vip/">
+							<img src="/img/noav.jpg" alt=""> </a>
+						<h3>
+							<a class="link-dark" href="/login?gotourl=/vip/">未登录</a>
+						</h3>
+						<p class="text-muted mbl">您尚未登录</p>
+						<p>
+							<a class="btn btn-danger btn-xlg" href="/login?gotourl=/vip/">开通会员</a>
+						</p>
+						<p class="text-muted text-sm mtl">开通会员，享受更多课程！</p>
+					</div>
+					<!-- #end -->
+				</div>
+			</div>
+
+
+			<div class="vip-detail">
+				<div class="contain">
+					<ul id="kt">
+						<!-- #for(i = 0; i < 3; i++) -->
+						<li class="vip-contain">
+							<div class="title-contain">
+								<h3>
+									#(obj[i].title)
+									<br>#(obj[i].name)
+								</h3>
+								<p class="desc">
+									#(obj[i].text)
+								</p>
+							</div>
+							<div class="price-contain">
+								<p class="price-month">
+									#(obj[i].price)元
+									<span>/#(obj[i].type)/人</span>
+								</p>
+								<p class="price-year">原价:￥#(obj[i].oldprice)元/#(obj[i].type)/人</p>
+								<!-- <span class="price-tips">(原价:#(obj[i].oldprice)元)</span>-->
+							</div>
+							<dl class="detail-contain" style="padding-bottom: 30px; background-color: #fff;">
+								<dt>包含功能</dt>
+								<!-- #for(t:obj[i].descs) -->
+								<dd>
+									<span>#(t)</span>
+									<div class="tips-mask">
+										<i class="tips-point"></i>
+										<p class="tips-text">#(t)</p>
+									</div>
+								</dd>
+								<!-- #end -->
+							</dl>
+							<div class="btn-contain vip-buy">
+								<!-- 
+								<a href="/buy/vip/#(obj[i].id)" class="s-btn vip-year-btn diaLoginBtnTab" target="_blank">立即开通</a>
+								 -->
+								<!-- #if(i==2) -->
+								<a href="javascript:void(0)" class="s-btn vip-month-btn diaLoginBtnTab" data="#(i)">联系专属客服 </a>
+								<!-- #else -->
+								<a href="#govip" class="s-btn vip-month-btn diaLoginBtnTab" data="#(i)">查看详情</a>
+								<!-- #end -->
+
+							</div>
+						</li>
+						<!-- #end -->
+					</ul>
+				</div>
+			</div>
+
+			<div class="vip-svip">
+				<h2 id="govip">全部会员课程列表</h2>
+				<div class="contain">
+					<ul class="table-header">
+						<li></li>
+						<li>当前优惠价格</li>
+						<li>原价</li>
+						<!-- <li>更多优惠
+							<div class="tips-mask">
+								<i class="tips-point">?</i>
+								<p class="tips-text">
+									Pro会员购买时，享受如下优惠：<br>1 - VIP升级到Pro时，有0~260元不等优惠；<br>2
+									- 购买时支持心币抵扣；<br>3 - Pro专业会员续费/复购有9折优惠；<br>
+									<span style="display: block; margin-top: 9px;">注：如上优惠在支付时会有详细体现。</span>
+								</p>
+							</div>
+						</li>  -->
+						<li>购买</li>
+					</ul>
+
+					<div class="table-main">
+
+						<!-- #for(i = 0; i < pros.size(); i++) -->
+						<!-- #if(pros[i].cate==3) -->
+						<!-- #else -->
+						<ul class="table-item" id="govip#(i)" cate="#(obj[i].cate)">
+							<li class="svip-name" title="#(obj[i].title)">
+								
+								<i class="icon pro-icon">Pro</i>
+								<!-- 
+								<i class="icon vip-icon">VIP</i>
+								
+								<i class="icon svip-icon">SVIP</i>
+								-->
+								<span class="name">#(pros[i].title)</span>
+								<span style="display: none;" class="new-tips">新品优惠</span>
+							</li>
+							<li class="svip-price">#(pros[i].price)元/#(obj[i].type)</li>
+							<li class="svip-sale">#(pros[i].oldprice)元/#(obj[i].type)&nbsp;</li>
+
+							<!-- <li class="svip-discount"><i class="dis_svip"
+								title="VIP会员升级有优惠"></i> 
+								<i class="dis_jkb" title="可用极客币抵扣"></i>
+								<i class="dis_rmb" title="续费有优惠"></i></li>  -->
+
+							<li class="svip-buy">
+								<a href="/course/#(pros[i].id)" style="padding-top: 0px;" class="btn svip-month diaLoginBtnTab">查看详情</a>
+								<!-- #if(pros[i].isbuy) -->
+								<a style="margin-right:auto;line-height:14px!important;
+									background-color: #ff6428;border-color: #ff6428;" href="/course/#(pros[i].id)" class="btn svip-year ">已开通</a>
+								<!-- #else -->
+								<a style="margin-right:auto;line-height:14px!important;" href="/buy/course/#(pros[i].id)" class="btn svip-year diaLoginBtnTab">立即开通</a>
+								<!-- #end -->
+							</li>
+						</ul>
+						<!-- #end -->
+						<!-- #end -->
+					</div>
+				</div>
+			</div>
+
+			<div class="vip-qa">
+				<h2>常见问题</h2>
+				<div class="contain">
+					<div class="left-contain">
+						<ul>
+							<li>
+								<h3>VIP / Pro / Team 哪类账户更适合我？</h3>
+								<p>
+									无论你是初入职场还是在职提升，心教育学院都可以提供相应帮助；
+									<br> 如果你只是对最新的技术感兴趣，你可以选择VIP版，其包含3000多门视频课程和500多套图文教程wiki。
+									<br> 如果你想对某个职业更系统的学习和提升，强烈建议你选择Pro专业版，除了包含VIP的全部功能外，还可以按照其学习路径学习和实战作业练习，并有教练辅导和帮助。
+									<br> 如果你想为企业员工集体开启账号，可以申请Team企业版内测，其还额外增加诸如成员管理和统计分析等实用功能。
+								</p>
+							</li>
+							<li>
+								<h3>你们和很多动辄上万块的卖课机构逻辑不太一样，有什么故事么？</h3>
+								<p>
+									心教育学院本着“让学习更有效“的使命，把“为更多人提供高质量的职业教育”做为奋斗的目标，一直在探索如何提供更高性价比的内容和服务。
+									<br>我们认为学习是”综合的服务“而不是”单纯的商品“，推崇”时间无价“，提倡按”时间订阅“的学习方式，为了让你觉得心教育学院是良心的、超值的、有温度的而不断努力。
+								</p>
+							</li>
+							<li>
+								<h3>我真想学习，但是现在比较拮据，也比较迷茫，你有什么建议么？</h3>
+								<p>
+									我们的建议是：学习可改变命运！
+									<br> 心教育学院有很多”心存梦想，不甘现状“的同学，他们也曾很迷茫，但是通过自己的努力，正让自己变得越来越好。
+									<br> 为了让每个想学习的人能机会学习，心教育学院会不断推出各种措施，比如限时优惠，学生特惠等，如果还有困难，你也可以在右侧联系我们寻求帮助。
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		#include("/inc/footer.html")
+	</div>
+	<script>
+		//一般直接写在一个js文件中
+		layui.use(['layer', 'form', 'element', 'laypage'], function () {
+			var layer = layui.layer
+				, form = layui.form;
+			var laypage = layui.laypage
+
+		})
+		var data = 0;
+		function list() {
+			$(".table-item").each(function (i, v) {
+				if ($(v).attr("cate") == data) {
+					$(v).css("display", "block");
+
+				} else {
+					$(v).css("display", "none");
+				}
+			})
+		}
+		// list()
+		$(".vip-month-btn").click(function () {
+			data = $(this).attr("data");
+			console.log(data)
+			console.log($(".table-item[cate='" + data + "']"))
+			$(".vip-svip .table-item").removeClass("bg");
+			$(".vip-svip .table-item[cate='" + data + "']").addClass("bg");
+			if (data == 2) {
+				alert("暂未开通此功能,可电话联系我司进行沟通。联系方式：010-82865508。感谢您的关注和支持！");
+			} else if (data == 1) {
+				$(".table-item[cate='1']").find("i").addClass("active");
+			} else if (data == 0) {
+				$(".table-item[cate='0']").find("i").addClass("active");
+			}
+
+			document.querySelector(".table-item i.active").addEventListener('animationend', function () {
+				console.log("结束");
+				$(".table-item i.active").removeClass("active");
+			})
+		})
+	</script>
+</body>
+
+</html>

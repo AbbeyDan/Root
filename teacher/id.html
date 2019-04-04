@@ -1,0 +1,183 @@
+<!doctype html>
+<!--[if lt IE 7]>
+<html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="zh_CN" class="">
+<!--<![endif]-->
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="讲师")
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/main-v2.css" rel="stylesheet">
+  <link href="/css/header-white.css" rel="stylesheet">
+  <style>
+    .course-list .vip-icon {
+      height: 22px;
+      width: 38px;
+      display: inline-block;
+      position: absolute;
+      top: -2px;
+      right: 8px;
+      z-index: 101;
+      font-size: 14px;
+      background: url(../images/tag_vip_4d846c2.png) 0 0 no-repeat;
+      background-size: 100% 100%;
+
+    }
+    .lesson-infor{
+      overflow: hidden;
+    line-height: 20px;
+    position: relative;
+    z-index: 222;
+    background-color: #fff;
+    border: 1px solid #e4ecf3;
+    }
+    .lesson-infor .timeandicon .time-icon {
+    background: url(../images/clok_a413ecf.png) 0 0 no-repeat;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    float: none;
+    background-size: 14px 14px;
+}
+   .playericon {
+      position: absolute;
+      z-index: 120;
+      width: 50px;
+      height: 50px;
+      display: block;
+      left: 50%;
+      margin-left: -25px;
+      top: 50%;
+      margin-top: -25px;
+      background: url(../images/player_icon_5c67475.png) 0 0 no-repeat;
+      cursor: pointer;
+      background-size: 50px 50px;
+    }
+  </style>
+</head>
+
+<body class="es-main-default es-nav-white userpage bg-blank">
+  #include("/inc/header.html",nav="teacher")
+  <div class="es-wrap">
+    <div class="user-center-header" data-sharpness="40">
+      <div class="container clearfix">
+        <div class="user-avatar">
+          <div class="avatar-wrap">
+            <img class="avatar-lg" onerror="this.src='/img/wutu.png'" src="#(www)#(obj.img)">
+            <span class="icon-user-status icon-md">
+              <i class="es-icon es-icon-school"></i>
+            </span>
+          </div>
+          <div class="name">
+            #(obj.name)
+          </div>
+          <div class="position">
+            <span class="mrm">#(obj.job)</span>
+            <a href="javascript:void(0);" target="_blank">
+              <i class="es-icon es-icon-link"></i>
+            </a>
+          </div>
+          <div class="mates">
+            <span class="mrm">#(courses.size())</span>课程
+            <!-- <span class="mlm mrm">｜</span>
+       <span class="mrm">1</span>关注  -->
+          </div>
+          <div class="actions" style="display: none;">
+            <a class="btn btn-primary follow-btn mrl" href="javascript:;" data-url="/user/13243/follow">关注</a>
+            <a class="btn btn-default unfollow-btn mrl" href="javascript:;" data-url="/user/13243/unfollow" style="display:none;">已关注</a>
+          </div>
+        </div>
+        <div class="user-about hidden-sm hidden-xs">
+          <div class="user-about-content">
+            #(obj.text)
+          </div>
+        </div>
+      </div>
+      <div class="mask"></div>
+    </div>
+    <div id="content-container" class="container">
+      <ul class="nav nav-tabs clearfix">
+        <!-- <li><a href="/user/13243/about">个人介绍</a></li>  -->
+        <li>
+          <a href="javascript:void(0);">在教课程</a>
+        </li>
+        <!-- <li><a href="/user/13243/teaching/classrooms">在教班级</a></li> 
+     <li><a href="/user/13243/learn">在学课程</a></li> 
+     <li><a href="/user/13243/learning/classrooms">在学班级</a></li> 
+     <li><a href="/user/13243/favorited">收藏课程</a></li> 
+     <li><a href="/user/13243/group">加入小组</a></li> 
+     <li class="active"><a href="/user/13243/following">关注 / 粉丝</a></li> -->
+      </ul>
+      <div class="course-list">
+        <div class="row">
+          <!-- #for(c:courses) -->
+          <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="course-item" style="height:240px;">
+              <div class="course-img">
+                <a href="/course/#(c.id)" target="_blank">
+                  <!-- #if(c.price>0) -->
+                  <i class="vip-icon" style="background-image: none; background-color: rgb(224, 61, 49); color: white;">&nbsp;&nbsp;精品</i>
+                  <!-- #else -->
+                  <i class="vip-icon" style="background-image: none; background-color: #4caf50; color: white;">&nbsp;&nbsp;免费</i>
+                  <!-- #end -->
+                  <img style="width:100%;height: 157px;" onerror="this.src='/img/wutu.png'" src="#(www)#(c.img)" alt="#(obj.title)" class="img-responsive">
+                  <div class="lessonplay" style="opacity: 0;">
+                      <i class="playericon"></i>
+                    </div>
+                </a>
+              </div>
+              <div class="lesson-infor" style="height:60px;">
+                <div class="title">
+                  <a class="link-dark" href="/course/#(c.id)" target="_blank">
+                    #(c.title)
+                  </a>
+                </div>
+                <div class="metas clearfix">
+                  <div class="timeandicon">
+                      <p class="detail" style="margin-bottom:10px;font-size:12px;">#(c.text)</p>
+                      <div class="cf">
+                        <span class="mar-b8">
+                          <i class="time-icon"></i>
+                          <em>#(c.section)课时</em>
+                        </span>
+                        <span class="zhongji">
+                          <i class="xinhao-icon" style="float:none;display:inline-block;margin-right:0;"></i>
+                          <em>初级</em>
+                        </span>
+                        <a href="javascript:void(0);" style="float:right; color:rgb(30, 179, 238)">
+                          60研值
+                        </a>
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- #end -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+  #include("/inc/footer.html")
+  <script>
+    $(".course-item").hover(function(){
+      $(this).find(".lesson-infor").css("height","auto");
+      $(this).find(".lessonplay").css("opacity", "1");
+    },function(){
+      $(this).find(".lesson-infor").css("height","60px");
+      $(this).find(".lessonplay").css("opacity", "0");
+    })
+  </script>
+</body>
+
+</html>

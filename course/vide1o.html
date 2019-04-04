@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<html lang="zh_CN" class="">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="课程")
+  <link href="/css/bootstrap.css" rel="stylesheet">
+  <link href="/css/main.css" rel="stylesheet">
+  <link href="/css/main-v2.css" rel="stylesheet">
+  <link href="/css/header-white.css" rel="stylesheet">
+  <style type="text/css">
+    .bg-gray-lighter {
+      background-color: red;
+    }
+
+    .app {
+      height: 800px;
+      background-color: #000;
+      display: flex;
+    }
+
+    .app .content {
+      flex: 1;
+    }
+
+    .video-body {
+      height: 720px;
+      position: relative;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+    }
+
+    .footerBar {
+      background-color: #000;
+      height: 80px;
+      color: #fff;
+      font-size: 18px;
+      padding-left: 20px;
+      line-height: 80px;
+    }
+
+    .footerBar .courseName {
+      color: rgb(12, 167, 89);
+    }
+
+    /* 侧边栏 */
+
+    .aside li.active a {
+      color: rgb(12, 167, 89);
+    }
+
+    .aside li a {
+      color: #ddd;
+    }
+
+    .aside {
+      position: relative;
+
+    }
+
+    .aside-body {
+      width: 300px;
+      height: 100%;
+      background-color: rgb(49, 49, 49);
+      overflow: hidden;
+    }
+
+    .aside-con {
+      overflow-y: scroll;
+      height: 100%;
+    }
+
+    .none {
+      display: none;
+    }
+
+    .aside .mulu li {
+      line-height: 40px;
+      color: #eee;
+    }
+
+    .aside .mulu h1 {
+      margin: 12px 0;
+      font-size: 16px;
+    }
+
+    .aside .mulu a {
+      display: block;
+      padding: 10px 50px;
+    }
+
+    .aside .mulu li:hover,
+    .aside .mulu li.active {
+      background-color: rgb(87, 87, 87);
+    }
+
+    .aside li:hover a {
+      color: rgb(12, 167, 89);
+    }
+
+    /* 工具栏 */
+
+    .aside .toolbar {
+      position: absolute;
+      top: 50%;
+      left: -58px;
+    }
+
+    .aside .toolbar li {
+      margin-bottom: 10px;
+    }
+
+    .aside .toolbar a {
+      display: inline-block;
+      width: 58px;
+      padding: 12px 0;
+      background-color: rgb(49, 49, 49);
+      text-align: center
+    }
+
+    /* ppt */
+
+    .aside .ppt li {
+      margin-bottom: 10px;
+    }
+
+    .aside .ppt li.active {
+      border: 2px solid rgb(12, 167, 89);
+    }
+
+    .aside .ppt a {
+      display: block;
+      text-align: center;
+    }
+
+    .aside .ppt img {
+      width: 100%;
+    }
+
+    /* ppt大图 */
+
+    #ppt {
+      width: 70%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+    #ppt img {
+      width: 100%;
+    }
+
+    /* 课程简介 */
+
+    /* tabs */
+
+    .desc .tabs {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .desc .tabs li {
+      float: left;
+      width: 50%;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .desc .tabs li:hover a {
+      border-bottom: 2px solid #333;
+    }
+    .desc .tabs li.active a{
+      border-bottom: 2px solid #333;
+    }
+    .desc .tabs a {
+      padding: 0 12px 10px;
+      color: #666;
+    }
+  /* 课程简介 */
+    .desc .tabs-content {
+      padding: 0 30px;
+      color:#666;
+      line-height: 40px;
+    }
+    .desc .tabs-content .lesson-title{
+      font-size: 24px;
+    line-height: 40px;
+    }
+    .desc .tabs-content  .tit{
+      font-size:16px;
+    }
+    .desc .tabs-content .tips{
+      color:rgb(233, 154, 7);
+    }
+    .tabs-content .tips a{
+      color:rgb(16, 119, 179);
+      text-decoration: underline;
+    }
+    .tabs-content .teacherName{
+      font-size:18px;
+      font-weight: bold;
+    }
+    .tabs-content .teacher-info i{
+      color:rgb(16, 119, 179);
+      cursor: pointer;
+    }
+    .tabs-content .lesson .text{
+      margin-left:10px;
+    }
+  </style>
+</head>
+
+<body class="es-main-default es-nav-white ">
+  #include("/inc/header.html")
+  <div class="app">
+    <div class="content">
+      <div class="video-body" controls>
+        <!-- 视频 -->
+        <video src="http://iepsy.com/xinlisg/vedio/v4.mp4" controls autoplay></video>
+        <!-- 视频结束 -->
+        <!-- ppt大图 -->
+        <div id="ppt" class="none">
+          <img src="" alt="">
+        </div>
+      </div>
+      <div class="footerBar">
+        <span class="courseName">心理学基础:</span>
+        <span class="videoName">
+          心理健康社会工作教学示范视频之心理学基础
+        </span>
+      </div>
+    </div>
+    <div class="aside">
+      <div class="aside-body">
+        <div class="aside-con">
+          <!-- 侧边目录列表 -->
+          <ul class="mulu">
+            <li>
+              <h1>&nbsp;&nbsp;&nbsp;&nbsp;第一章</h1>
+            </li>
+            <li class="active">
+              <a href="http://iepsy.com/xinlisg/vedio/v1.mp4">心理社工2</a>
+            </li>
+            <li>
+              <a href="http://iepsy.com/xinlisg/vedio/v2.mp4">心理社工3</a>
+            </li>
+            <li>
+              <a href="http://iepsy.com/xinlisg/vedio/v3.mp4">心理社工4</a>
+            </li>
+            <li>
+              <a href="http://iepsy.com/xinlisg/vedio/v4.mp4">心理社工5</a>
+            </li>
+            <li>
+              <a href="http://iepsy.com/xinlisg/vedio/v4.mp4">心理社工6</a>
+            </li>
+            <li>
+              <a href="http://iepsy.com/xinlisg/vedio/v4.mp4">心理社工7</a>
+            </li>
+            <li>
+              <a href="http://iepsy.com/xinlisg/vedio/v4.mp4">心理社工8</a>
+            </li>
+          </ul>
+          <!-- 侧边ppt列表 -->
+          <ul class="ppt none">
+            <li class="active">
+              <a href="#">
+                <img src="/images/ppt (1).jpg" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/ppt (2).jpg" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/ppt (3).jpg" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/ppt (4).jpg" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/ppt (5).jpg" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/ppt (6).jpg" alt="">
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <img src="/images/ppt (7).jpg" alt="">
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- 工具栏 -->
+      <ul class="toolbar">
+        <li data="mulu" class="active">
+          <a href="#">
+            <div class="mbs es-icon es-icon-menu"></div>目录</a>
+        </li>
+        <li data="ppt">
+          <a href="#">
+            <div class="mbs es-icon es-icon-edit"></div>PPT</a>
+        </li>
+        <li data="none">
+          <a href="#">收起</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="desc">
+    <ul class="tabs">
+      <li class="active" type="lesson">
+        <a href="javascript:void(0)">课程简介</a>
+      </li>
+      <li type="test">
+        <a href="javascript:void(0)">章节自测</a>
+      </li>
+    </ul>
+    <div class="tabs-content">
+      <!-- 课程简介 -->
+      <div class="lesson">
+        <h2 class="lesson-title">心理学基础</h2>
+        <!-- 课程描述 -->
+        <div class="info clearfix">
+          <div class="left tit">
+            简介：
+          </div>
+          <div class="left">
+            <p class="text">13部老电影从中折射了那些心理学的现象</p>
+            <p class="tips">本课程属于pro会员中的一部分。开通pro会员可以加入班级系统学习，考试通过可获得权威机构办法的证书。
+              <a href="#" class="detail">查看详情</a>
+            </p>
+          </div>
+        </div>
+        <!-- 主讲 -->
+        <div class="teacher clearfix">
+          <div class="left tit">
+            主讲：
+          </div>
+          <div class="left text">
+            <div class="teacher-info">
+              <span class="teacherName">张三
+              </span>
+              <i>(个人简介)</i>
+              <ul class="text none">
+                <li>心理学主任</li>
+                <li>心理学博士</li>
+                <li>大学教授</li>
+              </ul>
+            </div>
+            <div class="teacher-info">
+              <span class="teacherName">张三
+              </span>
+              <i>(个人简介)</i>
+              <ul class="text none">
+                <li>心理学主任</li>
+                <li>心理学博士</li>
+                <li>大学教授</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- 课程目录 -->
+        <div class="mulu clearfix">
+          <div class="left tit">目录：</div>
+          <ul class="left text">
+            <li><a href="javascript:void(0)">心理学基础第一集</a></li>
+            <li><a href="javascript:void(0)">心理学基础第二集</a></li>
+            <li><a href="javascript:void(0)">心理学基础第三集</a></li>
+            <li><a href="javascript:void(0)">心理学基础第四集</a></li>
+            <li><a href="javascript:void(0)">心理学基础第五集</a></li>
+            <li><a href="javascript:void(0)">心理学基础第六集</a></li>
+            <li><a href="javascript:void(0)">心理学基础第七集</a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- 自测题 -->
+      <div class="test none">
+        章节自测
+      </div>
+    </div>
+  </div>
+  <script src="/assets/jquery/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.0/skins/default/aliplayer-min.css" />
+  <script type="text/javascript" charset="utf-8" src="https://g.alicdn.com/de/prismplayer/2.8.0/aliplayer-min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="https://player.alicdn.com/aliplayer/presentation/js/aliplayercomponents.min.js"></script>
+  <script>
+    //显示隐藏  
+    $("#userlogindiv").hover(function () {
+      $("#mod_head_notice_pop").show();
+    }, function () {
+    });
+    $("#mod_head_notice_pop").hover(function () {
+    }, function () {
+      $("#mod_head_notice_pop").hide();
+    });
+    function check(dom){
+        $(".aside-body").toggleClass("none");
+        if (dom.find("a").html() == "收起") {
+          dom.find("a").html("展开");
+        } else {
+          dom.find("a").html("收起");
+        }
+    }
+    // 点击目录或ppt，工具栏高亮
+    $(".aside .toolbar li").click(function () {
+      console.log($(this).attr("data"));
+      var data = $(this).attr("data");
+      if (data != "none") {
+        $(this).addClass("active").siblings().removeClass("active")
+      }
+      if (data == "none") {
+        check($(this))
+      } else if (data == "mulu") {
+        $(".aside .mulu").removeClass("none")
+        $(".aside .ppt").addClass("none")
+      } else {
+        $(".aside .ppt").removeClass("none")
+        $(".aside .mulu").addClass("none")
+      }
+    })
+    // 点击目录列表
+    $(".aside .mulu li").click(function () {
+      $(this).addClass("active").siblings().removeClass("active");
+      check();
+    })
+    // 点击ppt列表
+    $(".aside .ppt li").click(function () {
+      var src = $(this).find("img").attr("src");
+      $(this).addClass("active").siblings().removeClass("active");
+      $("#ppt").removeClass("none");
+      $("#ppt img").attr("src", src);
+      check();
+    })
+    // 关闭ppt大图
+    $(".video-body").click(function () {
+      $("#ppt").addClass("none");
+    })
+    // 查看主讲人详细简介
+    $(".lesson .teacher i").click(function(){
+      console.log(1)
+      $(this).next().toggleClass("none")
+    })
+    // tabs切换
+    $(".desc .tabs li").click(function(){
+      $(this).addClass("active").siblings().removeClass("active");
+      var type = $(this).attr("type");
+      $(".tabs-content ."+type).removeClass("none").siblings().addClass("none");
+
+    })
+
+  </script>
+</body>
+
+</html>
