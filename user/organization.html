@@ -8,10 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"> #include("/inc/head.html",title="机构申请")
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" media="screen">
-    <!-- <link href="/css/bootstrap.css" rel="stylesheet"> -->
-    <link href="/css/main.css" rel="stylesheet">
     <link href="/css/main-v2.css" rel="stylesheet">
-    <link href="/css/header-white.css" rel="stylesheet">
     <style>
         /* 介绍 */
 
@@ -35,7 +32,7 @@
             font-size: 25px;
             font-weight: bold;
             text-align: center;
-            padding: 20px 0;
+            padding: 50px 0;
         }
 
         .demand ul {
@@ -138,9 +135,9 @@
                                 </div>
                             </div>
                             <div class="layui-inline">
-                                <label class="layui-form-label">电话</label>
+                                <label class="layui-form-label">手机号</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" name="tel1" lay-verify="required" autocomplete="off" class="layui-input">
+                                    <input type="text" name="tel1" lay-verify="required|phone" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                         </div>
@@ -159,9 +156,9 @@
                                 </div>
                             </div>
                             <div class="layui-inline">
-                                <label class="layui-form-label">电话</label>
+                                <label class="layui-form-label">手机号</label>
                                 <div class="layui-input-inline">
-                                    <input type="text" name="tel2" lay-verify="required" autocomplete="off" class="layui-input">
+                                    <input type="text" name="tel2" lay-verify="required|phone" autocomplete="off" class="layui-input">
                                 </div>
                             </div>
                         </div>
@@ -170,7 +167,7 @@
                             <div class="layui-inline">
                                 <label class="layui-form-label">联系邮箱</label>
                                 <div class="layui-input-block">
-                                    <input type="text" name="email" placeholder="请输入邮箱" autocomplete="off" class="layui-input" lay-verify="required">
+                                    <input type="text" name="email" placeholder="请输入邮箱" autocomplete="off" class="layui-input" lay-verify="required|email">
                                 </div>
                             </div>
                         </div>
@@ -260,10 +257,6 @@
                 , "desc": "我爱 layui"
             })
             form.on('submit(jigou)', function (data) {
-                // layer.alert(JSON.stringify(data.field), {
-                //     title: '最终的提交信息'
-                // })
-                console.log(num)
                 $("[name='file"+num+"']").remove()
                 var data = new FormData(document.querySelector("form"));
                 $.ajax({
